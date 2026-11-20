@@ -1,0 +1,742 @@
+{
+  "scope": "Finite exact-arithmetic, combinatorial, and selected numerical checks only; no existence proof for geometric embeddings, port connections, or a global fibration.",
+  "closed_curve_graphs": {
+    "degrees_checked": [
+      6,
+      20
+    ],
+    "degree_examples": [
+      {
+        "degree": 6,
+        "genus": 10,
+        "vertices": 18,
+        "edges": 27,
+        "first_betti_number": 10,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 7,
+        "genus": 15,
+        "vertices": 28,
+        "edges": 42,
+        "first_betti_number": 15,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 8,
+        "genus": 21,
+        "vertices": 40,
+        "edges": 60,
+        "first_betti_number": 21,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 9,
+        "genus": 28,
+        "vertices": 54,
+        "edges": 81,
+        "first_betti_number": 28,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 10,
+        "genus": 36,
+        "vertices": 70,
+        "edges": 105,
+        "first_betti_number": 36,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 11,
+        "genus": 45,
+        "vertices": 88,
+        "edges": 132,
+        "first_betti_number": 45,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 12,
+        "genus": 55,
+        "vertices": 108,
+        "edges": 162,
+        "first_betti_number": 55,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 13,
+        "genus": 66,
+        "vertices": 130,
+        "edges": 195,
+        "first_betti_number": 66,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 14,
+        "genus": 78,
+        "vertices": 154,
+        "edges": 231,
+        "first_betti_number": 78,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 15,
+        "genus": 91,
+        "vertices": 180,
+        "edges": 270,
+        "first_betti_number": 91,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 16,
+        "genus": 105,
+        "vertices": 208,
+        "edges": 312,
+        "first_betti_number": 105,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 17,
+        "genus": 120,
+        "vertices": 238,
+        "edges": 357,
+        "first_betti_number": 120,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 18,
+        "genus": 136,
+        "vertices": 270,
+        "edges": 405,
+        "first_betti_number": 136,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 19,
+        "genus": 153,
+        "vertices": 304,
+        "edges": 456,
+        "first_betti_number": 153,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "degree": 20,
+        "genus": 171,
+        "vertices": 340,
+        "edges": 510,
+        "first_betti_number": 171,
+        "connected": true,
+        "all_vertices_trivalent": true
+      }
+    ],
+    "additional_low_genus_examples": [
+      {
+        "genus": 2,
+        "vertices": 2,
+        "edges": 3,
+        "first_betti_number": 2,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 3,
+        "vertices": 4,
+        "edges": 6,
+        "first_betti_number": 3,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 4,
+        "vertices": 6,
+        "edges": 9,
+        "first_betti_number": 4,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 5,
+        "vertices": 8,
+        "edges": 12,
+        "first_betti_number": 5,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 6,
+        "vertices": 10,
+        "edges": 15,
+        "first_betti_number": 6,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 7,
+        "vertices": 12,
+        "edges": 18,
+        "first_betti_number": 7,
+        "connected": true,
+        "all_vertices_trivalent": true
+      },
+      {
+        "genus": 8,
+        "vertices": 14,
+        "edges": 21,
+        "first_betti_number": 8,
+        "connected": true,
+        "all_vertices_trivalent": true
+      }
+    ],
+    "scope": "Explicit finite multigraph construction; not a smooth-map existence test."
+  },
+  "closed_reduction_euler_budget": {
+    "exact_rational_cases": 720,
+    "examples": [
+      {
+        "degree": 6,
+        "nu": "1",
+        "p1": "1/40",
+        "p2": "1/9",
+        "area": "311/60",
+        "chi": -18,
+        "chern_vector": [
+          6,
+          6
+        ],
+        "theta_chern_correction": "769/60",
+        "budget_residual": "0"
+      },
+      {
+        "degree": 10,
+        "nu": "1/5",
+        "p1": "1/40",
+        "p2": "1/9",
+        "area": "311/36",
+        "chi": -70,
+        "chern_vector": [
+          10,
+          10
+        ],
+        "theta_chern_correction": "193/36",
+        "budget_residual": "0"
+      },
+      {
+        "degree": 20,
+        "nu": "1/15",
+        "p1": "1/40",
+        "p2": "1/9",
+        "area": "311/18",
+        "chi": -340,
+        "chern_vector": [
+          20,
+          20
+        ],
+        "theta_chern_correction": "97/18",
+        "budget_residual": "0"
+      }
+    ],
+    "tested_identity": "Area + nu*chi + Theta_Gamma(c) = 0, c=(d,d)",
+    "scope": "Checks the Euler correction and its sign; no bundle embedding is inferred."
+  },
+  "delta_port_budget": {
+    "tube_genus_boundary_cases": 3240,
+    "wide_exact_defect_cases": 1404,
+    "positive_wide_numerical_examples": [
+      {
+        "k": 1,
+        "base_area": "1/5",
+        "delta": "1/20",
+        "sum_inner_areas": "1/60",
+        "relative_defect": [
+          1,
+          -2
+        ],
+        "candidate_area": "1/15"
+      },
+      {
+        "k": 1,
+        "base_area": "1/5",
+        "delta": "1/20",
+        "sum_inner_areas": "1/30",
+        "relative_defect": [
+          1,
+          -2
+        ],
+        "candidate_area": "1/12"
+      },
+      {
+        "k": 1,
+        "base_area": "2/3",
+        "delta": "1/6",
+        "sum_inner_areas": "1/18",
+        "relative_defect": [
+          1,
+          -2
+        ],
+        "candidate_area": "2/9"
+      },
+      {
+        "k": 1,
+        "base_area": "2/3",
+        "delta": "1/6",
+        "sum_inner_areas": "1/9",
+        "relative_defect": [
+          1,
+          -2
+        ],
+        "candidate_area": "5/18"
+      },
+      {
+        "k": 2,
+        "base_area": "1/5",
+        "delta": "1/25",
+        "sum_inner_areas": "1/75",
+        "relative_defect": [
+          1,
+          -3
+        ],
+        "candidate_area": "4/75"
+      },
+      {
+        "k": 2,
+        "base_area": "1/5",
+        "delta": "1/25",
+        "sum_inner_areas": "2/75",
+        "relative_defect": [
+          1,
+          -3
+        ],
+        "candidate_area": "1/15"
+      },
+      {
+        "k": 2,
+        "base_area": "2/3",
+        "delta": "2/15",
+        "sum_inner_areas": "2/45",
+        "relative_defect": [
+          1,
+          -3
+        ],
+        "candidate_area": "8/45"
+      },
+      {
+        "k": 2,
+        "base_area": "2/3",
+        "delta": "2/15",
+        "sum_inner_areas": "4/45",
+        "relative_defect": [
+          1,
+          -3
+        ],
+        "candidate_area": "2/9"
+      }
+    ],
+    "scope": "These positive budgets do not construct an annulus or coisotropic connection."
+  },
+  "six_dimensional_membrane_chart": {
+    "six_dimensional_samples": 138,
+    "samples_with_r_negative": 57,
+    "samples_with_r_zero": 27,
+    "maximum_symplectic_pullback_error": 1.0281231421771508e-10,
+    "maximum_primitive_pullback_error": 7.391087741837055e-12,
+    "maximum_inverse_error": 1.6653345369377348e-16,
+    "scope": "Finite differences in the explicit target chart; Phi_tau exactness is proved separately."
+  },
+  "focus_block": {
+    "radius_inverse_samples": 20,
+    "maximum_radius_inverse_error": 3.552713678800501e-15,
+    "compact_box_bound_samples": 576,
+    "action_quadrature_cases": 45,
+    "maximum_512_to_1024_refinement_difference": 2.220446049250313e-16,
+    "maximum_derivative_relative_error": 4.183938234043553e-10,
+    "minimum_action_derivative_sampled": 3.5564722472180597,
+    "action_examples": [
+      {
+        "A": -0.2,
+        "c": 0.03,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.23384795049374932,
+        "derivative": 32.230717109873495
+      },
+      {
+        "A": -0.2,
+        "c": 0.03,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.24792776483326634,
+        "derivative": 30.35596889691606
+      },
+      {
+        "A": -0.2,
+        "c": 0.03,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.2831932152859941,
+        "derivative": 25.844117263914775
+      },
+      {
+        "A": -0.2,
+        "c": 0.1,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.37531344720558035,
+        "derivative": 15.734255765309662
+      },
+      {
+        "A": -0.2,
+        "c": 0.1,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.44877840862098484,
+        "derivative": 13.609261475605944
+      },
+      {
+        "A": -0.2,
+        "c": 0.1,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.6077214780219733,
+        "derivative": 9.667706280312474
+      },
+      {
+        "A": -0.2,
+        "c": 0.25,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.7056515886750292,
+        "derivative": 7.99191235576151
+      },
+      {
+        "A": -0.2,
+        "c": 0.25,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.9231822003373208,
+        "derivative": 6.065967106266509
+      },
+      {
+        "A": -0.2,
+        "c": 0.25,
+        "q_over_c_squared": 3.0,
+        "normal_action": 1.3436889423282867,
+        "derivative": 3.9807247958182366
+      },
+      {
+        "A": 0.0,
+        "c": 0.03,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.0690477895269449,
+        "derivative": 83.36521701857004
+      },
+      {
+        "A": 0.0,
+        "c": 0.03,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.09750331738783419,
+        "derivative": 52.11262953346299
+      },
+      {
+        "A": 0.0,
+        "c": 0.03,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.14864272177579374,
+        "derivative": 33.369246015203544
+      },
+      {
+        "A": 0.0,
+        "c": 0.1,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.2301592984231497,
+        "derivative": 25.009565105571006
+      },
+      {
+        "A": 0.0,
+        "c": 0.1,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.3250110579594473,
+        "derivative": 15.633788860038898
+      },
+      {
+        "A": 0.0,
+        "c": 0.1,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.49547573925264593,
+        "derivative": 10.010773804561062
+      },
+      {
+        "A": 0.0,
+        "c": 0.25,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.5753982460578743,
+        "derivative": 10.003826042228402
+      },
+      {
+        "A": 0.0,
+        "c": 0.25,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.8125276448986183,
+        "derivative": 6.253515544015558
+      },
+      {
+        "A": 0.0,
+        "c": 0.25,
+        "q_over_c_squared": 3.0,
+        "normal_action": 1.2386893481316146,
+        "derivative": 4.004309521824425
+      },
+      {
+        "A": 0.05,
+        "c": 0.03,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.054600990277077904,
+        "derivative": 55.3861471998372
+      },
+      {
+        "A": 0.05,
+        "c": 0.03,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.0776342196930516,
+        "derivative": 46.874912785816875
+      },
+      {
+        "A": 0.05,
+        "c": 0.03,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.1262124464431394,
+        "derivative": 32.55496309036827
+      },
+      {
+        "A": 0.05,
+        "c": 0.1,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.21085485589657077,
+        "derivative": 21.837558039776354
+      },
+      {
+        "A": 0.05,
+        "c": 0.1,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.3017055198682823,
+        "derivative": 15.439007317989551
+      },
+      {
+        "A": 0.05,
+        "c": 0.1,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.47125888098919694,
+        "derivative": 9.987536249181169
+      },
+      {
+        "A": 0.05,
+        "c": 0.25,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.5531490652841359,
+        "derivative": 9.657366952230305
+      },
+      {
+        "A": 0.05,
+        "c": 0.25,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.7882123360835285,
+        "derivative": 6.240593055435866
+      },
+      {
+        "A": 0.05,
+        "c": 0.25,
+        "q_over_c_squared": 3.0,
+        "normal_action": 1.2140030303899325,
+        "derivative": 4.0028151012348925
+      },
+      {
+        "A": 0.3,
+        "c": 0.03,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.026343623187388955,
+        "derivative": 25.38304237501642
+      },
+      {
+        "A": 0.3,
+        "c": 0.03,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.03752697518212683,
+        "derivative": 24.331738228417226
+      },
+      {
+        "A": 0.3,
+        "c": 0.03,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.06651169047893843,
+        "derivative": 21.77224534673374
+      },
+      {
+        "A": 0.3,
+        "c": 0.1,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.157684498301737,
+        "derivative": 13.732840460517822
+      },
+      {
+        "A": 0.3,
+        "c": 0.1,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.22293838490173637,
+        "derivative": 12.34233658800296
+      },
+      {
+        "A": 0.3,
+        "c": 0.1,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.37228153257398533,
+        "derivative": 9.307396997799547
+      },
+      {
+        "A": 0.3,
+        "c": 0.25,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.48071356198072834,
+        "derivative": 7.266588272655459
+      },
+      {
+        "A": 0.3,
+        "c": 0.25,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.6857349879152026,
+        "derivative": 5.875354906394528
+      },
+      {
+        "A": 0.3,
+        "c": 0.25,
+        "q_over_c_squared": 3.0,
+        "normal_action": 1.099881854980648,
+        "derivative": 3.95218137650245
+      },
+      {
+        "A": 1.0,
+        "c": 0.03,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.009517280424738529,
+        "derivative": 9.529409673819266
+      },
+      {
+        "A": 1.0,
+        "c": 0.03,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.013788733508544164,
+        "derivative": 9.45509764814249
+      },
+      {
+        "A": 1.0,
+        "c": 0.03,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.025575074318413736,
+        "derivative": 9.255377486563278
+      },
+      {
+        "A": 1.0,
+        "c": 0.1,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.08781207729129653,
+        "derivative": 7.614912712504926
+      },
+      {
+        "A": 1.0,
+        "c": 0.1,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.12508991727375612,
+        "derivative": 7.299521468525168
+      },
+      {
+        "A": 1.0,
+        "c": 0.1,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.2217056349297948,
+        "derivative": 6.5316736040201215
+      },
+      {
+        "A": 1.0,
+        "c": 0.25,
+        "q_over_c_squared": 1.1,
+        "normal_action": 0.35716801684044464,
+        "derivative": 4.913417501905445
+      },
+      {
+        "A": 1.0,
+        "c": 0.25,
+        "q_over_c_squared": 1.6,
+        "normal_action": 0.5043994460587469,
+        "derivative": 4.505205283472456
+      },
+      {
+        "A": 1.0,
+        "c": 0.25,
+        "q_over_c_squared": 3.0,
+        "normal_action": 0.8538510971947275,
+        "derivative": 3.5564722472180597
+      }
+    ],
+    "clockwise_monodromy_in_basis_a_b_gamma": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "section_transition_winding_checks": [
+      {
+        "c": 0.03,
+        "section_degree_below": 1.8237080448161534e-16,
+        "section_degree_above": 1.0
+      },
+      {
+        "c": 0.2,
+        "section_degree_below": 1.1242375963467208e-16,
+        "section_degree_above": 1.0
+      },
+      {
+        "c": 1.0,
+        "section_degree_below": 1.9899139792984296e-16,
+        "section_degree_above": 1.0
+      }
+    ],
+    "scope": "Numerical radii/action/section-degree checks; properness and monodromy are proved in the text."
+  },
+  "integral_lattice_transition": {
+    "transition_matrix": [
+      [
+        2,
+        -1,
+        0
+      ],
+      [
+        -1,
+        1,
+        -1
+      ],
+      [
+        -1,
+        1,
+        0
+      ]
+    ],
+    "determinant": 1,
+    "exact_area_maslov_cases": 2744,
+    "scope": "Conditional marking compatibility; it does not identify two actual charts by itself."
+  },
+  "status": "passed"
+}

@@ -1,0 +1,198 @@
+\section{超曲面への適用と中間・最終法線束の区別}
+\label{lc:application}
+
+\subsection{曲線補正に伴う二つの compactification}
+
+$X_d\subset\PP^4$ を滑らかな次数 $d\ge6$ の超曲面とする。
+一般位置の超平面 $P_i=\{L_i=0\}$ と一般の次数 $d$ 多項式 $F_d$ を取り、
+$\prod_iL_i+tF_d=0$ を中心成分の昇順の Weil blow-up により半安定化する。
+中心成分 $D_i$ は、$P_i\simeq\PP^3$ を
+$\Gamma_{ik}=P_i\cap P_k\cap\{F_d=0\}$, $k>i$ の strict transforms に沿い、
+$k$ の降順に blow up したものである。
+この節ではこの明示的な半安定モデルを入力とする。
+
+元の $V_i=P_i\cap\{F_d=0\}$ は滑らかな次数 $d$ 曲面であり、
+各中心は $V_i$ 上の hyperplane section である。
+Blow-up の各段階の strict transform にも同じ記号 $V_i$ を用いる。
+$\Gamma_{ij}$ の blow-up により生じる例外 divisor と $V_i$ の交わりを
+$C_{ij}$ と書く。これは元の平面曲線 $\Gamma_{ij}$ と同型である。
+
+\begin{proposition}[法線次数は blow-up の段階に依存する]
+\label{lc:application-normal}
+$i<j$ とする。$\Gamma_{ij}$ の補正を終え、まだ $i<k<j$ の補正を行っていない
+中間三次元多様体を $D_i^{[j]}$ と書く。このとき
+\[
+0\longrightarrow\mathcal O_{C_{ij}}(1)
+\longrightarrow N_{C_{ij}/D_i^{[j]}}
+\longrightarrow\mathcal O_{C_{ij}}(j-1)\longrightarrow0.
+\]
+全補正後の $D_i$ では
+\begin{equation}\label{lc:application-final-exact}
+0\longrightarrow\mathcal O_{C_{ij}}(1)
+\longrightarrow N_{C_{ij}/D_i}
+\longrightarrow\mathcal O_{C_{ij}}(i)\longrightarrow0.
+\end{equation}
+従って determinant normal line の次数はそれぞれ
+\begin{equation}\label{lc:application-degree}
+\deg\det N_{C_{ij}/D_i^{[j]}}=dj,\qquad
+\deg\det N_{C_{ij}/D_i}=d(i+1).
+\end{equation}
+実際には $C_{ij}=V_i\cap E_{ij}$ が横断的な complete intersection なので、
+後者は holomorphically $\mathcal O_C(1)\oplus\mathcal O_C(i)$ と分裂する。
+この強い主張と全 marked points での確認は命題\ref{sc:normal-splitting}で証明する。
+任意の Kähler metric に関する symplectic orthogonality は別の条件である。
+\end{proposition}
+
+\begin{proof}
+滑らかな divisor $V\subset M$ 内の Cartier divisor $C\subset V$ を ambient で
+blow up すると、strict $V$ は $V$ と同型であり、
+\[
+N_{\widetilde V/\operatorname{Bl}_C M}=N_{V/M}\otimes\mathcal O_V(-C)
+\]
+となる。局所式 $V=\{v=0\}$, $C=\{v=z=0\}$ の chart $v=zu$ では
+strict $V$ が $u=0$ であることからも従う。
+最初は $N_{V_i/\PP^3}=\mathcal O_{V_i}(d)$ であり、
+各中心が $\mathcal O_{V_i}(1)$ の divisor なので、$d-j+1$ 回後は
+$\mathcal O_{V_i}(j-1)$、全 $d-i$ 回後は $\mathcal O_{V_i}(i)$ となる。
+$C_{ij}\subset V_i$ 自体は常に hyperplane section だから
+$N_{C_{ij}/V_i}=\mathcal O_{C_{ij}}(1)$ である。
+Normal bundle の完全列と $\deg\mathcal O_{C_{ij}}(1)=d$ から結論を得る。
+\end{proof}
+
+後続の一つの中心との交点の近くでは、旧曲線を
+$\{y=v=0\}$、新中心を $\{z=v=0\}$ と書ける。
+Chart $v=zu$ における旧曲線の strict transform は $\{y=u=0\}$ である。
+第二の normal direction は $v=zu$ によりその交点で一回 twist する。
+後続中心は $j-i-1$ 本、それぞれ $d$ 点で交わるので、
+\[
+dj-d(j-i-1)=d(i+1)
+\]
+となる。これは式\eqref{lc:application-degree}の局所的な確認でもある。
+同じ chart で旧 mixed quadratic term が
+$\operatorname{Re}(c_{\rm mid}yv)$ なら、新しい coefficient は
+$c_{\rm fin}=z c_{\rm mid}$ である。
+$\partial\bar C$ は削除円板に対して時計回りなので、各該当端で winding は1減る。
+従って
+\[
+\sum\operatorname{wind}(c_{\rm fin})
+=\sum\operatorname{wind}(c_{\rm mid})-d(j-i-1).
+\]
+中間 framing に対する条件 $dj$ と、最終 framing に対する条件 $d(i+1)$ は
+この変換により一致する。
+
+\begin{remark}\label{lc:application-frames}
+Twisted conic $yz=f$ の補正直後には
+$E^+=L|_C$, $E^-=(\mathcal O_S(C)L^{-1})|_C$ で、
+その次数は $(d,d(j-1))$ である。この計算は正しいが、
+最終 $D_i$ の deleted disks に延びる framing と同じとは限らない。
+後続 blow-up を除いた punctured curve 上では両者を同定できる一方、
+端の winding は上の $d(j-i-1)$ を記録する。
+相対 Chern 数を比較する際には、どの compactification の disk frames かを指定する。
+また最終 $D_i$ 上で導入する circle action が、
+中間 conic の作用に全ての端で一致することはここでは主張しない。
+\end{remark}
+
+\subsection{自由な端を持つ局所 block の実際の超曲面への移送}
+
+$C_{ij}$ から、元の全 triple-line intersections に当たる $d(d-2)$ 個の点の
+小さい開円板を除いて $\bar C_{ij}$ を得る。曲線の genus と Euler 数は
+\begin{align}
+g&=\frac{(d-1)(d-2)}2,& n&=d(d-2),\nonumber\\
+-\chi(\bar C_{ij})&=2g+n-2=d(2d-5).\label{lc:application-pants}
+\end{align}
+これらの punctures には、strict triple-line ends と
+先行補正による old exceptional ends の両方を含める。
+
+\begin{theorem}[互いに素な部分領域上の実現]
+\label{lc:application-local}
+任意の滑らかな $X_d\subset\PP^4$, $d\ge6$ と任意の Kähler form $\omega$ に対し、
+$\binom d2$ 個の互いに素な、境界・角を持つ compact な codimension-zero 領域
+$M_{ij}\subset X_d$, $i<j$ が存在する。
+各 $M_{ij}$ は前節の構成による
+\[
+M_{ij}\longrightarrow U_{ij}\times G_{ij}
+\]
+という proper stratified Lagrangian torus fibration を持つ。
+$U_{ij}$ は二次元 disk、$G_{ij}$ は $\bar C_{ij}$ の Morse Reeb graph である。
+各 block 内には
+\[
+d(2d-5)
+\]
+個の $(\text{pinched }T^2)\times\figeight$ 型 fiber があり、各 Euler 数は $-1$ である。
+この定理では全ての外部 end fibrations を構成の一部として選ぶ。
+既存の全体 fibration の端との一致は仮定も結論もしない。
+\end{theorem}
+
+\begin{proof}
+Conic chart $yz=f$ における固定曲線は $y=z=0$ であり、
+strict zero section はこの chart の外側の infinity section にある。
+従って $C_{ij}$ の一般点は $D_i$ の open stratum に入る。
+他の boundary strata、先行・後続の曲線中心と出会う点は、除いた marked points に含まれる。
+後続 blow-up は $\bar C_{ij}$ の近傍では同型である。
+異なる $j$ に対応する曲線は $V_i$ 内の hyperplane sections であり、
+その交点も除いた。異なる $i$ では中心 divisor の異なる open strata に入る。
+よって有限個の $\bar C_{ij}$ は互いに素な compact symplectic surfaces with boundary で、
+互いに素な小さい normal neighborhoods を持つ。
+
+$H^2(\bar C_{ij};\ZZ)=0$ なので determinant normal line は自明である。
+式\eqref{lc:application-final-exact}を Hermitian に分裂し、前節の dual coupling
+construction を用いる。一つの boundary component を incoming、残りを outgoing とする
+Morse function を取り、index $1$ の臨界点だけを置けば、その個数は
+$-\chi(\bar C_{ij})$ である。相異なる臨界値を選び、各 connected critical level を
+一つの figure-eight とする。
+小さい scale の compact saturated block は任意に小さい normal neighborhood に入る。
+Symplectic neighborhood theorem により actual form へ移す。
+この自由端版では、actual Kähler form が元の conic circle action に不変でなくてもよい。
+Normal model の作用を同時に移送して新しい local Hamiltonian action を得る。
+
+半安定射 $f:Y\to\Delta$ はこの有限個の compact blocks の近傍で submersion である。
+少し大きい compact neighborhood を取り、fiberwise Kähler form に関する
+symplectic horizontal parallel transport を、$0$ から十分小さい同じ $t\ne0$ への道に沿って
+行う。Compactness により全 block で同時に定義され、像は互いに素のままである。
+各 fiber の symplectic form を保つので、所要の fibrations を actual smooth fiber に得る。
+
+最後に次数 $d$ の smooth hypersurfaces の parameter space の連結性を用いて移送する。
+Lefschetz により $H^2(X_d;\ZZ)=\ZZ H$ なので任意の Kähler class は $aH$ である。
+同じ複素構造・同じ Kähler class 内の直線経路に対する Moser と、
+smooth hypersurfaces 間の symplectic parallel transport を組み合わせ、
+指定した $(X_d,\omega)$ へ移す。
+\end{proof}
+
+\begin{remark}\label{lc:application-no-global-count}
+定理\ref{lc:application-local}で実現される局所 fiber の合計は
+$d\binom d2(2d-5)$ である。これは数値上の予測だけでなく、互いに素な部分領域での
+実現になった。しかし全 $X_d$ 上の一つの fibration は未構成である。
+この数をその全体の特異 fiber 数と呼ぶこと、人工的な境界が全て消えたとすること、
+Euler identity だけから残りの領域が充填できるとすることはできない。
+この定理の中心は curve neighborhood と prescribed symplectic form における存在であり、
+局所特異 fiber の個数自体の大域的不変性は主張しない。
+\end{remark}
+
+\subsection{六次の具体的データと端の位相の一つの選び方}
+
+$d=6$ では $g=10$, $n=24$ で、一つの curve block に $42$ 個の saddle がある。
+Pants decomposition の internal cuffs は $3g-3+n=51$ 本で、
+dual graph の第一 Betti 数は $51-42+1=10$ となる。
+15個の互いに素な block 内での上記 fiber の合計は $630$ である。
+中間段階 $j=6$ と最終 $D_i$ の違いは次の通りである。
+\[
+\begin{array}{c|ccccc}
+i&1&2&3&4&5\\ \hline
+\deg\det N\text{（$j=6$ 直後）}&36&36&36&36&36\\
+\deg\det N\text{（最終 $D_i$）}&12&18&24&30&36
+\end{array}
+\]
+
+端の位相を自由に選ぶ場合には明示的な tensor frame も取れる。
+$j=d$ の元の曲線に交わる boundary hyperplane $L_k=0$ を一つ選ぶ。
+その $d$ 個の交点は全て deleted disks に入る。
+中間段階では
+$\det N\simeq\mathcal O_C(d)$ だから、$L_k^d|_C$ は $\bar C$ 上の非零切断である。
+最終段階では $\det N\simeq\mathcal O_C(i+1)$ なので $L_k^{i+1}|_C$ を使える。
+Hermitian norm で規格化すれば unitary frame となる。
+削除円板と逆の向きの $\partial\bar C$ に沿って、
+この frame の逆である mixed coefficient の winding は、選んだ $d$ 個の端で
+それぞれ $d$、または $i+1$、残りの端では0である。
+従って合計はそれぞれ $d^2$、$d(i+1)$ となる。
+六次の中間模型では6個の端に winding $6$ ずつを置く一例である。
+これは自由に選ぶ端の具体例であり、指定済みの corner germs がこれらの位相を持つという結論ではない。

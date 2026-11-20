@@ -1,0 +1,144 @@
+{
+  "scope": "Finite consistency checks only; direct geometric proofs are in the manuscript.",
+  "cutoff": {
+    "sampled_derivatives": 2592,
+    "minimum_radial_derivative": 1.96,
+    "maximum_finite_difference_error": 5.871290120751382e-10,
+    "note": "The uniform derivative proof is analytic; this is one smooth-cutoff sample."
+  },
+  "lobe_actions_and_periods": {
+    "area_examples": [
+      {
+        "nu": 0.08,
+        "t_over_nu_squared": 0.0625,
+        "area": 0.0012600022552355828,
+        "lower_bound": 0.001,
+        "upper_bound": 0.0016666666666666668
+      },
+      {
+        "nu": 0.08,
+        "t_over_nu_squared": 0.25,
+        "area": 0.005173158092271215,
+        "lower_bound": 0.0033333333333333335,
+        "upper_bound": 0.01
+      },
+      {
+        "nu": 0.08,
+        "t_over_nu_squared": 0.64,
+        "area": 0.014210395935016445,
+        "lower_bound": 0.0071111111111111115,
+        "upper_bound": 0.06400000000000002
+      },
+      {
+        "nu": 0.3,
+        "t_over_nu_squared": 0.0625,
+        "area": 0.004725008457133435,
+        "lower_bound": 0.00375,
+        "upper_bound": 0.00625
+      },
+      {
+        "nu": 0.3,
+        "t_over_nu_squared": 0.25,
+        "area": 0.019399342846017055,
+        "lower_bound": 0.0125,
+        "upper_bound": 0.0375
+      },
+      {
+        "nu": 0.3,
+        "t_over_nu_squared": 0.64,
+        "area": 0.05328898475631167,
+        "lower_bound": 0.026666666666666665,
+        "upper_bound": 0.24
+      },
+      {
+        "nu": 1.0,
+        "t_over_nu_squared": 0.0625,
+        "area": 0.015750028190444784,
+        "lower_bound": 0.0125,
+        "upper_bound": 0.020833333333333332
+      },
+      {
+        "nu": 1.0,
+        "t_over_nu_squared": 0.25,
+        "area": 0.06466447615339017,
+        "lower_bound": 0.041666666666666664,
+        "upper_bound": 0.125
+      },
+      {
+        "nu": 1.0,
+        "t_over_nu_squared": 0.64,
+        "area": 0.17762994918770553,
+        "lower_bound": 0.08888888888888889,
+        "upper_bound": 0.8000000000000002
+      }
+    ],
+    "max_quadrature_refinement_difference": 1.0246305748307094e-09,
+    "maximum_saddle_area_error": 1.566524687746096e-13,
+    "outer_period_examples": [
+      {
+        "nu": 0.1,
+        "delta": [
+          0.01,
+          0.001,
+          0.0001,
+          1e-05
+        ],
+        "periods": [
+          11.72078271154567,
+          15.403691717689334,
+          19.07102679410781,
+          22.736053092772906
+        ],
+        "log_slope": 1.591700697540551,
+        "limiting_log_slope": 1.5915494309189535
+      },
+      {
+        "nu": 0.4,
+        "delta": [
+          0.01,
+          0.001,
+          0.0001,
+          1e-05
+        ],
+        "periods": [
+          2.9301956778864175,
+          3.850922929422334,
+          4.767756698526952,
+          5.6840132731932265
+        ],
+        "log_slope": 0.39792517438513775,
+        "limiting_log_slope": 0.3978873577297384
+      },
+      {
+        "nu": 1.0,
+        "delta": [
+          0.01,
+          0.001,
+          0.0001,
+          1e-05
+        ],
+        "periods": [
+          1.1720782711545694,
+          1.540369171768952,
+          1.9071026794112231,
+          2.273605309280825
+        ],
+        "log_slope": 0.1591700697553979,
+        "limiting_log_slope": 0.15915494309189535
+      }
+    ]
+  },
+  "lattices_and_surface_budget": {
+    "extendable_lattice_checks": 729,
+    "signed_budget_checks": 310,
+    "natural_annulus_twist_checks": 363,
+    "scope": "Integer and rational consistency; no assertion of a bridge embedding."
+  },
+  "membranes": {
+    "four_parameter_symplectic_samples": 24,
+    "maximum_pullback_error": 8.876877011232409e-11,
+    "analytic_pullback": "d r wedge d theta + d Re(zeta) wedge d Im(zeta)",
+    "scope": "A family of membranes in the exact chart; not a saturated corner fibration."
+  },
+  "status": "passed"
+}

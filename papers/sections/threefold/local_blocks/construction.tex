@@ -1,0 +1,330 @@
+\section{ねじれを保つ compact nodal block の構成}
+\label{lc:construction}
+
+本節では、固定曲線の小さい法線近傍に、\emph{compact な fiber 全体}を持つ
+Lagrangian fibration を構成する。四次元の基本模型そのものは
+Auroux \cite[\S5.1, Proposition 5.2]{auroux-local} の既知の模型である。
+ここで必要なのは、それを曲線上の line bundles のねじれとともに扱うこと、
+compact な saturated block を実際の法線近傍内に収めること、
+および相対版の入力条件を正確に区別することである。
+新規性の主張は行わない。
+
+\subsection{Dual connection による coupling}
+
+$(\bar C,\omega_C)$ を compact な symplectic surface with boundary とし、
+$E_+,E_-$ を Hermitian complex line bundles とする。
+以下では unitary trivialization
+\begin{equation}\label{lc:construction-tensor}
+ s:E_+\otimes E_-\xrightarrow{\sim}\bar C\times\CC
+\end{equation}
+を\emph{一つ固定する}。したがって $E_-\simeq E_+^*$ であるが、
+$E_+$ 単独の自明化は指定しない。
+特に、境界 frame を固定した $E_+$ の相対 Chern 数の消失は仮定しない。
+
+$E_+$ の unitary connection を取り、$E_-$ には
+式\eqref{lc:construction-tensor}に関して dual な接続を入れる。
+その angular connection forms を $\alpha_+,\alpha_-$ とする。
+角座標は $\theta_\pm\in\RR/\ZZ$ とし、周期は1に統一する。
+局所 unitary frame で
+\[
+ \alpha_+=d\theta_++A,\qquad
+ \alpha_-=d\theta_--A
+\]
+と書ける。曲率を $\kappa=dA$ とする。
+射影を $p_C:E_+\oplus E_-\to\bar C$ とし、fiber coordinates $(y,z)$ に対して
+\begin{equation}\label{lc:construction-coordinates}
+ \rho_+=\pi|y|^2,\qquad \rho_-=\pi|z|^2,\qquad
+ J=\rho_+-\rho_-,\qquad w=s(y\otimes z)
+\end{equation}
+と置く。この式の $\pi$ は円周率である。
+次の2形式を考える。
+\begin{equation}\label{lc:construction-coupling}
+ \Omega_0=p_C^*\omega_C+
+ d(\rho_+\alpha_++\rho_-\alpha_-).
+\end{equation}
+
+\begin{lemma}\label{lc:construction-coupling-lemma}
+式\eqref{lc:construction-coupling}は zero section を越して滑らかで、
+十分小さい法線近傍上で symplectic である。
+接続による水平・垂直分解に関して mixed term はなく、垂直部分は
+標準形 $\omega_{\CC^2}$、水平部分は $\omega_C+J\kappa$ である。
+周期1の作用
+\[
+ (y,z)\longmapsto(e^{2\pi it}y,e^{-2\pi it}z)
+\]
+の Hamiltonian は $J$ であり、規約は $\iota_{X_J}\Omega_0=-dJ$ である。
+\end{lemma}
+
+\begin{proof}
+一つの複素座標 $y=u+iv$ について
+$\rho\,d\theta=(u\,dv-v\,du)/2$ なので、この1形式は原点を越して滑らかである。
+また $\rho A$ も滑らかである。したがって式の angular notation による
+見かけの特異性は実際には存在しない。
+局所表示は
+\[
+ \Omega_0=\omega_C+\omega_{\CC^2}+d(JA).
+\]
+水平 lift は $\alpha_+=\alpha_-=0$ により定まり、
+$\rho_\pm$ は水平輸送で一定である。
+この分解で垂直部分は $\omega_{\CC^2}$、水平部分は
+$\omega_C+JdA$、mixed term は零となる。
+$\bar C$ は compact なので、ある $m_0>0$ に対し
+$|J|<m_0$ なら $\omega_C+J\kappa$ は正の面積形式である。
+これにより非退化性が従う。
+最後に作用の生成ベクトル場では
+$\alpha_+(X_J)=1$, $\alpha_-(X_J)=-1$ であり、
+$\rho_\pm$ は不変だから、直接の contraction は $-dJ$ となる。
+\end{proof}
+
+\subsection{Compact な四次元 nodal fiber}
+
+$c>0$ を選び、
+\begin{equation}\label{lc:construction-q}
+ Q=|w-c|^2
+\end{equation}
+と置く。$c$ は tensor trivialization に関する複素平面上の正の実数である。
+$h:\bar C\to\RR$ を、境界の各 collar で正則な Morse function とする。
+
+\begin{proposition}\label{lc:construction-commuting}
+$\Omega_0$ に関して $J,Q,h\circ p_C$ は Poisson commute する。
+この結論は $\kappa=0$ を必要としない。
+\end{proposition}
+
+\begin{proof}
+$J$ と $w$ は水平輸送で一定なので、それらの微分の水平部分は零である。
+したがって $X_J,X_Q$ は垂直である。
+一方 $h\circ p_C$ の微分は垂直部分を持たないので、その Hamiltonian vector field
+は水平である。水平・垂直部分の symplectic orthogonality から
+$\{J,h\}=\{Q,h\}=0$ を得る。
+$w=yz$ は逆位相の circle action に不変なので $\{J,Q\}=0$ でもある。
+\end{proof}
+
+$U$ を $(J,Q)=(0,c^2)$ を内部に含む小さい closed disk とし、
+ある $m>0$ と $0<\eta<c^2$ に対して
+\begin{equation}\label{lc:construction-window}
+ U\subset\{\,|J|\le m,\ |Q-c^2|\le\eta\,\}
+\end{equation}
+と仮定する。必要なら長方形の角を丸めて $U$ を選んでもよい。
+$M_U=(J,Q)^{-1}(U)$ と置く。
+ここでは全ての $p\in\bar C$ 上の fiber を含める。
+
+\begin{lemma}\label{lc:construction-radius}
+$M_U$ は compact であり、その全ての点は
+\begin{equation}\label{lc:construction-radius-formula}
+ |y|^2+|z|^2
+ =\sqrt{(J/\pi)^2+4|w|^2}
+ \le\sqrt{(m/\pi)^2+4\bigl(c+\sqrt{c^2+\eta}\bigr)^2}
+\end{equation}
+を満たす。
+$m=O(c)$, $\eta=\vartheta c^2$ $(0<\vartheta<1)$ とすれば、
+$c\to0$ とともに $M_U$ 全体が任意に小さい一様な法線 disk bundle 内に入る。
+\end{lemma}
+
+\begin{proof}
+$|w-c|=\sqrt Q$ なので $|w|\le c+\sqrt Q$ である。
+$a=|y|^2$, $b=|z|^2$ と置くと、
+$a-b=J/\pi$, $ab=|w|^2$ だから
+$(a+b)^2=(J/\pi)^2+4|w|^2$ を得る。
+これが所要の評価である。
+$\bar C$ と $U$ は compact で、上の評価は全 fiber を一様に有界な
+disk bundle 内に置く。$M_U$ はその中の閉集合なので compact である。
+最後の主張も右辺から直ちに従う。
+\end{proof}
+
+\begin{lemma}\label{lc:construction-normal-fibers}
+各 $p\in\bar C$ の上で、$U$ に制限した $(J,Q)$ の正則 fiber は $T^2$、
+$(J,Q)=(0,c^2)$ の fiber は一度 pinch した $T^2$ である。
+この特異 fiber はただ一つの focus--focus critical point を持つ。
+\end{lemma}
+
+\begin{proof}
+$\CC^2$ の逆位相 circle action による quotient は
+$(J,w)\in\RR\times\CC$ で記述できる。
+実際、$J,w$ から $|y|,|z|$ は一意に決まり、$w\ne0$ なら
+二つの位相の和が決まり、残る位相差が一つの circle orbit を与える。
+$w=0,J\ne0$ でも一方の座標は非零であり、orbit は circle である。
+ただし $J=w=0$ の orbit は原点一つである。
+
+$(J,Q)$ を固定すると $w$ は $|w-c|=\sqrt Q$ という円を走る。
+この円が collapse point $(J,w)=(0,0)$ を通らなければ、
+fiber は円上の principal circle bundle である。
+そのような束は自明なので fiber は $T^2$ となる。
+$J=0,Q=c^2$ では円が $w=0$ を一度通り、ちょうど一つの orbit circle が潰れる。
+これは一度 pinch した torus である。
+
+臨界点も直接確認できる。
+原点以外で $dQ=\lambda\,dJ$ とすると、複素微分の二式にそれぞれ
+$y,z$ を掛けることにより $\lambda(|y|^2+|z|^2)=0$ が従う。
+したがって $\lambda=0$ であり、$w=c$、すなわち $Q=0$ が必要となる。
+この locus は $\eta<c^2$ によって $U$ の外にある。
+原点では
+\[
+ Q-c^2=-2c\operatorname{Re}(yz)+|yz|^2.
+\]
+従って二次部分は
+$\bigl(\pi(|y|^2-|z|^2),-2c\operatorname{Re}(yz)\bigr)$ であり、
+標準的な非退化 focus--focus pair と線形 symplectic 同値である。
+この式は Auroux の模型の局所式でもある\cite{auroux-local}。
+\end{proof}
+
+\subsection{Pants と全 punctured curve 上の fibration}
+
+$G_h$ を $h$ の connected level components による Reeb graph、
+$r_h:\bar C\to G_h$ を quotient map とする。
+Critical values は互いに異なるとし、各 critical level component が
+一つの figure-eight である Morse saddle のみを考える。
+
+\begin{theorem}\label{lc:construction-block}
+$U$ を十分小さく選ぶと
+\[
+ F=(J,Q,r_h\circ p_C):M_U\longrightarrow U\times G_h
+\]
+は proper で connected fibers を持つ stratified Lagrangian fibration である。
+正則 fiber は $T^3$ であり、特異 fiber の位相型は次の通りである。
+\begin{center}
+\begin{tabular}{ll}
+normal node、$h$ 正則 & $(\text{pinched }T^2)\times S^1$ \\
+normal 正則、$h$ saddle & $T^2\times\figeight$ \\
+normal node、$h$ saddle & $(\text{pinched }T^2)\times\figeight$.
+\end{tabular}
+\end{center}
+最後の型の Euler 数は $-1$ である。
+一つの pants では基底は $U\times Y$ となる。
+\end{theorem}
+
+\begin{proof}
+Compactness により properness は補題\ref{lc:construction-radius}から従う。
+$G_h$ の一点の逆像は、正則値なら円、頂点なら figure-eight である。
+どちらの上でも $E_+$ の circle bundle は位相的に自明である。
+したがって補題\ref{lc:construction-normal-fibers}の normal fiber との積として
+全 fiber の位相型が得られ、特に連結である。
+これは位相的な積の主張であり、接続が symplectic な積であるとは主張しない。
+
+正則 locus では三つの可換な積分が独立であり、fiber の次元は3なので
+Lagrangian である。特異 fiber については、connection splitting を使う。
+水平射影は $h$ の level graph の滑らかな stratum に接し、次元は高々1である。
+従って水平の2形式は零になる。
+垂直成分は四次元の regular torus または pinched torus の isotropic stratum に接する。
+Mixed term も零だから、全ての fiber strata は isotropic となる。
+各 fiber には稠密な3次元 strata がある。
+
+Saddle と node が同時に起こる点では、zero section 上の symplectic form は
+$\omega_C\oplus\omega_{\CC^2}$ であり、二次部分は Morse saddle と
+focus--focus pair の直和になる。従って Williamson 型は
+hyperbolic block 一つと focus--focus block 一つである。
+位相的積から Euler 数は $1\cdot(-1)=-1$ である。
+\end{proof}
+
+\begin{remark}\label{lc:construction-branched}
+この基底は普通の3-ball 内に thin graph discriminant を持つ模型ではない。
+$U\times Y$ には分岐 sheet があり、外周 $\partial U$ と pants の三つの端もある。
+これらの外側境界を消す大域接着は本定理の結論に含まれない。
+\end{remark}
+
+\begin{corollary}\label{lc:construction-free-curve}
+$\bar C$ の genus が $g$、境界成分数が $n\ge2$ であるとする。
+端の fibration を自由に選べるなら、tensor bundle が自明なとき、
+$2g+n-2$ 個の Euler 数 $-1$ の fiber を持つ上記の局所 block を構成できる。
+境界のある曲面では $H^2(\bar C;\ZZ)=0$ なので、tensor bundle の絶対的な自明性は
+自動的に成り立つ。
+\end{corollary}
+
+\begin{proof}
+一つの境界成分を incoming、残り $n-1$ 個を outgoing とする。
+$\bar C$ はこの cobordism として、$2g+n-2$ 個の index 1 handles のみで構成できる。
+例えば genus を作る各 handle pair に二つの saddles を用い、
+残り $n-2$ 個の saddles で outgoing circles を増やす。
+この handle decomposition から、内部の極値を持たず、critical values が相異なる
+Morse function $h$ を得る。各 critical level component は figure-eight である。
+Tensor trivialization と任意の unitary connection を選び、定理を適用する。
+相対的に指定された境界 frame の延長は、この証明では要求していない。
+\end{proof}
+
+\subsection{Actual symplectic neighborhood への移送と相対版}
+
+ここでは germs の同型と、compact な nodal fiber を含む saturated neighborhood の同型を区別する。
+Focus--focus point の局所標準形だけでは、後者の同一視は得られない。
+実際、semiglobal な singular foliation には return-action の情報がある
+\cite[Theorem 2.1]{vungoc-local}。
+
+\begin{proposition}\label{lc:construction-relative-moser}
+$(M,\Omega_{\rm act})$ の中に $(\bar C,\omega_C)$ が symplectic に埋め込まれ、
+その symplectic normal bundle が $E_+\oplus E_-$ と同定されているとする。
+境界の外側へ小さい collar と幾何データを延長してから近傍定理を適用するものとする。
+境界の互いに素な collar 上で、式\eqref{lc:construction-coupling}による
+\emph{実際の} symplectic tubular identifications が与えられているとする。
+次の compatibility を仮定する。
+\begin{enumerate}
+\item End tensor trivializations は一つの $s$ に延びる。
+これは tensor line の、指定 end frames に関する相対 $c_1$ の消失と同値である。
+\item End connections はその $s$ に関して dual であり、与えた normal bundle の接続として扱う。
+\item End Morse germs は一つの所定の $h$ に延びる。
+End nodal maps は、同じ十分小さい $c$ による $(J,Q)$ そのものである。
+\item End tubular maps の first jets は上記の一つの symplectic normal identification と一致する。
+\end{enumerate}
+このとき小さい一様な法線近傍上に、指定 collar で与えた写像と一致する
+symplectic embedding が存在する。
+さらに $c,m,\eta$ を十分小さく選べば、\emph{全ての compact fibers を含む}
+$M_U$ をその embedding で $M$ に移せる。
+既存の circle action があり、入力同定が equivariant なら、移送も equivariant にできる。
+\end{proposition}
+
+\begin{proof}
+接続全体の空間は affine なので、$E_+$ の end connections を
+partition of unity により大域接続へ延ばし、$E_-$ には dual connection を入れる。
+これにより小さい指定 collar 上の接続そのものを保つ。
+相対 tubular neighborhood construction により、所定 end maps と一致し、
+zero section 上の first jet が指定された normal identification である滑らかな
+embedding $\Phi_0$ を取る。
+この相対構成は次のようにも確認できる。
+最初に任意の tubular map を取り、end map との差を考える。
+差は zero section とその first jet を固定する germ である。
+法線方向の dilation で conjugate することで、この差を恒等写像へ isotope できる。
+その isotopy の vector field を、互いに素な end collars の少し大きい近傍で cutoff し、
+積分して最初の tubular map を補正すればよい。
+Compact group の作用がある場合は、この全構成を invariant に選ぶ。
+
+$\Omega_1=\Phi_0^*\Omega_{\rm act}$ とし、$\Delta=\Omega_1-\Omega_0$ と置く。
+二つの形式は zero section 上で\emph{全ての tangent vectors に対して}一致し、
+指定 end tubes では近傍全体で一致する。
+法線方向の radial contraction の homotopy operator によって
+\[
+ \Delta=d\zeta,\qquad \zeta|_{\bar C}=0,
+ \qquad \zeta=0\quad\text{on the smaller end tubes}
+\]
+を得る。Contraction は base point を動かさないので、最後の相対条件も保たれる。
+必要なら compact group で平均して $\zeta$ を invariant にする。
+
+$\Omega_t=\Omega_0+t\Delta$ は、compact な $\bar C$ の十分小さい一様近傍上で
+全ての $t\in[0,1]$ に対して symplectic である。
+Moser equation $\iota_{V_t}\Omega_t=-\zeta$ を解くと、$V_t$ は zero section と
+指定 end tubes で零となる。
+近傍をさらに縮めれば、その flow は時刻1まで存在する。
+得られた flow を $\Phi_0$ と合成すれば、所要の相対 symplectic embedding となる。
+これは relative Moser の標準的証明\cite[Theorem 7.4]{cds-local}に
+collar 条件を保たせたものであり、絶対 cohomology class の一致だけを使った議論ではない。
+
+最後に補題\ref{lc:construction-radius}を用い、$M_U$ 全体がこの一様近傍に入るように
+$c,m,\eta$ を選ぶ。
+これにより局所二次模型の非コンパクトな部分だけでなく、閉じた nodal torus 全体が移る。
+Equivariance がある場合、二つの moment maps の差は定数であり、
+固定曲線上の規格化によってその定数も決まる。
+\end{proof}
+
+\begin{remark}\label{lc:construction-relative-scope}
+個別の $E_+,E_-$ の相対 Chern 数が逆符号で非零でも、tensor frame が延びれば
+本命題は適用できる。個々のねじれは dual connection の中に残している。
+一方、任意に先に選ばれた nodal end foliations が本命題の入力になるとは主張しない。
+その完全な semiglobal data が上記 coupling model と一致する同定、または別の相対補間が必要である。
+また、$c$ が先に固定されている場合は、その compact nodal block 全体が
+相対 Moser の定義域に入ることを別に確認する必要がある。
+既存の torus を「germ だから小さくできる」として縮小することは許されない。
+\end{remark}
+
+\begin{remark}\label{lc:construction-variable-c}
+$c$ を、$r_h$ に関して basic な正の滑らかな関数とし、各 saddle の近傍で定数とする
+拡張も可能である。$dc$ は $h$ の Hamiltonian vector field を消すため、
+$\{Q,h\}=0$ は保たれる。各 connected level 上で $c$ は一定なので fiber の位相も同じである。
+これはこの特定の模型の scale を端ごとに調整する方法であり、
+任意の semiglobal focus--focus invariant を補間する定理ではない。
+\end{remark}

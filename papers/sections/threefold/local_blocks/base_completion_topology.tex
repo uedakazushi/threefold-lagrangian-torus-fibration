@@ -1,0 +1,116 @@
+\section{閉曲線 block の大域化と基底の基本群}
+\label{bct:section}
+
+第\ref{ncb:section}節の graph は一価頂点を持たないが、$g$ 個の独立な cycles を持つ。
+これを全 $X_d$ の基底へ組み込むときには、その cycles をどう処理するかが別の条件になる。
+ここでは universal covering の elementary lifting argument を用いて、この条件を明示する。
+用いる被覆空間の事実は、例えば Hatcher \cite[Section 1.3]{hatcher-bct} にある。
+
+\subsection{連結ファイバーを持つ quotient の単連結性}
+
+\begin{proposition}[Nice base は単連結でなければならない]\label{bct:simply-connected}
+$X$ を path connected、locally path connected、simply connected な空間とし、
+$\pi:X\to B$ を全 fibers が connected な quotient map とする。
+$B$ は path connected、locally path connected、semilocally simply connected と仮定する。
+このとき $\pi_1(B)=0$ である。
+特に $B$ が connected finite CW complex であれば、この結論が成り立つ。
+\end{proposition}
+
+\begin{proof}
+$p:\widetilde B\to B$ を universal covering とする。
+$X$ の単連結性と lifting criterion により、$\pi$ は
+$\widetilde\pi:X\to\widetilde B$ へ lift する。
+各 $b\in B$ について、$\widetilde\pi(\pi^{-1}(b))$ は discrete set $p^{-1}(b)$ の
+connected subset であるから一点である。
+従って $\widetilde\pi=s\circ\pi$ となる集合写像 $s:B\to\widetilde B$ があり、
+$\pi$ が quotient map であることから $s$ は連続である。
+また $p\circ s=\operatorname{id}_B$ である。
+基点を合わせて基本群を取ると $p_*\circ s_*=\operatorname{id}_{\pi_1(B)}$ となるが、
+$\pi_1(\widetilde B)=0$ なので $\pi_1(B)=0$ である。
+\end{proof}
+
+\begin{corollary}[全超曲面の基底に課される条件]\label{bct:hypersurface}
+Smooth $X_d\subset\PP^4$ 全体から、上の局所条件を満たす Hausdorff space $B$ への
+continuous surjection が connected fibers を持つなら、$B$ は simply connected である。
+特に有限な branched polyhedral complex を基底とする completion に適用できる。
+\end{corollary}
+
+\begin{proof}
+$X_d$ は Lefschetz hyperplane theorem により simply connected である
+\cite[Corollary 2.3.4]{achinger-lefschetz-gc}。
+Compact source から Hausdorff target への連続全射は closed、従って quotient map である。
+命題\ref{bct:simply-connected}を適用する。
+\end{proof}
+
+この主張は、基底の全ての特異点で通常の covering-space theory が使えるという仮定を含む。
+任意の wild quotient space に拡張するものではない。
+また、singular fibers の局所的な path lifting や、それらの単連結性を仮定していない。
+Connectedness と quotient-map property が、universal-cover lift の下降に使われている。
+
+\subsection{Shell の circle label は全体へ延びない}
+
+\begin{proposition}[閉曲線 shell の circle-valued integral の非延長]
+\label{bct:circle-label}
+補題\ref{ncb:circle-morse}の巡回構成による $f:C\to\RR/\ZZ$ の cohomology class は primitive である。
+定理\ref{ncb:actual-block}の shell 上の関数 $f\circ\pi_C$ は、
+全 $X_d$ 上の continuous map $X_d\to\RR/\ZZ$ へ延長できない。
+\end{proposition}
+
+\begin{proof}
+各 genus-one cobordism を incoming cuff から outgoing cuff へ通る path を取り、
+その endpoints を cuff 上で合わせて一周させる。
+これは $C$ 上の loop $\gamma$ であり、$f\circ\gamma$ の degree は $1$ となる。
+従って $[f]\in H^1(C;\ZZ)$ は primitive である。
+
+Fixed normal moment $p\in\operatorname{int}P$ における principal $T^2$ bundle $E_p\to C$ に
+$\gamma$ を lift し、その二つの endpoints を connected な同一 fiber 内の path で結ぶ。
+こうして得た loop $\widehat\gamma\subset E_p$ 上でも $f\circ\pi_C$ の degree は $1$ である。
+一方、$\widehat\gamma$ は simply connected な $X_d$ 内では null homotopic である。
+全 $X_d$ への延長があれば、その $\widehat\gamma$ 上の degree は $0$ となり、矛盾する。
+\end{proof}
+
+\begin{corollary}[Graph cycles を処理する追加領域]\label{bct:graph-cycles}
+Global connected-fiber quotient が系\ref{bct:hypersurface}の nice base $B$ を持ち、
+shell の action-interior 上で、その fiber relation が local quotient の fiber relation と一致すると仮定する。
+このとき $\operatorname{int}P\times\Gamma$ の graph cycles は、全体の $B$ では全て null homotopic となる。
+また $\Gamma\to\RR/\ZZ$ という local scalar label を全 $B$ 上へ延ばすことはできない。
+\end{corollary}
+
+\begin{proof}
+Shell の action-interior は actual $X_d$ の開集合で、whole fibers は compact である。
+その fiber relation を保持する completion では、各 local fiber は global fiber の中で開かつ閉となる。
+Global fiber の connectedness により、action-interior は saturated である。
+従って local quotient は $B$ の開部分 $\operatorname{int}P\times\Gamma$ として入る。
+$B$ の単連結性から第一の主張が従う。
+Scalar label の延長があれば、それを全体の quotient map と合成して
+命題\ref{bct:circle-label}に反する延長を得る。
+\end{proof}
+
+この結果は shell の fibration 自体の大域化を否定していない。
+外側の基底領域が graph cycles を埋め、同時に circle-valued label を変更することを要求する。
+全域へ残る周期作用の障害（第\ref{gc:section}節）とも異なる条件である。
+一方は source 上の circle action、他方は base および source から circle への map に関する。
+
+\paragraph{Euler 数を担う strata はなお必要である.}
+新しい shell の whole fibers は $T^3$ または $T^2\times\figeight$ なので Euler 数は零である。
+第\ref{mft:section}節の focus $\times S^1$ block の fibers も全て Euler 数は零である。
+基底に有限のセル分割に適合する stratification があり、各 stratum が locally closed な有限セル型で、
+その上で compact finite-CW fiber を持つ位相的 fiber bundle となる proper fibration では、
+compactly supported Euler characteristic の加法性と積性により
+$\chi(X)=\sum_S\chi_c(S)\chi(F_S)$ となる。
+従って、この二種類の Euler-zero fibers だけで全体を覆うことはできない。
+実際、超曲面の Chern class から
+\[
+ \chi(X_d)=d(10-10d+5d^2-d^3)<0\quad(d\ge6),
+ \qquad\chi(X_6)=-516
+\]
+である。既存の focus--hyperbolic 型など、非零の Euler 寄与を担う strata の構成課題は残る。
+新しい18 families を、以前の negative-vertex correction の代替と数えてはいけない。
+
+
+第\ref{fhr:section}節と第\ref{tnc:section}節では、normal focus と曲線 saddle を同時に用いて、
+Euler 数 $-1$ の compact whole fibers を actual に構成する。
+従って上の Euler-zero 制約の対象からは外れるが、全体を覆うことは依然として示していない。
+また第\ref{tnc:section}節の別の閉曲線 $C'$ にも、上の universal-cover argument と
+primitive circle label の非延長は同じく適用される。
+その graph cycles も nice global base の中では縮める必要がある。

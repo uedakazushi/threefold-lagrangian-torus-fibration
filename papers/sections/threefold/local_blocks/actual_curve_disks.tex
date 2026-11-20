@@ -1,0 +1,205 @@
+\section{固定平面六次曲線と actual な個別 upper disks}
+\label{ad:section}
+
+本節は $t=\tau\ne0$ を固定する。
+定理\ref{ai:c56-allends}の punctured curve を、元の pencil に存在する一つの閉曲線から選ぶ。
+これにより自然な upper meridians を actual symplectic disks で個別に埋め、
+その primitive の不足分を閉曲線の面積として計算できる。
+Disk の族、cap fibration、あるいは既存積分の disk 全体への延長は主張しない。
+
+\subsection{Punctured lift の具体的な選択と normal frames}
+
+\begin{proposition}[固定曲線による actual lift]\label{ad:fixed-curve}
+元の pencil
+\[
+ X_t=\left\{L_1L_2L_3L_4L_5L_6+tF_6=0\right\}\subset\PP^4
+\]
+に対し
+\[
+ C^*=\{L_5=L_6=F_6=0\}
+\]
+は全ての smooth $t\ne0$ の $X_t$ に含まれる同じ smooth plane sextic である。
+その normal bundle と面積は
+\begin{equation}\label{ad:normal-area}
+ N_{C^*/X_t}\simeq\mathcal O_C(1)\oplus\mathcal O_C(1),
+ \qquad \int_{C^*}H=6,\qquad \int_{C^*}\omega_t=6a
+ \quad([\omega_t]=aH)
+\end{equation}
+である。$G=L_1L_2L_3L_4$ の零点24個を含む互いに素な小円板を削除すれば、
+この punctured curve を既存 $\bar C_{56}$ の actual lift として選べる。
+この選択は既存の明示的な collar family と一致する。
+\end{proposition}
+
+\begin{proof}
+$L_5=L_6=0$ 上では pencil の方程式は $tF_6=0$ となる。
+従って $t\ne0$ では $C^*$ は $X_t$ 内の二つの hyperplane sections の
+scheme-theoretic な横断的 complete intersection である。
+横断性は $F_6|_{P_5\cap P_6}$ の零曲線の smoothness から従い、
+conormal sequence が normal bundle の式を与える。
+Plane sextic の hyperplane degree は6なので面積の式も従う。
+本稿の chosen class $aH+\eps A$ は $t\ne0$ 上では $aH$ に制限される。
+
+各 puncture では、単元を吸収した既存の chart
+\[
+ xyz=tw,\qquad t=xT,\quad y=TY,\quad w=Yz
+\]
+を使う。$C^*_t$ の strict lift は正確に
+\[
+ Y=z=0,\qquad T=t/x
+\]
+である。これは式\eqref{sc:nonzero-chart}で用いた actual collar であり、
+削除円板の外では $x\ne0$ のため $t=0$ へ smooth に延びる。
+従って一般の horizontal lift を選ぶ代わりに、この固定曲線を選べばよい。
+\end{proof}
+
+Normal frames の次数差もこの同定で直接見える。
+以下では順序を、$z=L_6$ 方向の $\mathcal O_C(1)$ と、
+central $V_5$ の normal である $\mathcal O_C(5)$ の順とする。
+元の pencil の係数で $\mathcal Y=F_6/L_6$ と書くと、$G\ne0$ 上では
+\begin{equation}\label{ad:frame-comparison}
+ y=L_5=-\frac{t}{G}\mathcal Y,
+ \qquad
+ \partial_{\mathcal Y}\longmapsto-\frac{t}{G}\partial_y
+\end{equation}
+が normal first jet の同定である。
+ここで $\mathcal Y$ は central blow-up の $\mathcal O(5)$ 座標であり、
+annular tube の $Y$ という名前と自動的には同一視しない。
+式は $Gyz+tF_6=0$ を用いて $F_6/z$ を holomorphically 延長すれば得られる。
+第一の $z$ 方向は変化しない。
+
+$G|_C$ は24個の simple zeros を持つので、第二の frame comparison は
+各 deleted disk の counterclockwise 境界で winding $-1$ を持つ。
+従って normal degree は $(6,30)$ から $(6,6)$ へ変わる。
+特に式\eqref{ai:individual-sections}の algebraic sections は
+\begin{equation}\label{ad:actual-sections}
+ (L_1,L_1L_2^2L_3L_4)\longmapsto(L_1,-tL_2)
+\end{equation}
+となる。Unitary normalization と orthogonalization はこの relative degree を変えない。
+Semistable frame における determinant profile $(2,2,1,1)$ は、
+actual disk frames では $(1,1,0,0)$ となる（各型6端）。
+これは frame の比較であり、dual mixed Hessian の winding と向きを混同しない。
+
+\subsection{個別の graph disks と exact な面積収支}
+
+Actual $C^*\subset X_\tau$ 上で互いに素な閉円板 $\Delta_i$ を固定し、
+その正向き境界を $c_i$、補集合を
+\[
+ C'=C^*\setminus\bigcup_{i=1}^{24}\operatorname{int}\Delta_i
+\]
+とする。各円板は対応する puncture を含み、$\partial C'=-\sum_i c_i$ である。
+先に円板を十分小さく選び、
+\[
+ 0<A_i^{\rm base}:=\int_{\Delta_i}\omega_\tau<a
+\]
+としてよい。以後は $\tau$、円板、collars、normal embeddings を固定する。
+一つの global primitive $d\beta=\omega_\tau|_{C'}$ と既存の normal-model primitive を使い、
+collars では
+\[
+ \beta=\widehat I_i\,d\theta_i,\qquad c_i=\{\widehat I_i=I_i^0\}
+\]
+とする。Actual primitive と model primitive の exact difference は periods に影響しない。
+
+\begin{theorem}[Actual individual upper disks と次数6の budget]\label{ad:disks}
+各 collar で固定した prototype parameters
+\[
+ H_0=h_i^0>0,\qquad J_0=0,\qquad
+ c^2<q_{*,i}<(F_1(h_i^0,0)-c)^2
+\]
+と自然な upper meridian $\gamma_{U,i}$ を選ぶ。
+Annular insertion の scale を $s_i>0$、offset を
+\[
+ b_i=I_i^0-s_i h_i^0
+\]
+とする。十分小さい scales に対し、各 actual $\gamma_{U,i}$ は
+$\Delta_i$ 上の $C^1$-small normal graph である embedded symplectic disk $D_i$ を bound する。
+その面積 $A_i$ と既存 primitive period $P_i$ は
+\begin{align}
+ P_i&=b_i+s_i B_i,\qquad B_i=B(h_i^0,0,q_{*,i}),\label{ad:period}\\
+ A_i&=A_i^{\rm base}+P_i-I_i^0
+     =A_i^{\rm base}-s_i(h_i^0-B_i),\label{ad:disk-area}\\
+ 0&<A_i<a.\nonumber
+\end{align}
+また、$c_i$ から $\gamma_{U,i}$ への radial normal annulus $\mathcal A_i$ を
+$\partial\mathcal A_i=\gamma_{U,i}-c_i$ と向けると、closed cycle
+\begin{equation}\label{ad:cycle}
+ Z=C'+\sum_i(D_i-\mathcal A_i)
+\end{equation}
+は $[Z]=[C^*]\in H_2(X_\tau;\ZZ)$ を満たす。従って
+\begin{equation}\label{ad:budget}
+ \int_ZH=6,\qquad \boxed{\ \sum_{i=1}^{24}(A_i-P_i)=6a\ }.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Twists を $(a_i,d_i)$ に配分した insertion を使う。
+式\eqref{ai:distributed-end}の共通 curve-model coordinates では厳密に
+\begin{equation}\label{ad:graph-coordinates}
+ \widehat I_i=b_i+s_iH_0,\qquad
+ U=\sqrt{s_i}\,e^{-2\pi i\theta_x}y,\qquad
+ V=\sqrt{s_i}\,z,
+ \qquad \theta_i=\theta_x.
+\end{equation}
+従って、ここでいう base projection は physical tube の $I$ ではなく
+共通 global normal model の $\widehat I_i$ である。
+
+自然な upper meridian では $\theta_y+\theta_z$ と $-\theta_z$ を固定するので、
+$\theta_y,\theta_z$ は共に一定である。
+$W=c+r e^{-2\pi i\ell}$, $r=\sqrt{q_{*,i}}>c$, と parameterize すれば
+\[
+ \frac{d}{d\ell}\arg W
+ =-2\pi\frac{r(r+c\cos(2\pi\ell))}{|W|^2}<0.
+\]
+他方 $\theta_x=\theta_y+\theta_z-\arg W/(2\pi)$ だから、
+$\theta_x$ は正向きに単調に一周する。
+式\eqref{ad:graph-coordinates}では $\widehat I_i=I_i^0$ であり、
+従って $\gamma_{U,i}$ は $c_i$ 上の normal section の graph である。
+Prototype parameters と $\tau$ を固定しているため、その $C^1$ norm は $O(\sqrt{s_i})$ である。
+
+閉曲線 $C^*$ の smooth tubular neighborhood を、選んだ compact collars 上では
+既存の common normal embedding と一致するように選ぶ。
+これは actual normal bundle を用いた relative tubular construction で可能である。
+具体的には、二つの tubular germs の first jet を actual normal bundle で一致させ、
+その差 $O(|v|^2)$ を base の cutoff で延ばせば、十分小さい radius で embedding のままである。
+Disk 上では normal bundle は trivial なので、境界 section を
+固定した collar extension と cutoff で $\Delta_i$ 全体へ延ばせる。
+この extension の $C^1$ norm も $O(\sqrt{s_i})$ であり、中心近傍で零にしてよい。
+得られる graph は positive complex disk $\Delta_i$ に $C^1$-close なので、
+十分小さい $s_i$ では embedded symplectic disk となる。
+Frame 自身が disk へ nonvanishing に延びる必要はなく、section は零点を持ってよい。
+有限個の円板について同時に scales を小さくできる。
+
+Radial normal annulus は既存の primitive が定義された collar tube 内にあり、Stokes により
+\[
+ \int_{\mathcal A_i}\omega_\tau=P_i-I_i^0.
+\]
+Disk の normal section を零へ縮める homotopy は
+$D_i-\Delta_i-\mathcal A_i$ を境界とする3-chain を与える。
+従って式\eqref{ad:disk-area}と $[Z]=[C^*]$ が従う。
+補題\ref{cf:cap-area-bound}の $0<B_i<h_i^0/3$ より、
+$s_i(h_i^0-B_i)<A_i^{\rm base}$ まで scale を縮めれば
+$0<A_i<A_i^{\rm base}<a$ である。
+
+最後に $\operatorname{Area}(C')=-\sum_iI_i^0$ なので
+\[
+ \int_Z\omega_\tau
+ =\operatorname{Area}(C')+
+   \sum_i\bigl(A_i-P_i+I_i^0\bigr)
+ =\sum_i(A_i-P_i)=6a.
+\]
+これで向きと primitive constants を含む budget が得られる。
+\end{proof}
+
+\paragraph{範囲と central limit.}
+この構成は各指定 cycle を埋める個別の disk を与える。
+Disk 内部と既存 assembly 全体との非交差、$T^2$-family of disks、
+Lagrangian cap fibration、所定の $H,J,Q$ の延長はこの定理の結論に含めない。
+また既存 primitive が $D_i$ 全体へ延びるとも主張しない。
+その差の総和が $6a$ であるため、式\eqref{cf:negative-cap-period}との矛盾はない。
+小ささの定数は固定した $\tau\ne0$ に依存し、$\tau\to0$ の一様な radius は得ていない。
+
+閉曲線族の central limit も、punctured lift の limit と区別する必要がある。
+各 puncture の chart では $Y=z=0$, $t=xT$ なので、$t=0$ には
+strict $C_{56}$ に対応する $T=0$ と、最初の blow-up の exceptional curve に対応する $x=0$ が現れる。
+従って closed limit cycle は $C_{56}$ 単独ではなく、
+24個の exceptional $\PP^1$ を付加したものである。
+式\eqref{ad:normal-area}の閉曲線の面積を、strict $C_{56}$ の面積だけと同一視してはいけない。

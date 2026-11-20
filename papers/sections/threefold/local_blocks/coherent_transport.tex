@@ -1,0 +1,413 @@
+\section{複数法線方向の整合的輸送と Hamiltonian curvature}
+\label{ct:section}
+
+第\ref{mc:multi}節の straightening は、共通の入力から複数の normal directions を
+同時に扱う構成を与えた。一方、独立に指定した partial faces への一致は自動ではなかった。
+本節では、actual primitive に適合する多変数の normalized Moser connection を定義し、
+輸送順序の差を Hamiltonian curvature で測る。
+Toric potential を持つ場合にはこの connection が flat となり、
+全 face の family を一つの輸送から同時に得られる。
+Moser の一般的背景は \cite[Section 7.2]{cds-local} によるが、以下の変換式と仮定は直接確認する。
+
+\subsection{Actual primitive に適合する parameter connection}
+\label{ct:connection}
+
+$U$ を少し大きい開集合に含まれる compact region、$\dim U=2n$ とする。
+$P\to U$ は principal $T^r$-bundle で、period-one connections $\alpha_a$ と
+curvatures $\kappa_a$ を持つとする。
+Associated line bundle の正向きの rotation を $X_a^{\mathrm{circ}}$ とし、
+$\alpha_a(X_a^{\mathrm{circ}})=1$、$[\kappa_a]=-c_1(L_a)$ の規約を使う。
+これは $\iota_{X_a^{\mathrm{circ}}}\Omega=-d\mu_a$ と整合する。
+以下で forms の pullback は省略する。
+正数 $w_a$ と smooth $1$-form $\beta$ に対して
+\[
+ d\beta=\omega+\sum_a w_a\kappa_a,
+ \qquad
+ \omega_{\boldsymbol\mu}=\omega+\sum_a\mu_a\kappa_a,
+ \qquad v_a=\mu_a-w_a
+\]
+と置く。Actual normal-coupling form と primitive は
+\begin{equation}\label{ct:actual}
+ \Omega=\sum_a d\mu_a\wedge\alpha_a+\omega_{\boldsymbol\mu},
+ \qquad
+ \lambda=\sum_a v_a\alpha_a+\beta
+\end{equation}
+である。Associated line bundles では $\mu_a=\pi|z_a|^2$ とし、
+$\lambda$ とその Liouville field は、まず全 $\mu_a>0$ の領域で考える。
+
+本節ではさらに、各 curvature に大域的な smooth primitive
+\begin{equation}\label{ct:eta}
+ d_U\eta_a=\kappa_a
+\end{equation}
+があると仮定する。
+これは weighted cohomology equation だけからは従わない。
+また式\eqref{ct:eta}が意味するのは real Chern class の消失であり、
+一般の $U$ 上の integral torsion Chern class まで消えるとは限らない。
+
+定数 $c_a$ を $\sum_aw_ac_a=1$ となるように選び、
+小さい parameter neighborhood で
+\begin{align*}
+ \rho(\boldsymbol\mu)&=1-\sum_ac_a\mu_a>0,\\
+ \gamma_{\boldsymbol\mu}&=\beta+\sum_av_a\eta_a,\\
+ \psi_{\boldsymbol\mu}&=\gamma_{\boldsymbol\mu}/\rho,
+ &\sigma_{\boldsymbol\mu}&=d_U\psi_{\boldsymbol\mu}
+                 =\omega_{\boldsymbol\mu}/\rho
+\end{align*}
+と置く。
+$\omega_{\boldsymbol\mu}$ と $\sigma_{\boldsymbol\mu}$ は、compactness により
+十分小さい parameter neighborhood で symplectic となる。
+Moser connection を
+\begin{equation}\label{ct:horizontal}
+ H_a=\partial_{\mu_a}+X_a,
+ \qquad
+ \iota_{X_a}\sigma_{\boldsymbol\mu}
+       =-\partial_{\mu_a}\psi_{\boldsymbol\mu}
+\end{equation}
+で定める。全ての入力は $U$ を含む開集合まで定義するものとする。
+
+\begin{proposition}[Normalized transport と actual Liouville field]
+\label{ct:liouville}
+各 $H_a$ の parallel transport は $\sigma_{\boldsymbol\mu}$ を保存する。
+さらに
+\[
+ R=\sum_a v_a\partial_{\mu_a},
+ \qquad
+ \iota_{Y_{\boldsymbol\mu}}\omega_{\boldsymbol\mu}=\beta
+\]
+と置けば
+\begin{equation}\label{ct:radial-horizontal}
+ \sum_a v_aH_a=R+Y_{\boldsymbol\mu}.
+\end{equation}
+右辺は、式\eqref{ct:actual}の actual Liouville field を
+connection の horizontal splitting によって $(\boldsymbol\mu,U)$ へ射影したものである。
+\end{proposition}
+
+\begin{proof}
+$d_U\gamma_{\boldsymbol\mu}=\omega_{\boldsymbol\mu}$ である。
+式\eqref{ct:horizontal}から
+\[
+ \partial_{\mu_a}\sigma_{\boldsymbol\mu}
+       +\mathcal L_{X_a}\sigma_{\boldsymbol\mu}=0
+\]
+となり、最初の主張を得る。
+また $\sum_aw_ac_a=1$ より
+\[
+ R\rho=\rho,
+ \qquad R\gamma_{\boldsymbol\mu}
+       =\gamma_{\boldsymbol\mu}-\beta,
+ \qquad R\psi_{\boldsymbol\mu}=-\beta/\rho.
+\]
+従って
+\[
+ \iota_{\sum_av_aX_a}\sigma_{\boldsymbol\mu}
+       =-R\psi_{\boldsymbol\mu}
+       =\beta/\rho
+       =\iota_{Y_{\boldsymbol\mu}}\sigma_{\boldsymbol\mu},
+\]
+すなわち式\eqref{ct:radial-horizontal}が成り立つ。
+
+最後に $Y_{\boldsymbol\mu}^{\mathrm{hor}}$ を $\alpha_a$ に関する simultaneous horizontal lift とする。
+直接の contraction により
+\[
+ \iota_{R+Y_{\boldsymbol\mu}^{\mathrm{hor}}}\Omega
+       =\sum_av_a\alpha_a+\beta=\lambda
+\]
+となる。従って actual Liouville field はこの lift であり、その射影は主張の通りである。
+\end{proof}
+
+この正規化は、与えられた $\beta$ の closed-form 部分を保っている。
+任意の reduced Moser transport が式\eqref{ct:radial-horizontal}を満たすわけではない。
+$r=1$ では、対応する $H_1$ は第\ref{mc:direct-transport}項の direct transport と一致する。
+
+\subsection{輸送順序の差を測る Hamiltonian}
+\label{ct:curvature}
+
+\begin{proposition}[Parameter curvature]
+\label{ct:curvature-formula}
+Connection の curvature を
+\[
+ C_{ab}=\partial_{\mu_a}X_b-\partial_{\mu_b}X_a+[X_a,X_b]
+\]
+とし、$K_{ab}=\sigma_{\boldsymbol\mu}(X_a,X_b)$ と置くと、
+\begin{equation}\label{ct:hamiltonian-curvature}
+ \iota_{C_{ab}}\sigma_{\boldsymbol\mu}=-d_UK_{ab}
+\end{equation}
+が成り立つ。特に $d_UK_{ab}=0$ が全ての $a,b$ について成り立てば、この connection は flat である。
+\end{proposition}
+
+\begin{proof}
+$\theta_a=\partial_{\mu_a}\psi_{\boldsymbol\mu}$ と略記する。
+すると $\iota_{X_a}\sigma=-\theta_a$,
+$\partial_a\sigma=d_U\theta_a$,
+$\mathcal L_{X_a}\sigma=-d_U\theta_a$ であり、
+$\partial_a\theta_b=\partial_b\theta_a$ である。
+これらと Cartan の公式から
+\begin{align*}
+ \iota_{C_{ab}}\sigma
+ &=-\partial_a\theta_b+\partial_b\theta_a
+   -\iota_{X_b}d_U\theta_a+\iota_{X_a}d_U\theta_b
+   +\mathcal L_{X_a}(\iota_{X_b}\sigma)
+   -\iota_{X_b}\mathcal L_{X_a}\sigma\\
+ &=-d_U\bigl(\theta_b(X_a)\bigr)
+  =-d_U\bigl(\sigma(X_a,X_b)\bigr).
+\end{align*}
+これが式\eqref{ct:hamiltonian-curvature}である。
+\end{proof}
+
+従って、二つの parameter directions に沿う輸送順序の infinitesimal な差は
+Hamiltonian $K_{ab}$ によって測れる。
+ただし、Hamiltonian であることだけから、その flow が指定 fibration の各 fiber を保つとは限らない。
+特に、相対接着に必要な holonomy の一致を exactness だけで置き換えてはならない。
+以下では、直接確認できる十分条件として flatness を用いる。
+
+\subsection{Flat connection から全 face に整合する family へ}
+\label{ct:family}
+
+\begin{theorem}[整合的な moving family の十分条件]
+\label{ct:coherent-family}
+上の入力に加え、$p_0:(U_0,\omega)\to B$ を compact fibers を持つ proper な
+stratified Lagrangian torus fibration とする。
+$U_0$ は $U$ の内部にある compact saturated region で、所定の singular fibers 全体を含むとする。
+また式\eqref{ct:horizontal}の connection が flat であると仮定する。
+
+このとき十分小さい normal moment orthant 上で、
+$U_0$ の transported domains $U_{\boldsymbol\mu}$ と滑らかな family
+\[
+ p_{\boldsymbol\mu}:U_{\boldsymbol\mu}\longrightarrow B
+\]
+を構成できる。各 $p_{\boldsymbol\mu}$ は $\omega_{\boldsymbol\mu}$ に対して
+stratified Lagrangian であり、全体の
+\[
+ F=(\boldsymbol\mu,p_{\boldsymbol\mu})
+\]
+は actual $\Omega$ に関する fibration となる。
+全 $\mu_a>0$ の正則 full fibers は $T^{n+r}$ であり、
+actual Liouville flow は reduced label $p_{\boldsymbol\mu}$ を保存する。
+各 parameter face の family は一つの smooth family の restriction であり、
+その交差上でも一致する。
+\end{theorem}
+
+\begin{proof}
+Flatness により、十分小さい contractible parameter neighborhood 上で
+path-independent な parallel transport $T_{\boldsymbol\mu}$ を取れる。
+Nested compact neighborhoods と小さい parameters を用いれば、
+$U_0$ 全体の近くで全ての flows と inverse flows が存在する。
+命題\ref{ct:liouville}から
+\[
+ T_{\boldsymbol\mu}^*\sigma_{\boldsymbol\mu}=\sigma_{\boldsymbol0}=\omega.
+\]
+そこで $U_{\boldsymbol\mu}=T_{\boldsymbol\mu}(U_0)$、
+$p_{\boldsymbol\mu}=p_0\circ T_{\boldsymbol\mu}^{-1}$ と定める。
+$\omega_{\boldsymbol\mu}=\rho\sigma_{\boldsymbol\mu}$ なので、
+全 fiber strata の isotropy が保たれる。
+Domain も輸送しているため、compact singular fibers の閉じる部分と properness を失わない。
+
+Fixed $\boldsymbol\mu$ の lifted fiber 上では $d\mu_a=0$ だから、
+式\eqref{ct:actual}の制限は reduced form $\omega_{\boldsymbol\mu}$ の制限に等しい。
+従って全体の fiber strata も isotropic である。
+正則 reduced torus $L\simeq T^n$ 上では、式\eqref{ct:eta}により
+各 restricted normal bundle の real Chern class は零である。
+$H^2(T^n;\ZZ)$ は torsion-free なので integral Chern class も零となり、
+各 circle bundle は自明である。これが full regular fiber $T^{n+r}$ を与える。
+
+Flat transport の定義から $H_a(p_{\boldsymbol\mu})=0$ である。
+式\eqref{ct:radial-horizontal}を使うと
+\[
+ (R+Y_{\boldsymbol\mu})(p_{\boldsymbol\mu})=0
+\]
+となり、actual Liouville flow に関する主張を得る。
+Family は $\boldsymbol\mu=0$ を含む開 parameter neighborhood で滑らかに構成されている。
+従って各 face への restriction はその交差でも同じであり、
+$\mu_a=\pi|z_a|^2$ を代入すれば associated line bundles の zero faces にも滑らかに依存する。
+Liouville field 自身の logarithmic 特異性と、family の滑らかな延長は区別する。
+\end{proof}
+
+この定理は、各 $\kappa_a$ が最初の $p_0$ の fiber strata 上で零となることを仮定していない。
+その代わりに、各 primitive $\eta_a$ の存在と normalized connection の flatness を仮定している。
+また、独立に指定された face foliations を一致させる定理ではない。
+得られる face data は、この共通 input によって同時に決まる。
+
+\subsection{Toric potential における明示的な flat transport}
+\label{ct:toric}
+
+\begin{proposition}[Angle potential による flatness]
+\label{ct:toric-flatness}
+Toric coordinates $(I_1,\ldots,I_n,\theta_1,\ldots,\theta_n)$ の領域で
+\begin{equation}\label{ct:toric-potential}
+ \psi_{\boldsymbol\mu}
+       =\sum_i A_i(I,\boldsymbol\mu)\,d\theta_i
+\end{equation}
+と書け、$D_IA$ が invertible であるとする。
+このとき全 $K_{ab}=0$ であり、transport は初期点に連続する局所逆の枝を用いて
+\begin{equation}\label{ct:action-transport}
+ A(I_{\boldsymbol\mu},\boldsymbol\mu)=A(I_0,\boldsymbol0),
+ \qquad \theta_{\boldsymbol\mu}=\theta_0
+\end{equation}
+で表される。
+\end{proposition}
+
+\begin{proof}
+$\sigma_{\boldsymbol\mu}=\sum_i d_IA_i\wedge d\theta_i$ であり、
+$\partial_a\psi=\sum_i(\partial_aA_i)d\theta_i$ だから、
+式\eqref{ct:horizontal}の $X_a$ は angle 成分を持たず、
+\[
+ (D_IA)X_a^I=-\partial_aA
+\]
+を満たす。
+Moment directions の分布は $\sigma_{\boldsymbol\mu}$-Lagrangian なので
+$K_{ab}=\sigma(X_a,X_b)=0$ である。
+また $H_a(A)=0$, $H_a(\theta)=0$ であり、積分して式\eqref{ct:action-transport}を得る。
+\end{proof}
+
+\begin{remark}[Collapsed orbit と domain の条件]
+\label{ct:collapsed}
+上の表示を free torus locus で得ただけでは、collapsed orbit を含む構成は完成しない。
+必要なのは、$\sigma_{\boldsymbol\mu}$ が symplectic に延び、
+$\partial_a\psi_{\boldsymbol\mu}$ と resulting $X_a$ が smooth に延びることである。
+本節冒頭の smooth input がその orbit まで与えられていれば、
+$X_a=-\sigma_{\boldsymbol\mu}^{-1}(\partial_a\psi_{\boldsymbol\mu})$ によりこの延長は自動であり、
+dense free locus 上の $K_{ab}=0$ も全体へ延びる。
+Toric formula だけから smooth input を推論してはならない。
+
+特に collapsing circle に沿う angle coefficient の facet constant が
+parameter とともに変われば、$\partial_a\psi$ に非零の $d\theta$ residue が残り得る。
+式\eqref{ct:action-transport}で同じ facet を保つには、その facet の action constant の一致も必要である。
+命題\ref{exc:slant}の one-normal model では、
+target facet $J_*=0$ の actual inverse image が $J=e\mu/w_x$ となる。
+これは二つ目の divisor residue による facet constant の移動を表している。
+全 exceptional curve の cohomological 障害と residue については
+命題\ref{exc:whole-e}と命題\ref{exc:residue}を参照。
+
+また、式\eqref{ct:action-transport}は指定した branch と flow domain 上の式である。
+全 parameter range で action map が大域的に invertible であることや、
+所定の lateral boundary を越えないことを、局所 Jacobian 条件だけから結論してはならない。
+\end{remark}
+
+\subsection{例外曲線上の degree と residue の収支}
+\label{ct:degree-section}
+
+前節の $\eta_a$ の仮定を外し、全 exceptional sphere を含む
+$S=\operatorname{Bl}_0\CC^2$ 上で二つの actual normal lines を考える。
+ここでは curvature の符号が結論を左右する。
+
+\begin{proposition}[Whole exceptional curve の必要収支]
+\label{ct:degree-residue}
+$E\simeq\PP^1\subset S$、$\int_E\omega=e>0$ とし、normal line bundles の次数を
+$d_a=\deg(N_a|_E)$ とする。
+Connections と $1$-form $\beta$ が $E$ 全体の近傍で smooth であり、
+\[
+ d\beta=\omega+\sum_a w_a\kappa_a
+\]
+を満たすなら、
+\begin{equation}\label{ct:degree-balance}
+ e-\sum_a w_ad_a=0
+\end{equation}
+が必要である。
+特に命題\ref{exc:whole-e}の二つの normal degrees $(d_x,d_T)=(0,-1)$ では、
+\begin{equation}\label{ct:two-normal-balance}
+ e+w_T=0
+\end{equation}
+が必要である。従って正の $w_x,w_T$ を持つ二方向だけでは、
+全 $E$ 上で smooth な $\beta$ を得られない。
+
+一方、strict triple divisor $D$ が $E$ と一点で横断的に交わり、
+$\beta$ を $S\setminus D$ 上で定義して $D$ に沿う residue $-w_D$ を許すとする。
+$d\beta$ が上の smooth form へ延び、交点の座標で
+$\beta+w_Dd\theta_D$ が smooth であるなら、必要収支は
+\begin{equation}\label{ct:third-residue}
+ w_D=e+w_T
+\end{equation}
+となる。
+\end{proposition}
+
+\begin{proof}
+本節の curvature 規約では $\int_E\kappa_a=-d_a$ である。
+$\beta$ が全 $E$ 上で smooth なら Stokes の公式より
+\[
+ 0=\int_Ed\beta=e-\sum_aw_ad_a,
+\]
+従って最初の二式を得る。
+最後の状況では $E\cap D$ の小さい disk を取り除いて Stokes の公式を使う。
+その境界は $D$ の positive meridian と逆向きであるため、
+boundary integral の極限は $w_D$ である。
+一方、smooth な右辺の積分は $e+w_T$ に収束するので、
+式\eqref{ct:third-residue}を得る。
+\end{proof}
+
+この計算で $N_T$ を dual に置き換えてはならない。
+Actual charts の重なりでは $y=YT$、$U=1/Y$ なので $T=Uy$ であり、
+この transition は degree $-1$ の normal line を与える。
+従って $\kappa_T=-\omega/e$ はその actual normal line の curvature にはできない。
+全 $E$ を含むことと、$\beta$ が $D$ を越して smooth であることが、
+式\eqref{ct:two-normal-balance}の不可欠な仮定である。
+
+\begin{remark}[負の weight を許した比例模型]
+\label{ct:negative-weight}
+この符号は、対照的な模型で直接確認できる。
+$S$ は $E$ に deformation retract するので、$N_T$ に
+$\kappa_T=\omega/e$ の connection を選べる。
+$N_x$ を trivial とし、$w_T=-e$、$\beta=0$ と置けば
+\begin{align*}
+ \Omega_+&=(1+\mu_T/e)\omega
+       +d\mu_x\wedge d\theta_x+d\mu_T\wedge\alpha_T,\\
+ \lambda_+&=(\mu_x-w_x)d\theta_x+(\mu_T+e)\alpha_T
+\end{align*}
+となり、$d\lambda_+=\Omega_+$ である。
+任意の fixed stratified Lagrangian fibration $p$ に対し、
+$(\mu_x,\mu_T,p)$ の lifted fibers は $\Omega_+$-isotropic である。
+Regular reduced torus 上の $N_T$ は、
+$[\kappa_T]|_L=[\omega/e]|_L=0$ と $H^2(L;\ZZ)$ の torsion-free 性から trivial なので、
+full regular fibers は $T^4$ となる。
+Actual Liouville field の connection-horizontal projection は
+\[
+ Z_+=(\mu_x-w_x)\partial_{\mu_x}
+                   +(\mu_T+e)\partial_{\mu_T}
+\]
+であり、$p$ を固定する。
+しかし $\dot\mu_T=\mu_T+e>0$ なので、これは正の時間で両 normal directions を
+zero faces へ collapse させる正-weight collar ではない。
+\end{remark}
+
+Strict triple divisor を含む全 corner では、式\eqref{ct:third-residue}に対応する
+第三の angular residue を同時に扱う必要がある。
+第\ref{tc:section}節では、この必要収支を actual resolution 上の
+一つの logarithmic primitive で実現する。
+この必要収支が正の weights で満たせることは、actual connections、
+foliations、semistable equation $t=xT=xyU$ の restrictions が一致することまでは保証しない。
+それらを備えた smoothing 上の gluing は別の相対条件である。
+
+\subsection{全 coordinate faces を点ごと固定する場合の制限}
+\label{ct:fixed-faces}
+
+\begin{lemma}[Linear normal-coupling form の face rigidity]
+\label{ct:face-rigidity}
+$r\ge2$、$E=\bigoplus_aL_a$ とし、同じ Hermitian line bundles と moment functions を用いて
+\[
+ \Omega=\omega+\sum_a d(\mu_a\alpha_a),
+ \qquad
+ \Omega'=\omega+\sum_a d(\mu_a\alpha_a')
+\]
+とする。Connections は base 上の入力であり、$\boldsymbol\mu$ に依存しないものとする。
+全 coordinate faces $\{z_b=0\}$ を点ごと固定する symplectomorphism $\Phi$ が
+$\Phi^*\Omega'=\Omega$ を満たすなら、全ての $a$ について $\alpha_a'=\alpha_a$ である。
+\end{lemma}
+
+\begin{proof}
+一つの line subbundle $L_a\subset E$ は、$b\ne a$ を選べば face $\{z_b=0\}$ に含まれる。
+従って $\Phi|_{L_a}=\mathrm{id}$ である。
+二つの connection の差を base $1$-form $\delta_a=\alpha_a'-\alpha_a$ と書くと、
+$L_a$ 上の forms の一致から
+\[
+ d(\mu_a\delta_a)=0
+\]
+となる。
+$\mu_a>0$ の radial vector $\partial_{\mu_a}$ と base vector に評価すると
+$\delta_a=0$ を得る。これを各 $a$ に適用する。
+\end{proof}
+
+従って、このような target form に対し全 faces を点ごと固定して
+$\sum_aw_a\kappa_a'=-\omega$ へ straightening できるためには、
+もともと $d\beta=0$ であることが必要である。
+この制限は第\ref{mc:multi}節の定数 $c_a$ の選び方だけに由来するものではない。
+一方、fiberwise な face compatibility、parameter-dependent な別の target、
+または一般の corner gluing の非存在を意味しない。

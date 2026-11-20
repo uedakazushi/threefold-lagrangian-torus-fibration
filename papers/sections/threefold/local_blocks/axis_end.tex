@@ -1,0 +1,429 @@
+\section{三変数積模型の axis end と compact nodal family の厳密な比較}
+\label{ae:section}
+
+本節の対象は、\emph{標準 symplectic form を持つ $\CC^3$ 上の模型}である。
+この模型の一つの axis end を、compact fiber 全体を含めて二変数 nodal family に同定し、
+さらにその端に厳密に一致する pants block を作る。
+Actual な半安定 corner $xyz=tw$ の Kähler form と全 divisor framings を
+この標準模型へ同時に同定することは、別の構成課題として残す。
+
+以下、全ての角変数は周期1とし、$u\in\CC$ に対して
+$\rho_u=\pi|u|^2$, $\theta_u=\arg u/(2\pi)$ と置く。
+$\rho_u\,d\theta_u$ は $u=0$ を越して滑らかに延びる。
+標準 primitive と symplectic form は
+\[
+ \lambda_3=\rho_xd\theta_x+\rho_yd\theta_y+\rho_zd\theta_z,
+ \qquad \Omega_3=d\lambda_3
+\]
+である。$\varepsilon>0$ を固定し、三つの可換関数
+\begin{equation}\label{ae:three-variable}
+ F_1=\rho_x-\rho_y,\qquad F_2=\rho_x-\rho_z,
+ \qquad Q=|xyz-\varepsilon|^2
+\end{equation}
+を考える。Hamiltonian vector field の規約は $\iota_{X_f}\Omega=-df$ である。
+
+\subsection{Primitive を保つ action--angle 座標}
+
+\begin{proposition}\label{ae:exact-coordinate}
+$x\ne0$ 上で
+\begin{equation}\label{ae:coordinate-formula}
+ \theta=\theta_x,\qquad H=\rho_x-\rho_y,\qquad
+ Y=e^{2\pi i\theta}y,\qquad Z=z
+\end{equation}
+と置く。
+これは $x\ne0$ の領域を
+\[
+ \{(H,\theta,Y,Z)\in\RR\times S^1\times\CC^2:
+ H+\pi|Y|^2>0\}
+\]
+へ写す exact symplectomorphism であり、primitive は実際に
+\begin{equation}\label{ae:primitive-equality}
+ \lambda_3=H\,d\theta+\pi|Y|^2d\theta_Y+\pi|Z|^2d\theta_Z
+\end{equation}
+と一致する。
+$J=\pi(|Y|^2-|Z|^2)$, $t=\pi|Y|^2$ と書くと
+\begin{equation}\label{ae:radial-family}
+ F_1=H,\qquad F_2=H+J,\qquad
+ Q_H(Y,Z)=\left|\sqrt{\frac{H+t}{\pi}}\,YZ-\varepsilon\right|^2.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$\rho_Y=\rho_y$, $\rho_Z=\rho_z$ であり、
+$d\theta_Y=d\theta+d\theta_y$ だから
+\[
+ \rho_xd\theta+\rho_yd\theta_y+\rho_zd\theta_z
+ =(\rho_x-\rho_y)d\theta+\rho_Yd\theta_Y+\rho_Zd\theta_Z.
+\]
+これは exact form を加えることなく primitive 自体の等式である。
+逆写像は
+\[
+ x=\sqrt{\frac{H+t}{\pi}}e^{2\pi i\theta},\qquad
+ y=e^{-2\pi i\theta}Y,\qquad z=Z
+\]
+なので、所定の領域上で滑らかな同型となる。
+この式を $xyz$ に代入すれば式\eqref{ae:radial-family}も得る。
+\end{proof}
+
+したがって位相因子 $e^{2\pi i\theta}$ は、longitudinal action を
+$\rho_x$ から $H=\rho_x-\rho_y$ に変える exact shear により取り除ける。
+一方、振幅 $|x|=\sqrt{(H+t)/\pi}$ は依然として $Q_H$ に残る。
+式\eqref{ae:radial-family}は、固定した四次元 fibration と circle の単純な積ではなく、
+$H$ に依存する compact nodal family である。
+
+\subsection{Circle reduction と全 fiber の compact 性}
+
+以後 $0<A<B$ を固定し、$H\in[A,B]$ の end を扱う。
+$w=YZ$ とし、$J=j$ の上で
+\begin{equation}\label{ae:W-coordinate}
+ W=\sqrt{\frac{H+t}{\pi}}\,w
+\end{equation}
+と置く。
+
+\begin{lemma}\label{ae:cubic}
+固定した $H>0$, $j\in\RR$, $R=|W|\ge0$ に対し、$t$ は
+\begin{equation}\label{ae:cubic-equation}
+ t(t-j)(H+t)=\pi^3R^2,\qquad t\ge\max(j,0)
+\end{equation}
+の一意な解である。
+$w\mapsto W$ は各 $j$ における radial homeomorphism であり、
+quotient の原点 $(j,w)=(0,0)$ 以外では滑らかな局所座標変換である。
+\end{lemma}
+
+\begin{proof}
+$\pi|Z|^2=t-j$ なので
+$|w|^2=t(t-j)/\pi^2$ である。
+これを式\eqref{ae:W-coordinate}に代入して cubic equation を得る。
+左辺は $t=\max(j,0)$ で零となり、無限大へ発散する。
+その微分は
+\begin{equation}\label{ae:D}
+ D=(2t-j)(H+t)+t(t-j)
+\end{equation}
+である。
+$t\ge\max(j,0)$ では両項は非負であり、$(j,t)=(0,0)$ 以外では $D>0$ である。
+これにより存在・一意性と単調性が従う。
+$W$ の位相は $w$ と同じであり、その絶対値は $|w|$ の連続な狭義増加関数である。
+Circle action の free locus では $(j,w)$ は滑らかな quotient coordinates なので、
+上の微分の計算から最後の主張も従う。
+\end{proof}
+
+\begin{proposition}\label{ae:compact-end}
+$a>0$, $0<\vartheta<1$ を固定し、$(j,q)=(0,\varepsilon^2)$ を内部に含む
+小さい compact disk $U$ を
+\begin{equation}\label{ae:end-window}
+ |j|\le a\varepsilon,\qquad |q-\varepsilon^2|\le\vartheta\varepsilon^2
+\end{equation}
+の中に取る。
+$(H,J,Q_H)$ の逆像
+\[
+ M_{A,B,U}=\{\,H\in[A,B],\ (J,Q_H)\in U\,\}
+\]
+は、$\theta$-circle を含めて compact な saturated end である。
+正則 fiber は $T^3$、$(j,q)=(0,\varepsilon^2)$ の fiber は
+$(\text{pinched }T^2)\times S^1$ である。
+$\varepsilon$ を十分小さくすれば、この全 end は任意に指定した小さい normal disk と、
+$[A,B]$ より少し広い $x$-axis annulus の中に入る。
+\end{proposition}
+
+\begin{proof}
+固定した $(H,j,q)$ 上で $W$ は円 $|W-\varepsilon|=\sqrt q$ を動く。
+補題\ref{ae:cubic}により、各 $W$ に対応する半径は一意である。
+$J$ が生成する逆位相 circle action は $(Y,Z)=(0,0)$ 以外で自由であり、
+その quotient は $(j,w)$、従って $(j,W)$ で記述される。
+円が $(j,W)=(0,0)$ を通らない場合、normal fiber は円上の principal circle bundle、
+従って $T^2$ である。
+$j=0,q=\varepsilon^2$ では一つの orbit circle が潰れて once-pinched torus となる。
+$Q_H=0$ の別の critical locus は式\eqref{ae:end-window}から除かれている。
+$\theta$ は自由な circle coordinate なので、全 fiber の位相型が従う。
+
+Compact 性のために、$C_\vartheta=1+\sqrt{1+\vartheta}$ と置くと
+\[
+ |W|\le C_\vartheta\varepsilon,\qquad
+ |w|\le\sqrt{\frac\pi A}|W|
+\]
+である。また
+\begin{equation}\label{ae:normal-radius}
+ |Y|^2+|Z|^2
+ =\sqrt{(j/\pi)^2+4|w|^2}
+ \le\varepsilon\sqrt{(a/\pi)^2+4\pi C_\vartheta^2/A}.
+\end{equation}
+従って $0\le t\le K\varepsilon$ となる一様定数 $K$ がある。
+$H$ と $\theta$ の領域も compact なので、閉集合 $M_{A,B,U}$ は compact となる。
+原座標では
+\begin{equation}\label{ae:x-radius}
+ \rho_x=H+t\in[A,B+K\varepsilon].
+\end{equation}
+この評価と式\eqref{ae:normal-radius}が最後の主張を与える。
+\end{proof}
+
+\begin{remark}\label{ae:saturated-warning}
+固定すべき action interval は $H\in[A,B]$ である。
+$\rho_x=H+t$ は一つの normal torus 上で変動するので、
+単に $\rho_x\in[A,B]$ として領域を切ると、一般には compact fibers を切断する。
+また $A>0$ は本命題の仮定である。
+$H=j=0$ では式\eqref{ae:cubic-equation}は $t=\pi R^{2/3}$ となり、
+$x$-axis の通常の product normal approximation を corner 自身まで一様には延ばせない。
+\end{remark}
+
+\subsection{Normal scale と action・return holonomy}
+
+固定軸 $(Y,Z)=(0,0)$ における Taylor 展開は
+\begin{equation}\label{ae:hessian}
+ Q_H-\varepsilon^2
+ =-2\varepsilon\sqrt{H/\pi}\operatorname{Re}(YZ)
+ +O\bigl(|(Y,Z)|^4\bigr)
+\end{equation}
+である。
+振幅を固定軸上の値で凍結すれば
+\begin{equation}\label{ae:frozen}
+ Q_H^{\mathrm{fr}}=\frac H\pi|YZ-c_H|^2,
+ \qquad c_H=\varepsilon\sqrt{\pi/H}
+\end{equation}
+となる。これは同じ normal Hessian を持つが、全 compact fiber の return data まで
+一致するとは限らない。以下で実際に差を計算する。
+
+\begin{proposition}\label{ae:action}
+Regular values の単連結な小領域で complementary cycle を mark する。
+その normal action は、適切な cycle chart で
+\begin{equation}\label{ae:action-integral}
+ I(H,j,q)=\frac1{2\pi}
+ \int_{|W-\varepsilon|=\sqrt q}
+ t_H(j,|W|)\,d\arg W
+\end{equation}
+と書ける。ここで $t_H$ は式\eqref{ae:cubic-equation}の解である。
+Cycle chart を変えると $j$ の整数倍を加えることがある。
+残り二つの action は $H$ と $j$ である。
+したがって complementary cycle の period covector は $dI$ であり、
+$H$-angle を閉じるための補正時間は $\partial_H I$ である。
+\end{proposition}
+
+\begin{proof}
+Normal primitive は、$J=j$ の上で
+\[
+ \lambda_N=t\,d\theta_Y+(t-j)d\theta_Z
+ =\frac{t}{2\pi}d\arg(YZ)-j\,d\theta_Z.
+\]
+$Z$ の位相を零にする局所切断では、$\arg(YZ)=\arg W$ だから
+式\eqref{ae:action-integral}を得る。
+別の切断は $J$-orbit を整数回加えることがあり、その action は $j$ である。
+円が $W=0$ を通る正則値では、必要に応じて $Y$ を使う切断へ切り替える。
+この場合は積分中の $t$ を $t-j$ に置き換え、上の整数倍の変更で滑らかに継続する。
+したがって式は、origin を横切る極座標切断を無理に一つに固定する主張ではない。
+
+$\theta$-orbit と $J$-orbit の primitive の積分はそれぞれ $H,j$ である。
+一般に、mark した cycle に沿って Hamiltonian vector fields の組合せが
+周期1の閉軌道を与え、その係数を $\tau_H,\tau_J,\tau_Q$ とすると、
+cycle integral の微分は
+\[
+ dI=\tau_H\,dH+\tau_J\,dj+\tau_Q\,dq
+\]
+となる。
+実際、cycle の変形 vector field を $V$ とすれば、Cartan formula により
+その積分の微分は $\int\Omega(V,\dot\gamma)$ であり、
+$\Omega(V,X_f)=df(V)$ を使えばこの等式を得る。
+これが period covector の記述を与える。
+\end{proof}
+
+微分も cubic equation から直接求まる。
+式\eqref{ae:D}の $D$ を用い、$R,j$ を固定して微分すれば
+\begin{equation}\label{ae:implicit-derivatives}
+ \partial_Ht=-\frac{t(t-j)}D,\qquad
+ \partial_jt=\frac{t(H+t)}D,\qquad
+ \partial_Rt=\frac{2\pi^3R}D.
+\end{equation}
+これにより $H$ とともに動く action family を、単なる leading term でなく正確に追える。
+
+Product coordinates における $H$-circle bundle は、$d\theta$ を接続とすれば flat である。
+しかし $X_{Q_H}$ の $\theta$ 方向の速度は $\partial_HQ_H$ である。
+Normal return を $Q_H$-flow と必要な $J$-flow により行うとき、
+その $H$-angle holonomy は
+\begin{equation}\label{ae:holonomy}
+ -\partial_H I\pmod{\ZZ}
+\end{equation}
+である。実際、これを閉じる $H$-flow の時間が $\partial_HI$ だからである。
+従って circle bundle が位相的に自明で flat な接続を持つことと、
+integrable system の return holonomy が零であることは異なる。
+
+Focus--focus Taylor invariant を取り出すには、Eliasson coordinates に基底を規格化し、
+action から universal logarithmic term を引く必要がある\cite{vungoc-local}。
+生の $Q_H$ を規格化済みの座標とは扱わない。
+式\eqref{ae:action-integral}は、その regularization の入力となる actual period family を与える。
+本節の相対構成では、この family 自体を保つため、Taylor invariant の一致を
+normal Hessian の一致から推測する必要はない。
+
+\subsection{凍結した scale への exact 同定を妨げる action の差}
+
+\begin{proposition}\label{ae:action-obstruction}
+$H>0$ を固定し、$j=0$, $q=\varepsilon^2$ の compact nodal fiber を考える。
+その非消失 cycle の標準 normal primitive に関する action を $A_H$ とする。
+このとき
+\begin{equation}\label{ae:action-strict}
+ 0<A_H<2\varepsilon\sqrt{\pi/H}=2c_H.
+\end{equation}
+右辺は式\eqref{ae:frozen}の凍結模型における、対応する nodal cycle の action である。
+したがってこれら二つの reduced nodal neighborhoods の間に、
+当該 cycle の marking と primitive を exact form を除いて保つ symplectomorphism は存在しない。
+\end{proposition}
+
+\begin{proof}
+Nodal circle $|W-\varepsilon|=\varepsilon$ は、極座標で
+\[
+ R=2\varepsilon\cos\phi,\qquad -\pi/2\le\phi\le\pi/2
+\]
+と表せる。Origin における一つの orbit の collapse を含めても、
+非消失 cycle の action は有限であり
+\begin{equation}\label{ae:nodal-action}
+ A_H=\frac1{2\pi}\int_{-\pi/2}^{\pi/2}
+ t_H(0,2\varepsilon\cos\phi)\,d\phi
+\end{equation}
+となる。$j=0$ の cubic equation は
+$t\sqrt{H+t}=\pi^{3/2}R$ と書ける。
+従って $R>0$ では
+\[
+ 0<t_H(0,R)<\frac{\pi^{3/2}R}{\sqrt H}.
+\]
+これを積分し、$\int_{-\pi/2}^{\pi/2}2\varepsilon\cos\phi\,d\phi=4\varepsilon$
+を使えば式\eqref{ae:action-strict}を得る。
+
+凍結模型では、$j=0$ の orbit quotient の normal action density は
+$\pi|YZ|$ であり、nodal circle は $|YZ-c_H|=c_H$ である。
+同じ極座標積分により action は $2c_H$ となる。
+Exact symplectomorphism は mark した closed cycle の primitive integral を保つので、
+上の厳密な不等式が矛盾を与える。
+Cycle に vanishing cycle の整数倍を加えても、その nodal action は零だから差は消えない。
+\end{proof}
+
+固定した $H>0$ に対して、より詳しくは
+\[
+ t_H(0,R)=\frac{\pi^{3/2}}{\sqrt H}R
+ -\frac{\pi^3}{2H^2}R^2+O(R^3)
+\]
+であり、式\eqref{ae:nodal-action}へ代入して
+\begin{equation}\label{ae:action-expansion}
+ A_H=2\varepsilon\sqrt{\pi/H}
+ -\frac{\pi^3\varepsilon^2}{2H^2}+O(\varepsilon^3)
+\end{equation}
+を得る。$H$ が正の compact interval を動く場合、剰余も一様に取れる。
+
+\begin{remark}\label{ae:obstruction-scope}
+この action constant は、指定 primitive と cycle marking を保つ
+\emph{exact} な比較の不変量である。
+正規化された V\~u Ng\d{o}c の Taylor invariant そのものと同一視していない。
+一般の非 exact な symplectic 同値を否定するものでもない。
+また別の Auroux parameter を選べばこの一つの action を合わせられる可能性はあるが、
+それだけで残りの return data の一致は従わない。
+\end{remark}
+
+\subsection{一つの axis end を保つ pants block の構成}
+
+定数 scale の Auroux 模型へ置き換える代わりに、
+式\eqref{ae:radial-family}の family をそのまま pants 上へ延ばす。
+$(P,\omega_P)$ を symplectic pants とし、$h:P\to\RR$ を一つの saddle を持つ
+Morse function とする。
+Hermitian line bundles $E_+,E_-$ と unitary trivialization
+$s:E_+\otimes E_-\simeq P\times\CC$ を選ぶ。
+Dual connections を用い、前節と同じ coupling form
+\[
+ \Omega_P=p_P^*\omega_P+d(\rho_+\alpha_++\rho_-\alpha_-),
+ \qquad J=\rho_+-\rho_-,\quad \rho_\pm=\pi|y_\pm|^2
+\]
+を入れる。
+$a:P\to(0,\infty)$ を、$h$ の connected levels 上で一定な smooth basic function とし、
+saddle の近傍では定数とする。
+\begin{equation}\label{ae:pants-family}
+ w=s(y\otimes z),\qquad
+ Q_a=\left|\sqrt{\frac{a+\rho_+}{\pi}}\,w-\varepsilon\right|^2
+\end{equation}
+と置く。
+
+\begin{theorem}\label{ae:one-end-pants}
+十分小さい normal domain 上で $J,Q_a,h$ は Poisson commute する。
+$\varepsilon$ と $(J,Q_a)$ の window を十分小さく選べば、
+compact saturated pants block と、connected $h$-levels の Reeb quotient $r_h:P\to G_h$ を用いる写像
+\[
+ (J,Q_a,r_h):M\longrightarrow U\times G_h
+\]
+が得られ、その正則 fiber は $T^3$、
+node と saddle の交点 fiber は
+$(\text{pinched }T^2)\times\figeight$ となる。
+
+一つの指定 boundary annulus に $(H,\theta)$ 座標があり、そこで
+\[
+ \omega_P=dH\wedge d\theta,\qquad h=H,\qquad a=H>0
+\]
+とする。さらに、その annulus 上で個別の unitary normal frames を指定し、
+tensor trivialization はその積と一致するとする。
+両 normal connections はこれらの frames に関して connection $1$-form が零となる
+trivial flat connections に取る。このとき、その end は式\eqref{ae:three-variable}の $x$-axis end と、
+\emph{whole compact fibers を含めて exact symplectomorphic} である。
+他の二つの端のデータを自由に選ぶなら、これらの入力を pants 全体へ延ばせる。
+\end{theorem}
+
+\begin{proof}
+Connection の水平・垂直分解で、$\rho_\pm$ と $w$ は水平輸送に関して一定である。
+$Q_a$ の水平微分は $a$ によるものだけであり、$a$ が basic なので
+$da(X_h)=0$ である。
+水平 symplectic form は $\omega_P+J\kappa$ であり、曲面上ではこれは $\omega_P$ の
+零でない関数倍だから、対応する $h$ の Hamiltonian direction も同じである。
+従って $\{Q_a,h\}=0$ となる。
+$J$ による circle action は $w,\rho_\pm$ を保つので $\{J,Q_a\}=0$ であり、
+$\{J,h\}=0$ も成り立つ。
+
+一つの connected $h$-level 上では $a$ は一定である。
+従って補題\ref{ae:cubic}と命題\ref{ae:compact-end}の証明をそのまま使える。
+$P$ は compact で $\min a>0$ なので半径評価も一様であり、compact saturated block を得る。
+Regular level circle と critical figure-eight 上では normal circle bundle は位相的に自明である。
+従って full fiber の位相は normal torus または pinched torus と、その level graph の積である。
+その strata の水平射影は高々1次元、垂直部分は normal isotropic stratum であり、
+mixed term はないので全 strata は isotropic である。
+Saddle の近傍で $a$ は定数なので、同時特異点の二次部分は
+focus--focus pair と Morse saddle の直和になる。
+
+指定 annulus 上では coupling form が
+$dH\wedge d\theta+\omega_{\CC^2}$ となり、$Q_a$ は $Q_H$ そのものである。
+命題\ref{ae:exact-coordinate}の逆写像が、primitive と三つの関数を正確に同定する。
+命題\ref{ae:compact-end}により、その写像は compact fibers 全体の上で定義される。
+ここでは semiglobal な invariant を捨てず、actual radial family を保っている。
+
+最後に、一つの boundary annulus に指定した line-bundle frame は、
+他の二つの境界を自由にするなら pants 上へ延ばせる。
+実際、$H^2(P;\ZZ)=0$ であり、制限写像
+$H^1(P;\ZZ)\to H^1(S^1;\ZZ)$ は全射だから、
+一つの境界における任意の winding を大域 gauge で実現できる。
+この議論を二つの line に適用し、tensor trivialization も合わせて延ばす。
+指定 trivial flat connections は接続の affine な接着によって延ばす。
+$h$ は指定端を incoming または outgoing とする一つの saddle cobordism として延ばし、
+他端の値を自由に選ぶ。
+$a$ はその Reeb graph 上で正の関数として延ばし、vertex の近傍で正の定数とすればよい。
+これらは全て指定端の小さい collar を変えずに行える。
+\end{proof}
+
+\begin{remark}\label{ae:one-end-limit}
+この定理は、一つの標準 axis end を保ち、他の端を自由にする相対構成である。
+全ての端を独立に指定する問題、actual $xyz=tw$ corner の Kähler form の比較、
+および周囲の領域を充填して外側境界を消す問題は含まない。
+別の actual symplectic neighborhood へこの pants block を移す際には、
+指定 end first jets の大域 normal identification への延長と、
+前節の相対 Moser の仮定を別途確認する必要がある。
+\end{remark}
+
+\subsection{位相・pole gauge の exact lift の範囲}
+
+Annulus 上の unitary phase $e^{2\pi in\theta}$, $n\in\ZZ$ は、
+\[
+ (I,\theta,y,z)\longmapsto
+ (I-n\rho_+,\theta,e^{2\pi in\theta}y,z)
+\]
+という exact lift を持つ。負の $n$ も許される。
+Normal primitive に加わる $n\rho_+d\theta$ が longitudinal action の補正と相殺するためである。
+固定した compact block に対しては、$|n|\rho_+$ が annulus の action 方向の余白より小さければよく、
+式\eqref{ae:normal-radius}の評価により十分小さい $\varepsilon$ で実現できる。
+
+しかし holomorphic gauge $x^n$ には、位相 $e^{2\pi in\theta}$ だけでなく振幅 $|x|^n$ もある。
+上の shear はこの振幅を吸収しない。
+例えば base angle を固定し、$y$ を文字通り $x^ny$ に変える写像は、
+base を固定した normal tangent plane 上の symplectic area を $|x|^{2n}$ 倍する。
+Longitudinal action だけの補正ではこの垂直方向の変化は相殺しない。
+従って algebraic な pole 座標の変換だけから whole-fiber の symplectic 同定を結論できない。
+また $n\ne0$ の位相 frame は $x=0$ を越して非消失に延びない。
+Annulus 上で可能な exact lift と、corner を含む相対延長を区別する必要がある。

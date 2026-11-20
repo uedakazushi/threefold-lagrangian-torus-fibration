@@ -1,0 +1,386 @@
+\section{Shared actions を変えた upper port の actual elliptic cap}
+\label{acp:section}
+
+本節では、自然な upper meridian $\gamma_U$ と異なる
+\[
+ \delta=\Gamma_H-\gamma_U=\gamma_+
+\]
+を潰す cap を構成する。$\delta$ の $\theta_x$-degree は零であり、
+自然な upper disk に対する第\ref{mx:section}節の障害の対象ではない。
+新しい cap の shared actions は、元の $(H,J)$ と異なる。
+その一方で、元の upper cut collar の \emph{whole-fiber foliation} は厳密に保持する。
+構成は同じ actual annular tube の中で行い、primitive の affine term $b\,d\theta_x$ も保持する。
+終点には rank-two elliptic $T^2$ と genuine な基底境界が残る。
+
+\subsection{Upper action と cut の射影}
+
+標準模型の $H=\rho_x+\rho_y$, $J=\rho_y-\rho_z$, $u=\rho_y$ を使う。
+$c^2<q<q_s(h,j)$ の upper regular sheet では
+\[
+ R_q(\phi)=c\cos(2\pi\phi)+\sqrt{q-c^2\sin^2(2\pi\phi)},
+ \qquad U=U_+(h,j,q,\phi)>u_1(h,j)
+\]
+を $f_{h,j}(U)=R_q(\phi)$ により定め、
+\[
+ \mathcal I(h,j,q)=I_+(h,j,q)=\int_0^1U_+(h,j,q,\phi)\,d\phi
+\]
+と書く。本節では $q>c^2$ の cycle chart のみを使う。
+
+\begin{lemma}[Upper cut の正則な射影]\label{acp:projection}
+Upper regular sheet で
+\begin{equation}\label{acp:derivatives}
+ \mathcal I_q<0,\qquad \mathcal I_h+\mathcal I_j-1>0
+\end{equation}
+が成り立つ。従って、固定した $q_*$ に対する写像
+\begin{equation}\label{acp:cut-map}
+ (h,j)\longmapsto
+ (a_x,a_z)=\bigl(h-\mathcal I(h,j,q_*),\ \mathcal I(h,j,q_*)-j\bigr)
+\end{equation}
+は orientation-preserving local diffeomorphism である。
+像では $a_x,a_z>0$ である。
+\end{lemma}
+
+\begin{proof}
+$G(h,j,u)=(h-u)u(u-j)$ と置く。Upper sheet では $G_u<0$ であり、
+$U$ は $G(h,j,U)=\pi^3R_q(\phi)^2$ を満たす。
+$R_q>0$ と $(R_q)_q>0$ により $U_q<0$、従って $\mathcal I_q<0$ である。
+また
+\[
+ G_h+G_j+G_u=(h-u)(u-j)
+\]
+なので、implicit differentiation により
+\[
+ U_h+U_j-1=-\frac{(h-U)(U-j)}{G_u(h,j,U)}>0.
+\]
+これを $\phi\in[0,1]$ で積分すれば第二の不等式を得る。
+式\eqref{acp:cut-map}の Jacobian determinant は
+$\mathcal I_h+\mathcal I_j-1$ である。
+$\max(0,j)<U<h$ が全ての $\phi$ で成り立つため、
+$\mathcal I<h$ かつ $\mathcal I>j$ となり、$a_x,a_z>0$ も従う。
+\end{proof}
+
+小さい compact moment rectangle $R$ を、式\eqref{acp:cut-map}が
+その開近傍で diffeomorphism となるように選ぶ。その像を $P$ とする。
+整形後の toric coordinates
+\[
+ A_x=\rho_x,\qquad A_z=\rho_z,\qquad M=\rho_y
+\]
+では、upper cut は
+\begin{equation}\label{acp:g}
+ M=g(A_x,A_z)>0,\qquad (A_x,A_z)\in P
+\end{equation}
+という smooth graph になる。
+
+$\mathcal I$ の $q$ に関する inverse を
+$q=\mathcal Q(h,j,M)$ と書けば、collar 上の旧 third label は
+\[
+ \widehat q(A_x,A_z,M)
+ =\mathcal Q(A_x+M,M-A_z,M)
+\]
+である。式\eqref{acp:derivatives}より
+\begin{equation}\label{acp:q-monotone}
+ \left.\frac{\partial\widehat q}{\partial M}\right|_{A_x,A_z}
+ =\frac{1-\mathcal I_h-\mathcal I_j}{\mathcal I_q}>0.
+\end{equation}
+従って $M<g(A_x,A_z)$ は、upper cut の外側 $Q<q_*$ に対応する。
+これは shared moments を固定する方向の変更を含む式であり、
+固定した旧 $(h,j)$ における $\mathcal Q_M<0$ と混同しない。
+
+\subsection{Whole upper collar の Hamiltonian 整形}
+
+\begin{lemma}[Upper graph の相対整形]\label{acp:straighten}
+Upper cut $q=q_*>c^2$ の十分小さい compact regular collar に対して、
+Graph homotopy $U_t=(1-t)U+t\mathcal I$ の swept band の近傍に
+support を持つ Hamiltonian symplectomorphism $\psi$ がある。
+この swept band は $u_1(h,j)<u<h$、$x,y,z\ne0$ の compact subset に取れるが、
+元の $Q$ に関する同じ regular collar 内に留まるとは限らない。
+$\psi$ は $H,J$ を保ち、指定した元の collar の各 whole torus を
+\[
+ H=h,\qquad J=j,\qquad \rho_y=\mathcal I(h,j,q)
+\]
+という toric moment level へ送る。
+Lower sheet と whole lower focus の近傍、および swept band と離れた指定領域では恒等である。
+元の whole saddle fiber の regular 部分は途中で動いてよい。
+最終構成では $\psi^{-1}$ で元の $K$ 全体を戻すため、元の whole saddle も厳密に保持される。
+\end{lemma}
+
+\begin{proof}
+$U_t=(1-t)U+t\mathcal I$ とする。$U_q<0$、$\mathcal I_q<0$ なので
+$(U_t)_q<0$ であり、$u=U_t(h,j,q,\phi)$ の inverse $q_t$ がある。
+\[
+ k(h,j,q,\phi)=\int_0^\phi(U(h,j,q,\eta)-\mathcal I(h,j,q))\,d\eta
+\]
+は周期的である。第\ref{we:section}節と同じ normal-velocity 計算により、
+\[
+ K_t=\eta_0(\mathcal I(h,j,q_t))\,k(h,j,q_t,\phi)
+\]
+の Hamiltonian flow は、$\eta_0=1$ の whole action band 上でこの graph homotopy を実現する。
+必要なら cutoff を $(h,j,\mathcal I)$ に依存させ、inverse $q_t$ の定義域の境界近傍で
+零となるよう選ぶ。各 $t$ の Hamiltonian を、その時刻の graph band の外へ零で延ばす。
+$U$ と $\mathcal I$ は共に $u_1(h,j)$ と $h$ の間に strict に入るので、
+全ての $U_t$ の swept band は $u_1<u<h$ の compact subset に入る。
+$H,J$ にも cutoff を掛ければ、支持集合を $x,y,z\ne0$ の compact subset に取れるので、
+これは標準 $\CC^3$ 上の compactly supported Hamiltonian flow へ延びる。
+$K_t$ は $\alpha,\beta$ に依存しないため $H,J$ を保つ。
+Support は lower sheet と lower focus の保護近傍を避けるが、
+元の whole saddle の regular 部分と交わる可能性は排除しない。
+この可能性は後の inverse-isotopy construction に影響しない。
+\end{proof}
+
+以下では $\psi(K)$ を考える。整形領域内では元の upper cut と fiber partition は
+式\eqref{acp:g}と toric moment levels になっている。
+最後に全体を $\psi^{-1}$ で戻すので、元の $K$ 上の fibration を変更する必要はない。
+
+\subsection{同じ annular tube 内の actual cap}
+
+\begin{theorem}[別の meridian を潰す actual upper cap]\label{acp:actual-cap}
+第\ref{ai:section}節の標準 annular block $K$ と、その upper cut $q=q_*$ を考える。
+Prototype moment rectangle $R$ は、$j=0$ を内部に保ったまま十分小さく選んでよいとする。
+このとき次の性質を持つ compact cap $\mathcal C_\delta\subset\{x\ne0\}$ が存在する。
+\begin{enumerate}
+\item $\mathcal C_\delta$ は元の $K$ と upper cut だけで交わり、
+upper cut の内側の whole regular fibers の foliation に厳密に接続する。
+自由な parameter 側面の角については regular action base 内で丸めてよい。
+\item Cap の regular fibers は $T^3$、終点は nondegenerate rank-two elliptic $T^2$ である。
+Positive collapsing cycle は $\delta=\Gamma_H-\gamma_U$ であり、
+新しい shared actions の cycles は $\gamma_U$ と $\delta-\Gamma_J$ である。
+\item 任意の distributed twists $(a,d)$ について、scale を最初から $K\cup\mathcal C_\delta$
+全体に合わせて十分小さく選べば、同じ annular embedding により
+cap 全体を actual symplectic tube 内に実現できる。
+元の $K$ の fibers と全 marked primitive periods は保持される。
+\item Affine offset $b$ の符号によらず primitive は cap 上へ滑らかに延び、
+upper boundary の collapsing cycle の period は
+\begin{equation}\label{acp:action}
+ \int_\delta\lambda_{\rm actual}
+ =s\mathcal I(h,j,q_*)=s(h-B(h,j,q_*))>0
+\end{equation}
+である。
+\end{enumerate}
+この定理単独の結論は一つの annular block との相対構成である。
+全 curve assembly との非交差は、追加の初期 window 条件を用いる
+系\ref{acp:assembly-caps}で証明する。他の未指定の corner regions は含めない。
+\end{theorem}
+
+\begin{proof}
+補題\ref{acp:straighten}の整形後に、標準 toric cap
+\begin{equation}\label{acp:toric-cap}
+ \widehat{\mathcal C}_\delta
+ =\{(A_x,A_z)\in P,\ 0\le M\le g(A_x,A_z)\}
+\end{equation}
+を取る。$A_x,A_z$ は一様に正なので、全 cap で $x,z\ne0$ である。
+これは $P\times T^2\times D^2$ 型の領域で、$y$ の circle が $M=0$ で潰れる。
+式\eqref{acp:q-monotone}により、境界直下では cap は $\psi(K)$ の正しい外側にある。
+
+余分な交わりがないことは $R$ の小ささで保証する。
+まず少し大きい $R_0$ の上で整形を作り、cut の torus の compactness から、
+境界から $M$ を $0\le t\le t_0$ だけ減らす部分が整形 collar に入る一様な $t_0>0$ を取る。
+その後、$R\Subset R_0$ の $j$-幅を $t_0$ より小さく選ぶ。
+Cap の任意の点で $t=g(A_x,A_z)-M\ge0$ と置き、同じ $(A_x,A_z)$ を持つ境界点の
+旧 moments を $(h_b,j_b)\in R$ とすると、
+\begin{equation}\label{acp:moment-exit}
+ H=h_b-t,\qquad J=j_b-t.
+\end{equation}
+もしその点が $\psi(K)$ にも属すれば $J$ は $R$ の $j$-range に入るため、
+$t\le\operatorname{width}_j(R)<t_0$ である。
+従ってその点は整形 collar 内にあり、$t>0$ なら $Q\circ\psi^{-1}<q_*$ の upper sheet に属する。
+これは $\psi(K)$ の定義に反する。よって交わりは $t=0$ の upper cut だけである。
+特に、深い cap が lower sheet に回り込んで既存 $K$ と交わる可能性も、この moment-range の議論で除かれる。
+
+$\mathcal C_\delta=\psi^{-1}(\widehat{\mathcal C}_\delta)$ と定める。
+Toric foliation を pull back すると、元の $K$ の upper collar の fiber partition と厳密に一致する。
+Base の接続には、regular overlap 上の
+\[
+ (h,j,q)\longmapsto
+ (A_x,A_z,M)=(h-\mathcal I,\mathcal I-j,\mathcal I)
+\]
+を使う。$q$ 自身は action coordinate ではない。まず $(h,j,\mathcal I)$ を action coordinates とし、
+\[
+ \begin{pmatrix}A_x\\ A_z\\ M\end{pmatrix}
+ =\begin{pmatrix}1&0&-1\\0&-1&1\\0&0&1\end{pmatrix}
+ \begin{pmatrix}h\\j\\\mathcal I\end{pmatrix}
+\]
+という determinant $-1$ の integral basis change を用いる。
+元の $(h,j,q)$ からの full Jacobian は $-\mathcal I_q>0$ である。
+従って境界近傍の leaf space と compact fibers は連続して接続する。
+Parameter 側面は自由であり、必要ならその角だけを regular action coordinates 内で丸める。
+
+Source の toric cycles を $e_x,e_y,e_z$ と書けば、cut 上で
+\[
+ e_y=\delta,\qquad e_x=\Gamma_H-\delta=\gamma_U,
+ \qquad e_z=\delta-\Gamma_J.
+\]
+これは integral unimodular basis であり、$e_y$ が正向きに潰れる。
+Toric cap の moment labels は $(A_x,A_z,M)$ である。
+元の scalar label とも collar 上で合わせたい場合は、$M$ に関して strictly increasing な
+smooth function $q_{\rm cap}(A_x,A_z,M)$ を、$M=g$ の collar では $\widehat q$、
+$M=0$ の近傍では positive coefficient times $M$ となるよう選べる。
+実際、top collar に support を持ち、$M=g$ の近傍で1となる smooth cutoff $\chi$ を取る。
+その collar で $D=\partial_M\widehat q>0$ とし、parameter-dependent constant
+\[
+ a(A_x,A_z)=
+ \frac{q_*-\int_0^g\chi D\,dM}{\int_0^g(1-\chi)\,dM}
+\]
+を使う。Collar を一様に薄くすれば分子・分母とも正である。
+$\partial_Mq_{\rm cap}=\chi D+(1-\chi)a$、$q_{\rm cap}(0)=0$ と定めると、
+$q_{\rm cap}(g)=q_*$ かつ top collar 上で $q_{\rm cap}=\widehat q$ となる。
+ここで $a$ は $M$ には依存しないが、$(A_x,A_z)$ には smooth に依存する。
+これにより $(A_x,A_z,q_{\rm cap})$ は cap の smooth fibration labels となる。
+旧 $(H,J,Q)$ と一致するのは collar の transition を通じての意味であり、
+旧 $(H,J)$ を cap の固定された二つの parameter として維持するとはしない。
+
+Cap は compact であり、$x$ は正の下界を持つ。
+従って第\ref{ai:section}節の annular insertion formula は $K\cup\mathcal C_\delta$ の
+少し大きい開近傍で定義される。固定した twists に対し base displacement は $O(s)$、
+normal radii は $O(\sqrt s)$ なので、scale を小さくすれば全 cap が同じ actual tube に入る。
+Hamiltonian map $\psi$ とその逆は $\{x\ne0\}$ の compact subset に support を持つため、
+この条件は逆像を取った後も成立する。
+
+最後に、元の annular primitive は $s\lambda_0+b\,d\theta_x$ である。
+両項とも $\{x\ne0\}$ 上で滑らかであり、$\mathcal C_\delta$ 全体へ延びる。
+Hamiltonian isotopy による $\lambda_0$ の変化は exact であり、
+$d\theta_x$ も identity に isotopic な写像によって cohomology class を変えない。
+$\delta$ の $\theta_x$-degree は零なので、その period は $sI_+$ である。
+Toric disk の symplectic area は同じ値であり、$I_+=h-B>0$ を使えば式\eqref{acp:action}を得る。
+\end{proof}
+
+\subsection{自然な cap 障害との整合と残る境界}
+
+New shared actions は、元の upper collar 上で
+\begin{equation}\label{acp:new-shared}
+ A_x=H-I_+=B,\qquad A_z=I_+-J
+\end{equation}
+である。これらの flows は source の $e_x,e_z$ cycles に対応する。
+Actual scale での Hamiltonian labels は $(sA_x,sA_z,sM)$、primitive actions は
+\[
+ (b+sA_x,\ sA_z,\ sM)
+\]
+であり、affine offset は潰れない第一の circle に残る。
+
+Cap center $M=0$ では、旧 moments は
+\[
+ H=A_x>0,\qquad J=-A_z<0
+\]
+である。従って $J=0$ の upper boundary torus から center へ進む disk は、
+旧 $(H,J)$ の level を保たない。
+旧 fixed-moment reduction が一つの smooth disk になるという
+第\ref{mx:section}節の natural-cap hypothesis は成立していない。
+また positive collapse cycle は $\gamma_U$ ではなく $\delta$ である。
+従って $k=1$ の12端の Maslov obstruction と矛盾しない。
+
+この cap の positive meridian は source と actual の双方で Maslov index $2$ を持つ。
+Source toric disk の index が2であり、annular embedding の derivative correction は
+$\theta_x$-degree に比例するが、その degree が $\delta$ では零だからである。
+より直接には、cap 全体が同じ symplectic embedding の domain に含まれるため、
+source の disk と boundary Lagrangian bundle をそのまま移せる。
+
+\subsection{Global lower-root cutoff を用いた全 curve assembly との分離}
+
+次の系では、既存の任意の parameter choices に cap を追加するとは主張しない。
+第\ref{ai:section}節の simultaneous assembly を作る最初の段階で、
+prototype moment rectangle と共通 normal window を、以下の小ささ条件も満たすよう選ぶ。
+Curve fibration の radial parameter を、元の prescribed collar より広い範囲で
+$\mathfrak a_s=\widehat I-b$ とする追加条件は不要である。
+本小節の $H_0,J_0$ は scale 前の source moments、$J$ は actual global normal moment を表す。
+
+\begin{corollary}[全24端に対する別 meridian の同時 cap]
+\label{acp:assembly-caps}
+第\ref{ai:section}節の同じ global normal embedding による
+$C_{56}$ curve--annular assembly を考える。
+その curve block は、固定した $0<\delta_0<1/2$, $a_{\min}>0$ に対し
+\begin{equation}\label{acp:global-lower-cutoff}
+ |J|\le s j_*,\qquad \rho_U<\delta_0sa_{\min}
+\end{equation}
+を満たす lower normal components からなるものとする。
+これは第\ref{ai:section}節の一様な lower-root construction の条件である。
+
+第\ref{acp:section}節の整形を少し大きい moment rectangle $R_0$ 上で準備する。
+その後に $R\Subset R_0$ と共通 window を、
+\begin{gather*}
+ \operatorname{pr}_jR=[-\varepsilon,\varepsilon],\qquad
+ 0<j_*<\varepsilon,\qquad 2\varepsilon<t_0,\\
+ \varepsilon+j_*<t_0,\qquad
+ \underline h-(\varepsilon+j_*)>2\delta_0a_{\min},
+ \quad \underline h=\min\operatorname{pr}_hR
+\end{gather*}
+となるよう選ぶ。ここで $t_0>0$ は、整形後の upper cut から
+$M$ を $0\le t<t_0$ だけ減らした部分の逆像が strict upper sheet
+$\rho_y>u_1(H_0,J_0)$ に留まる一様な定数である。
+
+このとき、十分小さい共通 scale $s>0$ に対し、全24端へ
+定理\ref{acp:actual-cap}の $\delta$-caps を同時に付加できる。
+各 cap は元の annular block と upper cut のみで交わり、
+curve block とは交わらず、異なる端の cap interiors も互いに素である。
+全ての元の fibers、既存の overlaps の marked periods、individual normal twists
+および一つの global primitive から決まる offsets $b_i$ は保持される。
+\end{corollary}
+
+\begin{proof}
+まず条件の両立を確認する。
+既存の common collar 上で $\mathfrak a_s=sH_0$、
+$\mathfrak a_s\ge sa_{\min}$ なので $a_{\min}\le\underline h$ とできる。
+従って $\underline h-2\delta_0a_{\min}>0$ である。
+少し大きい $R_0$ 上で upper regular collar と整形を固定すれば、
+compactness により $t_0>0$ が得られる。
+その後に $\varepsilon,j_*$ を縮めれば全条件を満たす。
+Global window の $j_*$ を小さくすることは既存の radial smallness inequalities を強め、
+$j=0$ の focus fibers を残すため、curve construction と衝突しない。
+
+同じ actual tube と global normal model の共通座標では、
+distributed twists の値によらず source map は厳密に
+\begin{equation}\label{acp:cap-common-coordinates}
+ \widehat I_i=b_i+sH_0,\qquad
+ U=\sqrt{s}\,e^{-2\pi i\theta_x}y,\qquad V=\sqrt{s}\,z,
+ \qquad \rho_U=s\rho_y,\quad J=sJ_0
+\end{equation}
+を満たす。
+$K\cup\mathcal C_\delta$ は $x\ne0$ の compact subset であるから、
+その全体で $H_0$ と normal moments は一様に有界である。
+$b_i=I_i^0-sh_0$ より base image は $I_i^0+O(s)$、normal radius は $O(\sqrt s)$ となる。
+従って、最初に固定した coordinate germ と global normal embedding の一致する
+fixed collar neighborhood に、scale を縮めて全 $K\cup\mathcal C_\delta$ を入れられる。
+ここで必要なのは coordinate embedding の equality であり、
+$\mathfrak a_s=\widehat I_i-b_i$ という fibration formula の追加の延長ではない。
+
+一つの cap と curve block の交点があると仮定し、その source preimage を $p$ とする。
+整形像 $\psi(p)$ では
+\[
+ t=g(A_x,A_z)-M\ge0,\qquad
+ H_0(p)=h_b-t,\qquad J_0(p)=j_b-t,
+ \quad (h_b,j_b)\in R.
+\]
+これは $\psi$ が $H_0,J_0$ を保つためである。
+Curve 側の式\eqref{acp:global-lower-cutoff}と
+式\eqref{acp:cap-common-coordinates}により $|J_0(p)|\le j_*$ なので
+\[
+ 0\le t=j_b-J_0(p)\le\varepsilon+j_*<t_0.
+\]
+従って $p$ は strict upper sheet にあり、$u=\rho_y(p)>u_1(H_0,J_0)$ である。
+$G(h,j,u)=(h-u)u(u-j)$ について
+$G_u(h,j,h/2)=h^2/4>0$ であるから、その upper critical root は
+$u_1(h,j)>h/2$ を満たす。よって
+\[
+ \rho_y(p)>\frac{H_0(p)}2
+ \ge\frac{\underline h-(\varepsilon+j_*)}{2}
+ >\delta_0a_{\min}.
+\]
+式\eqref{acp:cap-common-coordinates}から $\rho_U>\delta_0sa_{\min}$ となり、
+curve block の lower-root cutoff に矛盾する。
+この議論は、candidate の base point が元の prescribed $H_0$-range の外にあっても成立する。
+
+元の annular block との交わりは定理\ref{acp:actual-cap}によって upper cut のみである。
+Global normal embedding は同一で単射であり、24個の coordinate collars は互いに素なので、
+十分小さい一つの $s$ により異なる端の cap と annular pieces の余分な交わりも除かれる。
+同じ source cap と cutoff estimates を全24端で使えるため、有限個の tube-domain 条件を
+同時に満たすだけでよい。Twists と $b_i$ は元の annular embedding のものを使い続けるので、
+それらの global compatibility と既存の marked periods は変わらない。
+\end{proof}
+
+\paragraph{選択と残る境界.}
+この系は、最初から上記の small windows を選ぶ simultaneous construction であり、
+任意に固定された大きい $R$ または $j_*$ に対する主張ではない。
+$k=2$ の端では natural $\gamma_U$-cap と本系の $\delta$-cap は同じ upper port に対する
+二つの選択肢であり、同じ port に両方を付加するものではない。
+本系の cap は shared actions を変更するが、元の whole-collar fiber partition を保持する。
+各端の新しい genuine elliptic boundary face と parameter 側面は残り、
+boundary-free fibration、他の geometric corner regions の充填、
+任意の旧 scalar labels の cap 全体への保持は主張しない。
