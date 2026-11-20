@@ -1,0 +1,399 @@
+\section{Membrane の whole-torus family と別の focus block}
+\label{mft:section}
+
+本節では第\ref{exm:section}節の第二 membrane を、非零 chosen graph slice 内の
+六次元 symplectic product へ拡張する。これにより、個別 disk だけでなく、
+その境界を whole $T^3$ fibers とする実際の family を得る。
+さらに同じ ambient space 内に、共有 circle が退化する $A=0$ を越える compact focus block を作る。
+いずれも新しい局所 fibration であり、既存の positive-winding fibration の全 collar に
+自動的に一致するわけではない。その一致が成立する toric collar と、成立しない部分を分ける。
+
+\subsection{第二 membrane の六次元厚み付け}
+
+角度は周期 $1$、$\rho_\zeta=\pi|\zeta|^2$ とする。
+第\ref{tp:radial}項の exact radial map を $\Phi_\tau$ と書き、
+target の標準 complex coordinates を $(X,Y,Z)$ とする。
+次の open domain を考える。
+\[
+ \mathcal D_{e_1}
+ =\{(r,\theta,\zeta,\xi)\in
+       \RR\times(\RR/\ZZ)\times\CC^2:
+       r+e_1+\rho_\zeta>0\}.
+\]
+
+\begin{proposition}[Whole membrane chart]\label{mft:chart}
+写像
+\begin{equation}\label{mft:chart-map}
+ \mathcal F_\tau(r,\theta,\zeta,\xi)
+ =\Phi_\tau^{-1}\left(
+    e^{2\pi i\theta}\sqrt{\frac{r+e_1+\rho_\zeta}{\pi}},
+    e^{-2\pi i\theta}\zeta,\xi\right)
+\end{equation}
+は $\mathcal D_{e_1}$ から $\{X\ne0\}$ の inverse image への diffeomorphism であり、
+\begin{align}
+ \mathcal F_\tau^*\lambda_\tau
+  &=(r+e_1)d\theta+\rho_\zeta d\theta_\zeta
+                      +\rho_\xi d\theta_\xi,
+       \label{mft:primitive}\\
+ \mathcal F_\tau^*\Omega_\tau
+  &=dr\wedge d\theta+\omega_\zeta+\omega_\xi.
+       \label{mft:symplectic}
+\end{align}
+特に $r=0$ はこの actual chart の singular locus ではない。
+\end{proposition}
+
+\begin{proof}
+$P_X=r+e_1+\rho_\zeta$, $P_Y=\rho_\zeta$, $P_Z=\rho_\xi$、
+$\theta_X=\theta$, $\theta_Y=\theta_\zeta-\theta$ であるから、
+$\lambda_{\rm std}=\sum P_i d\theta_i$ を代入すると
+式\eqref{mft:primitive}を得る。微分すれば式\eqref{mft:symplectic}となる。
+Polar notation で書いた $\rho_\zeta d\theta_\zeta$ と
+$\rho_\xi d\theta_\xi$ は、それぞれ coordinate origin まで smooth である。
+
+逆写像は
+\[
+ r=P_X-P_Y-e_1,\quad
+ e^{2\pi i\theta}=X/|X|,\quad
+ \zeta=e^{2\pi i\theta}Y,\quad \xi=Z
+\]
+である。従って全単射かつ smooth inverse を持つ。
+特に $r=0$ では第一座標の radius が
+$\sqrt{(e_1+\rho_\zeta)/\pi}>0$ であり、square root に問題はない。
+\end{proof}
+
+この chart の $\xi=0$, $r,\theta$ 一定の disk が、
+式\eqref{exm:second-disk}の $d_{2,\tau}^{r,\theta}$ である。
+今度は $r,\theta$ および $\xi$ も変数なので、これは独立した六次元 embedding である。
+中央 $x$-coordinate の $r=0$ で $\theta$ を潰す操作は行っていない。
+Actual shared circle はそこで action $e_1$ を持ち、その circle は残る。
+
+\begin{corollary}[Regular torus ports を持つ membrane family]
+\label{mft:torus-family}
+$-e_1<r_-<r_+$、$0<b_-<b_+$、$e_2>0$ とし、
+\[
+ \mathcal B=
+ \{r_-\le r\le r_+,\ b_-\le\rho_\xi\le b_+,\
+                    \rho_\zeta\le e_2\}
+ \subset\mathcal D_{e_1}
+\]
+を取る。これは actual slice 内の compact embedded domain であり、
+\begin{equation}\label{mft:toric-actions}
+ (A,B,p)=(r+e_1,\rho_\xi,\rho_\zeta)
+\end{equation}
+は Lagrangian torus fibration を与える。
+$p>0$ の fibers は whole $T^3$ であり、$p=e_2$ は regular $T^3$ port family である。
+$p=0$ は rank-two elliptic $T^2$ family である。
+Shared cycles と positive normal meridian は、target toric basis で
+\begin{equation}\label{mft:cycles}
+ a=e_X-e_Y,\qquad b=e_Z,\qquad m=e_Y.
+\end{equation}
+Normal disks は面積 $p$、Maslov 指数 $2$ を持つ。
+\end{corollary}
+
+\begin{proof}
+式\eqref{mft:symplectic}は product form なので、三つの actions は可換である。
+$A>0$, $B>0$ により二つの shared circles は全 domain で free である。
+角 $\theta$ の増加は $(X,Y,Z)$ に weights $(1,-1,0)$ で作用し、
+$\theta_\xi$ は weights $(0,0,1)$、$\theta_\zeta$ は weights $(0,1,0)$ で作用する。
+これで式\eqref{mft:cycles}を得る。三つの primitive periods は $(A,B,p)$ である。
+固定した shared parameters と angles の下で $\zeta$-disk を取れば、
+pullback は標準 symplectic disk であり、boundary tangent line の一回転から Maslov 指数は $2$ となる。
+\end{proof}
+
+$B$ を $0$ まで拡張すると元の membranes を family の closure に含められるが、
+$B=0$ では $e_Z$ が潰れる新しい elliptic face が現れる。
+$p=B=0$ は corank-two elliptic locus である。
+従ってこの厚み付けだけで全自由境界を処理したことにはならない。
+各 finite compact action box は full chosen graph slice 内の compact actual domain を与える。
+より小さい所定の graph region や global $X_d$ 内の所定 chart へ入れる場合には、
+その box 全体が既知の embedding domain に含まれることを別途確認する必要がある。
+固定した $e_i$、指定 boundary actions、任意の既定 global form に対する包含や relative identification は、
+この計算だけからは従わない。
+
+\subsection{既存 marking との integral transition と適用範囲}
+
+両 toric charts が actual symplectic collar 上で同定され、
+その同定が第\ref{acp:section}節の marking を運ぶと仮定すれば
+\[
+ e_X=\gamma_U,\qquad e_Y=\Gamma_H-\gamma_U=\delta,
+ \qquad e_Z=\Gamma_H-\gamma_U-\Gamma_J.
+\]
+従って
+\begin{equation}\label{mft:marked-transition}
+ \begin{pmatrix}a\\b\\m\end{pmatrix}
+ =
+ \begin{pmatrix}2&-1&0\\-1&1&-1\\-1&1&0\end{pmatrix}
+ \begin{pmatrix}\gamma_U\\\Gamma_H\\\Gamma_J\end{pmatrix}.
+\end{equation}
+この matrix の determinant は $1$ である。
+特に normal meridian は既存の $\delta$ と同じだが、shared complement は異なる。
+Toric moment labels の間では
+\[
+ A=P_X-P_Y,\qquad B=P_Z,\qquad p=P_Y,
+ \qquad (P_X,P_Y,P_Z)=(A+p,p,B)
+\]
+という integral affine change なので、toric whole fibers 自体は同じである。
+
+ただし「同じ meridian と unimodular basis を持つ」だけでは、
+既存 upper port からこの product disk への接続は従わない。
+第\ref{acp:section}節の unscaled source prototype の upper sheet で $j=0$ とすると
+$\mathcal I=I_+(h,0,q)>u_1(h,0)=2h/3$ であり、
+\begin{equation}\label{mft:upper-sign}
+ A=P_X-P_Y=h-2\mathcal I<-h/3<0.
+\end{equation}
+一方、$p=0$ まで含む本節の full $\zeta$-disk product は $A>0$ を必要とする。
+$A<0$ を固定したまま $p$ を零へ減らすと、先に $P_X=A+p=0$ に達する。
+その後を同じ $\{X\ne0\}$ chart で続けることはできない。
+この結論は unscaled source chart に関するものであり、全ての actual upper ports を除外しない。
+例えば第\ref{kc:section}節の natural wide chart では
+\[
+ P_W=\kappa+s\rho_x,\qquad P_U=s\rho_y,\qquad P_V=s\rho_z,
+\]
+なので、対応する shared action は
+\[
+ A_{\rm actual}=P_W-P_U=\kappa+s(h-2\mathcal I).
+\]
+先に $\kappa>0$ を固定して $s$ を十分小さくすれば、所定 compact collar で
+$\min A_{\rm actual}>0$ にできる。
+従って実際の使用時には offsets を含めた $\min A>0$ を確認しなければならない。
+その条件が満たされても、cap 全体の chart bounds と元 assembly との非交差は別途必要である。
+
+また、actual curve annulus の disk frame を使う場合には、source Cartesian frame の
+Maslov numbers をそのまま使用してはいけない。
+第\ref{ml:section}節の $j=0$ における covectors に
+式\eqref{mft:marked-transition}を代入すると
+\[
+\begin{array}{c|c|c}
+ &\mathcal A_V&\mu_V\\\hline
+ a&2A_0-A_b&2(k-2)\\
+ b&A_b-A_0&2\\
+ m&A_b-A_0&2
+\end{array}
+\]
+となる。これは marking が照合された場合の numerical compatibility であり、
+新しい domain 全体の ambient embedding の証明ではない。
+
+\subsection{旧 positive-winding first jet と新しい shared torus}
+
+Chart \eqref{mft:chart-map} では、既存の positive-winding integrals は
+\begin{equation}\label{mft:old-system}
+ H=A+2p,\qquad J=p-B,\qquad
+ W=e^{-4\pi i\theta}\sqrt{\frac{A+p}{\pi}}\,\zeta\xi,
+ \qquad Q=|W-c|^2
+\end{equation}
+である。
+従って shared $A$-circle に沿い
+\[
+ \mathcal L_{X_A}W=-4\pi iW,
+\]
+となり、$A$ は一般には旧 $Q$ と Poisson commute しない。
+$B$-circle に沿っては $\mathcal L_{X_B}W=2\pi iW$ である。
+$H$ と $J$ の combinations はこの phase を相殺するので、旧 system 自体の可換性とは矛盾しない。
+
+$\zeta=\xi=0$ の mixed quadratic coefficient は
+\[
+ e^{-4\pi i\theta}\sqrt{A/\pi},
+\]
+であり、正向き $\theta$-circle に沿う winding は $-2$ である。
+この coefficient の phase を捨てて $\zeta\xi$ を新しい invariant と見なすことはできない。
+特に $A$ を literal に保持する symplectic identification により、
+$A$-invariant な新しい third function と旧 $Q$ を、
+全角度を含む open collar 上で一致させることはできない。
+Poisson brackets が symplectic identification により保たれるからである。
+これは $A$ を固定するという条件付きの障害であり、
+shared actions を変更する別の手術の非存在を主張しない。
+
+既に Hamiltonian straightening を行って old collar を toric foliation と一致させた後なら、
+式\eqref{mft:toric-actions}はその collar の whole fibers と一致する。
+その場合も full disk extension には式\eqref{mft:upper-sign}の sign 条件を別に確認する必要がある。
+
+\subsection{共有 circle が退化する actual focus block}
+
+同じ target $\CC^3$ で、今度は $XY$ を invariant に使う。
+\begin{equation}\label{mft:focus-system}
+ F_c=(A,B,Q_f),\qquad
+ A=P_X-P_Y,\quad B=P_Z,\quad Q_f=|XY-c|^2,
+ \qquad c>0.
+\end{equation}
+これは式\eqref{mft:old-system}とは異なる fibration である。
+二変数の focus model 自体は Auroux \cite[Section 5.1]{auroux-local} の標準模型であり、
+その monodromy は Zung \cite[Section 3]{zung-focus-cf} とも一致する。
+ここでは所定の graph form における whole compact domain と collar を直接記述する。
+
+\begin{theorem}[Compact actual focus $\times S^1$ block]
+\label{mft:focus-block}
+$a_*>0$, $0<b_-<b_+$、$0<q_-<c^2<q_+$ とする。
+\[
+ \mathcal K_c
+ =F_c^{-1}\bigl([-a_*,a_*]\times[b_-,b_+]\times[q_-,q_+]\bigr)
+\]
+は compact domain with corners である。
+$\Phi_\tau^{-1}(\mathcal K_c)$ は chosen nonzero slice 内の actual Lagrangian
+torus fibration block であり、次を満たす。
+\begin{enumerate}
+\item 全 fibers は connected で、regular fibers は $T^3$ である。
+\item Discriminant は $A=0$, $Q_f=c^2$ であり、$B\in[b_-,b_+]$ によって動く。
+各 singular fiber は $(\text{pinched }T^2)\times S^1$ で、corank-two focus--focus 型である。
+\item $A=\pm a_*$ と $Q_f=q_\pm$ の四つの boundary faces は regular torus families である。
+$B=b_\pm$ の二つの parameter faces はそれぞれ一つの focus fiber を含む。
+この domain 内に elliptic faces はない。Connected-fiber quotient は表示した compact box そのもので、Hausdorff である。
+\item $q_-$ を零まで拡張すると $XY=c$ 上に rank-two elliptic $T^2$ family を加える。
+従って $Q_f=0$ を含める場合には genuine elliptic boundary が再び生じる。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$A$ の circle weights は $(1,-1,0)$、$B$ の weights は $(0,0,1)$ なので、
+$XY$ は双方に invariant である。従って三つの関数は可換である。
+
+$w=XY$ とすると、所定の $A,w$ に対する radii は
+\[
+ P_X=\frac{\sqrt{A^2+4\pi^2|w|^2}+A}{2},\qquad
+ P_Y=\frac{\sqrt{A^2+4\pi^2|w|^2}-A}{2}
+\]
+に一意に定まる。位相を含めて $(A,w)$ の fiber は一つの $A$-circle orbit であり、
+その orbit が一点になるのは $(A,w)=(0,0)$ だけである。
+従って $(A,XY)$ の orbit space は $\RR\times\CC$ と同定される。
+さらに $B>0$ は独立した $Z$-circle を与える。
+
+$Q_f=q>0$ の reduced curve は $|w-c|=\sqrt q$ という circle である。
+$(A,q)\ne(0,c^2)$ なら、その上の free circle bundle は trivial なので torus を得る。
+$(A,q)=(0,c^2)$ では、その circle 上の一点 $w=0$ で一つの circle orbit が潰れるため、
+pinched torus になる。$Z$-circle を掛ければ fiber の位相が従う。
+Origin の quadratic pair は
+\[
+ A=\pi(|X|^2-|Y|^2),\qquad
+ Q_f-c^2=-2c\operatorname{Re}(XY)+O(|(X,Y)|^4),
+\]
+であり、これは focus--focus Cartan を与える。
+
+Base box 上では $|w|\le c+\sqrt{q_+}$ かつ $|A|\le a_*$ なので、
+上の radii formulas により $P_X,P_Y$ は有界である。$B$ も有界なので preimage は compact である。
+$A$ と $Q_f$ の boundary faces は discriminant の像を避けるから regular である。
+$B$ の boundary faces は focus family の両端を含むが、$dB\ne0$ なので source の smooth boundary である。
+Boundary faces の intersections は discriminant を避け、corners は regular action coordinates で丸められる。
+Map は compact source から Hausdorff box への connected-fiber surjection であるため、
+connected-fiber quotient はその box と同相である。
+
+$Q_f=0$ では $w=c\ne0$ であり、shared torus は free のままで、
+reduced function $|w-c|^2$ の nondegenerate minimum が elliptic family を与える。
+\end{proof}
+
+この block は $A=0$ を actual に越えるが、その singular circle を含む全域で
+shared $T^2$ が free という仮定は満たさない。
+従って第\ref{rsb:section}節の fixed free reduction の面積公式を
+そのままこの singular block に適用してはいけない。
+一方、この定理だけでは48本の既存 ports のいずれとも接続を指定していない。
+Boundary labels、marked actions、collar orientation、実際の overlaps の照合が残る。
+
+\subsection{Focus block の toric regular collar}
+
+最後に、前の product family と新しい focus block の間で
+whole torus collar を照合できる具体的な領域を記す。
+$A\in[A_-,A_+]$, $A_->0$、$B\in[b_-,b_+]$, $b_->0$ とする。
+$q>c^2$ では $|XY-c|=\sqrt q$ は原点を囲み、
+$\psi=\arg(XY)/(2\pi)$ を全周の coordinate に使える。
+\[
+ R_q(\psi)=c\cos(2\pi\psi)
+       +\sqrt{q-c^2\sin^2(2\pi\psi)},
+\]
+\begin{equation}\label{mft:focus-action}
+ p(A,q,\psi)
+ =\frac{\sqrt{A^2+4\pi^2 R_q(\psi)^2}-A}{2},
+ \qquad
+ \mathcal J(A,q)=\int_0^1p(A,q,\psi)\,d\psi.
+\end{equation}
+Chart $\theta=\theta_X$、$\psi=\theta_X+\theta_Y$ では、
+primitive は $A\,d\theta+p\,d\psi+B\,d\theta_Z$ である。
+従って $\mathcal J$ はこの normal section の marked action である。
+また $\mathcal J_q>0$ である。
+
+\begin{proposition}[Product torus port と focus collar の相対照合]
+\label{mft:focus-collar}
+上の positive compact $A,B$ intervals と、$0<p_-<p_+$ を固定する。
+$c>0$ を十分小さく取れば、
+\[
+ (A,B,p),\qquad A\in[A_-,A_+],\quad B\in[b_-,b_+],
+ \quad p\in[p_-,p_+]
+\]
+の product torus collar と、式\eqref{mft:focus-system}の $q>c^2$ の whole torus collar は、
+compactly supported Hamiltonian symplectomorphism により厳密に照合できる。
+この symplectomorphism は $A,B$、marked cycles、全 primitive periods を保つ。
+Scalar third label は $p=\mathcal J(A,q)$ という可逆な再表示を用いて一致する。
+\end{proposition}
+
+\begin{proof}
+$q\downarrow c^2$ で $R_q\le2c+o(1)$ であり、$A\ge A_-$ より
+\[
+ \mathcal J(A,c^2)\le\frac{4\pi^2c^2}{A_-}.
+\]
+右辺を $p_-$ より小さく選ぶ。
+$\mathcal J_q>0$ と $q\to\infty$ で $\mathcal J(A,q)\to\infty$ を用いれば、
+各所定 $(A,p)$ に対して unique $q>c^2$ があり、inverse $q=q(A,p)$ は smooth である。
+
+Graphs $p=p(A,q,\psi)$ をその平均 $\mathcal J(A,q)$ へ結ぶ linear homotopy を使う。
+その normal velocity は zero mean を持つので、
+\[
+ k(A,q,\psi)=\int_0^\psi
+       \bigl(p(A,q,\eta)-\mathcal J(A,q)\bigr)\,d\eta
+\]
+は周期的である。Homotopy の各 graph の inverse $q_t(A,p,\psi)$ を使って
+$k(A,q_t,\psi)$ を Hamiltonian とし、所定の whole graph band の外側で cutoff する。
+Graph derivative $\partial_qp_t>0$ なので、この inverse は存在する。
+これは第\ref{acp:straighten}項と同じ graph-normal-velocity 計算であり、
+Hamiltonian flow は指定された whole tori を toric tori
+$P_Y=\mathcal J(A,q)$ へ送る。
+
+Graphs と homotopy の全域で $p>0$, $A+p>0$, $B>0$ である。
+Compact parameter intervals のため swept band は $XYZ\ne0$ の compact subset に入る。
+Cutoff した Hamiltonian は全 $\CC^3$ へ零延長でき、$\theta,\theta_Z$ に依存しないので
+$A,B$ を保つ。Hamiltonian isotopy は primitive の差を exact にするため、
+全 marked periods も保つ。$\Phi_\tau$ により actual chosen slice へ移せばよい。
+\end{proof}
+
+Negative $A$ の chamber では、$Y$ の angle を固定した section を用いると
+normal cycle は $e_X$、action は $\mathcal J(A,q)+A$ となる。
+Positive chamber の normal cycle $e_Y$ との差は
+\[
+ e_X-e_Y=a,
+\]
+である。この integral transition は focus block を横断する marking の追跡に使える。
+ただし本節の collar proposition は positive $A$ の compact interval に関するものであり、
+focus discriminant を越える一つの smooth action coordinate の存在は主張しない。
+
+\begin{proposition}[向きを指定した focus monodromy]\label{mft:monodromy}
+$B>0$ を固定する。Base の $(A,Q_f)$ 平面で、
+\[
+ (a_*,q_+)\longrightarrow(a_*,q_-)
+ \longrightarrow(-a_*,q_-)
+ \longrightarrow(-a_*,q_+)\longrightarrow(a_*,q_+)
+\]
+という clockwise loop を取る。Base point で $a=e_X-e_Y$、$b=e_Z$ とし、
+$X$ の angle を零に固定して $w=XY$ の circle を counterclockwise に一周する cycle を $\gamma$ とする。
+この loop の homology monodromy は
+\[
+ a\longmapsto a,\qquad b\longmapsto b,\qquad
+ \gamma\longmapsto\gamma+a
+\]
+である。逆向きの loop では $\gamma\mapsto\gamma-a$ となる。
+\end{proposition}
+
+\begin{proof}
+$A>0$ では $X\ne0$ なので、$\arg X=0$ の section が全 reduced plane 上で定義される。
+$A<0$ では同様に $\arg Y=0$ の section が全 reduced plane 上で定義される。
+$q=q_-<c^2$ の reduced circle は $w=0$ を囲まないので、
+二つの sections の difference $\arg w$ は degree $0$ であり、対応する cycles は同じ class となる。
+$q=q_+>c^2$ では reduced circle が $w=0$ を正に一周するため、
+$\arg Y=0$ の section と $\arg X=0$ の section の cycle difference は
+$e_X-e_Y=a$ である。
+指定した loop に沿って、右側では $X$-section、左側では $Y$-section を使い、
+下辺で degree-zero の照合を行うと、上辺を戻った時に差 $a$ を得る。
+二つの global circle generators $a,b$ は transport で変わらない。
+\end{proof}
+
+\paragraph{到達範囲.}
+第二 membrane は、whole regular torus ports と explicit primitive を持つ actual 六次元 family に拡張された。
+同じ ambient space に compact focus $\times S^1$ block と、その regular toric collar との
+relative Hamiltonian identification も得られた。
+これらは選ばれた graph form に対する具体的な局所入力であり、
+元の48 ports との接続や、自由境界のない complete corner はまだ構成していない。

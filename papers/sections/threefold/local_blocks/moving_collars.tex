@@ -1,0 +1,473 @@
+\section{曲率の straightening と移動する reduced fibration}
+\label{mc:main}
+
+固定した compact nodal foliation を Liouville flow で保つことには、
+前節の対数的な障害があった。
+一方、normal moment とともに reduced foliation を動かすと、
+node 全体を含む collar を構成できる。
+本節では connection を変更した比較模型を作り、
+明示的な Moser isotopy によって元の actual symplectic form へ戻す。
+この isotopy は与えられた Liouville primitive を厳密に保つ。
+
+結論は、既存の reduced fibration 一つから出発する片側の collar 構成である。
+独立に指定された反対側の foliation、全ての lateral collars、
+複数の normal faces の接着を自動的に実現する主張ではない。
+
+\subsection{Compact node 上の絶対的・相対的な曲率問題}
+\label{mc:topology}
+
+$U=q^{-1}(D)$ を compact simple focus--focus fiber の小さい閉飽和近傍、
+$S=\partial U$ とする。
+標準的な nodal neighborhood の位相は
+$T^2\times D^2$ に primitive vanishing cycle に沿う $2$-handle を加えたものであり、
+once-pinched torus と同じ homotopy type を持つ
+\cite[Sections 4.2, 8.1]{symington}。
+従って
+\[
+ U\simeq S^1\vee S^2,
+ \qquad H_1(U;\ZZ)=\ZZ,
+ \qquad H_2(U;\ZZ)=H^2(U;\ZZ)=\ZZ.
+\]
+$H_2$ の生成元は近傍の regular torus で表される。
+その torus が Lagrangian であることから $[\omega]=0$、すなわち
+$\omega$ は $U$ 上で exact である。
+これは $H^2(U)=0$ という主張ではない。
+
+\begin{proposition}[全 node 上の balanced connection]
+\label{mc:connection-existence}
+$P\to U$ を period-one connection $\alpha$ を持つ circle bundle とし、
+$d\alpha=\pi^*\kappa$、$w>0$ とする。
+以下は同値である。
+\begin{enumerate}
+\item $P$ 上に curvature $-\omega/w$ の connection が存在する。
+\item $[\omega]+w[\kappa]=0$ が $H^2(U;\RR)$ で成り立つ。
+\item $c_1(P)=0$ が $H^2(U;\ZZ)$ で成り立つ。
+\item $d\beta=\omega+w\kappa$ を満たす大域的な smooth $1$-form $\beta$ が存在する。
+\end{enumerate}
+ここで curvature class と $c_1$ の符号は、connection の規約に従う。
+\end{proposition}
+
+\begin{proof}
+Connection の差は base $1$-form の pullback であり、curvature の差は exact である。
+$[\omega]=0$、および $H^2(U;\ZZ)$ に torsion がないことから最初の三条件は同値となる。
+最後の条件の下では
+\[
+ \alpha_* = \alpha-\pi^*\beta/w
+\]
+とすれば $d\alpha_*=-\pi^*\omega/w$ となる。
+逆向きも二つの connection の差を取ればよい。
+\end{proof}
+
+Ambient rational surface 内で regular tori が nullhomologous である場合、
+その surface 上の任意の normal line bundle の $U$ への制限は $c_1=0$ である。
+実際、$H_2(U)$ の生成元への評価が零となり、整数 torsion もない。
+この場合、上の絶対的な問題は解ける。
+指定された boundary connection を保つ問題には、さらに次の条件が必要である。
+
+\begin{proposition}[Connection を固定する相対障害]
+\label{mc:relative-curvature}
+$A\subset U$ を指定境界部分の開 collar とし、
+$D=-\omega/w-\kappa$ と置く。
+$\alpha_*|_{\pi^{-1}(A)}=\alpha|_{\pi^{-1}(A)}$ かつ
+$d\alpha_*=-\pi^*\omega/w$ となる connection が存在するための必要十分条件は、
+$D|_A=0$ および $[D]=0\in H^2(U,A;\RR)$ である。
+
+既に $d\beta=\omega+w\kappa$ が与えられ、$D|_A=0$ なら、後者は
+\[
+ [\beta|_A]\in
+ \operatorname{im}\bigl(H^1(U;\RR)\longrightarrow H^1(A;\RR)\bigr)
+\]
+と同値である。
+\end{proposition}
+
+\begin{proof}
+$\alpha_* =\alpha+\pi^*\theta$ と書けば、求める条件は
+$d\theta=D$、$\theta|_A=0$ であり、相対 de Rham cohomology の条件そのものである。
+$D=-d\beta/w$ なので、後半は pair の長完全列から従う。
+具体的には、$\beta|_A$ と同じ class を持つ restriction を備える closed form
+$\gamma$ を $U$ 上に選び、$\beta-\gamma=df_A$ を $A$ 上で解く。
+$f_A$ を $U$ へ延ばせば $\widetilde\beta=\beta-\gamma-df$ は $A$ 上で零となり、
+$\alpha_* =\alpha-\widetilde\beta/w$ が所要の connection である。
+\end{proof}
+
+全境界 $S$ では、この相対障害は一つの実 period で測れる。
+$S$ は一回の Dehn twist の torus mapping torus なので $H_1(S;\ZZ)=\ZZ^2$ である。
+Surviving fiber cycle を $b$、$H_1(S)\to H_1(U)$ の kernel の生成元を $m$ とする。
+$m$ は nodal fiber の正則点を通る local section disk の境界として選べる。
+$D$ が境界近くで零ならば、
+\[
+ [D]=0\in H^2(U,S;\RR)
+ \quad\Longleftrightarrow\quad
+ \int_m\beta=0.
+\]
+$b$ 上の period は $U$ 上の closed form で調整できるが、
+$m$ 上の period は
+\[
+ \int_m\beta=\int_{\text{section disk}}(\omega+w\kappa)
+\]
+であり、そのようには調整できない。
+Holonomy の一致が検出するのは、この数を $w$ の整数倍だけ変えた値である。
+$m$ は $U$ で nullhomologous なので、$m$ 上で非零 winding を持つ boundary gauge は
+$U$ 上の gauge へ延長しない。
+従って holonomy の一致だけでは、固定された connection の相対問題は解けない。
+
+\begin{remark}
+命題の構成で $\beta$ を $\widetilde\beta$ に変えると、
+Liouville primitive は closed form $\gamma+df$ だけ変わる。
+これは指定された periods を保存するとは限らない。
+以下の定理は、与えられた \emph{actual} $\beta$ を用い、
+この closed-form の差を暗黙に捨てない形で述べる。
+\end{remark}
+
+\subsection{一つの normal direction の strict Moser 定理}
+\label{mc:single}
+
+以後、$U$ は少し大きな開集合の中の compact region とし、
+全ての forms はその開集合まで滑らかに定義されているとする。
+$P\to U$、$\alpha$、$\kappa$、$w>0$、$\beta$ を固定し、
+\begin{equation}
+ d\beta=\omega+w\kappa
+ \label{mc:primitive}
+\end{equation}
+を仮定する。
+Pullback の記号を省略して、$P\times[0,\varepsilon]$ 上に
+\begin{equation}
+ \Omega=d\mu\wedge\alpha+\omega+\mu\kappa,
+ \qquad \lambda=(\mu-w)\alpha+\beta
+ \label{mc:original}
+\end{equation}
+と置く。
+Associated line bundle では $\mu=\pi|z|^2$ とする。
+$\Omega$ は zero section へ滑らかに延びるが、
+$\lambda$ は logarithmic angular term のためそこへ延びるとは限らない。
+
+$\alpha_* =\alpha-\beta/w$ は curvature $-\omega/w$ を持つ。
+ただし、これは curvature を変える操作であり、通常の bundle gauge ではない。
+実際、比較模型の form は
+\begin{align}
+ \lambda_*&=(\mu-w)\alpha_* =\lambda-\frac{\mu}{w}\beta,\label{mc:lambda-target}\\
+ \Omega_*&=d\lambda_*
+ =\Omega-\frac1w d(\mu\beta)
+ =d\mu\wedge\alpha_*+(1-\mu/w)\omega.\label{mc:omega-target}
+\end{align}
+従って $\Omega_*$ と actual $\Omega$ を同じ form として扱ってはならない。
+
+\begin{theorem}[Moment と primitive を保つ straightening]
+\label{mc:strict-moser}
+$0\le s\le1$ に対して
+\begin{align*}
+ \alpha_s&=\alpha-\frac{s}{w}\beta,
+ &\kappa_s&=(1-s)\kappa-\frac{s}{w}\omega,\\
+ \lambda_s&=\lambda-\frac{s\mu}{w}\beta
+            =(\mu-w)\alpha_s+(1-s)\beta,
+ &\omega_{s,\mu}&=\omega+\mu\kappa_s
+\end{align*}
+と置く。
+十分小さい $\varepsilon>0$ では、$s\in[0,1]$、$\mu\in[0,\varepsilon]$ に対して
+$\omega_{s,\mu}$ は一様に symplectic となる。
+Compact region の近くで domain を必要に応じて少し縮めれば、
+$S^1$-equivariant で $\mu$ を保存する isotopy $\Phi_s$ が存在し、
+\begin{equation}
+ \Phi_s^*\lambda_s=\lambda,
+ \qquad \Phi_s^*d\lambda_s=\Omega
+ \label{mc:strict}
+\end{equation}
+を満たす。
+$\Phi_s$ は zero section へ滑らかに延び、そこで恒等であり normal first jet も恒等である。
+また、$\beta=0$ である領域では $\Phi_s$ は恒等である。
+\end{theorem}
+
+\begin{proof}
+$\omega_{s,0}=\omega$ なので、compactness によって小さい $\varepsilon$ を一様に選べる。
+\[
+ \Omega_s=d\lambda_s=d\mu\wedge\alpha_s+\omega_{s,\mu}
+\]
+に対し、Moser vector field を
+\begin{equation}
+ \iota_{V_s}\Omega_s=\frac{\mu}{w}\beta
+ \label{mc:moser-field}
+\end{equation}
+で定める。
+$\alpha_s$ の horizontal splitting では、$V_s$ の moment 成分と angular 成分は零であり、
+base vector field $Y_{s,\mu}$ は
+\[
+ \iota_{Y_{s,\mu}}\omega_{s,\mu}=\frac{\mu}{w}\beta
+\]
+を満たす。
+従って $\beta(Y_{s,\mu})=0$ であり、
+\[
+ \lambda_s(V_s)
+ =(\mu-w)\alpha_s(V_s)+(1-s)\beta(Y_{s,\mu})=0.
+\]
+このため Cartan の公式は単に exact 差を与えるだけでなく、
+\[
+ \partial_s\lambda_s+\mathcal L_{V_s}\lambda_s
+ =-\frac{\mu}{w}\beta+\iota_{V_s}\Omega_s
+   +d\bigl(\lambda_s(V_s)\bigr)=0
+\]
+という厳密な等式を与える。
+積分して式\eqref{mc:strict}を得る。
+Equivariance と moment の保存は vector field の表示から従う。
+
+$V_s$ の base 成分は一様に $O(\mu)$ である。
+Nested compact neighborhoods を選び、$\varepsilon$ をさらに小さくすれば、
+内側の neighborhood の近くで $s\in[0,1]$ 全体の flow と inverse flow を定義できる。
+Normal coordinate では base 成分は $O(|z|^2)$、
+connection による vertical 成分も滑らかで zero section 上で零となる。
+従って Moser flow はそこへ延び、恒等と同じ normal first jet を持つ。
+$\beta=0$ なら式\eqref{mc:moser-field}から $V_s=0$ である。
+\end{proof}
+
+この最小の local existence には common tame almost complex structure は不要である。
+より大きい所定 interval で適用したい場合には nondegeneracy と flow domain の確認が必要となる。
+例えば $\mu<w$ で $\omega$ と $\omega+\mu\kappa$ が同じ almost complex structure を tame にすれば、
+\[
+ \omega_{s,\mu}
+ =(1-s)(\omega+\mu\kappa)+s(1-\mu/w)\omega
+\]
+が tame なので nondegeneracy は従う。
+これだけで lateral boundary を越えないことまでは従わない。
+
+\subsection{全 compact singular fiber の輸送と finite-time collapse}
+\label{mc:fibration}
+
+\begin{corollary}[Actual collar 上の移動する reduced fibration]
+\label{mc:moving-fibration}
+$p_0:(U,\omega)\to B$ を proper な simple focus--focus torus fibration とし、
+その domain に compact singular fiber 全体が含まれるとする。
+命題\ref{mc:connection-existence}と定理\ref{mc:strict-moser}の入力があるなら、
+十分小さい normal collar の、適切に選んだ transported domain 上に
+\[
+ F=(\mu,p_\mu)
+\]
+という stratified Lagrangian fibration を構成できる。
+これは元の actual $\Omega$ に関する fibration であり、
+元の actual $\lambda$ の Liouville flow によって保たれる。
+また、$p_\mu$ は $\mu=0$ まで滑らかに依存して $p_0$ に一致する。
+正則 full fibers は $T^3$ である。
+\end{corollary}
+
+\begin{proof}
+比較模型では式\eqref{mc:omega-target}により、固定された $p_0$ の fiber strata は
+全ての reduced forms $(1-\mu/w)\omega$ に対して isotropic である。
+その lift $F_*=(\mu,p_0)$ は stratified Lagrangian となる。
+正則 reduced torus 上では curvature $-\omega/w$ が零であり、
+$H^2(T^2;\ZZ)$ は torsion-free なので circle bundle は自明である。
+従って正則 full fiber は $T^3$ となる。
+
+Target domain を compact fibers の飽和近傍として選び、
+$F=F_*\circ\Phi_1$ と置く。
+Domain もその inverse image とすることで、properness と full fibers の compactness を保つ。
+この domain の lateral boundary は一般には moment とともに動く。
+Symplectomorphism による pullback なので、singular strata を含めた isotropy は保たれる。
+さらに比較模型の Liouville field は
+\[
+ Z_*=(\mu-w)\partial_\mu
+\]
+である。
+式\eqref{mc:strict}により、$\Phi_1$ は元の Liouville field $Z$ を $Z_*$ へ送る。
+従って $Z$ は $F$ の fiber decomposition を保つ。
+Zero section で $\Phi_1$ が恒等であることから最後の主張も従う。
+\end{proof}
+
+\begin{proposition}[直接の normalized transport]
+\label{mc:direct-transport}
+$\omega_\mu=\omega+\mu\kappa$、$\iota_{Y_\mu}\omega_\mu=\beta$ とし、
+$\mu$ を独立変数とする vector field
+\[
+ W_\mu=\frac{Y_\mu}{\mu-w}
+\]
+の transport を $T_{\mu_0\to\mu}$ とする。
+その flow が存在する範囲で
+\[
+ T_{\mu_0\to\mu}^*\omega_\mu
+ =\frac{\mu-w}{\mu_0-w}\omega_{\mu_0}
+\]
+であり、上の構成は
+\begin{equation}
+ p_\mu=p_0\circ T_{\mu\to0},
+ \qquad
+ (\mu-w)\partial_\mu p_\mu+dp_\mu(Y_\mu)=0
+ \label{mc:transport-pde}
+\end{equation}
+と書ける。
+\end{proposition}
+
+\begin{proof}
+式\eqref{mc:primitive}から
+\[
+ \partial_\mu\omega_\mu+\mathcal L_{W_\mu}\omega_\mu
+ =\kappa+\frac{\omega+w\kappa}{\mu-w}
+ =\frac{\omega_\mu}{\mu-w}
+\]
+となり、積分して transport の公式を得る。
+また $p_\mu\circ T_{0\to\mu}=p_0$ を微分すれば式\eqref{mc:transport-pde}となる。
+定理の $s$-family において
+\[
+ a=1-s\mu/w,
+ \qquad \nu=\frac{(1-s)\mu}{1-s\mu/w}
+\]
+と置けば $\omega_{s,\mu}=a\omega_\nu$ であり、
+$\nu'W_\nu=Y_{s,\mu}$ となる。
+従って $\Phi_1$ の base map は $T_{\mu\to0}$ に一致する。
+\end{proof}
+
+Normalized forms $\omega_\mu/(w-\mu)$ の変化は
+\[
+ \partial_\mu\left(\frac{\omega_\mu}{w-\mu}\right)
+ =d\left(\frac{\beta}{(w-\mu)^2}\right)
+\]
+である。
+したがってこの direct transport は、normalized family に対する通常の Moser transport である。
+Compact node を避けた action-angle coordinates を用いる必要はない。
+
+初期 moment を $0<\mu_0<w$ とすると、Liouville time $t$ に対して
+\[
+ \mu(t)=w+(\mu_0-w)e^t
+\]
+である。
+従って
+\begin{equation}
+ t_{\mathrm{hit}}=\log\frac{w}{w-\mu_0}
+ \label{mc:collapse-time}
+\end{equation}
+で $\mu=0$ に到達する。
+比較模型では base point は固定され normal circle だけが縮む。
+Moser conjugacy により、actual collar においても
+全 nodal fiber を含めて所定の reduced fiber への連続な finite-time collapse を得る。
+ここで滑らかに zero section へ延びるのは Moser isotopy である。
+Liouville vector field 自身は radial coordinate で特異となり得るが、
+その finite-time の collapse limit は存在する。
+
+\begin{remark}[固定 foliation の障害との両立]
+比較模型は $\kappa_*=-\omega/w$ であり、固定 foliation の比例曲率条件を満たす。
+元の actual form に戻した後は $p_\mu$ が動くため、
+一つの固定した compact nodal foliation に対する前節の非存在定理とは矛盾しない。
+この構成は、一端の $p_0$ が与えられれば他の levels の foliation を定める。
+独立に指定された他端の foliation と一致することは、別途証明すべき条件である。
+\end{remark}
+
+\subsection{相対条件と複数の normal directions}
+\label{mc:multi}
+
+指定 collar 上で $\beta=0$ なら、定理\ref{mc:strict-moser}の isotopy はそこで恒等であり、
+actual collar data を保つ。
+Fiber decomposition だけの一致を要求する場合には、より弱い十分条件もある。
+指定 collar 上で同じ foliation $p$ が $\omega$ に対して Lagrangian、
+$\kappa|_{TF}=0$、$\beta|_{TF}=0$ なら、各 $Y_{s,\mu}$ は $TF$ に接する。
+従って $\Phi_s$ はその lifted fibers を各々保ち、構成後の fibration はそこで $p$ に一致する。
+この場合、$\Phi_s$ が点ごとに恒等であるとは限らない。
+Connection そのものを固定する条件と、fiber decomposition を固定する条件を区別する。
+
+\begin{proposition}[複数の normal directions の strict straightening]
+\label{mc:multi-straightening}
+$\dim U=2n$ としてよいものとし、$P\to U$ を principal $T^r$-bundle とする。
+Connections $\alpha_a$、
+curvatures $\kappa_a$、正の数 $w_a$ と $1$-form $\beta$ が
+\[
+ d\beta=\omega+\sum_a w_a\kappa_a
+\]
+を満たすとする。
+また
+\[
+ \Omega=\sum_a d\mu_a\wedge\alpha_a+\omega+\sum_a\mu_a\kappa_a,
+ \qquad
+ \lambda=\sum_a(\mu_a-w_a)\alpha_a+\beta
+\]
+とする。
+定数 $c_a$ を $\sum_aw_ac_a=1$ となるように選び、$h=\sum_ac_a\mu_a$ と置く。
+\begin{align*}
+ \alpha_{a,s}&=\alpha_a-sc_a\beta,
+ &\kappa_{a,s}&=\kappa_a-sc_ad\beta,\\
+ \lambda_s&=\lambda-sh\beta
+ =\sum_a(\mu_a-w_a)\alpha_{a,s}+(1-s)\beta,
+ &\Omega_s&=\Omega-sd(h\beta)
+\end{align*}
+に対して、十分小さい normal moment orthant と適切な domain 上で
+全ての moments を保存する $T^r$-equivariant isotopy $\Phi_s$ が存在し、
+\[
+ \Phi_s^*\lambda_s=\lambda,
+ \qquad \Phi_s^*\Omega_s=\Omega
+\]
+を満たす。
+Endpoint では
+\[
+ \sum_a w_a\kappa_a'=-\omega,
+ \qquad \lambda'=\sum_a(\mu_a-w_a)\alpha_a',
+ \qquad Z'=\sum_a(\mu_a-w_a)\partial_{\mu_a}.
+\]
+\end{proposition}
+
+\begin{proof}
+Base form は
+\[
+ \omega_{s,\boldsymbol\mu}
+ =\omega+\sum_a\mu_a\kappa_a-shd\beta
+\]
+である。
+Compactness により、十分小さい orthant 上で全 $s\in[0,1]$ に対して非退化となる。
+$\iota_{V_s}\Omega_s=h\beta$ と置けば、$V_s$ は全 moments を固定し、
+$\alpha_{a,s}$ に関して horizontal である。
+その base 成分は $\iota_{Y_s}\omega_{s,\boldsymbol\mu}=h\beta$ を満たすので
+$\beta(Y_s)=0$、従って $\lambda_s(V_s)=0$ となる。
+定理\ref{mc:strict-moser}と同じ primitive-level の計算で主張を得る。
+Weighted curvature の式は $\sum_aw_ac_a=1$ から従い、
+$\iota_{Z'}\Omega'=\lambda'$ は直接の contraction で確認できる。
+\end{proof}
+
+\begin{corollary}
+\label{mc:multi-fibration}
+上の入力に加えて、$p_0$ が $\omega$ に関する stratified Lagrangian fibration であり、
+各 $\kappa_a$ が各 fiber stratum 上で零と仮定する。
+このとき各 $\kappa_a'$ も fiber strata 上で零となる。
+固定した target fibration $(\boldsymbol\mu,p_0)$ を $\Phi_1$ で pullback することにより、
+元の actual form と primitive 上に、compact singular fibers を含む移動 fibration を得る。
+正則 fibers は $T^{n+r}$ である。
+\end{corollary}
+
+\begin{proof}
+$d\beta$ も各 fiber stratum 上で零なので、$\kappa_a'$ の主張が従う。
+したがって target の全 reduced forms に対して同じ strata が isotropic である。
+正則 $T^n$ 上の各 circle bundle は curvature class が零であり、
+$H^2(T^n;\ZZ)$ に torsion がないため自明となる。
+残りは single-normal の場合と同じ pullback の議論による。
+\end{proof}
+
+Weighted cohomology equation だけから各 normal circle bundle の自明性は従わない。
+ここでは各 $\kappa_a$ に対する実際の葉方向の条件を仮定している。
+また、normal moment の許容半径が別の degeneration parameter に一様であることは主張しない。
+
+\subsection{Partial faces が動くことと corner 接着の残課題}
+\label{mc:faces}
+
+$\mu_a=\pi|z_a|^2$ として associated line bundles の和を考える。
+$\Omega_s=\omega+\sum_a d(\mu_a\alpha_{a,s})$ と Moser vector field は
+全 coordinate zero sets へ滑らかに延びる。
+各 $\mu_a$ が保存されるため、各 face $\{\mu_a=0\}$ は集合として保存される。
+Deepest corner $\boldsymbol\mu=0$ では $h=0$ なので isotopy は点ごとに恒等となる。
+
+一方、partial face $\mu_a=0$ では
+\[
+ h|_{\mu_a=0}=\sum_{b\ne a}c_b\mu_b
+\]
+が残り、base point は一般に動く。
+従って、その face 上の independently prescribed fibration を点ごと、
+あるいは fiber ごとに保存するとは限らない。
+$r\ge2$ かつ $\beta\ne0$ の領域で、この定数 $c_a$ を用いた方式によって
+全 coordinate faces を同時に点ごと固定することはできない。
+全 face 上で $h=0$ なら各 coordinate axis を見ることで全 $c_a=0$ となり、
+$\sum_aw_ac_a=1$ に反するからである。
+一つの face $\mu_a=0$ を固定するだけなら $c_a=1/w_a$、ほかを $0$ とすればよい。
+これは本方式の制約であり、一般の相対 corner 構成の非存在定理ではない。
+
+さらに、partial face へ制限した family は、残りの normal directions だけで
+独立に作った family と自動的に同じにはならない。
+$d\beta$ の式には、既に circle が縮んだ directions の curvature も残るからである。
+Logarithmic primitive は face へ滑らかに制限できないが、
+symplectic forms と Moser isotopies は制限できる、という区別が必要である。
+
+隣接 charts で actual forms、connections、$\beta$、weights、$c_a$、
+reference foliations が同じなら、Moser vector field の一意性により
+flow と transported fibration も同じになる。
+この一致は curvature classes や residues の一致だけからは従わない。
+全 corners でそのような共通データを構成することが、なお残る接着問題である。

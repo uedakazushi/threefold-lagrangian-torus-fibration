@@ -1,0 +1,487 @@
+\section{Maslov 指数2の十二端の actual upper caps}
+\label{kc:section}
+
+本節では $\tau\ne0$ を固定し、actual plane sextic $C^*\subset X_\tau$ と
+第\ref{ad:section}節の記号を用いる。まず $L_1=0$ に属する六端、すなわち
+central twists $(a,d)=(1,1)$ の cap を構成する。
+Actual disk frames に関する insertion の二つの normal twists は $(0,0)$ である。
+Normal embeddings の選択自由度を使い、以下の disk-product chart から annular germs を
+選ぶ。この選択は従来の simultaneous assembly の存在定理に適合する。
+任意に既定された higher-order tubular germ に対する延長定理ではない。
+最後に compactly supported Hamiltonian suspension を明示し、
+$(a,d)=(0,2)$ の残る六端にも同じ自然な upper caps を構成する。
+ここで既存 assembly とは、同じ global normal embedding と prescribed lower windows から作った
+$C_{56}$ curve block と二十四の annular blocks の和を指す。
+未構成の他の corner regions との非交差まで含む主張ではない。
+
+\subsection{Disk chart を先に固定する順序}
+
+一つの $L_1=0$ puncture の周りに、$C^*$ 上の広めの小円板 $D^{\rm wide}$ を取る。
+Actual normal bundle の二つの unitary frames をこの円板全体で先に固定する。
+これらは $(1,1)$ insertion の first jets と適合するように選べる。
+実際、low section $L_1$ の simple zero を local base coordinate $x$ で除けば
+nonzero local unit となり、high section の actual image $-\tau L_2$ もこの点では非零である。
+Positive-diagonal orthogonalization はこれらの phase degree を変えない。
+従って、source の angular factors と実際の frame comparison を合成した二つの
+normal frames は、円板を越えて滑らかに延びる。
+
+Base area coordinates は $\arg x$ を保って選んでよい。
+例えば $x=re^{2\pi i\theta}$、
+$\omega_C=g(r,\theta)r\,dr\wedge d(2\pi\theta)$ なら
+\[
+ I(r,\theta)=2\pi\int_0^r g(t,\theta)t\,dt,
+ \qquad w=\sqrt{I/\pi}\,e^{2\pi i\theta}
+\]
+とする。$I/r^2$ は正の smooth function なので $w$ は中心を越えて smooth であり、
+$\omega_C=dI\wedge d\theta$、$I=\pi|w|^2$ となる。
+これにより、代数的 angular factors の cancellation と disk area coordinates を両立できる。
+
+Symplectic neighborhood theorem の relative Moser 証明を、この広い円板全体に適用する。
+十分小さい固定定数 $R_w,R_N>0$ と actual symplectic embedding
+\begin{equation}\label{kc:wide-chart}
+ \Psi:\{\rho_w<R_w,\ \rho_u+\rho_v<R_N\}\longrightarrow(X_\tau,\omega),
+ \qquad \rho_z=\pi|z|^2,
+\end{equation}
+を得る。Zero section は $D^{\rm wide}$、normal first jets は上の frames であり、
+pullback form は $d\lambda_D$、
+\[
+ \lambda_D=\rho_wd\theta_w+\rho_ud\theta_u+\rho_vd\theta_v
+\]
+である。これは actual K\"ahler form の局所座標であり、元の form の toric invariance は不要である。
+
+この chart を固定した後に $\Delta=\{\rho_w\le A\}\subset C^*$ を選び、
+\begin{equation}\label{kc:base-bound}
+ 0<A<\min\{\mathfrak a,R_w/4,R_N/8\}
+\end{equation}
+とする。$A=\operatorname{Area}(\Delta)$ である。
+最後に prototype moment rectangle $R$ と中心 $h_0$ を固定し、insertion scale $s$ を縮める。
+この順序が、後で normal actions が $O(A)$ まで増す cap 全体を chart に入れるために必要である。
+
+\subsection{Actual annular germ と local primitive}
+
+Global punctured-curve primitive の centre period を $I^0$ とし、以前と同じ
+$b=I^0-sh_0$ を取る。Disk primitive と比較した offset は
+\[
+ \kappa=A-sh_0=b+(A-I^0)>0
+\]
+である。式\eqref{kc:wide-chart}の中で、$(1,1)$ annular insertion の actual germ を
+\begin{equation}\label{kc:annular-map}
+ \rho_w=\kappa+s\rho_x,\qquad \theta_w=\theta_x,
+ \qquad u=\sqrt s\,y,\qquad v=\sqrt s\,z
+\end{equation}
+として選ぶ。$x\ne0$ 上でこれは symplectic であり、
+\begin{equation}\label{kc:local-primitive}
+ \iota_s^*\lambda_D=s\lambda_0+\kappa\,d\theta_x.
+\end{equation}
+Global primitive についての従来の式 $s\lambda_0+b\,d\theta_x$ との差は
+$(A-I^0)d\theta_x$ である。これを exact として捨てることはしない。
+
+Whole germ の compatibility は、first jet だけでなく次の strict identity で固定できる。
+$r=A-I^0$ として disk chart の annulus 上で
+\[
+ \widehat I=\rho_w+\rho_u-r,\qquad \theta=\theta_w,
+ \qquad U=e^{-2\pi i\theta_w}u,\quad V=v
+\]
+と置けば
+\[
+ \lambda_D=r\,d\theta+
+ \widehat I\,d\theta+\rho_Ud\theta_U+\rho_Vd\theta_V.
+\]
+従ってこの full coordinate germ を global curve model の prescribed collar として使える。
+その normal first jets は実際の global sections の frames
+$(e^{2\pi i\theta}e_u,e_v)$ であり、上で選んだ smooth disk frames と正確に適合する。
+
+Central high frame から actual disk frame への $-1$ 補正には base moment の quadratic
+補正も伴う。$(1,1)$ の場合、その補正後に厳密に式\eqref{kc:annular-map}となるよう
+disk-product chart から annular germ を選んでいる。
+これらの six prescribed germs は互いに素で、global normal frames と適合する first jets を持つ。
+従って定理\ref{ai:c56-allends}の relative tubular construction にそのまま用いられる。
+
+Moment functions を
+\begin{equation}\label{kc:moments}
+ K_H=\rho_w+\rho_u=\kappa+sh,
+ \qquad K_J=\rho_u-\rho_v=sj
+\end{equation}
+と置く。既存の insertion の labels は $H=K_H-\kappa$、$J=K_J$ である。
+Upper region では $u,v\ne0$ なので
+\[
+ a=\theta_u+\theta_v,\quad \beta=-\theta_v,
+ \quad\chi=\theta_w-\theta_u-\theta_v
+\]
+を使えて、
+\begin{equation}\label{kc:upper-chart}
+ \lambda_D=K_H\,da+K_J\,d\beta+\rho_w\,d\chi.
+\end{equation}
+$K_H,K_J$ を固定した還元は $(\rho_w,\chi)$ の symplectic disk chart である。
+
+\subsection{Whole collar の整形と toric disk の付加}
+
+$q_*>c^2$ の upper cut を、$c^2<q<q_s(h,j)$ 内の小さい closed regular window に広げる。
+Source upper circle は正向き polar angle $\chi$ に関する graph
+\[
+ p=P(h,j,q,\chi)>0,\qquad P_q>0,
+ \qquad \int_0^1P(h,j,q,\chi)\,d\chi=B(h,j,q)
+\]
+である。従って actual reduced curve は
+\begin{equation}\label{kc:actual-graph}
+ \rho_w=V(h,j,q,\chi):=\kappa+sP(h,j,q,\chi),
+ \qquad \mathcal A(h,j,q)=\int_0^1V\,d\chi=\kappa+sB(h,j,q)
+\end{equation}
+となる。この compact window 上で
+\[
+ 0<V<K_H-\max(0,K_J),\qquad V_q>0
+\]
+が strict に成立する。
+
+\begin{lemma}[Upper collar の保周期的な整形]\label{kc:straightening}
+上の graph homotopy の compact swept band の近傍に support を持つ Hamiltonian isotopy
+$\psi_t$ があり、$K_H,K_J$ を保ち、所定の whole collar を
+$\rho_w=\mathcal A(h,j,q)$ という circles の family へ送る。
+全 marked cycles と their primitive actions は保存される。
+\end{lemma}
+
+\begin{proof}
+$V_t=(1-t)V+t\mathcal A$ と置く。
+$V_{t,q}>0$ なので $\rho_w=V_t(h,j,q,\chi)$ を $q=q_t(h,j,\rho_w,\chi)$ と解ける。
+\[
+ k(h,j,q,\chi)=\int_0^\chi\bigl(V(h,j,q,\eta)-\mathcal A(h,j,q)\bigr)\,d\eta
+\]
+は periodic である。所定 collar で1となる action cutoff を掛けた
+$k(h,j,q_t,\chi)$ を Hamiltonian とする。
+第\ref{we:section}節と同じ graph normal-velocity calculation により
+$\partial_tV_t=\mathcal A-V$ を実現する。
+$a,\beta$ に依存しないため二つの moments は固定される。
+全 window は両 coordinate poles から離れているので、Hamiltonian をその外で零へ延長できる。
+さらに $P$ とその平均 $B$ はともに $0<P,B<h-u_1(h,j)$ を満たす。
+従って support は
+\[
+ 0<(\rho_w-\kappa)/s<h-u_1(h,j)
+\]
+という strict upper strip の内部に取れる。
+この swept band が元の $Q$ の同じ regular collar に留まるとは仮定しない。
+Lower common collar は固定でき、元の whole saddle の regular 部分は中間で動いてよい。
+最後の inverse isotopy で元の block 全体とその fibers を戻す。
+Hamiltonian isotopy の primitive difference は exact である。
+\end{proof}
+
+$\psi_1$ によって整形した側で
+\begin{equation}\label{kc:toric-cap}
+ \mathcal C^{\rm tor}_U=
+ \left\{(h,j)\in R,\quad
+ 0\le\rho_w\le\mathcal A(h,j,q_*),\quad
+ \rho_u=K_H-\rho_w,\quad\rho_v=K_H-K_J-\rho_w\right\}
+\end{equation}
+を取る。角は全て含める。この cap の全域で
+\[
+ \rho_u,\rho_v>0
+\]
+なので、shared $T^2$ は自由である。
+内側の third integral は $\rho_w$ の smooth strictly increasing function として選び、
+outer collar では $q=\mathcal A^{-1}(h,j,\rho_w)$ と厳密に一致させる。
+中心で値0、正の微分を持つように延長できる。
+Original labels に合わせるには第三積分を $s^3q$ とする。
+これで regular fibers は $T^3$、$w=0$ の fibers は nondegenerate rank-two elliptic $T^2$ となる。
+
+最後に $\psi_1^{-1}$ で戻す。
+Outer collar では third integral、二つの moment functions、および full fibers が元のものと
+厳密に一致する。Isotopy は homotopic to the identity なので、toric disk で潰れる
+$\chi$-circle は元の marked $\gamma_U$ に対応する。
+従ってこれは shared $H,J$ と自然な upper meridian を保つ ordinary elliptic cap である。
+
+\subsection{Cap 全体の bounds と actual assembly}
+
+$h_{\max}=\max_Rh$、$j_{\min}=\min_Rj$ とする。
+Cap と straightening の support を合わせた domain では、window を固定して
+\begin{align}
+ 0\le\rho_w&\le\kappa+sh_{\max},\label{kc:cap-bound-w}\\
+ \rho_u+\rho_v&\le2\kappa+s(2h_{\max}+|j_{\min}|).
+ \label{kc:cap-bound-normal}
+\end{align}
+右辺は $s\to0$ でそれぞれ $A,2A$ へ収束する。
+式\eqref{kc:base-bound}により、十分小さい $s$ で cap 全体が
+最初に固定した actual chart \eqref{kc:wide-chart}へ入る。
+Normal radius が $O(\sqrt s)$ のままという誤った主張はしていない。
+
+\begin{theorem}[六つの自然な actual upper caps]\label{kc:six-caps}
+Fixed $\tau\ne0$ の actual $C^*$ lift において、$L_1=0$ に属する六端の annular germs を
+上記の disk-product charts から選ぶ。
+Base disks を先に十分小さく固定し、全 insertion scales を十分小さくすれば、
+これら六つの upper ports に actual ordinary elliptic caps を同時に付加できる。
+既存 upper collar の whole fibers、shared $H,J$ functions と周期1 actions、
+自然な collapsing meridians $\gamma_U$ を保つ。
+元の compact assembly と cap interiors は交わらず、六 cap interiors も互いに素にできる。
+元の assembly の global primitive を全 cap へ smooth に延長することは要求しない。
+\end{theorem}
+
+\begin{proof}
+各 puncture の wide actual charts を互いに素に取る。
+Bounds \eqref{kc:cap-bound-w}--\eqref{kc:cap-bound-normal}により各 cap は対応 chart 内へ入り、
+六つの cap interiors は互いに交わらない。
+
+同じ annular source block $K$ に対する非交差は厳密な還元領域から分かる。
+$\rho_w\ge\kappa$ の部分では $p=(\rho_w-\kappa)/s$ が source radial coordinate である。
+Upper graph の内側は元の $K$ から除いた upper sublevel disk であり、
+$\rho_w<\kappa$ の部分は source $p\ge0$ の像に入らない。
+Straightening 後にこの二つを合わせて toric disk で埋め、逆 isotopy を適用するので、
+元の $K$ と交わるのは指定した gluing collar だけである。
+
+Curve block の残りとの非交差も、compatible germ の選択と小さい scales により従う。
+既存 curve block は $s\to0$ で $C'$ の zero section に収束する。
+一方、cap の $s\to0$ の極限では
+$\rho_w+\rho_u=A$、$\rho_u=\rho_v$ であり、zero section との交わりは
+$\rho_w=A,\rho_u=\rho_v=0$ という centre circle のみである。
+従って交わりの可能性はその circle の任意に小さい固定近傍へ局在する。
+そこで既存 curve block の normal actions は $O(s)$ であり、candidate intersection の
+$\rho_w$ は $A+O(s)$ なので、両者は prescribed common collar chart 内に入る。
+この chart では curve block は既存の lower connected components に制限されている。
+より具体的には、同じ moments について lower germ は
+\[
+ u_{\rm src}=\rho_u/s\le u_1(h,j),\qquad
+ \rho_w=\kappa+s(h-u_{\rm src})\ge\kappa+s(h-u_1(h,j))
+\]
+を満たす。一方、straightening の support は strict upper strip 内にあるので、
+toric cap の逆像は $\rho_w<\kappa+s(h-u_1(h,j))$ に留まる。
+$\rho_w<\kappa$ の部分もこの不等式を満たし、source domain の外にある。
+従って追加の交わりは生じない。有限個の端について同時に scale bound を選べる。
+
+Full collar の equality と meridian marking は補題\ref{kc:straightening}および
+その後の construction による。Cap の正面積 disk の action は
+$\kappa+sB=A-s(h_0-B)$ であり、既に構成した reference disk の面積に一致する。
+\end{proof}
+
+\paragraph{残る genuine boundary と適用範囲.}
+各 cap は upper artificial cut を埋めるが、$w=0$ に elliptic boundary face を残す。
+従って boundary-free fibration の完成ではない。
+全 hypersurface の coverage、全 corner faces の比較、$\tau\to0$ の uniform radius は含めない。
+また、local disk primitive と既存 global primitive の transition
+$(A-I^0)d\theta_x$ を許しているため、前節の negative total period と矛盾しない。
+
+\subsection{$(0,2)$ の六端と compact Hamiltonian suspension}
+
+残る $k=2$ の六端では、actual normal twists は $(-1,1)$ である。
+その angular shear は
+\[
+ (\theta_w,\theta_u,\theta_v)
+ =(\theta_x,\theta_y-\theta_x,\theta_z+\theta_x)
+\]
+なので、自然な $\gamma_U$ の angular degrees は $(1,-1,1)$ である。
+単純な toric completion で $w=0$ に潰れる $(1,0,0)$ は
+\[
+ \gamma_U+\Gamma_J
+\]
+に対応する。$j=0$ では action と Maslov index が同じでも、marked meridians は異なる。
+従って、同じ natural meridian を保つには cap 内部の shared actions も変更する必要がある。
+以下では、既に構成した flat cap 全体を ambient Hamiltonian diffeomorphism で移すことにより、
+この変更と actual embedding を同時に実現する。
+
+\begin{lemma}[小さい annular block 上の strict $SU(2)$ suspension]
+\label{kc:su2-suspension}
+固定した chart \eqref{kc:wide-chart}、$A>0$ と定数 $M_0>0$ を考える。
+$s>0$ が十分小さいとき、この chart の内部に compact support を持つ Hamiltonian
+diffeomorphism $\Phi_s$ が存在し、
+\[
+ |\rho_w-A|\le A/8,\qquad N:=\rho_u+\rho_v\le M_0s
+\]
+の少し大きい開近傍で厳密に
+\begin{equation}\label{kc:strict-shear}
+ \Phi_s:(I,\theta,u,v)\longmapsto
+ \bigl(I+\rho_u-\rho_v,\ \theta,
+       e^{-2\pi i\theta}u,\ e^{2\pi i\theta}v\bigr),
+ \qquad I=\rho_w
+\end{equation}
+となる。この近傍で $\Phi_s^*\lambda_D=\lambda_D$ であり、全 chart 上で $N$ を保つ。
+$N\ge Ms$ となる領域では恒等とすることもできる。ただし $M>M_0+1$ は固定定数である。
+\end{lemma}
+
+\begin{proof}
+$A_1(\theta)=\operatorname{diag}(e^{-2\pi i\theta},e^{2\pi i\theta})$ へ至る
+smooth path of periodic loops $A_t(\theta)\in SU(2)$、$A_0=1$ を選ぶ。
+これは明示的に作れる。
+$SU(2)$ を
+\[
+ (a,b)\longmapsto
+ \begin{pmatrix}a&b\\-\bar b&\bar a\end{pmatrix},
+ \qquad |a|^2+|b|^2=1
+\]
+と表示し、最初の時間区間では $(a,b)=(\cos\alpha,\sin\alpha)$ を
+$\alpha=0$ から $\pi/2$ へ動かす。
+次の区間では $(a,b)=(\sin\beta\,e^{-2\pi i\theta},\cos\beta)$ を
+$\beta=0$ から $\pi/2$ へ動かす。
+二つの時間関数を接合点と endpoints で flat にすれば smooth path となる。
+全 $t,\theta$ derivatives は固定した path に対して有界である。
+
+\[
+ B_t(\theta)=(2\pi i)^{-1}\dot A_t(\theta)A_t(\theta)^{-1},
+ \qquad H_t(\theta,z)=\pi\langle B_t(\theta)z,z\rangle,
+ \qquad z=(u,v)
+\]
+と置く。$B_t$ は Hermitian traceless、$H_t$ は real homogeneous quadratic である。
+Normal Hamiltonian flow は $z_t=A_t(\theta)z_0$ であり、$N=\pi|z|^2$ と可換である。
+Base cutoff $\eta(I)$ を、$I\in[3A/4,5A/4]$ で1、
+$I\notin(A/2,3A/2)$ で0とする。
+Normal cutoff $\chi(N/s)$ を $N\le(M_0+1)s$ で1、$N\ge Ms$ で0とし、
+\begin{equation}\label{kc:suspended-hamiltonian}
+ \widetilde H_t(I,\theta,z)
+   =\eta(I)\chi(N/s)H_t(\theta,z)
+\end{equation}
+を使う。$s$ を縮めて $Ms<R_N$ とすれば、これは chart 内に compact support を持つ。
+$I=0$ の近傍では零なので、polar angle の見かけの特異性もない。
+
+Cutoff 後も $\{N,\widetilde H_t\}=0$ である。
+所定の fixed base annulus と small normal disk を出発した軌跡では、
+$N$ が一定で $\chi=1$ のままである。
+さらに $|\partial_\theta H_t|\le C N$ なので、$\eta=1$ の間の base action displacement は
+$|I_t-I_0|\le CM_0s$ である。
+$CM_0s<A/8$ とすれば、初期値 $I_0\in[7A/8,9A/8]$ とこの estimate による
+continuation argument で軌跡全体が $I\in[3A/4,5A/4]$ に留まる。
+そこで $\theta_t=\theta_0$、$z_t=A_t(\theta_0)z_0$ が厳密に成立する。
+
+この plateau 上では $H_t$ は $I$ に依存せず normal variables に homogeneous quadratic なので
+\[
+ \lambda_D(X_{H_t})-H_t=0.
+\]
+従って $\frac{d}{dt}\Phi_t^*\lambda_D
+=d\Phi_t^*(\lambda_D(X_{H_t})-H_t)=0$ であり、primitive を厳密に保つ。
+Endpoint の normal map は $A_1$ であるから
+\[
+ \rho_{u'}d\theta_{u'}+\rho_{v'}d\theta_{v'}
+ =\rho_ud\theta_u+\rho_vd\theta_v+(-\rho_u+\rho_v)d\theta.
+\]
+これと strict primitive identity から $I'=I+\rho_u-\rho_v$ が従い、
+式\eqref{kc:strict-shear}を得る。
+Chart の外へ Hamiltonian を零で延長した flow は global に定義される。
+$N\ge Ms$ では Hamiltonian もその微分も零となるので、flow は恒等である。
+\end{proof}
+
+\begin{corollary}[Total winding を保つ配分の Hamiltonian 比較]
+\label{kc:redistribution}
+同じ disk chart で、distributed twists $(a,d)$ と $(a+m,d-m)$ を持つ compact annular
+blocks を考える。Scales が十分小さければ、両者の全 source fibers と primitive を対応させる
+ambient compactly supported Hamiltonian diffeomorphism が存在する。
+ここでは disk 内部で二つの normal lines を混ぜることを許す。
+\end{corollary}
+
+\begin{proof}
+前の補題で endpoint loop を
+$\operatorname{diag}(e^{2\pi im\theta},e^{-2\pi im\theta})$ に変える。
+同じ explicit contraction で periodic $SU(2)$ path を作れる。
+Endpoint の strict shear は
+\[
+ (I,\theta,u,v)\longmapsto
+ (I-m(\rho_u-\rho_v),\theta,e^{2\pi im\theta}u,e^{-2\pi im\theta}v)
+\]
+であり、distributed insertion formula を一方から他方へ厳密に送る。
+Fixed $m,a,d$ では必要な normal bounds と base displacements はともに $O(s)$ なので、
+同じ cutoff construction が使える。
+\end{proof}
+
+\begin{theorem}[Maslov 指数2の十二端の natural actual caps]
+\label{kc:twelve-caps}
+Fixed actual $C^*$ lift において、$k=2$ の十二端の disk-product charts と
+annular germs を上記の通り適合して選ぶ。
+Base disks を先に小さく固定し、insertion scales を十分小さくすれば、
+十二の upper ports に、shared $H,J$ と自然な marked meridians $\gamma_U$ を保つ
+actual ordinary elliptic caps を同時に付加できる。
+Whole prescribed upper collars の fibers と integrals は厳密に一致する。
+Cap interiors は互いに素で、既存 assembly の内部とも交わらない。
+各 cap は genuine elliptic boundary face を残す。
+\end{theorem}
+
+\begin{proof}
+$L_1=0$ の六端は定理\ref{kc:six-caps}による。
+$L_2=0$ の puncture では、actual low section $L_1$ は非零であり、
+high section $-\tau L_2$ の simple zero を local base coordinate で除いて smooth disk frames を選ぶ。
+まずその actual disk-product chart 内で、式\eqref{kc:annular-map}による flat annular block と
+定理\ref{kc:six-caps}の cap を局所的に構成する。この段階では global curve block へ接がない。
+
+Source $K$ と必要な full collars は compact なので、それらの flat images は
+$|I-A|\le M_0s$、$N\le M_0s$ に入る。
+補題\ref{kc:su2-suspension}の Hamiltonian diffeomorphism を、flat block と cap 全体へ適用する。
+Block と prescribed collars 上で endpoint は厳密に
+\[
+ I=\kappa+s(\rho_x+\rho_y-\rho_z),\qquad
+ u=\sqrt s\,e^{-2\pi i\theta_x}y,
+ \quad v=\sqrt s\,e^{2\pi i\theta_x}z
+\]
+となる。これは $(0,2)$ insertion の actual disk-coordinate formula そのものである。
+Full common germ も厳密に照合できる。$r=A-I^0$ として
+\[
+ \widehat I=I+\rho_v-r,\qquad U=u,\qquad V=e^{-2\pi i\theta}v
+\]
+と置くと
+\[
+ \lambda_D=r\,d\theta+\widehat I\,d\theta
+                +\rho_Ud\theta_U+\rho_Vd\theta_V.
+\]
+上の insertion formula を代入すれば
+$\widehat I=b+sH_0$、$U=\sqrt s\,e^{-2\pi i\theta_x}y$、$V=\sqrt s\,z$ となる。
+従って、その lower end は first jets だけでなく full common curve germ で要求された
+global normal frames と適合し、既存の simultaneous curve assembly に接続できる。
+
+Cap の functions と actions は $\Phi_s$ により同時に移す。
+Outer collar で、二つの moment functions は厳密に
+\[
+ H=I+\rho_v-\kappa,\qquad J=\rho_u-\rho_v
+\]
+となり、所定の $(0,2)$ functions と一致する。
+Interior ではこれらの coordinate formulas を固定せず、transported Hamiltonians を使う。
+Shared $T^2$ の自由性と elliptic singularity type は symplectic conjugacy で保持される。
+Boundary の collapsing class は flat natural meridian の像であり、
+したがって所定の $\gamma_U$ である。
+
+Cap 全体への写像の定義域に追加の germ-radius 条件はない。
+$\Phi_s$ は既に wide chart 全体の symplectomorphism であり、
+normal actions が $O(A)$ となる cap の深い部分では $N\gg s$ のため恒等である。
+Normal action $N$ は全域で保存され、base action が変わる部分も $N=O(s)$ に限られる。
+従って base bound に $CMs$ の余裕を加えれば cap-wide bounds は保たれる。
+$A$ を先に選んだときの strict margin により、全 cap は同じ chart 内へ収まる。
+
+同じ local block との非交差は diffeomorphism で保持される。
+Global curve block との非交差は、定理\ref{kc:six-caps}と同様に centre circle へ局在させる。
+$\Phi_s$ の normal displacement は $O(\sqrt s)$、base displacement は $O(s)$ であり、
+一様に identity へ収束するので、cap の zero-section における極限交点は変わらない。
+Curve block のその近傍での normal actions の $O(s)$ bound も含むよう $M_0$ を先に選ぶ。
+より具体的に、target germ で $N=\rho_U+\rho_V\le C_Es$ と書き、$M_0>C_E$ とする。
+$N$ は保存されるので candidate intersection の flat cap 内の逆像も同じ bound を持ち、
+$I_f=K_H-\rho_{u_f}=A+O(s)$ となる。従って逆像を出発する全軌道は cutoff plateau に入る。
+共通 collar は補題\ref{kc:su2-suspension}の fixed base annulus に入り、
+transported flat lower germ が所定の $(0,2)$ lower germ に厳密に一致する。
+逆写像で戻せば定理\ref{kc:six-caps}の strict branch inequality が適用でき、
+upper cap と lower connected components は分離している。
+十二の wide charts を互いに素に取り、有限個の scale bounds を同時に満たせばよい。
+\end{proof}
+
+\paragraph{Hamiltonian suspension の役割.}
+$SU(2)$ loop の nullhomotopy と、normal first jet の Moser extension だけを用いると、
+cap の normal radius $\asymp\sqrt A$ が germ の定義域に入る保証がない。
+補題\ref{kc:su2-suspension}では、必要な exact shear を normal size $O(\sqrt s)$ の
+whole boundary block 上だけで実現し、深い cap では cutoff によって恒等とする。
+これにより全 cap を一つの actual Hamiltonian diffeomorphism で移せる。
+ただし、十二端を充填しても elliptic boundary faces は残り、全自由境界の消失や大域 fibration は未証明である。
+
+
+\begin{corollary}[二種類の caps を用いる全24 upper ports の処理]
+\label{kc:mixed-caps}
+系\ref{acp:assembly-caps}の initial small-window 条件と本節の compatible full-germ 条件を
+同時に選べば、$k=2$ の十二端には natural $\gamma_U$-caps、
+$k=1$ の十二端には $\delta=\Gamma_H-\gamma_U$-caps を付加できる。
+これらの interiors は元の $C_{56}$ curve--annular assembly と交わらず、互いにも素である。
+全24の upper artificial cuts に沿って元の whole fibers が延長される。
+$k=2$ 側では元の shared actions を保ち、$k=1$ 側では第\ref{acp:section}節の actions へ切り替える。
+\end{corollary}
+
+\begin{proof}
+十二の natural ends には本節の disk charts と full germs を選び、残りの十二端には
+第\ref{acp:section}節の共通 normal-coordinate germs を選ぶ。
+これらは同じ global normal frames と適合する互いに素な prescribed germs であるため、
+一つの global normal embedding で同時に実現できる。
+系\ref{acp:assembly-caps}の $j_*$ と $R$ の縮小は、本節の strict upper/lower separation や
+cap-wide chart bounds を損なわない。
+Finite 個の scale bounds を同時に満たし、互いに素な actual neighborhoods 内で各 cap を構成する。
+既存 assembly との非交差はそれぞれの定理による。
+\end{proof}
+
+この系は upper artificial cuts の処理であり、全 geometric corners の充填ではない。
+新しい genuine elliptic boundary faces と parameter 側面が残る。
+Natural caps には disk primitive との nonexact transition を許し、
+一つの primitive を全 caps に延長する条件は課さない。

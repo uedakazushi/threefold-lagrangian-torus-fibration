@@ -1,0 +1,113 @@
+\section{共役単項式による corner 候補の符号分類}\label{cm:section}
+
+端の正の winding を corner へ延ばす最も単純な候補として、
+標準 symplectic $\CC^3$ 上で各変数をそのまま、または複素共役に置き換える。
+本節の結論は、この ansatz と、原点を除いた三つの coordinate axes に限る。
+原点の特異点や一般の corner 構成を分類するものではない。
+
+$s_x,s_y,s_z\in\{+1,-1\}$ とし、
+\[
+ \zeta_+(u)=u,\qquad \zeta_-(u)=\bar u,\qquad
+ W=\zeta_{s_x}(x)\zeta_{s_y}(y)\zeta_{s_z}(z),\qquad
+ Q=|W-\varepsilon_0|^2,\quad\varepsilon_0>0
+\]
+と置く。$\rho_u=\pi|u|^2$ を period-one moment とする。
+$W$ の torus character は $(s_x,s_y,s_z)$ なので、その kernel $T^2$ の moment functions と
+$Q$ は Poisson commute する。
+
+\begin{proposition}\label{cm:types}
+$x$-axis の $x\ne0$ において、この可積分系の rank は1である。
+その nondegenerate transverse type は
+\[
+ \begin{cases}
+ \text{focus--focus},&s_y=s_z,\\
+ \text{elliptic--elliptic},&s_y\ne s_z.
+ \end{cases}
+\]
+他の axes については添字を巡回して同じ結論を得る。
+\end{proposition}
+
+\begin{proof}
+Kernel torus の integral basis として
+\[
+ H_x=s_y\rho_x-s_x\rho_y,\qquad
+ J_x=s_z\rho_y-s_y\rho_z
+\]
+を取れる。$x\ne0$, $y=z=0$ では $dH_x\ne0$、$dJ_x=dQ=0$ なので rank は1。
+$H_x$ による正則方向を除いた symplectic slice は、標準形式を持つ $(y,z)$-平面である。
+そこで $Q-\varepsilon_0^2$ の二次項は
+\[
+ q_x=-2\varepsilon_0
+ \operatorname{Re}\bigl(\zeta_{s_x}(x)\zeta_{s_y}(y)\zeta_{s_z}(z)\bigr).
+\]
+$s_y=s_z=\sigma$ なら $J_x=\sigma(\rho_y-\rho_z)$ であり、
+\[
+ q_x=\operatorname{Re}(c_x yz),\qquad
+ c_x=-2\varepsilon_0\zeta_{s_x\sigma}(x)\ne0.
+\]
+従って補題\ref{lc:framing:hessian}の $t=0$ の場合で、focus--focus 型である。
+
+$s_y\ne s_z$ なら $J_x=\pm(\rho_y+\rho_z)$ であり、
+$q_x$ は非零の $A$ を用いて $-2\varepsilon_0\operatorname{Re}(A y\bar z)$ と書ける。
+$A=|A|e^{i\phi}$ として $\widetilde z=e^{-i\phi}z$ と置き、unitary coordinates
+\[
+ u=(y+\widetilde z)/\sqrt2,\qquad v=(y-\widetilde z)/\sqrt2
+\]
+を使うと、
+\[
+ J_x=\pm\pi(|u|^2+|v|^2),\qquad
+ q_x=-\varepsilon_0|A|(|u|^2-|v|^2).
+\]
+二つの二次形式は $|u|^2,|v|^2$ と同じ Cartan subalgebra を張る。
+従って transverse type は nondegenerate elliptic--elliptic である。
+\end{proof}
+
+\begin{corollary}\label{cm:phase}
+三つの axes が全て focus--focus となるための必要十分条件は
+$s_x=s_y=s_z$ である。その場合 $Q=|xyz-\varepsilon_0|^2$ であり、
+各 axis の disk-extending normal frames に関する mixed coefficient の境界 winding は $-1$ である。
+符号が一様でなければ、他の二つと異なる符号を持つ変数の axis だけが focus--focus となり、
+その coefficient winding は $+1$。残り二つの axes は elliptic--elliptic となる。
+\end{corollary}
+
+\begin{proof}
+全 axes が focus である条件は、三通りの二符号がそれぞれ等しいことである。
+全て $-1$ の場合も、$\varepsilon_0$ が実数なので
+$|\overline{xyz}-\varepsilon_0|^2=|xyz-\varepsilon_0|^2$。
+Focus 型の $x$-axis では上の式から
+$c_x=-2\varepsilon_0 x$ または $-2\varepsilon_0\bar x$ である。
+削除円板と逆向きの境界を $x=re^{-2\pi it}$ と書けば、その winding はそれぞれ $-1,+1$。
+符号が一様でない場合は、唯一の異なる符号の axis で後者が生じる。
+\end{proof}
+
+例えば $W=\bar x yz$ は $x$-axis の winding $+1$ を実現するが、
+$y,z$-axes の transverse type は elliptic--elliptic となる。
+この rank-one 型の自然な局所 leaf space は、正則な一方向と quadrant の積であり、
+境界面を持つ\cite[Theorem 2.1]{miranda-local}。
+実際、その axis の stabilizer moment は $\pm(\rho_1+\rho_2)$ という definite な形を持つ。
+従って、この符号変更だけで全三端の focus 型を保ちながら正の winding を得ることはできず、
+winding $+2$ もこの ansatz には現れない。
+これは他の corner 模型、境界面をさらに貼り合わせる構成、または smooth でない比較を排除する結論ではない。
+
+\begin{remark}[正冪を許した場合の必要条件]\label{cm:powers}
+各変数について holomorphic または antiholomorphic の一方のみの正冪を取り、
+\[
+ W=\zeta_{s_x}(x)^{n_x}\zeta_{s_y}(y)^{n_y}\zeta_{s_z}(z)^{n_z},
+ \qquad n_x,n_y,n_z\ge1
+\]
+とする。Character $(s_xn_x,s_yn_y,s_zn_z)$ の kernel の単位成分 $T^2$ の
+moment functions と $Q=|W-\varepsilon_0|^2$ を用いる。
+各 axis の原点以外では rank は1である。
+$x$-axis に transverse な $Q-\varepsilon_0^2$ の最初の項の次数は $n_y+n_z$ なので、
+nondegenerate focus--focus 型なら $n_y+n_z=2$ が必要である。
+実際、この次数が2より大きければ normal Hessian が零となり、
+正則方向を除いた二つの積分の二次部分は Cartan subalgebra を張れない。
+同様に全三 axes が nondegenerate focus--focus 型なら
+\[
+ n_y+n_z=n_z+n_x=n_x+n_y=2,
+\]
+従って $n_x=n_y=n_z=1$ である。
+例えば $W=\bar x^2yz$ は $x$-axis で winding $+2$ の focus 型を与えるが、
+$y,z$-axes では transverse quadratic term が消え、rank-one 特異点は退化する。
+この必要条件は、各変数に $u^p\bar u^q$ を同時に含める場合や、一般の非単項式には主張していない。
+\end{remark}

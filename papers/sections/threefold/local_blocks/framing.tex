@@ -1,0 +1,303 @@
+\section{Focus 位相と端の winding の相対障害}\label{lc:framing}
+
+本節では、normal bundle の自明化と、指定した nodal fibration を保つ gauge を区別する。
+一般の固定曲線近傍で必要になるのは、二つの weight line の個別の自明化ではなく、
+その tensor product に関する位相である。
+以下の障害は、明記する smooth transverse focus 構造に対するものであり、
+任意の連続な stratified Lagrangian fibration への非存在定理ではない。
+
+\subsection{一般の invariant quadratic form}
+
+向き付けられた曲面 $C$ 上の Hermitian line bundles を $E^+,E^-$ とし、
+$E^+\oplus E^-$ に weight $(+1,-1)$ の circle action を入れる。
+この小節では $r_+=|y|^2/2$, $r_-=|z|^2/2$ とし、
+$\mu_0=r_+-r_-$ を用いる。Period-one moment は $2\pi\mu_0$ である。
+
+\begin{lemma}\label{lc:framing:hessian}
+Circle-invariant な実二次形式は
+\[
+ Q=A r_++B r_-+\operatorname{Re}(c yz)
+\]
+と書ける。Mixed coefficient $c$ は $(E^+\otimes E^-)^*$ の切断である。
+$\mu_0$ の倍を除き
+\[
+ Q=t(r_++r_-)+\operatorname{Re}(c yz)
+\]
+とすると、$(\mu_0,Q)$ が focus--focus 型であるための必要十分条件は
+$|c|^2>t^2$ である。特に $c$ は零でない。
+\end{lemma}
+
+\begin{proof}
+二次の invariant monomials は $|y|^2,|z|^2,yz,\overline{yz}$ である。
+$(A-B)\mu_0/2$ を除けば $t=(A+B)/2$ となる。
+$\iota_{X_H}\omega=-dH$ の規約で、$w=(y,\bar z)$ 上の $X_Q$ の行列は
+\[
+ M=\begin{pmatrix}it&i\bar c\\-ic&-it\end{pmatrix},
+ \qquad M^2=(|c|^2-t^2)\operatorname{id}.
+\]
+$X_{\mu_0}$ は $w$ 上の scalar rotation であり $M$ と可換である。
+$|c|^2>t^2$ なら実固有値対と回転が focus Cartan を与え、
+逆の不等式なら elliptic 型、等号なら退化となる。
+\end{proof}
+
+\begin{proposition}[Tensor line の必要条件]\label{lc:framing:chern}
+$C$ に沿う global transverse integral $Q$ があり、$Q|_C=0$、
+その normal Hessian と circle moment が全点で focus--focus 型をなすとする。
+このとき $E^+\otimes E^-$ は自明である。
+より一般に、局所 generator $Q_a$ があり、normal quadratic parts が
+\[
+ [Q_a]=a_{ab}[Q_b]\pmod{\mathbb R\mu_0},\qquad a_{ab}\in\mathbb R^\times
+\]
+と変換するなら $2c_1(E^+\otimes E^-)=0$ である。
+境界で指定した実 focus 位相を保つ場合は、同じ主張が相対 Chern class に対して成り立つ。
+曲面の該当する $H^2(-;\mathbb Z)$ に torsion がなければ $c_1$ 自体が零である。
+\end{proposition}
+
+\begin{proof}
+$Q|_C=0$ と invariance から $dQ|_C=0$ なので normal Hessian は内在的である。
+補題\ref{lc:framing:hessian}の $c$ が dual tensor line の非消失切断を与える。
+局所 generator の場合は $c_a=a_{ab}c_b$ だから、dual tensor line 内に実直線束 $R$ ができる。
+実直線束の metric を選べば $R^{\otimes2}$ は標準的な正の切断を持つので、
+dual tensor line の二乗は自明である。
+境界で実位相を指定した場合、その二乗切断は指定 frame の二乗と正の実関数倍で一致する。
+これが相対版を与える。
+\end{proof}
+
+この命題を product 型の focus--focus と Morse saddle の族に適用するときは、
+局所 charts $(\mu,Q_a,H_a)$ を $Q_a|_C=0$ に選び、
+遷移が同じ transverse focus subsystem を保つ smooth base change を誘導することを仮定する。
+この場合、$Q_a$ が $C$ 全体で零であるため normal Hessian の遷移に $H_b$ 項は現れず、
+命題の実直線条件を満たす。Saddle でも正則な曲線方向から連続延長する。
+基底の分岐そのものは、この条件の下で tensor 障害を除かない。
+
+\subsection{許される線形 gauge}
+
+標準模型 $\mu_0=(|y|^2-|z|^2)/2$, $Q=\operatorname{Re}(yz)$ を考える。
+Diagonal unitary gauge $(y,z)\mapsto(ay,bz)$ は $\mu_0,Q$ を固定するために
+$ab=1$ を要する。$Q$ の符号反転を許す場合も $ab=\pm1$ である。
+$\operatorname{Im}(yz)$ は $\mu_0,\operatorname{Re}(yz)$ の関数ではないからである。
+
+\begin{lemma}\label{lc:framing:normalizer}
+全ての equivariant linear symplectic maps の中で、$\mu_0,Q$ を固定する群は
+$S^1\times\mathbb R$ である。$Q$ の符号反転を許した群は
+$(S^1\times\mathbb R)\rtimes\mathbb Z/2$ となる。
+Connected maximal compact subgroup は anti-diagonal circle であり、その winding は $(n,-n)$ である。
+\end{lemma}
+
+\begin{proof}
+$w=(y,\bar z)$ 上で equivariant symplectic group は $U(1,1)$ となる。
+Focus foliation を保つ線形写像では $Q'=aQ+b\mu_0$ である。
+Hamiltonian matrix の spectrum を比較すると、$X_Q$ の固有値が実数 $\pm1$ である一方、
+$aX_Q+bX_{\mu_0}$ の固有値は $\pm a\pm ib$ なので $a=\pm1$, $b=0$。
+$Q$ を固定する写像は $X_Q$ の二つの complex null eigenlines を保つ。
+Hermitian form の保持条件から、その eigenvalues は $\lambda,1/\bar\lambda$、
+$\lambda\in\mathbb C^\times$ であり、群は $\mathbb C^\times\simeq S^1\times\mathbb R$。
+$(y,z)\mapsto(y,-z)$ が $Q$ を反転する。
+Compact 部分は $(y,z)\mapsto(e^{i\theta}y,e^{-i\theta}z)$ である。
+\end{proof}
+
+線形 focus automorphism の $\mathbb R\times SO(2)$ という記述は
+Miranda--Zung \cite[\S2.3]{miranda-local} とも一致する。
+非 unitary な $\mathbb R$ 方向は contractible なので tensor Chern 障害を変えない。
+Normal derivative による必要条件であるため、nonlinear gauge の高次項もこの障害を消さない。
+Degree vector の primary obstruction は
+\[
+ \mathbb Z^2/\mathbb Z(1,-1)\simeq\mathbb Z,
+ \qquad (e_+,e_-)\longmapsto e_++e_-.
+\]
+
+\subsection{相対 winding の保存則}
+
+$\bar C$ を閉曲線 $C$ から円板を除いた曲面とし、$P=E^+\otimes E^-$、$\deg P=m$ とする。
+各境界に、削除した円板へ延びる tensor frame $\tau_a$ を指定する。
+境界向きは $\bar C$ から誘導し、削除円板の境界向きとは逆とする。
+Focus の mixed coefficient を境界で $c_a=g_a\tau_a^*$ と書く。
+
+\begin{proposition}\label{lc:framing:winding}
+指定した $c_a$ が $\bar C$ 上の非消失切断へ延びるための必要十分条件は
+\begin{equation}\label{lc:framing:winding-equation}
+ \sum_a\operatorname{wind}_{\partial\bar C}(g_a)=m
+\end{equation}
+である。特に全 $g_a$ の winding が零なら $m=0$ が必要である。
+\end{proposition}
+
+\begin{proof}
+Disk-extending dual frames に関する相対 Chern 数は $-m$ である。
+境界切断を $g_a$ 倍すると、その winding が相対 Chern 数に加わるので
+\[
+ \left\langle c_1(P^*,c|_{\partial\bar C}),[\bar C,\partial\bar C]\right\rangle
+ =-m+\sum_a\operatorname{wind}_{\partial\bar C}(g_a).
+\]
+相対 $H^2$ は $\mathbb Z$ であり、この数が非消失切断の延長障害の全てである。
+\end{proof}
+
+Tensor frame $\sigma=c^{-1}$ 自体の winding を用いると符号が逆になり、その総和は $-m$ となる。
+既存 focus germ を保つ anti-diagonal gauge では tensor winding が零なので、
+式\eqref{lc:framing:winding-equation}の不一致を修正できない。
+
+Pants 分解で各 piece の相対 tensor degree を $k_v$ とすると、
+内部 cuff の向きは隣接二つの piece で逆になるため
+\[
+ \sum_v k_v=c_1(P,\text{外側の指定 frames})[\bar C,\partial\bar C].
+\]
+内部 frame の winding を変える操作は、隣接二つの $k_v$ に $n,-n$ を加える。
+Connected dual graph の incidence map の像は総和零の整数ベクトル全体なので、
+外側の相対 degree が零なら内部の frame choices により全 $k_v$ を零にできる。
+これは tensor 自明化の位相的条件であり、指定された saturated symplectic germs の接着定理ではない。
+
+\begin{remark}[Degree の計算段階]\label{lc:framing:stage}
+曲線 $\Gamma_{ij}$ の blow-up を行った\emph{直後の中間模型}では normal degrees は
+$(d,d(j-1))$ であり、本節の $m$ は $dj$ となる。
+$d=j=6$ では $m=36$、$g=10$、境界円は24個で、pants は42個、内部 cuffs は51個である。
+42 pieces に細分しても winding の総和条件は変わらない。
+ただし後続 blow-ups は削除円板内の closed normal extension と end frames を変える。
+$36$ を最終成分上の disk-extending frames に対する数と無条件に同一視してはいけない。
+また各 $k_v$ の不一致から、必要な新しい特異ファイバーの個数を直ちに結論することもできない。
+\end{remark}
+
+\subsection{三変数積模型との、framing を指定した比較}
+\label{lc:framing:positive-axis}
+
+端と corner の比較を具体化するため、$\CC^3$ 上の次の可換な三関数を考える。
+\[
+F_1=\pi(|x|^2-|y|^2),\qquad
+F_2=\pi(|x|^2-|z|^2),\qquad
+Q=|xyz-\varepsilon|^2,\quad \varepsilon>0.
+\]
+前二つが生成する circle actions は $xyz$ を保つので、三関数は Poisson commute する。
+$J=F_2-F_1=\pi(|y|^2-|z|^2)$ の固定集合は $x$-axis である。
+その $x\ne0$ の部分に沿う normal quadratic term は
+\[
+Q-\varepsilon^2=-2\varepsilon\operatorname{Re}(x\,yz)+|xyz|^2.
+\]
+従って axis disk に延びる $(y,z)$ の frame に対し、
+mixed coefficient は $-2\varepsilon x$ である。
+削除 disk と逆向きの境界に沿う winding は $-1$ となる。
+
+\begin{proposition}[標準 axis frames のままでは接続できない例]
+\label{lc:framing:positive-mismatch}
+六次の $(i,j)=(5,6)$ の $\bar C$ の24端を上の axis ends と同定し、
+normal tensor の disk-extending frames まで保つと仮定する。
+この端データを、全 $\bar C$ にわたる smooth nondegenerate transverse focus atlas として
+延長することはできない。
+\end{proposition}
+
+\begin{proof}
+この曲線の determinant normal degree は中間・最終段階とも36である。
+24端の mixed coefficient の winding は合計 $-24$ だから、
+dual tensor line の、指定 coefficient に関する相対 Chern 数は
+\[
+-36+(-24)=-60
+\]
+となる。非零 section の延長にはこの数が0であることが必要なので矛盾する。
+\end{proof}
+
+これは normal tensor の disk frames をそのまま同定するという追加仮定の下での
+不一致である。実際の半安定チャートでは $y=tY/x$ の変換が入り、
+第\ref{sc:phase}節でこの比較を計算する。
+Actual coefficient とこの axis coefficient の比較因子の winding を $k_p$ と定義すれば、
+必要な比較条件は $\sum_{p=1}^{24}k_p=60$ となる。
+この $60$ は比較写像の winding の総和であり、追加の特異 fiber 数ではない。
+また非 smooth な comparison や非 focus 型の transition を排除する結論でもない。
+
+\subsection{Annulus 上の exact symplectic shear}
+
+ここから period-one convention を使う。
+Annulus 座標を $(I,\theta)$、$\theta\in\mathbb R/\mathbb Z$ とし、
+$\rho_+=\pi|y|^2$, $\rho_-=\pi|z|^2$, $J=\rho_+-\rho_-$ と置く。
+Normal polar angles $\theta_\pm$ も周期1に取ると
+\[
+ \lambda=I\,d\theta+\rho_+d\theta_++\rho_-d\theta_-,\qquad \Omega=d\lambda.
+\]
+Normal 部分の primitive は原点を越して滑らかに延びる。
+
+\begin{lemma}\label{lc:framing:shear}
+$n\in\mathbb Z$ に対し
+\[
+ \Psi_n(I,\theta,y,z)=
+ (I-nJ,\theta,e^{2\pi in\theta}y,e^{-2\pi in\theta}z)
+\]
+は $\Psi_n^*\lambda=\lambda$ を満たす。
+$(J,Q,I)$ に $Q=\operatorname{Re}(yz)$ または $Q=|yz-c|^2$ を使うと、
+base 上では $(J,Q,I)\mapsto(J,Q,I-nJ)$ という shear を誘導する。
+\end{lemma}
+
+\begin{proof}
+Normal primitive の pullback に $nJ\,d\theta$ が加わり、
+第一項 $(I-nJ)d\theta$ と正確に相殺する。$J$ と $yz$ は不変である。
+\end{proof}
+
+従って winding gauge は、base label を点ごとに固定する条件と区別しなければならない。
+$I$ の補正を省くと $\Omega$ に $n\,dJ\wedge d\theta$ が加わり、symplectic map ではなくなる。
+Actual fixed curve の moment が $\delta$ なら $J=\mu-\delta$ を用いる。
+
+\subsection{任意の winding を持つ compact nodal end の構成}
+
+既存の end foliation を変更してよい場合には、tensor phase の任意の winding を実現できる。
+しかもこれは非 compact な quadratic focus germ だけの主張ではない。
+
+\begin{proposition}\label{lc:framing:compact-end}
+整数 $n$ を固定する。十分小さい $c>0$ に対して
+\[
+ \Phi_n(I,\theta,y,z)=(I-n\rho_+,\theta,e^{2\pi in\theta}y,z)
+\]
+と置けば、$\Phi_n^*\lambda=\lambda$ であり、
+\[
+ F_n=(J,Q_n,H_n),\qquad
+ Q_n=|e^{2\pi in\theta}yz-c|^2,\qquad H_n=I-n\rho_+
+\]
+は可換な三つ組である。
+適切な compact saturated domain 上で、regular fibers は $T^3$、
+nodal fibers は once-pinched $T^2\times S^1$ となる。
+固定曲線上では $H_n=I$ で、mixed quadratic coefficient の $\theta$ 方向 winding は $n$ である。
+\end{proposition}
+
+\begin{proof}
+Normal primitive の追加項 $n\rho_+d\theta$ と $I$ の補正が相殺する。
+$F_n$ は $F_0=(J,|yz-c|^2,I)$ の $\Phi_n$ による pullback だから可換である。
+標準 normal model で circle quotient の座標は $(J,w)=(J,yz)$。
+固定した $(J,Q)$ 上で $w$ は $|w-c|=\sqrt Q$ を動く。
+$(J,w)=(0,0)$ を通らなければ fiber は円上の circle bundle、従って $T^2$。
+$(J,Q)=(0,c^2)$ ではその orbit circle が一点で潰れ、once-pinched torus となる。
+$Q=0$ の別の critical locus は以下の domain から除く。
+
+$a>0$, $0<\vartheta<1$ を固定し、$(0,c^2)$ の小さい compact 近傍 $U$ を
+\[
+ |J|\le ac,\qquad |Q-c^2|\le\vartheta c^2
+\]
+の中に取る。$(J,Q)\in U$ では
+\[
+ |w|\le c(1+\sqrt{1+\vartheta}),\qquad
+ \rho_+=\frac{J+\sqrt{J^2+4\pi^2|w|^2}}2\le Kc
+\]
+となる定数 $K$ が存在する。$\rho_-$ にも同様の上界がある。
+従って $q^{-1}(U)$ は compact で、その全 nodal torus が小さい normal disk に入る。
+元の annulus の内部に closed interval $[A,B]$ を取り、
+\[
+ M_n=\Phi_n^{-1}\bigl([A,B]\times S^1\times q^{-1}(U)\bigr)
+\]
+とすれば、これは $F_n$ に関して saturated な compact domain である。
+$I=H_n+n\rho_+$ なので、$|n|Kc$ を annulus の余白より小さくすれば $M_n$ は元の annulus 内に収まる。
+$\Phi_n$ が fiber 全体を同定するため、その位相も compact 性も保たれる。
+最後に
+\[
+ Q_n-c^2=-2c\operatorname{Re}(e^{2\pi in\theta}yz)+|yz|^2
+\]
+より、mixed coefficient は winding $n$ を持つ。
+\end{proof}
+
+境界向きと $\theta$ の向きが逆なら winding の符号も逆になる。
+一般の diagonal winding $(n_+,n_-)$ にも、$I$ を
+$I-n_+\rho_+-n_-\rho_-$ に変えて同じ構成ができる。
+ただし元の focus foliation を保つのは $n_++n_-=0$ の場合である。
+
+\begin{remark}[指定された端との一致は別の条件]\label{lc:framing:semiglobal}
+命題\ref{lc:framing:compact-end}は、任意 winding の\emph{新しい compact nodal end}を構成する。
+従って端を自由に選べる場合には、式\eqref{lc:framing:winding-equation}を満たす winding を配分する余地がある。
+一方、独立に指定された既存の端がこの模型と同じとは限らない。
+Compact focus fiber の近傍には semiglobal Taylor invariant がある
+\cite{vungoc-local}。Normal Hessian、tensor degree、meridian periods の一致だけでは、
+その全 saturated germ の symplectic 同値は従わない。
+所定の end を保つ大域接着では、上記の具体的な end への一致か、
+その間を結ぶ相対構成を別途証明する必要がある。
+\end{remark}

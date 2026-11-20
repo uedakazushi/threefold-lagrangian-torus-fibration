@@ -1,0 +1,216 @@
+\section{Actual sextic 上の upper meridian の Maslov 指数と cap 障害}
+\label{mx:section}
+
+本節は actual curve の lift を特定した構成について述べる。
+Smooth fiber を
+\[
+ X_\tau=\{L_1L_2L_3L_4L_5L_6+\tau F_6=0\}\subset\PP^4,
+ \qquad \tau\ne0,
+\]
+とし、smooth plane sextic
+\[
+ C^*=\{L_5=L_6=F_6=0\}\subset X_\tau
+\]
+を curve block の lift に選ぶ。
+$\mathsf H=c_1(\mathcal O_{X_\tau}(1))$、$[\omega]=\mathfrak a\mathsf H$、
+$\mathfrak a>0$ とする。$\mathfrak a$ は distributed twist の整数 $a$ と区別する。
+24 punctures は $C^*\cap\{L_i=0\}$、$i=1,2,3,4$ の各6点であり、
+全て単純かつ互いに異なると仮定する。
+各 puncture の actual disk へ延びる normal frames を固定し、
+annular embedding の first jet は以下の algebraic comparison と
+positive-diagonal Gram--Schmidt から定める。
+
+\subsection{Actual disk frame における一回の補正}
+
+$C^*$ は $X_\tau$ 内で二つの hyperplanes の transverse complete intersection なので
+\[
+ N_{C^*/X_\tau}\simeq\mathcal O_{C^*}(1)\oplus\mathcal O_{C^*}(1).
+\]
+一方、central $C_{56}$ では low/high normal lines が
+$\mathcal O_C(1),\mathcal O_C(5)$ である。
+$G=L_1L_2L_3L_4$ と置き、$y=L_5$, $z=L_6$、
+central chart の high coordinate を $Y_{\rm alg}=F_6/z$ と書く。
+$G\ne0$ 上の relation は
+\begin{equation}\label{mx:normal-comparison}
+ y=-\frac{\tau}{G}Y_{\rm alg},\qquad
+ \partial_{Y_{\rm alg}}=-\frac{\tau}{G}\partial_y
+ \quad\text{along }C^*.
+\end{equation}
+Low normal $\partial_z$ は補正を受けない。
+各 puncture の正向き circle で $G$ は winding $+1$ を持つので、
+central high frame は actual disk frame に対して winding $-1$ を持つ。
+これは bundle degrees の差だけからの推定ではなく、式\eqref{mx:normal-comparison}の first-jet identity である。
+Nonzero local units、constant $-\tau$、positive-diagonal Gram--Schmidt は、この winding を変えない。
+
+第\ref{ai:distributed}項の tube variables $(Y,Z)$ は low/high の順序であり、
+algebraic variables $(Y_{\rm alg},z)$ の順序とは異なる。
+Distributed insertion の normal factors は
+\[
+ Y=\sqrt s\,e^{2\pi i(a-1)\theta}y_{\rm src},\qquad
+ Z=\sqrt s\,e^{2\pi id\theta}z_{\rm src},\qquad k=a+d.
+\]
+従って actual disk frames に関する二つの derivative factors の winding は
+\begin{equation}\label{mx:normal-degrees}
+ (a-1,d-1),\qquad \text{その和は }k-2.
+\end{equation}
+二つの normal lines を一緒に順序交換しても determinant の定数符号しか変わらない。
+これは normal first jet の比較である。Full symplectic coordinate change には
+base moment の $O(|v|^2)$ 補正も含まれ、それは actual tubular embedding に保持する。
+
+Global central sections はこの comparison によって
+\[
+ (L_1,L_1L_2^2L_3L_4)\longmapsto(L_1,-\tau L_2)
+\]
+となる。Actual determinant frame の puncture windings は
+$(1,1,0,0)$ 各6個であり、central の $(2,2,1,1)$ 各6個から一つずつ減る。
+
+\subsection{Upper meridian と derivative loop}
+
+標準模型の $h,j$ と upper regular cut
+\[
+ c^2<q_*<q_s(h,j)
+\]
+を固定する。$\gamma_U$ は第\ref{pa:section}節の positive upper meridian とする。
+式\eqref{pa:upper-chart}の $a_{\rm ang}=\theta_y+\theta_z$, $\beta=-\theta_z$ を固定すると、
+$\gamma_U$ の original angular degrees は
+\begin{equation}\label{mx:source-angular}
+ (\deg\theta_x,\deg\theta_y,\deg\theta_z)=(1,0,0).
+\end{equation}
+実際 $|W-c|=\sqrt{q_*}$ は原点を囲み、$\gamma_U$ はその clockwise lift である。
+円の原点周りの argument は単調なので、$\theta_x$ 自体を正向き parameter にできる。
+
+Source upper sublevel disk は、$a_{\rm ang},\beta$ を固定した smooth $\xi$-disk である。
+その周上の Lagrangian tangent bundle は二つの固定された real directions と
+正向き plane curve の tangent line に分解する。
+従って source Cartesian trivialization に関して
+\begin{equation}\label{mx:source-maslov}
+ \mu_{\rm src}(\gamma_U)=2.
+\end{equation}
+この sign は positive symplectic disk の boundary orientation に対応する。
+
+\begin{lemma}[Actual derivative loop の degree]\label{mx:derivative}
+Actual annular embedding $\Phi_s$ の first jet を上記の通り選ぶ。
+Scale $s$ は、$\gamma_U$ の source normal coordinates を零へ縮める compact homotopy
+の全体が同じ annular chart に入るほど小さいとする。
+Source Cartesian frames と actual disk へ延びる symplectic frames の間で、
+$s^{-1/2}D\Phi_s$ の unitary polar part の determinant degree は $k-2$ である。
+\end{lemma}
+
+\begin{proof}
+Normal contraction は derivative loops の homotopy を与える。
+その終点の source axis では derivative は base block と二つの normal blocks に分かれる。
+Base map は
+\[
+ (\rho_x,\theta_x)\longmapsto (b+s\rho_x,\theta_x)
+\]
+から actual curve annulus への orientation-preserving map である。
+Disk Cartesian frames の間でその derivative loop の degree は零である。
+例えば radial area coordinates では、radial map
+$re^{i\vartheta}\mapsto R(r)e^{i\vartheta}$ の derivative は
+$R_\vartheta\operatorname{diag}(R'(r),R(r)/r)R_{-\vartheta}$ であり、
+positive-definite symmetric なので unitary polar part は恒等となる。
+General disk-compatible coordinates でも、source と target の正向き simple circles の
+tangent turning numbers がともに1であるため degree は零のままである。
+Normal blocks の和は式\eqref{mx:normal-degrees}により $k-2$ である。
+Relative Moser correction は zero section 上で first-jet identity なので、
+上の contraction による degree を変えない。
+Compactness と、base displacement が $O(s)$、normal size が $O(\sqrt s)$ であることにより、
+必要な homotopy は scale を小さくすれば同じ chart 内で実行できる。
+\end{proof}
+
+Maslov index は unitary determinant の二乗の degree である。
+従って symplectic derivative loop の determinant degree が $m$ なら、
+Lagrangian loop の Maslov index への寄与は $2m$ となる。
+この規約および positive plane disk の index $2$ は
+\cite[\S2.3, Example 2.10, Theorem 3.1]{cho-shin-maslov}と一致する。
+
+\subsection{Reference disk と Maslov 指数}
+
+定理\ref{ad:disks}の actual graph disk を $D_0$ とし、
+その面積を $A_0$ と書く。前節の Kähler scale $a$ は本節の $\mathfrak a$ である。
+Base disks を先に $0<A_i^{\rm base}<\mathfrak a$ で選んでから insertion scales を縮めれば、
+同定された actual disk neighborhood 内で
+\begin{equation}\label{mx:small-area}
+ 0<A_0=A_i^{\rm base}-s_i(h_i^0-B_i)<\mathfrak a
+\end{equation}
+を満たす embedded symplectic disk がある。
+この面積は global punctured-neighborhood primitive の period $P_i$ とは異なる。
+既存 primitive が disk 全体へ延びることは仮定していない。
+
+\begin{proposition}[Actual upper disk の Maslov 指数]\label{mx:index}
+定理\ref{ad:disks}の $D_0$ に対して
+\begin{equation}\label{mx:maslov-value}
+ \mu_{L_s}(D_0)=2+2(k-2)=2k-2.
+\end{equation}
+従って central determinant winding $k=1$ の端では $\mu(D_0)=0$、
+$k=2$ の端では $\mu(D_0)=2$ である。
+\end{proposition}
+
+\begin{proof}
+Actual disk neighborhood は contractible であり、その symplectic tangent frame は
+$D_0$ まで延びる。Source disk の frame も source Cartesian frame と homotopic である。
+式\eqref{mx:source-maslov}と補題\ref{mx:derivative}を用いて
+actual boundary Lagrangian loop の index を計算すればよい。
+\end{proof}
+
+\subsection{Primitive に依存しない12端の elliptic-cap 障害}
+
+$X_\tau$ の tangent-normal exact sequence から
+\[
+ c_1(TX_\tau)=(5-6)\mathsf H=-\mathsf H
+\]
+となる。$D'$ が $L_s$ 上で $D_0$ と同じ oriented marked boundary class
+$\gamma_U$ を持つ任意の disk とする。
+Boundary representatives が異なる場合は $L_s$ 内の annulus を加えて一致させる。
+$L_s$ は Lagrangian なのでこの操作は area を変えない。
+$D'$ と $-D_0$ を接いだ sphere class を $A$、$n=\langle\mathsf H,A\rangle\in\ZZ$ と置けば
+\begin{equation}\label{mx:sphere-comparison}
+ \mu(D')=2k-2-2n,\qquad
+ \int_{D'}\omega=A_0+\mathfrak a n.
+\end{equation}
+第一の式は relative Maslov class の sphere restriction が $2c_1$ であることによる。
+例えば \cite[Definition 2.8 and Theorem 3.1]{cho-shin-maslov}の curvature formula を
+二つの disks に同じ boundary connection で適用して差を取れば、
+closed sphere の Chern--Weil formula のちょうど二倍になる。
+$\pi_2(X_\tau)\simeq\ZZ$ などの追加の同定は必要ない。
+
+特に $\mu(D')=2$ なら
+\begin{equation}\label{mx:maslov-two-area}
+ n=k-2,\qquad \int_{D'}\omega=A_0+\mathfrak a(k-2).
+\end{equation}
+
+\begin{theorem}[12 upper meridians の positive Maslov-two cap は存在しない]
+\label{mx:twelve-caps}
+上記の actual $C^*$ lift、specified first jets、小さい disks と scales を用いた
+24端の assembly を考える。
+$L_3=0$ または $L_4=0$ に属する12端の各 upper meridian $\gamma_U$ は、
+$X_\tau$ のどこにおいても、positive-area Maslov-index-two disk の boundary にはならない。
+従ってこの marked meridian を保ち shared $T^2$ が自由に延びる
+ordinary elliptic disk cap によって、これら12 ports を埋めることはできない。
+Primitive の全域への延長や exact gluing は仮定していない。
+\end{theorem}
+
+\begin{proof}
+これら12端では $(a,d)=(0,1)$、$k=1$ である。
+式\eqref{mx:maslov-two-area}により Maslov-two disk の area は
+$A_0-\mathfrak a<0$ となり、positivity に矛盾する。
+
+最後の帰結における ordinary elliptic disk cap は、fixed shared moments の還元が
+一つの非退化 elliptic point を持つ smooth symplectic disk であり、
+その positive boundary の collapsing primitive cycle が $\gamma_U$ であるものを指す。
+Shared $T^2$ が自由なので、fixed-moment level の disk 上の principal $T^2$ bundle は trivial である。
+Section を取ると、その pullback form は reduced symplectic form であり、
+positive symplectic disk を得る。Section の boundary は elliptic point で潰れる cycle であり、
+cap に指定した collapse marking によって $\gamma_U$ と同定される。
+二つの noncollapsing Hamiltonian vector fields と compatible complex structure は
+disk 上に延びる complex rank-two summand の frame を与え、
+残る reduced tangent line は boundary に沿って一回正に回るため、disk の Maslov index は2である。
+これは上で排除した disk となる。
+\end{proof}
+
+$L_1=0,L_2=0$ の残る12端では $k=2$ であり、この比較による Maslov-two area は $A_0>0$ となる。
+この計算はそれらの actual cap の存在を与えるものではない。
+また、collapsing meridian の変更、additional singularities を含む相対 cobordism、
+shared $T^2$ の変更を含む接着は定理\ref{mx:twelve-caps}の対象外である。
+別の smooth hypersurface へ assembly を symplectically 移す場合は、
+reference disks も一緒に移せば同じ Maslov と area の結論が保たれる。

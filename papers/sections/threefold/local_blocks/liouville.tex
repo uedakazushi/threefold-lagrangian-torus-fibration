@@ -1,0 +1,308 @@
+\section{正則部分の平均化と compact node における Liouville 障害}
+\label{lc:liouville}
+
+本節では、正則 torus bundle 上で解ける問題と、
+compact な focus--focus fiber を含めると解けない問題を分ける。
+対象は固定した actual symplectic form と actual fiber decomposition である。
+曲率の cohomology class や meridian periods の一致だけを仮定する議論ではない。
+
+\subsection{正則 torus bundle 上の相対平均化}
+\label{lc:liouville-average}
+
+$p:M^{2n}\to B^n$ を、連結な compact fibers を持つ
+proper な正則 Lagrangian torus bundle とする。
+Symplectic form を $\omega_0$、period lattice を
+$\Lambda\subset T^*B$ と書く。
+各 fiber は canonical torus group $T_b^*B/\Lambda_b$ の torsor である。
+Integral-affine coordinate neighborhood では lattice の基底を選ぶことで
+Hamiltonian $T^n$ action が得られる。
+基底変更は局所定数の $\operatorname{GL}(n,\mathbb Z)$ 行列なので、
+その Haar 平均は重なりで一致する。
+この方法で differential forms の大域的な平均化作用素
+$\operatorname{Av}$ が定まり、$d$ と可換になる。
+ここでの不変性は、これらの local torus translations に関する不変性を意味する。
+
+\begin{proposition}[飽和 collar に相対的な平均化]
+\label{lc:liouville-average-prop}
+$\beta$ を $M$ 上の滑らかな $1$-form とし、$d\beta$ は不変と仮定する。
+各 fiber 上の Haar 平均が $0$ である一意な滑らかな関数 $f$ が存在して、
+\[
+ \beta-\operatorname{Av}(\beta)=df
+\]
+となる。
+さらに、ある飽和した開 collar $U_0$ 上で $\beta$ 自身が不変ならば、
+$f|_{U_0}=0$ である。
+\end{proposition}
+
+\begin{proof}
+$\eta=\beta-\operatorname{Av}(\beta)$ と置く。
+$d$ と平均化の可換性、および $d\beta$ の不変性から $d\eta=0$ である。
+Torus の translations は $H^1(T^n;\mathbb R)$ に自明に作用するので、
+各 fiber $F$ への制限 $\eta|_F$ は exact である。
+その primitive を Haar 平均 $0$ で規格化して $f|_F$ とする。
+Local torus charts で fiberwise Laplacian を用いれば、
+この解が基底に滑らかに依存することが分かる。
+規格化の一意性から、局所的な解は重なりで一致する。
+
+$\zeta=\eta-df$ は閉じた $1$-form で、vertical tangent 上で零である。
+任意の vertical vector field $V$ に対して
+\[
+ \mathcal L_V\zeta
+ =\iota_Vd\zeta+d(\iota_V\zeta)=0
+\]
+だから、$\zeta$ は basic である。
+一方、$\operatorname{Av}(\eta)=0$ および
+\[
+ \operatorname{Av}(df)=d\operatorname{Av}(f)=0
+\]
+から、$\operatorname{Av}(\zeta)=0$ となる。
+Basic form は平均化で変わらないため、$\zeta=0$ を得る。
+$U_0$ では $\eta=0$ であり、平均 $0$ の規格化により $f=0$ である。
+\end{proof}
+
+\begin{corollary}[正則部分の projectability]
+\label{lc:liouville-average-cor}
+Exact symplectic な正則 torus bundle $(M,\omega=d\lambda)$ では、
+$\lambda$ を exact gauge で変更し、その Liouville vector field を
+基底へ projectable にできる。
+このために fiber periods の消失を仮定する必要はない。
+\end{corollary}
+
+\begin{proof}
+$\omega$ 自身の canonical torus translations を用いて命題を適用する。
+$\lambda'=\operatorname{Av}(\lambda)$ は不変で $d\lambda'=\omega$ である。
+$\omega$ も不変なので、$\iota_Z\omega=\lambda'$ を満たす $Z$ は不変となる。
+各 fiber 上の torus action は推移的だから、$dp(Z)$ は fiber 上一定である。
+\end{proof}
+
+\begin{corollary}[共通の torus action を持つ family]
+\label{lc:liouville-family-average}
+同じ local torus translations が $\omega$ と $\kappa$ を保存すると仮定する。
+$\omega_\mu=\omega+\mu\kappa$ は考える範囲で symplectic とし、
+$d\beta=\omega+w\kappa$ とする。
+このとき、一つの exact gauge
+\[
+ \beta'=\beta-df=\operatorname{Av}(\beta)
+\]
+によって、全ての $\mu$ に対する
+\[
+ \iota_{Y_\mu}\omega_\mu=\beta'
+\]
+を同時に projectable にできる。
+既に $\beta$ が不変である指定飽和 collar 上では $f=0$ とできる。
+\end{corollary}
+
+\begin{proof}
+$d\beta$ は不変なので命題\ref{lc:liouville-average-prop}を適用できる。
+各 $\omega_\mu$ と $\beta'$ が不変であることから $Y_\mu$ も不変となる。
+\end{proof}
+
+\begin{remark}
+Fiber periods が零であることは、$\beta'$ を fiber tangent 上で零にし、
+reduced label を固定するという、より強い条件に関係する。
+Projectable な flow は label を動かしてよいので、非零の periods を許す。
+また、単に $\kappa|_{TF}=0$ であることから、
+$\omega$ と $\kappa$ が共通の torus action に関して不変とは限らない。
+系\ref{lc:liouville-family-average}の共通作用の仮定は省略できない。
+\end{remark}
+
+\subsection{Compact simple focus--focus fiber の対数障害}
+\label{lc:liouville-focus}
+
+正則部分の平均化を singular fiber へ滑らかに延長する問題には、
+実際の障害がある。
+以下の定理では、focus--focus 点一つの近傍ではなく、
+compact な nodal torus \emph{全体}の飽和近傍を考える。
+
+\begin{theorem}[Compact node は Liouville flow で不変にできない]
+\label{lc:liouville-no-focus}
+$q:U^4\to D^2$ を compact connected fibers を持つ proper Lagrangian fibration とする。
+$q^{-1}(0)$ はちょうど一つの nondegenerate focus--focus critical point $p$ を持ち、
+そのほかの点、および $U$ のほかの fibers は正則と仮定する。
+このとき、$q^{-1}(0)$ 全体の近傍において次の二条件を同時に満たす
+滑らかな vector field $Z$ は存在しない。
+\begin{enumerate}
+\item $\mathcal L_Z\omega=\omega$。
+\item $Z$ の local flow は $q$ の各 fiber を別の fiber へ送る。
+\end{enumerate}
+したがって、どの primitive $\lambda$ を選んでも、その Liouville vector field は
+この飽和近傍の fiber decomposition を保たない。
+定数 $a\ne0$ に対する $\mathcal L_Z\omega=a\omega$ にも同じ非存在が成り立つ。
+\end{theorem}
+
+\begin{proof}
+必要なら compact fiber の近くへ $U$ を縮小する。
+Flow が誘導する base vector field を $v$ とする。
+$v$ は $0$ でも滑らかである。
+実際、$q^{-1}(0)$ の正則点を通る smooth local section $s$ を選べば、
+$v(b)=dq(Z)(s(b))$ と書ける。
+同様に逆 flow も基底へ降りるから、誘導写像は local diffeomorphism である。
+唯一の critical point $p$ は flow で固定され、$Z(p)=0$ および $v(0)=0$ となる。
+
+Eliasson coordinates と、その base coordinates の飽和近傍への延長を用いる
+\cite{vungoc-local,vw-local}。
+点 $p$ の近くで、
+\[
+ \omega=dx\wedge d\xi+dy\wedge d\eta,
+ \qquad q_1=x\xi+y\eta,
+ \qquad q_2=x\eta-y\xi
+\]
+としてよい。
+$q_1$ は hyperbolic flow、$q_2$ は period $2\pi$ の circle flow を生成する。
+
+まず、$Dv(0)=\operatorname{id}$ を示す。
+Hamiltonian vector field の規約を $\iota_{X_H}\omega=-dH$ とすると、
+Cartan の公式から
+\[
+ [Z,X_H]=X_{Z(H)-H}
+\]
+を得る。
+$A=DZ(p)$、$B_i=DX_{q_i}(p)$、$a_{ij}=\partial_jv_i(0)$ と置く。
+両 vector fields が $p$ で零であることを用いて上式を線形化すると、
+\begin{equation}
+ [B_i,A]=\sum_j(a_{ij}-\delta_{ij})B_j.
+ \label{lc:liouville-trace}
+\end{equation}
+Focus--focus の二行列 $B_1,B_2$ は可換であり、表示した二次形式から直接
+\[
+ \operatorname{tr}(B_1^2)=4,
+ \qquad \operatorname{tr}(B_2^2)=-4,
+ \qquad \operatorname{tr}(B_1B_2)=0
+\]
+と分かる。
+式\eqref{lc:liouville-trace}に $B_k$ を掛けて trace を取ると、左辺は
+\[
+ \operatorname{tr}([B_i,A]B_k)
+ =\operatorname{tr}(A[B_k,B_i])=0
+\]
+である。
+従って $a_{ij}=\delta_{ij}$、すなわち $Dv(0)=\operatorname{id}$ を得る。
+
+次に、$\lambda=\iota_Z\omega$ と置く。
+$d\lambda=\omega$、$\lambda(Z)=0$ なので、
+\[
+ \mathcal L_Z\lambda=\lambda.
+\]
+正則 fibers 上の locally constant な cycle family $\gamma_b$ の action
+\[
+ I(b)=\int_{\gamma_b}\lambda
+\]
+は、したがって
+\begin{equation}
+ v(I)=I
+ \label{lc:liouville-action}
+\end{equation}
+を満たす。
+Vanishing circle の action は、向きの共通の符号を除いて $2\pi q_2$ である。
+その定数項は、circle が $p$ へ縮むため零となる。
+よって $v_2(q_1,q_2)=q_2$ が厳密に成り立つ。
+
+補周期の action を $\mathcal A$ と書く。
+Focus--focus return time の対数項の正則化により、
+複素座標 $c=q_1+\sqrt{-1}q_2$ と logarithm の一つの枝に対して
+\begin{equation}
+ \mathcal A(c)=\mathcal A_0-\operatorname{Re}(c\log c-c)+S(c),
+ \qquad S(0)=0,
+ \label{lc:liouville-log-action}
+\end{equation}
+となる滑らかな $S$ が存在する。
+ここでは cycle の向きをこの式に合わせて選んだ。
+この公式は \cite[Proposition 3.1, Remark 3.2]{vungoc-local} による。
+対数項は focus--focus 点の近くの hyperbolic flow による return time であり、
+その外の正則部分を通る return time が smooth remainder を与える。
+
+正の $q_1$ 軸上で $x=q_1>0$、$q_2=0$ とする。
+$v_2(x,0)=0$ と $Dv(0)=\operatorname{id}$ から、
+\[
+ v_1(x,0)=x+O(x^2).
+\]
+式\eqref{lc:liouville-action}を $\mathcal A$ に適用すると、
+\[
+ v_1(x,0)\bigl(-\log x+\partial_1S(x,0)\bigr)
+ =\mathcal A_0-x\log x+x+S(x,0).
+\]
+$x\to0$ としてまず $\mathcal A_0=0$ を得る。
+$S(x,0)=s_1x+O(x^2)$ と書けば、左辺は
+\[
+ -x\log x+s_1x+O(x^2|\log x|),
+\]
+右辺は
+\[
+ -x\log x+(1+s_1)x+O(x^2)
+\]
+となる。
+差を $x$ で割って $x\to0$ とすると $0=1$ となり、矛盾する。
+最後の定数 $a\ne0$ の主張は $Z$ を $Z/a$ に置き換えて従う。
+\end{proof}
+
+\subsection{Normal collar に必要な比例曲率}
+\label{lc:liouville-curvature}
+
+Normal circle bundle の connection を $\alpha$、その curvature を $\kappa$ とし、
+\[
+ \Omega=d\mu\wedge\alpha+\pi^*(\omega+\mu\kappa),
+ \qquad
+ \lambda=(\mu-w)\alpha+\pi^*\beta,
+ \qquad d\beta=\omega+w\kappa
+\]
+という collar を考える。
+ここで $w>0$、考える範囲の $\omega_\mu=\omega+\mu\kappa$ は symplectic とする。
+その Liouville vector field は
+\[
+ Z=(\mu-w)\partial_\mu+Y_\mu^{\mathrm{hor}},
+ \qquad \iota_{Y_\mu}\omega_\mu=\beta
+\]
+である。
+固定 reduced fibration の lift を保つためには $Y_\mu$ の projectability が必要である。
+
+\begin{corollary}[Compact node の比例曲率条件]
+\label{lc:liouville-curvature-cor}
+固定 reduced fibration が compact simple focus--focus fiber を持つとする。
+その fiber 全体の飽和近傍で $\kappa=k\omega$、$k$ は定数と仮定する。
+上記 Liouville flow が lifted fiber decomposition を保つなら、
+\[
+ 1+wk=0,\qquad\text{従って}\qquad \kappa=-\omega/w
+\]
+が必要である。
+$\beta$ を $\beta-df$ に置き換えても、この必要条件は変わらない。
+\end{corollary}
+
+\begin{proof}
+$\iota_Y\omega=\beta$ とすると
+\[
+ Y_\mu=\frac{Y}{1+k\mu},
+ \qquad \mathcal L_Y\omega=d\beta=(1+wk)\omega.
+\]
+従って $Y_\mu$ の projectability は $Y$ の projectability と同値である。
+$1+wk\ne0$ なら $Y/(1+wk)$ が
+定理\ref{lc:liouville-no-focus}で禁止された Liouville vector field となる。
+Exact gauge は $d\beta$ を変えないから、同じ議論が全ての $\beta-df$ に適用できる。
+\end{proof}
+
+\begin{remark}[適用範囲と残る接着問題]
+特に、compact nodal fiber 全体の近傍で $\kappa=0$ とする
+flat-curvature collar は、固定 foliation を保つ上記の構成とは両立しない。
+これは $\kappa|_{TF}=0$ という葉方向の flatness を禁止する主張ではない。
+$\kappa=-\omega/w$ のときは $d\beta=0$ であり、
+自由な local data なら $\beta=0$ を選んで $Y_\mu=0$ とできる。
+この場合、$\mu<w$ で $\omega_\mu=(1-\mu/w)\omega$ は正の比例形となる。
+
+ただし、$\beta=0$ が既に指定された boundary periods、holonomy、
+actual end primitive と一致することは別の条件である。
+所定の $\beta$ の periods が非零なら、それを exact gauge で零にはできない。
+比例曲率を singular neighborhood で実現した後にも、
+transition、複数の normal directions、corner での実際の一致を証明する必要がある。
+
+点一つの quadratic focus--focus germ には radial Liouville dilation が存在する。
+定理の障害は、compact pinched torus の closing part と return action を含めて
+初めて現れる。
+従って、この障害は局所 torus fibration の存在を否定せず、
+異なる reduced forms 間の輸送も否定しない。
+また、三次元 negative vertex や Liouville cone による構成を、
+本節の compact simple focus--focus foliation と同一視してはならない
+\cite{em}。
+第\ref{mc:main}節では reduced foliation を normal moment とともに動かし、
+actual primitive を保つ片側 collar を構成する。
+本研究で得られた compact curve blocks を大域的に接着する際には、
+それぞれの模型について、この区別を保った curvature と primitive の指定が必要である。
+\end{remark}

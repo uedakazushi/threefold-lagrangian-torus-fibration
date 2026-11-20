@@ -1,0 +1,150 @@
+\section{大域的に保持できない円作用と period lattice}
+\label{gc:section}
+
+局所 cap の構成では、二つの周期1 Hamiltonian circles を共有して
+二次元還元を行ってきた。この方法は有限な部分領域では有効であるが、
+一般型超曲面の全体まで一つの非零 circle generator を保つことはできない。
+ここでは、その既知の一般的制約を本研究の接着条件として明示する。
+Hamiltonian circle actions に関するより強い uniruledness の定理は
+McDuff \cite[Corollary 1.2]{mcduff-uniruled-gc} による。
+以下の負の単調性の場合は、orbit sphere の面積と weight sums だけで直接証明できる。
+Weight sums と Chern number の関係については
+Gadbled \cite[Appendix A.2]{gadbled-weights-gc} も参照されたい。
+
+\subsection{Orbit sphere の二つの評価}
+
+角は $\theta\in\RR/\ZZ$、Hamiltonian vector field の規約は
+$\iota_{X_H}\omega=-dH$ とする。
+Fixed point $p$ での complex isotropy weights を $w_1(p),\ldots,w_n(p)$、
+その和を $m(p)$ と書く。Fixed component の接方向の weight は零である。
+
+\begin{lemma}[経路を回転させた sphere]\label{gc:orbit-sphere}
+Connected symplectic manifold $(M,\omega)$ に周期1 Hamiltonian circle action
+$\varphi_\theta$ があり、$p_-,p_+$ はその fixed points とする。
+この二点を結ぶ経路を回転させることで smooth sphere map
+$S:S^2\to M$ を選べ、次の等式が成り立つ。
+\begin{equation}\label{gc:orbit-formula}
+ \int_{S^2}S^*\omega=H(p_+)-H(p_-),\qquad
+ \langle c_1(TM),S_*[S^2]\rangle=m(p_-)-m(p_+).
+\end{equation}
+Sphere は embedded あるいは symplectic である必要はなく、
+一般の経路を使ってよい。Finite stabilizers による除算は行わない。
+\end{lemma}
+
+\begin{proof}
+経路 $\gamma:[0,1]\to M$ を両端の小区間で定数に取り、
+$S(t,\theta)=\varphi_\theta(\gamma(t))$ と置く。
+Cylinder の両端の circles をそれぞれ一点に潰す。
+写像は両極の近傍で定数なので、滑らかな sphere map にできる。
+向きは cylinder 上の $dt\wedge d\theta$ とする。
+Hamiltonian equation より
+\[
+ S^*\omega(\partial_t,\partial_\theta)
+ =\omega(\gamma'(t),X_H(\gamma(t)))
+ =\frac{d}{dt}H(\gamma(t)).
+\]
+これを積分すると第一式を得る。
+
+Action-invariant compatible almost complex structure を選ぶ。
+$\gamma^*TM$ の unitary frame を取り、circle action で cylinder 全体へ運ぶ。
+両極の constant disks 上の frame と比較した determinant winding は、
+それぞれ $m(p_-)$ と $m(p_+)$ である。
+二つの境界の向きが反対なので、clutching による Chern number は
+$m(p_-)-m(p_+)$ となる。
+これは $S^*TM$ の計算であり、$dS$ の単射性を必要としない。
+Period-one circle を全て回転させた sphere map を使ったため、
+effective orbit の stabilizer order で割る操作も不要である。
+\end{proof}
+
+\begin{proposition}[負の単調性と Hamiltonian circle action]
+\label{gc:negative-monotone}
+Closed connected symplectic manifold が
+\[
+ [\omega]|_{\pi_2(M)}=-\nu\,c_1(TM)|_{\pi_2(M)},\qquad \nu>0
+\]
+を満たすなら、非自明な Hamiltonian circle action は存在しない。
+\end{proposition}
+
+\begin{proof}
+非自明な作用の moment map $H$ は非定数であり、minimum と maximum の
+fixed points $p_-,p_+$ を取れる。
+Minimum の normal weights は全て正、maximum の normal weights は全て負である。
+作用が connected manifold 上で非自明なので、いずれにも少なくとも一つの
+nonzero normal weight がある。
+実際、ある fixed point で全 weights が零なら equivariant local chart で作用は恒等となり、
+invariant metric に関する isometry の一意性から全 $M$ で恒等となる。
+従って
+\[
+ H(p_+)-H(p_-)>0,\qquad m(p_-)-m(p_+)>0.
+\]
+補題\ref{gc:orbit-sphere}の sphere に負の単調性を適用すると
+\[
+ 0<H(p_+)-H(p_-)
+   =-\nu\bigl(m(p_-)-m(p_+)\bigr)<0
+\]
+となり矛盾する。
+\end{proof}
+
+\subsection{一般型超曲面の全体に対する帰結}
+
+\begin{corollary}[全 $X_d$ 上の symplectic circle は非自明に作用しない]
+\label{gc:hypersurface}
+$d\ge6$、$X_d\subset\PP^4$ は smooth、
+$[\omega]=a\mathsf H$, $a>0$ とする。
+この symplectic manifold に非自明な smooth symplectic $S^1$-action は存在しない。
+\end{corollary}
+
+\begin{proof}
+Adjunction と Euler sequence により
+$c_1(TX_d)=(5-d)\mathsf H$ であり、
+$[\omega]=-\nu c_1(TX_d)$、$\nu=a/(d-5)>0$ である。
+Lefschetz hyperplane theorem から $\pi_1(X_d)=0$、特に
+$H^1(X_d;\RR)=0$ である
+\cite[Corollary 2.3.4]{achinger-lefschetz-gc}。
+Symplectic circle の生成場 $Y$ について $\iota_Y\omega$ は closed であるから exact となり、
+作用は Hamiltonian である。命題\ref{gc:negative-monotone}を適用する。
+\end{proof}
+
+\begin{corollary}[滑らかに延長する period-lattice section への障害]
+\label{gc:period-lattice}
+$X_d$ の dense regular locus に Lagrangian torus fibration があり、
+その period lattice に非零の section があるとする。
+対応する周期1の locally Hamiltonian vector field が、
+全 $X_d$ 上の smooth symplectic vector field へ延びることはできない。
+従って、全ての overlaps と singular strata にわたり同じ非自明な円作用を保持する
+completion は不可能である。
+\end{corollary}
+
+\begin{proof}
+もし延長できれば、compactness により flow は全時間で存在する。
+Regular locus の各 torus 上で time-one map は恒等である。
+Dense subset 上での一致と連続性により、全 $X_d$ 上でも time-one map は恒等となる。
+従って smooth symplectic circle action を得る。
+Section が非零なのでこの作用は非自明であり、系\ref{gc:hypersurface}に反する。
+\end{proof}
+
+この系は、regular locus の monodromy に非零の invariant cycle があることだけを
+排除するものではない。生成場が全 singular strata を越えて smooth symplectic に延びる、
+という条件が必要である。局所の shared $T^2$、有限な curve--annular assembly、
+個別の elliptic caps の存在とは矛盾しない。
+
+特に $\delta$-cap で shared parameters を $(A_x,A_z)$ に変更しても、
+toric model 上で $H=A_x+M$、$J=M-A_z$ という旧 periodic generators は滑らかに延びる。
+従って、この parameter の切替えだけから大域的な円作用の障害が解決したとはいえない。
+Natural cap も所定の $H,J$ を保持する。
+さらに reduced disk 内だけの操作で二つの shared circle generators を固定した場合も、
+その有限部分領域の外で何が変わるかを別に検証する必要がある。
+
+今後の completion では、実際の overlap における period lattice の変換、
+または circle generator が smooth に延長しなくなる singular stratum を具体的に作る必要がある。
+どの局所 generator も全体へ非零の smooth symplectic field としては残らない、
+という条件は必要条件であり、それを満たす atlas の存在を与えるものではない。
+
+
+系\ref{eb:marked-lattices}は、この点で実際の変更を与える。
+$\delta$-pants では旧 $\Gamma_H$ と $\Gamma_J$ のそれぞれが
+hyperbolic fiber を越える fibrewise periodic generator として延びなくなる。
+Smooth な旧関数自体は残せるが、新しい pants の葉を保つ円作用にはならない。
+延びる rank-two lattice は $\langle\gamma_U,\Gamma_H-\Gamma_J\rangle$ である。
+従って有限 assembly の段階で旧 generator を保持し続ける必要はないが、
+この一つの局所変更だけで全ての global obstructions が解消したともいえない。

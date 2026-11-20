@@ -1,0 +1,223 @@
+{
+  "status": "passed",
+  "scope": "Exact explicit matrix, winding-balance and combinatorial checks only.",
+  "global_fibration_proven": false,
+  "invariant_hessian_cases": 343,
+  "normal_degree_cases": 4475,
+  "focus_trace_pairing": [
+    4,
+    -4,
+    0
+  ],
+  "sextic_intermediate_j6": 36,
+  "sextic_final_by_i": [
+    12,
+    18,
+    24,
+    30,
+    36
+  ],
+  "conditional_axis_comparison_winding": 60,
+  "rows": [
+    {
+      "degree": 6,
+      "genus": 10,
+      "ends": 24,
+      "pants_per_curve": 42,
+      "internal_cuffs": 51,
+      "local_product_fibers": 630
+    },
+    {
+      "degree": 7,
+      "genus": 15,
+      "ends": 35,
+      "pants_per_curve": 63,
+      "internal_cuffs": 77,
+      "local_product_fibers": 1323
+    },
+    {
+      "degree": 8,
+      "genus": 21,
+      "ends": 48,
+      "pants_per_curve": 88,
+      "internal_cuffs": 108,
+      "local_product_fibers": 2464
+    },
+    {
+      "degree": 9,
+      "genus": 28,
+      "ends": 63,
+      "pants_per_curve": 117,
+      "internal_cuffs": 144,
+      "local_product_fibers": 4212
+    },
+    {
+      "degree": 10,
+      "genus": 36,
+      "ends": 80,
+      "pants_per_curve": 150,
+      "internal_cuffs": 185,
+      "local_product_fibers": 6750
+    },
+    {
+      "degree": 11,
+      "genus": 45,
+      "ends": 99,
+      "pants_per_curve": 187,
+      "internal_cuffs": 231,
+      "local_product_fibers": 10285
+    },
+    {
+      "degree": 12,
+      "genus": 55,
+      "ends": 120,
+      "pants_per_curve": 228,
+      "internal_cuffs": 282,
+      "local_product_fibers": 15048
+    },
+    {
+      "degree": 13,
+      "genus": 66,
+      "ends": 143,
+      "pants_per_curve": 273,
+      "internal_cuffs": 338,
+      "local_product_fibers": 21294
+    },
+    {
+      "degree": 14,
+      "genus": 78,
+      "ends": 168,
+      "pants_per_curve": 322,
+      "internal_cuffs": 399,
+      "local_product_fibers": 29302
+    },
+    {
+      "degree": 15,
+      "genus": 91,
+      "ends": 195,
+      "pants_per_curve": 375,
+      "internal_cuffs": 465,
+      "local_product_fibers": 39375
+    },
+    {
+      "degree": 16,
+      "genus": 105,
+      "ends": 224,
+      "pants_per_curve": 432,
+      "internal_cuffs": 536,
+      "local_product_fibers": 51840
+    },
+    {
+      "degree": 17,
+      "genus": 120,
+      "ends": 255,
+      "pants_per_curve": 493,
+      "internal_cuffs": 612,
+      "local_product_fibers": 67048
+    },
+    {
+      "degree": 18,
+      "genus": 136,
+      "ends": 288,
+      "pants_per_curve": 558,
+      "internal_cuffs": 693,
+      "local_product_fibers": 85374
+    },
+    {
+      "degree": 19,
+      "genus": 153,
+      "ends": 323,
+      "pants_per_curve": 627,
+      "internal_cuffs": 779,
+      "local_product_fibers": 107217
+    },
+    {
+      "degree": 20,
+      "genus": 171,
+      "ends": 360,
+      "pants_per_curve": 700,
+      "internal_cuffs": 870,
+      "local_product_fibers": 133000
+    },
+    {
+      "degree": 21,
+      "genus": 190,
+      "ends": 399,
+      "pants_per_curve": 777,
+      "internal_cuffs": 966,
+      "local_product_fibers": 163170
+    },
+    {
+      "degree": 22,
+      "genus": 210,
+      "ends": 440,
+      "pants_per_curve": 858,
+      "internal_cuffs": 1067,
+      "local_product_fibers": 198198
+    },
+    {
+      "degree": 23,
+      "genus": 231,
+      "ends": 483,
+      "pants_per_curve": 943,
+      "internal_cuffs": 1173,
+      "local_product_fibers": 238579
+    },
+    {
+      "degree": 24,
+      "genus": 253,
+      "ends": 528,
+      "pants_per_curve": 1032,
+      "internal_cuffs": 1284,
+      "local_product_fibers": 284832
+    },
+    {
+      "degree": 25,
+      "genus": 276,
+      "ends": 575,
+      "pants_per_curve": 1125,
+      "internal_cuffs": 1400,
+      "local_product_fibers": 337500
+    },
+    {
+      "degree": 26,
+      "genus": 300,
+      "ends": 624,
+      "pants_per_curve": 1222,
+      "internal_cuffs": 1521,
+      "local_product_fibers": 397150
+    },
+    {
+      "degree": 27,
+      "genus": 325,
+      "ends": 675,
+      "pants_per_curve": 1323,
+      "internal_cuffs": 1647,
+      "local_product_fibers": 464373
+    },
+    {
+      "degree": 28,
+      "genus": 351,
+      "ends": 728,
+      "pants_per_curve": 1428,
+      "internal_cuffs": 1778,
+      "local_product_fibers": 539784
+    },
+    {
+      "degree": 29,
+      "genus": 378,
+      "ends": 783,
+      "pants_per_curve": 1537,
+      "internal_cuffs": 1914,
+      "local_product_fibers": 624022
+    },
+    {
+      "degree": 30,
+      "genus": 406,
+      "ends": 840,
+      "pants_per_curve": 1650,
+      "internal_cuffs": 2055,
+      "local_product_fibers": 717750
+    }
+  ]
+}

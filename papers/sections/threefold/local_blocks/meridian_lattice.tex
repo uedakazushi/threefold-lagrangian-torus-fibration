@@ -1,0 +1,268 @@
+\section{Upper torus の全 cycle に対する Maslov 指数と面積}
+\label{ml:section}
+
+本節では第\ref{ad:section}節の fixed actual curve と、
+第\ref{mx:section}節の disk-relative first jets を使う。
+一つの puncture、$\tau\ne0$、base disk $\Delta$、
+prototype parameters $h=h_0>0$, $j=0$, $c^2<q_*<q_s(h,0)$ を固定する。
+その upper regular torus を $L$ と書く。
+Kähler class は $[\omega]=\mathfrak a\mathsf H$、$\mathfrak a>0$ であり、
+distributed twists は $(a,d)$、$k=a+d\in\{1,2\}$ とする。
+以下の整数 $\ell$ は第三積分の値 $q_*$ と区別する。
+
+\subsection{円板近傍で定まる二つの homomorphisms}
+
+$\Delta$ 上の smooth normal disk bundle の十分小さい近傍を $V$ とする。
+少し大きい base disk を使えば $V$ は contractible で、
+scale を縮めることにより $L$ と元の collar tube の必要な compact 部分を含む。
+これは一つの upper meridian だけでなく、compact torus $L$ の全体について成り立つ。
+従って各 $v\in H_1(L;\ZZ)$ は $V$ 内で smooth mapped disk を bound する。
+ここで symplectic disk や embedded disk の存在は主張していない。
+
+Contractible な $V$ 上の primitive $\Lambda_V$ と tangent frame を選ぶと、
+area と Maslov index は well-defined な homomorphisms
+\[
+ \mathcal A_V:H_1(L;\ZZ)\longrightarrow\RR,
+ \qquad
+ \mu_V:H_1(L;\ZZ)\longrightarrow2\ZZ
+\]
+になる。前者は $\int_v\Lambda_V$、後者は boundary Lagrangian planes の
+determinant squared の degree である。
+
+記号を
+\[
+ A_b=\int_\Delta\omega,\qquad
+ A_0=A_b-s(h-B),\qquad
+ \Delta_A=A_b-A_0=s(h-B)
+\]
+と置く。第\ref{ad:section}節の選択により
+\begin{equation}\label{ml:areas}
+ 0<A_0<A_b<\mathfrak a,\qquad \Delta_A>0.
+\end{equation}
+$\Gamma_H=\gamma_H,\Gamma_J=\gamma_J$ は既存の period-one shared action の cycles、
+$\gamma_U$ は所定の正向き upper meridian とする。
+これらは $H_1(L;\ZZ)$ の integral basis である。
+
+\begin{proposition}[Full cycle の local area と Maslov 指数]
+\label{ml:full-cycle}
+$v=p\gamma_U+\ell\Gamma_H+r\Gamma_J$ に対して
+\begin{equation}\label{ml:local-covectors}
+ \boxed{\quad
+ \mathcal A_V(v)=pA_0+\ell A_b,
+ \qquad
+ \mu_V(v)=2\bigl((k-1)p+k\ell\bigr).
+ \quad}
+\end{equation}
+また、curve annulus への projection の degree は
+\begin{equation}\label{ml:base-degree}
+ \deg(\theta_x|_v)=p+\ell
+\end{equation}
+である。
+\end{proposition}
+
+\begin{proof}
+Source Hamiltonian $H=P_x+P_y$ の orbit は
+$(x,y,z)\mapsto(e^{2\pi it}x,e^{2\pi it}y,z)$ であり、
+その complex determinant は winding $2$ を持つ。
+Source torus はこの unitary action で保たれるため、
+source Cartesian frame で $\mu_{\rm src}(\Gamma_H)=4$ となる。
+$J=P_y-P_z$ の orbit の determinant は恒等なので
+$\mu_{\rm src}(\Gamma_J)=0$ である。
+一方、所定 upper cycle は $\mu_{\rm src}(\gamma_U)=2$ を持つ。
+従って
+\[
+ \mu_{\rm src}(v)=2p+4\ell.
+\]
+三つの cycles の $\theta_x$-degrees は順に $1,1,0$ である。
+Annular embedding の微分の determinant class は、
+補題\ref{mx:derivative}と同じ normal contraction により
+$(k-2)[d\theta_x]$ である。
+従って actual disk frame への補正は $2(k-2)(p+\ell)$ であり、
+Maslov の式が従う。
+
+Area については、元の collar primitive を $\lambda_X$ とすると
+\[
+ \int_{\gamma_U}\lambda_X=b+sB,
+ \quad
+ \int_{\Gamma_H}\lambda_X=b+sh=I^0,
+ \quad
+ \int_{\Gamma_J}\lambda_X=sj=0.
+\]
+$\Lambda_V-\lambda_X$ は collar tube 上で closed であり、
+その $\theta_x$-circle 上の period は $A_b-I^0$ である。
+これは zero section の circle に沿って Stokes を適用すれば分かる。
+従って
+\[
+ \begin{split}
+ \int_v\Lambda_V
+ &=p(b+sB)+\ell I^0+(p+\ell)(A_b-I^0)\\
+ &=p\bigl(A_b-s(h-B)\bigr)+\ell A_b
+ =pA_0+\ell A_b.
+ \end{split}
+\]
+この計算は $I^0$ や $b$ が正であることを使わない。
+\end{proof}
+
+\subsection{Ambient Maslov-two disk の必要条件}
+
+任意の境界 class $v$ について $V$ 内の reference disk $D_V(v)$ を一つ取る。
+$X_\tau$ 内の別の disk $D$ の境界が同じ oriented class $v$ なら、
+$L$ 内の annulus を補ってから両者を接ぐことができる。
+その sphere class の hyperplane degree を $n\in\ZZ$ とする。
+$c_1(TX_\tau)=-\mathsf H$ より
+\begin{equation}\label{ml:ambient-comparison}
+ \mu(D)=2\bigl((k-1)p+k\ell-n\bigr),\qquad
+ \int_D\omega=pA_0+\ell A_b+\mathfrak a n.
+\end{equation}
+この二式をまとめると、境界 class の homomorphism
+\begin{equation}\label{ml:combined-period}
+ \mathcal P(v):=\int_D\omega+\frac{\mathfrak a}{2}\mu(D)
+ =p\bigl(A_0+\mathfrak a(k-1)\bigr)
+  +\ell\bigl(A_b+\mathfrak a k\bigr)
+\end{equation}
+は ambient disk $D$ の選択によらない。
+これは $[\omega]+\mathfrak a c_1(TX_\tau)=0$ の直接の帰結である。
+従って Maslov-two disk の area は $\mathcal P(v)-\mathfrak a$ と表せる。
+また Maslov index が $2$ であるためには
+\begin{equation}\label{ml:forced-degree}
+ n=(k-1)p+k\ell-1
+\end{equation}
+でなければならず、その面積は
+\begin{equation}\label{ml:ambient-area}
+ \mathcal A_2(p,\ell)
+ =p\bigl(A_0+\mathfrak a(k-1)\bigr)
+  +\ell\bigl(A_b+\mathfrak a k\bigr)-\mathfrak a
+\end{equation}
+に一意に定まる。
+
+\begin{corollary}[全 primitive classes に対する半平面条件]
+\label{ml:half-plane}
+Positive-area Maslov-two disk の境界が primitive な $v$ であるなら
+\[
+ \gcd(p,\ell,r)=1,\qquad \mathcal A_2(p,\ell)>0
+\]
+が必要である。面積・Maslov の数値条件を通過する primitive classes は、
+式\eqref{ml:ambient-area}で定まる開半平面内の整数点と任意の $r$ のうち
+上記 gcd 条件を満たすものとして明示される。
+この集合は無限であり、数値条件の充足から symplectic disk、
+その family、あるいは cap の存在は結論しない。
+\end{corollary}
+
+具体的には、各 $p\in\ZZ$ に対して整数 $\ell$ の条件は
+\[
+ \ell\ge
+ \left\lfloor
+ \frac{\mathfrak a-p\bigl(A_0+\mathfrak a(k-1)\bigr)}
+      {A_b+\mathfrak a k}
+ \right\rfloor+1
+\]
+である。
+
+\subsection{Shared torus を自由に保つ場合の四つの閾値}
+
+固定した shared $T^2$ が自由に延び、還元が smooth disk である ordinary cap を考える。
+その境界の section は quotient boundary circle を一回回る。
+従って collapse class $v$ は $H_1(L)/\langle\Gamma_H,\Gamma_J\rangle$ の generator であり、
+\begin{equation}\label{ml:unimodular}
+ p=1\quad\text{または}\quad p=-1
+\end{equation}
+でなければならない。
+元の upper port に対して指定した reduced positive boundary orientation を保つ場合は $p=1$ である。
+$p=-1$ の場合は、その quotient orientation が反転している。
+この向きの違いは area や Maslov の正値性だけからは消せない。
+
+\begin{proposition}[Unimodular complement の明示分類]
+\label{ml:thresholds}
+式\eqref{ml:areas}の下で、$p=\pm1$ に対する
+$\mathcal A_2(p,\ell)>0$ の必要十分条件は次表の通りである。
+これは数値条件の分類であり、cap existence の分類ではない。
+\[
+\begin{array}{c|c|c|c|c}
+ k&p&\ell\text{ の条件}&\ell\text{ の最小値での }n
+   &\ell\text{ の最小値での面積}\\\hline
+ 1& 1&\ell\ge1&0&A_0+A_b\\
+ 1&-1&\ell\ge1&0&\Delta_A\\
+ 2& 1&\ell\ge0&0&A_0\\
+ 2&-1&\ell\ge1&0&\Delta_A
+\end{array}
+\]
+全行で $r\in\ZZ$ は任意であり、$p=\pm1$ なので class は自動的に primitive である。
+\end{proposition}
+
+\begin{proof}
+式\eqref{ml:ambient-area}は $\ell$ に関して正の傾きを持つ。
+$k=1,p=1$ では $\ell=0$ の面積は $A_0-\mathfrak a<0$、
+$\ell=1$ では $A_0+A_b>0$ である。
+$k=1,p=-1$ ではそれぞれ $-A_0-\mathfrak a<0$ と $A_b-A_0=\Delta_A>0$ である。
+$k=2,p=1$ では $\ell=0$ の面積は $A_0>0$、
+$\ell=-1$ では $A_0-A_b-2\mathfrak a<0$ である。
+$k=2,p=-1$ では $\ell=0$ が $-A_0-2\mathfrak a<0$、
+$\ell=1$ が $\Delta_A>0$ である。
+Forced degree は式\eqref{ml:forced-degree}から得られる。
+\end{proof}
+
+特に $k=1$ の12端では、$\Gamma_J$ のみを加えた
+$\gamma_U+r\Gamma_J$ は全て positive-area Maslov-two disk の境界として不可能である。
+Reduced positive orientation を保ってこの障害を避ける最小の数値的候補は
+\begin{equation}\label{ml:minimal-positive}
+ v=\gamma_U+\Gamma_H+r\Gamma_J,
+ \qquad \mu_V(v)=2,
+ \qquad \mathcal A_V(v)=A_0+A_b>0.
+\end{equation}
+この class の base degree は $2$ である。
+従って、前節で使った base boundary 上の degree-one graph disk の構成を
+そのまま適用することはできない。
+
+一方、
+\begin{equation}\label{ml:raw-upper}
+ \gamma_+=\Gamma_H-\gamma_U
+\end{equation}
+は $k=1,2$ のいずれでも $\mu_V(\gamma_+)=2$、
+$\mathcal A_V(\gamma_+)=\Delta_A>0$、base degree $0$ を持つ。
+これは第\ref{pa:section}節の raw upper cycle そのものである。
+ただし reduced quotient の向きは自然な $\gamma_U$ と逆である。
+この計算をもって、元の upper port へ同じ shared actions と同じ正向き collar を保つ
+ordinary cap が付いたと結論してはいけない。
+
+\subsection{子午線の変更を許した annular tube 内の障害}
+
+\begin{corollary}[同じ正向き reduced collar の tube 内充填は不可]
+\label{ml:tube-obstruction}
+元の actual annular collar tube 内に留まり、shared $T^2$ と
+所定の reduced positive boundary orientation を保つ upper disk cap は存在しない。
+この結論は、meridian を $\Gamma_H,\Gamma_J$ の整数倍だけ変更することを許しても成り立つ。
+\end{corollary}
+
+\begin{proof}
+Positive reduced orientation と shared torus の自由性から $p=1$ である。
+Tube 内の disk を bound するためには、closed form $d\theta_x$ の period が零でなければならない。
+式\eqref{ml:base-degree}より $\ell=-1$ が必要で、meridian は
+\[
+ \gamma_U-\Gamma_H+r\Gamma_J=-\gamma_++r\Gamma_J
+\]
+となる。Tube 内でのその symplectic area は Stokes と $j=0$ により
+\[
+ s(B-h)=-\Delta_A<0
+\]
+である。従って positive symplectic disk は存在しない。
+同じ class の local Maslov index も $-2$ であり、ordinary positive elliptic disk と一致しない。
+ここで primitive の global extension や $b$ の符号は用いていない。
+\end{proof}
+
+\paragraph{今後の構成に対する意味.}
+$k=1$ の12端では $\Gamma_J$ の twist だけでは障害を避けられない。
+所定 reduced orientation を保つ最小候補は式\eqref{ml:minimal-positive}であり、
+base degree $2$ の actual disk と cap family を構成する問題が残る。
+$\gamma_+$ はより小さい正面積 $\Delta_A$ を持つが、元の upper collar と反対の reduced orientation を持つ。
+第\ref{acp:section}節では shared actions を切り替え、この cycle を潰す actual local cap を構成する。
+初期 windows を狭く選ぶと全 curve assembly との非交差も系\ref{acp:assembly-caps}で得られる。
+新しい elliptic boundary と parameter 側面の接続は未解決である。
+$k=2$ の十二端では、第\ref{kc:section}節により自然な $\gamma_U$ 自身を潰す actual cap family を構成する。
+以上の必要条件は、whole geometric corner や大域 fibration の存在・非存在を決めるものではない。
+
+\paragraph{$j=0$ の役割.}
+同じ regular upper chart で $j\ne0$ を固定した場合は、
+local area および $\mathcal P(v)$ に $rsj$ が加わる。
+Maslov の式と base degree の式は変わらない。
+従って $r$ に依存しない上記の整数閾値は $j=0$ 上の主張である。
+$j=0$ を含む cap family を構成するには、その slice での必要条件を必ず満たさなければならない。
