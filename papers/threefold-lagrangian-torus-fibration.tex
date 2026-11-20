@@ -1,0 +1,1259 @@
+\documentclass[11pt,a4paper]{article}
+\IfFileExists{local-fonts.tex}{\input{local-fonts.tex}}{}
+\usepackage{luatexja-fontspec}
+\ifdefined\ResearchFontDir
+  \setmainjfont[Path=\ResearchFontDir,BoldFont=NotoSansCJKjp-Medium.otf]{NotoSerifCJKjp-Regular.otf}
+  \setsansjfont[Path=\ResearchFontDir,BoldFont=NotoSansCJKjp-Medium.otf]{NotoSansCJKjp-Medium.otf}
+\fi
+\usepackage[margin=23mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,array,enumitem}
+\usepackage{xcolor,titlesec,fancyhdr}
+\usepackage{graphicx,tikz}
+\graphicspath{{sections/threefold/local_blocks/}}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={一般型三次元超曲面と境界を持たない Lagrangian fibration 第13稿},pdfauthor={研究ノート},pdfsubject={Normal ballへの相対補完・相対円板群・大域接着の障害}}
+\definecolor{ink}{HTML}{18374A}
+\definecolor{accent}{HTML}{276B79}
+\titleformat{\section}{\large\sffamily\bfseries\color{ink}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\sffamily\bfseries\color{ink}}{\thesubsection}{0.6em}{}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=0.25em,topsep=0.3em,leftmargin=1.8em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Threefolds in projective 4-space / Research note}
+\fancyhead[R]{\small\sffamily 2026-11-21}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{problem}[theorem]{構成課題}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{corollary}[theorem]{系}
+\renewcommand{\proofname}{証明}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\contentsname}{目次}
+\setcounter{tocdepth}{1}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\cX}{\mathcal X}
+\newcommand{\Bl}{\operatorname{Bl}}
+\newcommand{\Cone}{\operatorname{Cone}}
+\newcommand{\Sk}{\operatorname{Skel}}
+\newcommand{\Crit}{\operatorname{Crit}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\figeight}{(S^1\vee S^1)}
+\newcommand{\status}[1]{\textsf{\color{accent}#1}}
+
+\begin{document}
+\begin{center}
+{\LARGE\sffamily\bfseries\color{ink}一般型三次元超曲面と\\[0.3em]
+境界を持たない Lagrangian fibration}\\[0.8em]
+{\large $X_d\subset\PP^4$, $d\ge6$}\\[0.45em]
+{\small 第13稿：Normal ballへの相対補完と接着の障害}\\[0.6em]
+2026年11月21日
+\end{center}
+
+\noindent\textbf{到達点と未完了部分。}
+目標は、smooth な一般型超曲面 $X_d\subset\PP^4$, $d\ge6$ と所定の K\"ahler form に対し、
+自由な余次元1境界を持たない branched base 上の Lagrangian $T^3$-fibration を構成することである。
+三次元は複素三次元を意味する。全体構成は未完成であり、本版では次を証明する。
+\begin{enumerate}[itemsep=0.25em,parsep=0pt]
+\item 任意の所定 $X_d$ 内に、degree $d-2$、genus $(d-3)(d-4)/2$、
+symplectically trivial normal bundle を持つ closed symplectic curve $C'$ を構成する。
+Special algebraic member 上の curve を、smooth hypersurface family と Moser 法で移送する。
+\item $C'$ 全体と full normal neighborhood を含む actual block に、
+曲線方向の自由端も elliptic 成分もない fibration を作る。
+Whole focus--hyperbolic fibers は $(d-2)(d-5)$ 個、各 Euler 数は $-1$ である。
+六次では4個、block の Euler 数は $-4$、compact complement は $-512$。
+このblockを開近傍ごと固定し，normal ball全体へfibrationを延長する．
+Outer normal collarは標準toricで，新たにelliptic base boundaryが現れる．
+$V_0$への延長と境界を消す構成は未完成である．
+\item Actual focus 補集合の基本群 $\mathbb Z$ と，
+両側の境界包含が誘導する全整数 homology 写像を決定する．
+二次境界像の cokernel は $\mathbb Z/(d-2)$ であり，
+normal face の三次基本類は補集合の位数 $d-2$ の torsion を生成する．
+さらに $\Lambda=\mathbb Z[\tau,\tau^{-1}]$ 上の第二 homotopy 群を
+$\Lambda^{2g+1}\oplus\Lambda/((d-2)(\tau-1))$ と求める．
+$m$ 重巡回被覆の $H_2$ には $(\mathbb Z/(d-2))^{m-1}$ の torsion が現れる．
+\item Normal exteriorのsmooth round handle表示と，$V_0$ を保つ相対homotopy模型を求める．
+閉曲線との積の移行はどちら向きにもWeinstein cobordismにならない．
+Normal pairの相対円板群は $\Lambda B$，境界は
+$\partial(fB)=f(1)b+f'(1)a$ である．
+全補集合の相対円板群のcentral extensionは，curve relation
+$\prod_i[A_i,B_i]=(d-2)h$ により非分裂となる．
+\item 任意の smooth normal focus Cartan family は $2c_1(N)=0$ を要求する。
+固定 circle や splitting を外しても generic plane section の normal degree $2d$ は障害として残る。
+Boundary の squared determinant phase の総 winding は $4d$ である。
+\item Generic plane section から $r$ disks を除いた actual product block では、
+rank-zero focus--hyperbolic fibers は $d(d-3)+r$ 個である。
+Normal clutching の winding $m$ を担う weighted collar を作り、
+$m=1$ の正則性、$m=2$ の非退化 hyperbolic 型、$m>2$ の nonelliptic repair 障害を計算する。
+\end{enumerate}
+新しい曲線 $C'$ は移送後の所定 complex structure に関して holomorphic とは限らない。
+以前の正 normal shell、相対 caps、membrane families と各面積障害は保持する。
+旧48 regular ports の接続、complete exceptional core、全体 coverage と quotient の構成は残る。
+異なる fibration choices の fiber counts は加算しない。
+
+\clearpage
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\makeatletter
+\renewcommand*{\@pnumwidth}{2.2em}
+\renewcommand*{\@tocrmarg}{3.2em}
+\renewcommand*{\l@section}[2]{\@dottedtocline{1}{0em}{3.4em}{\bfseries #1}{\bfseries #2}}
+\makeatother
+\tableofcontents
+\endgroup
+\medskip
+\noindent\textbf{読み方。}
+本版の主結果は第\ref{tnc:section}節の trivial-normal symplectic curve と closed actual block である。
+第\ref{ncc:section}節にnormal ballへの相対補完，smooth handles，
+相対円板の関係とWeinstein・clean diskの障害をまとめる．
+Product construction の全証明は第\ref{fhr:section}節、
+元の曲線に対する intrinsic obstruction は第\ref{fnc:section}節、
+weighted collars の局所分類は第\ref{tcf:section}節にある。
+既存の正 normal shell、membrane families、fixed-collar caps と相対 pants は別の入力として保持する。
+局所部分は第\ref{lc:construction}--\ref{rs:section}節にあり、共通ソースから局所原稿 第11版も組版する。
+曲面版第4稿は内容を変更せず同梱する。
+本文の存在主張は仮定を明記した直接証明に基づき、有限検算と区別する。
+
+\clearpage
+
+\section{設定と数値不変量}\label{sec:invariants}
+
+$H=c_1(\mathcal O_{X_d}(1))$ とし、$\int_{X_d}H^3=d$ と規格化する。
+随伴公式と接束の完全列から
+\begin{align}
+K_{X_d}&=(d-5)H,& K_{X_d}^3&=d(d-5)^3,\label{eq:canonical}\\
+c(TX_d)&=\frac{(1+H)^5}{1+dH},&
+c_2(TX_d)&=(d^2-5d+10)H^2,\nonumber\\
+\chi(X_d)&=d(10-10d+5d^2-d^3).\label{eq:chern-euler}
+\end{align}
+従って一般型は $d\ge6$、$d=5$ は Calabi--Yau の比較例である。
+また
+\[
+p_g(X_d)=h^0(X_d,K_{X_d})=\binom{d-1}{4}.
+\]
+最後の等式は $K_{X_d}=\mathcal O_{X_d}(d-5)$ と
+$H^0(\PP^4,\mathcal O(d-5))\simeq H^0(X_d,K_{X_d})$ から従う。
+
+Lefschetz hyperplane theorem により $H^2(X_d;\ZZ)=\ZZ H$ である。
+したがって任意の Kähler form は、ある $a>0$ に対して $[\omega]=aH$ を満たす。
+同じ複素構造でこの類に属する二つの Kähler form は、直線経路と Moser により
+symplectomorphic である。次数 $d$ の滑らかな超曲面のパラメータ空間は連結なので、
+一つの滑らかな近傍ファイバーで $aH$ に対して構成できたものは、
+Fubini--Study form の symplectic parallel transport と同じ類の Moser を用いて
+任意の $(X_d,\omega)$ に運べる。この移送は、以下の部分領域上の構成にも適用できる。
+
+\input{sections/threefold/threefold_v11/invariants_table.tex}
+ここで $b_3=4-\chi$ は $b_1=b_5=0$, $b_2=b_4=1$ による。
+六次では $h^{2,1}=(520-2\cdot5)/2=255$ である。
+
+\section{補助多項式の選択：曲面版から必要な変更}\label{sec:pencil}
+
+\subsection{超平面配置と一般の補助多項式}
+
+一般位置の $d$ 枚の超平面 $P_i=\{L_i=0\}\subset\PP^4$ を取る。
+例えば
+\[
+L_i=x_0+i x_1+i^2x_2+i^3x_3+i^4x_4,\qquad i=1,\ldots,d,
+\]
+とすれば Vandermonde determinant により任意の5枚の共通点はなく、
+4枚は一点、3枚は直線、2枚は平面で交わる。
+次数 $d$ の同次多項式 $F_d$ を次の有限個の開条件を満たすように取る。
+\begin{enumerate}
+\item 各 $P_i$ 上の曲面 $V_i=P_i\cap\{F_d=0\}$ は滑らか。
+\item 各二重平面 $P_i\cap P_j\simeq\PP^2$ 上の曲線
+\[
+\Gamma_{ij}=P_i\cap P_j\cap\{F_d=0\}
+\]
+は滑らか。
+\item 各三重直線 $P_i\cap P_j\cap P_k\simeq\PP^1$ 上で、$F_d$ は $d$ 個の単純零点を持つ。
+\item $F_d$ は全ての四重交点で非零。
+\end{enumerate}
+これらは Bertini と有限個の条件の同時一般性から実現できる。
+全ての $\Gamma_{ij}$ は次数 $d$ の平面曲線なので
+\begin{equation}\label{eq:genus}
+g(\Gamma_{ij})=\frac{(d-1)(d-2)}2.
+\end{equation}
+
+小円板 $\Delta$ 上の退化を
+\begin{equation}\label{eq:family}
+\cX=\left\{\prod_{i=1}^dL_i+tF_d=0\right\}
+\subset\PP^4\times\Delta
+\end{equation}
+とする。Projectivity と ampleness を用いる際には、まず同じ方程式を
+$\mathbb A^1$ 上の代数族として考え、代数的 blow-up を行ってから小円板へ制限する。
+単元と符号を座標に吸収すると、中心ファイバー近傍の局所式は次の通りである。
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+位置 & 局所式\\
+\midrule
+二重平面上、$F_d\ne0$ & $xy=t$ と二つの滑らかな座標\\
+$\Gamma_{ij}$ の三重直線以外 & $xy=tz$ と一つの滑らかな座標\\
+三重直線上、$F_d\ne0$ & $xyz=t$ と一つの滑らかな座標\\
+三重直線と $F_d=0$ の交点 & $xyz=tw$\\
+四重交点 & $xyzu=t$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+各モデルの非零ファイバーは滑らかである。中心ファイバーのコンパクト性から
+$\Delta$ を縮めれば、全ての $t\ne0$ のファイバーが滑らかになる。
+
+\subsection{二つの超平面積を使うと残る節点}
+
+曲面版で有効だった「補助多項式も別の超平面の積にする」という方法は、
+そのままでは三次元版を与えない。
+一般位置の $2d$ 枚 $M_s=0$ を用いて
+\[
+\prod_{i=1}^{d}M_i+t\prod_{r=d+1}^{2d}M_r=0
+\]
+とすると、最初の群の2枚と後の群の2枚の共通点が存在する。
+そこでの非零ファイバーの局所式は
+\[
+xy+tzw=0.
+\]
+$t\ne0$ でも原点は ordinary double point である。任意の5枚は交わらないので、
+これらの点は全て異なり、その数は
+\begin{equation}\label{eq:persistent}
+N_{\mathrm{persistent}}=\binom d2^2.
+\end{equation}
+六次では225個となる。これは目標の fibration の非存在を示すものではなく、
+この特定の pencil が滑らかな $X_d$ を与えないことを示す。
+式\eqref{eq:family}では一般の $F_d$ に置き換えてこの問題を除く。
+
+\section{中心成分を増やさない半安定化}\label{sec:resolution}
+
+\begin{theorem}\label{thm:snc}
+式\eqref{eq:family}の中心成分を $P_1,\ldots,P_d$ の順に、
+その strict transform の Weil ideal に沿って blow up する。
+得られる射
+\[
+\pi:Y\longrightarrow\cX,\qquad f:Y\longrightarrow\Delta
+\]
+は projective で、$Y$ は滑らか、$D=f^{-1}(0)=\sum_{i=1}^dD_i$ は reduced SNC である。
+新しい中心成分を加えず、$t\ne0$ 上では同型である。
+\end{theorem}
+
+\begin{proof}
+既に SNC の点では各中心成分は Cartier なので blow-up は恒等である。
+$xy=tz$ 型では $(x,t)$ の blow-up が小解消を与える。
+残る検証は $xyz=tw$ である。最初に $(x,t)$ を blow up する。
+\begin{enumerate}
+\item $x=tX$ のチャートでは $w=Xyz$ となる。
+独立座標は $(t,X,y,z)$ であり、$f=t$。
+\item $t=xT$ のチャートでは $yz=Tw$ が残る。
+次に $(y,T)$ を blow up する。
+\begin{itemize}
+\item $T=yU$ では $z=Uw$、独立座標は $(x,y,U,w)$、$f=xyU$。
+\item $y=TY$ では $w=Yz$、独立座標は $(x,T,Y,z)$、$f=xT$。
+\end{itemize}
+\end{enumerate}
+全て滑らかで、中心ファイバーは座標超平面の reduced な和となる。
+例外集合は全空間 $Y$ 内で余次元2以上であり、新しい中心 divisor はない。
+この後、解消済みのチャートでは残りの blow-up は Cartier divisor に沿うので変化しない。
+\end{proof}
+
+\subsection{成分は曲線 blow-up、二重層は点 blow-up}
+
+\begin{proposition}\label{prop:strata}
+各成分 $D_i$ は $\PP^3$ を $\Gamma_{ij}$, $j>i$ の strict transform に沿って、
+\emph{$j$ の降順}で blow up したものである。
+全ての中心は滑らかで、元の $\Gamma_{ij}$ と同型である。
+さらに $i<j$ に対して
+\begin{equation}\label{eq:double}
+S_{ij}:=D_i\cap D_j\simeq\Bl_{d(d-j)\ \mathrm{points}}\PP^2.
+\end{equation}
+三重交差 $C_{ijk}$ は $\PP^1$、四重交差は一点、五重交差は空である。
+\end{proposition}
+
+\begin{proof}
+$i<j<k$ の三重直線と $F_d=0$ の交点で、$D_i$ の元の座標を $(y,z,w)$ とする。
+前証明の $D_i$ の三つのチャートは、先に $(z,w)$、次に残る中心の strict transform
+を blow up することで得られる。従って $\Gamma_{ik}$ の後に $\Gamma_{ij}$ の順である。
+曲線中心は全て共通の滑らかな曲面 $V_i=\{F_d=0\}\cap P_i$ 上の Cartier divisor である。
+各 blow-up で strict $V_i$ は $V_i$ と同型なので、残りの中心も滑らかなままである。
+三つの中心が一点に集まることはない。そうであれば $F_d$ が四重交点で消えるからである。
+この局所記述は解消写像上で一致し、大域的な降順の iterated blow-up を与える。
+
+$S_{ij}$ を $D_j$ 側から見ると、各 $k>j$ の中心 $\Gamma_{jk}$ が
+元の二重平面と $d$ 点で横断的に交わるため、その $d$ 点が blow up される。
+異なる $k$ の点集合は互いに素である。これが式\eqref{eq:double}である。
+局所チャートでは $xyz=tw$ の点で、最小の二添字に対応する二重面だけが点 blow-up される。
+三重曲線はその strict transform であり、曲線上の点 blow-up は同型なので $\PP^1$ のままである。
+四重交点は $F_d\ne0$ の既に SNC の領域にあり、変わらない。
+\end{proof}
+
+$E_{ij}$ を $D_i$ 上の曲線 blow-up の例外 divisor の最終 strict transform、
+$H_i$ を $\PP^3$ の hyperplane class の pullback と書く。
+同じ $V_i$ 上の後続中心は以前の例外 divisor に含まれないので、
+その strict transform と全引き戻しの divisor class は一致する。
+なお $\Gamma_{ij}$ を blow up すると、strict $V_i$ と strict $S_{ij}$ は分離される。
+その後も両者が $\Gamma_{ij}$ で交わると解釈してはいけない。
+
+\section{固定した Kähler class と全交差層の整合性}\label{sec:kahler}
+
+\subsection{垂直な相対 ample divisor}
+
+$H$ を $Y$ 上への hyperplane class の引き戻しとし、
+\[
+A=\sum_{i=1}^d(i-d)D_i
+\]
+と置く。ここでは基底 $B_d$ との混同を避け、垂直 divisor を $A$ と記す。
+
+\begin{proposition}\label{prop:polarization}
+$\mathcal O_Y(A)$ は $\pi$-ample である。従って $N\gg0$ に対して $NH+A$ は
+$f$-ample となり、任意の $a>0$ と十分小さい $\eps>0$ に対して
+\[
+[\Omega]=aH+\eps A
+\]
+を持つ Kähler form を中心ファイバーの近傍に取れる。
+全ての非零ファイバー上で $[\Omega|_{X_t}]=aH$ である。
+\end{proposition}
+
+\begin{proof}
+$\Gamma_{ij}$ から三重層との交点を除いた部分を $\Gamma_{ij}^{\circ}$ と書く。
+その上の例外ファイバーは一本の $\PP^1$ であり、
+$(D_i,D_j)$ との交数は $(-1,1)$、従って $A$ の次数は $j-i>0$ である。
+$i<j<k$ の $xyz=tw$ の点上では二本の $\PP^1$ の連鎖を得る。
+$(D_i,D_j,D_k)$ との交数はそれぞれ
+\[
+(-1,1,0),\qquad (0,-1,1)
+\]
+なので、$A$ の次数は $j-i$, $k-j$ でともに正である。
+その他の $\pi$-fiber は一点である。従って $\mathcal O(A)$ は各 fiber 上 ample で、
+proper 射に関する fiberwise ampleness の開性から $\pi$-ample である\cite{stacks}。
+相対 ample line bundle の標準的な合成則により、$N\gg0$ で $NH+A$ が $f$-ample となる。
+
+この類の相対 Kähler form を $\Omega_N$ と取ると、$0<\eps<a/N$ に対し
+\[
+(a-N\eps)\pi^*\omega_{\mathrm{FS}}+\eps\Omega_N+Kf^*\omega_\Delta
+\]
+は $K$ を十分大きくして Kähler にできる。$A$ は中心 divisor に支持され、
+$\mathcal O(A)|_{X_t}$ は自明なので、滑らかな fiber の類は $aH$ である。
+ここでは $N$ の存在を使っており、曲面版の特定の数値境界を三次元に流用していない。
+\end{proof}
+
+\subsection{成分・二重面・三重曲線への制限}
+
+\[
+\alpha_i=a+d\left(\frac{d+1}{2}-i\right)\eps
+\]
+と置く。$\sum_iD_i$ が principal であることから、
+\begin{equation}\label{eq:component-class}
+[\Omega_i]=\alpha_iH_i-\sum_{j>i}(j-i)\eps E_{ij}.
+\end{equation}
+実際、$A|_{D_i}=\sum_{j\ne i}(j-i)[S_{ij}]$ であり、
+$j<i$ なら $[S_{ij}]=H_i$、$j>i$ なら $[S_{ij}]=H_i-E_{ij}$ である。
+
+$S_{ij}$, $i<j$ の hyperplane pullback を $h$、
+$k>j$ の三重直線上の $d$ 点 $p\in\{F_d=0\}\cap P_i\cap P_j\cap P_k$ に対応する
+例外曲線を $e_{k,p}$ と書く。このとき
+\begin{equation}\label{eq:surface-class}
+[\Omega|_{S_{ij}}]=\alpha_jh-
+\sum_{k>j}(k-j)\eps\sum_pe_{k,p}.
+\end{equation}
+これは $d-2$ 本の境界直線を持つ $\PP^2$ の marked point blow-up に対する類である。
+曲面版の局所構成と同じ種類の入力を持つが、周囲の三次元成分への拡張は別の問題である。
+
+両側からの整合性は
+\[
+E_{ij}|_{S_{ij}}=dh-\sum_{k>j,p}e_{k,p},\qquad
+E_{ik}|_{S_{ij}}=
+\begin{cases}
+\sum_pe_{k,p},&k>j,\\
+0,&i<k<j
+\end{cases}
+\]
+を式\eqref{eq:component-class}に代入して確認できる。
+さらに $i<j<k$ について、$C_{ijk}\subset S_{ij}$ は
+$h-\sum_pe_{k,p}$ の類を持つので
+\begin{equation}\label{eq:triple-area}
+\int_{C_{ijk}}\Omega=\alpha_j-d(k-j)\eps=\alpha_k.
+\end{equation}
+つまり一般の添字順序では $\alpha_{\max(i,j,k)}$ となる。
+また $E_{ij}|_{V_i}\sim H|_{V_i}$ であるから
+\begin{equation}\label{eq:V-class}
+[\Omega_i]|_{V_i}=\left(a-\binom i2\eps\right)H|_{V_i}.
+\end{equation}
+これらは面積・類の整合性を示す。fibration の葉の一致まで示すものではない。
+
+\subsection{法線束と log canonical class}
+
+$i<j$ に対し
+\begin{align}
+c_1(N_{S_{ij}/D_j})&=h,\label{eq:normal-j}\\
+c_1(N_{S_{ij}/D_i})&=-(d-1)h+\sum_{k>j,p}e_{k,p},\label{eq:normal-i}\\
+\sum_{k\ne i,j}[C_{ijk}]&=(d-2)h-\sum_{k>j,p}e_{k,p}.
+\end{align}
+第一式は $D_j$ の blow-up の中心が元の $S_{ij}$ に含まれないことから従う。
+第二式は $(H_i-E_{ij})|_{S_{ij}}$ の計算である。
+従って
+\[
+c_1(N_{S_{ij}/D_i})+c_1(N_{S_{ij}/D_j})+
+\sum_{k\ne i,j}[C_{ijk}]=0,
+\]
+という semistable normal-bundle identity を満たす。
+
+元の $P_i$ の境界は $d-1$ 枚の超平面である。
+曲線中心は一般点で一つの境界 divisor に含まれるので、blow-up は log canonical class を引き戻す。
+したがって
+\begin{equation}\label{eq:logK}
+K_{D_i}+\partial D_i=(d-5)H_i.
+\end{equation}
+同様に二重面でも $K_{S_{ij}}+\partial S_{ij}=(d-5)h$、
+三重曲線でも $\deg(K_{\PP^1}+\text{$d-3$ points})=d-5$ となる。
+一般型に移ると全ての階層で log Calabi--Yau の条件が外れることが、この式に現れている。
+
+\section{境界を持たない三次元の双対複体}\label{sec:base}
+
+命題\ref{prop:strata}から中心 divisor の双対複体は
+\[
+B_d^{\mathrm{raw}}=\Sk_3\Delta^{d-1}
+\]
+である。セル数は
+\[
+(f_0,f_1,f_2,f_3)=\left(d,\binom d2,\binom d3,\binom d4\right).
+\]
+一枚の三角形は $d-3$ 枚の四面体に接する。
+従って $d\ge6$ では自由な三角形はなく、余次元1で分岐する。
+この\emph{自由な余次元1の面がない}という意味で「境界なし」と呼ぶ。
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+\toprule
+点の位置 & 横断 link & $d=6$ の局所形\\
+\midrule
+三角形の内部 & $d-3$ 個の点 & $\RR^2\times Y$\\
+辺の内部 & 完全グラフ $K_{d-2}$ & $\RR\times\Cone(K_4)$\\
+頂点 & $\Sk_2\Delta^{d-2}$ & $\Cone(\Sk_2\Delta^4)$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+六次ではこの局所 incidence は標準 tropical 3-hyperplane のものと一致する。
+しかし、この PL 型の観察だけから、大域的な integral affine tropical atlas が
+得られるわけではない。正則部分の affine structure と、分岐・discriminant の接着を
+別途構成する必要がある。
+
+\begin{proposition}\label{prop:homotopy}
+$B_d^{\mathrm{raw}}$ は2連結であり、
+\[
+B_d^{\mathrm{raw}}\simeq\bigvee^{\binom{d-1}{4}}S^3.
+\]
+特に $d\ge6$ では、このホモトピー型を持つ connected closed 3-manifold は存在しない。
+\end{proposition}
+
+\begin{proof}
+単体全体は $\Sk_3$ に4次元以上のセルを付けて得られるため、$\pi_1$, $\pi_2$ は変わらず0である。
+また
+\[
+\chi(B_d^{\mathrm{raw}})=d-\binom d2+\binom d3-\binom d4
+=1-\binom{d-1}{4}.
+\]
+3次元 CW 複体の最上次ホモロジーは自由アーベル群なので、
+Hurewicz と Whitehead を用いて所要の sphere bouquet とのホモトピー同値を得る。
+connected closed 3-manifold の $H_3(-;\ZZ)$ の階数は高々1だが、
+ここでは $\binom{d-1}{4}\ge5$ である。
+\end{proof}
+
+これはこの退化が指定する基底の型についての結論である。
+全く別の構成による全ての基底を排除する定理ではない。
+また $d>6$ で三価の局所モデルだけを使うなら、
+$\PP^1$ から $d-3$ 点を除いた三重層を pants に分解し、高次の分岐を展開する必要がある。
+その後の基底を、確認なしに raw complex と同相だと主張しない。
+
+\section{実際の三次元超曲面上で得られる部分存在}\label{sec:partial}
+
+Fernández de Bobadilla--Pełka \cite[Theorem 6.14]{fbp} は、
+Kähler な SNC degeneration について、双対複体の maximal faces と submaximal faces
+に対応する領域を Lagrangian tori で fiber する一般的な方法を与える。
+一般型も対象である。今回、全中心成分を選ぶと次の結論が得られる。
+
+\begin{theorem}[既知定理の今回の退化への適用]\label{thm:partial}
+任意の滑らかな $X_d\subset\PP^4$, $d\ge6$ と Kähler form $\omega$ に対し、
+境界・角を持つ codimension-zero 部分領域 $U\subset X_d$ と、
+その上の ivy-like Lagrangian torus fibration
+\[
+\rho_U:U\longrightarrow E
+\]
+を得る。通常の正則 fiber は $T^3$ であり、分岐では三重曲線上の Morse saddle に由来する
+immersed Lagrangian fiber が現れる。
+退化の描像では四重交点と三重曲線に対応する領域を覆い、
+二重面・成分に対応する未充填領域が残る。
+\end{theorem}
+
+\begin{proof}
+定理\ref{thm:snc}と命題\ref{prop:polarization}により \cite[Theorem 6.14]{fbp} の入力を満たす。
+$q\in(0,1]$ を固定し、同論文の小さい変形パラメータを、偏極の $\eps$ と区別して $\eta$ と記す。
+同論文の式 (4) とその直後の記述によれば、正半径の各ファイバー上で構成される形式は
+\[
+\omega_q^{\eta}=\Omega|_{X_t}+dd^c\phi_q^{\eta}
+\]
+という同じ類の Kähler form である。
+コンパクトな $X_t$ 上で直線 Kähler 経路に Moser を適用し、
+得られた fibration と領域を $\Omega|_{X_t}$ に移す。
+第\ref{sec:invariants}節のパラメータ空間に沿う移送と Kähler Moser により、任意の $(X_d,\omega)$ に移せる。
+中心ファイバーの全 multiplicity は1であり、Morse function の Stein factorization を用いるため、
+regular fiber は連結な一つの $T^3$ である。
+\end{proof}
+
+三重曲線の open stratum は
+\[
+C_{ijk}^{\circ}=\PP^1\setminus\{d-3\text{ points}\}.
+\]
+ここでは値域を $(0,\infty)$ とし、一つの end で0、残りの end で $\infty$ に近づき、
+各 puncture の局所座標で $|z|$ または $|z|^{-1}$ に等しい proper Morse function を選べる。
+局所極大・極小を持たない pants 分解の saddle 数は $d-5$ であり、臨界値を相異なるように取る。
+通常の円 fiber に法線方向の $T^2$ を加えると $T^3$、
+saddle の臨界 level では局所的に
+\[
+T^2\times\figeight
+\]
+を得る。六次では三重曲線が三つ穴球面であり、一つの saddle で足りる。
+ただし、この段階の $U$ には未充填領域との人工的な切断境界がある。
+proper family なので同定理の $W$ を全空間に取れることと、
+fibred region $W^{\mathrm{sm}}$ が近傍ファイバー全体になることは異なる。
+定理\ref{thm:partial}を global な境界なし fibration と読み替えてはいけない。
+
+\section{Euler 数を担う曲線補正の厳密な分解}\label{sec:euler}
+
+\subsection{三種類の open central stratum}
+
+blow-up 前の開成分を
+\[
+W_i=P_i\setminus\bigcup_{j\ne i}P_j
+\simeq\PP^3\setminus\{d-1\text{ general hyperplanes}\}
+\]
+とすると、包含排除から
+\begin{equation}\label{eq:core-euler}
+\chi(W_i)=4-3(d-1)+2\binom{d-1}{2}-\binom{d-1}{3}
+=-\binom{d-3}{3}.
+\end{equation}
+各 $\Gamma_{ij}$ は $d-2$ 本の三重直線と、それぞれ $d$ 点で交わる。
+点の重複はないので、三重層との交点を除いた曲線 $\Gamma_{ij}^{\circ}$ について
+\begin{align}
+\chi(\Gamma_{ij}^{\circ})
+&=2-2g(\Gamma_{ij})-d(d-2)\nonumber\\
+&=-d(2d-5).\label{eq:gamma-open}
+\end{align}
+三重直線上の $F_d=0$ の点は全体で $d\binom d3$ 個である。
+
+\begin{proposition}\label{prop:euler-exception}
+$D_i^\circ=D_i\setminus\bigcup_{j\ne i}D_j$ とする。
+解消写像の下で、$\bigcup_iD_i^\circ$ は次の寄与を持つ。
+\begin{enumerate}
+\item 元の各 $W_i$ 上では同型。
+\item 各 $\Gamma_{ij}^{\circ}$, $i<j$ 上では、例外 $\PP^1$ のうち一点を除いた
+$\mathbb A^1\subset D_i^\circ$ が現れる。
+\item 三重直線 $i<j<k$ と $F_d=0$ の一点上では、例外二連鎖のうち open components
+に入る部分は一つの $\mathbb A^1\subset D_i^\circ$ である。
+\end{enumerate}
+従って
+\begin{equation}\label{eq:individual-euler}
+\chi(D_i^\circ)=-\binom{d-3}{3}
+-d(d-i)(2d-5)+d\binom{d-i}{2}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+二重曲線上の主張は $xy=tz$ の小解消で直接分かる。
+三重の点では第\ref{sec:resolution}節のチャートを使う。
+$(t,X,y,z)$ のチャートの原点上は $t=y=z=0$、$X$ が任意であり、$D_i^\circ$ に含まれる。
+$(x,y,U,w)$ のチャートでは $x=y=w=0$、$U$ が任意であり、
+この曲線は $D_i\cap D_j$ に含まれ、$U=0$ で $D_k$ にも当たる。
+$(x,T,Y,z)$ のチャートでは $x=z=0$, $TY=0$ の二本の軸が現れ、
+これらを結ぶことで二本の $\PP^1$ の連鎖となる。
+一本は $D_i$ に入り二重面と一点で交わる。他の一本は二重面そのものの中にある。
+従って open components 上の寄与は $\mathbb A^1$ 一つ、Euler 数 $+1$ である。
+これを各 $i$ に割り当てると式\eqref{eq:individual-euler}を得る。
+\end{proof}
+
+\subsection{全体の Euler identity と独立検算}
+
+proper な reduced SNC degeneration では
+\[
+\chi(X_t)=\sum_i\chi(D_i^\circ).
+\]
+これは $r$ 重層上の nearby-cycle fiber が $(S^1)^{r-1}$ に収縮し、
+$r>1$ の Euler 寄与が消えることによる。
+従って命題\ref{prop:euler-exception}を足し合わせると
+\begin{equation}\label{eq:main-euler}
+\boxed{\quad
+\chi(X_d)=-d\binom{d-3}{3}-d\binom d2(2d-5)+d\binom d3.
+\quad}
+\end{equation}
+右辺を展開すると式\eqref{eq:chern-euler}と一致する。
+この等式は Lagrangian fibration の存在を仮定していない。
+
+別の検算は resolved strata の包含排除である。
+\[
+\chi(D_i)=4+(d-i)(3d-d^2),\qquad
+\chi(S_{ij})=3+d\bigl(d-\max(i,j)\bigr)
+\]
+を用いると
+\[
+\chi(D_i^\circ)=\chi(D_i)-\sum_{j\ne i}\chi(S_{ij})
++2\binom{d-1}{2}-\binom{d-1}{3}.
+\]
+これも式\eqref{eq:individual-euler}に一致する。
+付属コードは $d=6,\ldots,30$ でこれらの計算、面積の整合性、双対複体の境界写像を検算する。
+
+\section{特異 fiber の候補：計数の意味と限界}\label{sec:fibers}
+
+$\Gamma_{ij}^{\circ}$ の pants 分解は
+$-\chi(\Gamma_{ij}^{\circ})=d(2d-5)$ 個の pants を持つ。
+曲線に沿う補正を negative-vertex 型モデルで実現できれば、一つの pants が
+Euler 数 $-1$ の fiber を一つ生むと期待できる。
+三重直線と $F_d=0$ の交点に現れる $xyz=tw$ 型の点で
+positive-vertex 型補正を実現できれば、Euler 数 $+1$ が一つ現れる。
+これにより、自然な\emph{構成上の予測}は
+\begin{equation}\label{eq:predicted}
+N_-=d\binom d2(2d-5),\qquad N_+=d\binom d3
+\end{equation}
+である。これらを実在する特異 fiber の数と主張するには、
+局所モデルを所定の end と整合させ、全体に貼り合わせる必要がある。
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lXc@{}}
+\toprule
+位置・役割 & 目標となる局所 fiber & Euler 数\\
+\midrule
+正則領域 & $T^3$ & 0\\
+余次元1の分岐 & $T^2\times\figeight$ & 0\\
+focus--focus edge & $S^1\times$ pinched $T^2$ & 0\\
+曲線 pants による correction & negative-vertex fiber & $-1$\\
+三重線上の correction & positive-vertex fiber & $+1$\\
+成分の core & $W_i$ の適切な Lagrangian skeleton & $-\binom{d-3}{3}$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+この表の全行を一つの $X_d$ 上で同時に実現した、という意味ではない。
+第一・第二行は第\ref{sec:partial}節の部分領域に現れる。
+focus--focus と円の積は split な局所領域で構成でき、
+negative vertex 自体の局所モデルも知られている\cite{em}。
+最後の三行を所定の compact degeneration に組み込む相対構成が残る。
+
+\subsection{六次三次元超曲面}
+
+$d=6$ では次のデータとなる。
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+量 & 値\\
+\midrule
+raw base & $\Sk_3\Delta^5$、セル数 $(6,15,20,15)$\\
+基底のホモトピー型 & $\bigvee^5S^3$\\
+成分の開部分 & 6個の $\PP^3\setminus5$ hyperplanes、各 Euler 数 $-1$\\
+曲線中心 & 15本、各 genus 10、punctures 24\\
+曲線あたりの pants 数 & 42\\
+予測される $N_-$ & $15\cdot42=630$\\
+予測される $N_+$ & $6\binom63=120$\\
+全体の Euler 数 & $-6-630+120=-516$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+6個の component core と630個の negative vertex は、Euler 数が同じでも別の局所型の候補である。
+「636個の negative vertex」とまとめることはしない。
+open resolved components の Euler 数は
+\[
+\bigl(\chi(D_1^\circ),\ldots,\chi(D_6^\circ)\bigr)
+=(-151,-133,-109,-79,-43,-1).
+\]
+六次は、成分・二重面・三重曲線の blow-up 前の開部分がそれぞれ
+三次元・二次元・一次元の標準 pants になる、最小の一般型モデルである。
+
+\subsection{Calabi--Yau 五次との照合}
+
+$d=5$ を式\eqref{eq:predicted}に代入すると $N_-=250$, $N_+=50$、core 寄与は0となり、
+$\chi=-250+50=-200$ を得る。
+これは標準 quintic の discriminant における250個の type-II、50個の type-I 頂点の
+計数と一致する\cite[Example 2.5]{agis}。
+この照合は構成の設計を支持するが、$d\ge6$ の相対接着の証明の代用にはならない。
+
+また、曲面版の nodal fibers に単に $S^1$ を掛けるだけでは、各 fiber の Euler 数が0になる。
+成分 core だけの寄与と実際の $\chi(X_d)$ の差は
+\[
+\chi(X_d)+d\binom{d-3}{3}
+=-\frac{d^2(d-1)(5d-13)}6.
+\]
+六次でこの差は $-510$ であり、曲線上の頂点補正を省けないことを示す。
+
+\section{三次元でも証明できる相対 symplectic 補題}\label{sec:lemmas}
+
+次元が上がると全ての技術が無効になるわけではない。
+以下は三次元でも有効であり、残る構成課題から切り離せる。
+
+\subsection{Divisor-relative Moser}
+
+\begin{lemma}\label{lem:moser}
+$M$ を compact symplectic manifold、$Z=\bigcup_aZ_a$ をラベル付きの symplectic SNC divisor、
+$S=\bigcup_{a\ne b}(Z_a\cap Z_b)$ とする。
+$\omega_s$ を各 $Z_a$ を symplectic に保つ、非退化な symplectic form の滑らかな経路とし、
+$S$ の固定近傍 $U$ で一定とする。
+さらに
+\[
+\dot\omega_s=d\alpha_s,\qquad \alpha_s=0\ \text{on a neighborhood of }S
+\]
+を満たす滑らかな primitive の経路があると仮定する。
+ここで primitive が0になる近傍も $s$ に依存しない共通のものを取る。
+すると各 $Z_a$ を集合として保ち、$S$ のより小さい近傍で恒等な isotopy $\phi_s$ が存在し、
+$\phi_0=\mathrm{id}$, $\phi_s^*\omega_s=\omega_0$ を満たす。
+\end{lemma}
+
+\begin{proof}
+必要なら $U$ を primitive が0になる近傍へ縮める。
+$U$ の外では divisor の成分は互いに素なので、関数 $F_s$ の1-jet を
+\[
+F_s|_{Z_a}=0,\qquad
+dF_s|_{N^{\omega_s}Z_a}=-\alpha_s|_{N^{\omega_s}Z_a}
+\]
+と同時に指定できる。$S$ の近傍では $F_s=0$ とし、cutoff で延長する。
+$\beta_s=\alpha_s+dF_s$ は divisor の symplectic normal 方向で消える。
+$\iota_{V_s}\omega_s=-\beta_s$ を解くと、$V_s$ は全ての $Z_a$ に接し、$S$ の近傍で0である。
+通常の Moser の計算で結論を得る。
+\end{proof}
+
+$\omega_s$ が $U$ で一定かつ絶対コホモロジー類が一定であるだけでは、
+一般には $\alpha_s|_U$ の period が消えるとは限らない。
+十分条件は相対 class $[\dot\omega_s]=0\in H^2(M,U)$ である。
+一方、固定複素構造で
+$\omega_s=\omega_0+dd^c\phi_s$ が Kähler であり、
+$U$ が compact な複素交差曲線の和 $S$ に収縮する場合には、この period 条件を確認できる。
+実際 $\alpha_s=d^c\dot\phi_s$ は $U$ で閉じている。
+$\dot\phi_s$ は $U$ で pluriharmonic なので各 compact 複素曲線上で定数、
+従って $\alpha_s$ の $S$ への pullback は0である。
+$U$ の全 period は消え、局所 primitive を cutoff で引いて補題の仮定にできる。
+後続の exact deformation も primitive を $U$ の外に支持させれば同じ性質を保つ。
+
+\subsection{法線円作用の一致}
+
+同じ compact symplectic divisor を点ごとに固定する、normal weight $+1$ の
+二つの Hamiltonian circle action の germ を考える。
+余次元2の法線束は、周囲が実6次元になっても実 rank 2 である。
+これらの action を比較する際、
+法線上の compatible complex structure を polar decomposition により同一視し、
+相対 symplectic neighborhood theorem を適用する議論は次元によらない。
+交差層の所定の collar で同じ germ を持つなら、その部分を固定して、
+divisor の十分小さい近傍で作用を共役できる。
+同じ action とゼロ規格化を持つ moment map は一致する。
+さらに法線の linear part を quadratic Hamiltonian の経路で実現した後、
+残る identity-first-jet の symplectic germ の graph を閉1-form で表す。
+この1-form は divisor 上で0で、tube は divisor に収縮するので exact である。
+その primitive を divisor と固定 collar 上で0に規格化し、Hamiltonian を外側で cutoff できる。
+これは\emph{一つの法線円作用を合わせる}補題であり、
+reduced surface 全体の torus fibration を合わせる結論までは含まない。
+
+\subsection{Rational surface 上の regular torus は nullhomologous}
+
+\begin{lemma}\label{lem:null}
+$S$ を compact rational symplectic surface、$L\subset S$ を embedded Lagrangian $T^2$ とする。
+このとき $[L]=0\in H_2(S;\ZZ)$。
+従って $S$ 上の任意の circle bundle の $L$ への制限は位相的に自明である。
+\end{lemma}
+
+\begin{proof}
+$[L]\cdot[\omega_S]=0$、$[L]^2=-\chi(L)=0$ である。
+$b_2^+(S)=1$ なので、正の平方を持つ $[\omega_S]$ に直交する部分空間上で交差形式は負定値となる。
+従って $[L]=0$ over $\RR$。$H_2(S;\ZZ)$ は torsion-free なので整数係数でも0である。
+circle bundle の Chern class の制限も0となる。
+\end{proof}
+
+open reduced surface で使う場合には、line bundle がこの compactification に延びることを仮定する。
+今回の $S_{ij}$ の法線束は実際に延びるため、regular torus の円束 lift は $T^3$ になる。
+proper な正則 torus fibration の領域だけなら、各基底の局所 trivialization 上で葉方向に flat な接続を選び、
+基底から引き戻した partition of unity で貼り合わせることもできる。
+第\ref{sec:deformation}節では、指定した simple-node、branch、protected-core 等の局所型まで
+この接着を拡張する。Actual SNC corner data との相対整合性は、その節の仮定として明示する。
+
+\subsection{Hamiltonian reduction による lift}
+
+\begin{lemma}\label{lem:reduction}
+実6次元 symplectic manifold に自由な Hamiltonian $S^1$ 作用があり、moment map を $\mu$ とする。
+regular interval 上で各 reduced space
+\[
+(S_s,\omega_s)=\mu^{-1}(s)/S^1
+\]
+を滑らかに同定でき、共通の基底（または滑らかな基底の族）への
+$s$ に滑らかに依存する Lagrangian $T^2$-fibration $g_s$ があるとする。
+fiber 上の circle bundle が自明なら、
+\[
+F=(\mu,g_\mu\circ q_\mu)
+\]
+は regular 部分で Lagrangian $T^3$-fibration を与える。
+\end{lemma}
+
+\begin{proof}
+fiber は moment level 内にあり、$\omega$ の制限は quotient map により $\omega_s$ から引き戻される。
+その $g_s$-fiber 上の制限は0で、全 fiber の実次元は3である。
+円束の自明性から fiber は $T^3$。
+局所的な二つの reduced integrals $h_{1,s},h_{2,s}$ についても
+\[
+\{\mu,h_{a,\mu}\}=0,\qquad
+\{h_{1,\mu},h_{2,\mu}\}=\{h_{1,s},h_{2,s}\}_{\omega_s}=0
+\]
+となる。
+\end{proof}
+
+この補題に必要なのは\emph{varying reduced form に対する Lagrangian family}である。
+二次元 symplectic reduction では円の任意の葉層が Lagrangian だったのに対し、
+四次元 reduction で二つの $T^2$ 葉層を任意に isotopy しても Lagrangian 性は保たれない。
+三次元化における主要な新条件はここにある。
+
+\input{sections/threefold/threefold_v11/relative_progress.tex}
+\input{sections/threefold/local_blocks/construction.tex}
+\input{sections/threefold/local_blocks/application.tex}
+\input{sections/threefold/local_blocks/framing.tex}
+\input{sections/threefold/local_blocks/semistable_phase.tex}
+\input{sections/threefold/local_blocks/monomial_corners.tex}
+\input{sections/threefold/local_blocks/corner_weights.tex}
+\input{sections/threefold/local_blocks/positive_winding_reduction.tex}
+\input{sections/threefold/local_blocks/axis_end.tex}
+\input{sections/threefold/local_blocks/positive_relative_pants.tex}
+\input{sections/threefold/local_blocks/exceptional_bridge.tex}
+\input{sections/threefold/local_blocks/toric_corner.tex}
+\input{sections/threefold/local_blocks/toric_positive_transport.tex}
+\input{sections/threefold/local_blocks/annular_insertion.tex}
+\input{sections/threefold/local_blocks/wall_extension.tex}
+\input{sections/threefold/local_blocks/ports_actions.tex}
+\input{sections/threefold/local_blocks/corner_filling.tex}
+\input{sections/threefold/local_blocks/actual_curve_disks.tex}
+\input{sections/threefold/local_blocks/maslov_caps.tex}
+\input{sections/threefold/local_blocks/meridian_lattice.tex}
+\input{sections/threefold/local_blocks/alternative_cap.tex}
+\input{sections/threefold/local_blocks/natural_caps.tex}
+\input{sections/threefold/local_blocks/elliptic_pants.tex}
+\input{sections/threefold/local_blocks/reduced_surface_budget.tex}
+\input{sections/threefold/local_blocks/delta_port_obstruction.tex}
+\input{sections/threefold/local_blocks/closed_curve_shell.tex}
+\input{sections/threefold/local_blocks/focus_normal_obstruction.tex}
+\input{sections/threefold/local_blocks/global_circle_obstruction.tex}
+\input{sections/threefold/local_blocks/base_completion_topology.tex}
+\input{sections/threefold/local_blocks/liouville.tex}
+\input{sections/threefold/local_blocks/moving_collars.tex}
+\input{sections/threefold/local_blocks/coherent_transport.tex}
+\input{sections/threefold/local_blocks/exceptional_membranes.tex}
+\input{sections/threefold/local_blocks/membrane_families.tex}
+\input{sections/threefold/local_blocks/focus_hyperbolic_region.tex}
+\input{sections/threefold/local_blocks/trivial_normal_curve.tex}
+\input{sections/threefold/local_blocks/focus_exterior_topology.tex}
+\input{sections/threefold/local_blocks/focus_relative_filling.tex}
+\input{sections/threefold/local_blocks/twisted_focus_cap.tex}
+\input{sections/threefold/local_blocks/return_scaling.tex}
+
+\section{まだ必要な相対局所モデル}\label{sec:remaining}
+
+\subsection{曲率条件を落とさない}
+
+normal circle bundle のモデルを
+\[
+\Omega=\pi^*\omega_S+d(\mu\alpha),\qquad d\alpha=\pi^*\kappa
+\]
+と書く。$\omega_S$-Lagrangian $L\subset S$ を固定して定半径の円束を lift する場合、
+必要なのは $\kappa|_{TL}=0$ である。
+Evans--Mauri \cite[Lemma 2.22, Remark 2.23]{em} は、この曲率条件と SNC の compatibility を
+省略できないことを明記している。
+曲面版では $L$ が一次元の円なので自動的だったが、今回は二次元 torus なので自動ではない。
+
+unblown な $S=\PP^2$ で $N=\mathcal O(1)$, $[\omega_S]=cH$ なら、
+符号を固定した実 connection の convention で
+$\kappa=-\omega_S/c$ を選べばよい。
+しかし点 blow-up 後は式\eqref{eq:normal-j}の $h$ と式\eqref{eq:surface-class}の
+Kähler class は一般に比例しない。
+単純な比例形は使えないが、補題\ref{lem:null}により regular fibers 上の位相的 obstruction はなく、
+第\ref{sec:deformation}節により、指定した局所型の参照 fibration については
+特異 fiber を含めた葉方向 flat な接続と小さい多変数 family を作れる。
+残るのは、それを actual critical reduction、所定の endpoint foliations、
+全 SNC normal/corner data と同時に合わせることである。
+さらに第\ref{subsec:projectability}節の projectability は曲率条件だけからは従わない。
+第\ref{mc:main}節により、primitive が与えられた一つの compact node 近傍では、
+reduced foliation を normal moment とともに動かすことで actual collar を構成できる。
+その結果が独立に指定した他端や partial faces の foliation に一致するかは残る。
+第\ref{ct:section}節では、各 curvature が exact な場合に actual primitive に適合する
+normalized parameter connection を構成した。
+その Hamiltonian curvature が零なら、固定 foliation に対する個別の曲率消失条件を置かずに、
+全 parameter directions の整合的な moving family が得られる。
+ただし independently prescribed faces への一致は、この flatness だけでは保証されない。
+
+\subsection{曲線 blow-up と AAK の有効範囲}
+
+Abouzaid--Auroux--Katzarkov \cite[Section 4]{aak} は、toric surface $V$ の nearly tropical curve $C$ に対して
+\[
+\Bl_{C\times\{0\}}(V\times\CC)
+\]
+の適切な divisor complement 上に genuine な Lagrangian $T^3$-fibration を構成する。
+Hamiltonian reduction、varying reduced form と同じ類の toric reference form、
+Moser による比較を用いるので、曲線全体を扱う実質的な局所入力である。
+同論文 Proposition 4.5 は、cutoff の support の fibration 像を避ける基底領域上で、
+すなわち saturated な外側領域で、standard product tori に戻ることを保証する。
+
+一方、得られる discriminant は一般に modified amoeba
+$\Pi'\times\{\eps\}$ という実余次元1の集合である。
+今回の多数の非 toric な境界面、所定の normal-circle data、
+$xyz=tw$ の複数の中心の結節を保った相対定理ではない。
+thin graph の discriminant を要求する場合には、更なるモデルの置換も必要となる。
+小さな Darboux chart ごとに曲面版の nodal surgery を施すだけでは、
+曲線の genus、normal bundle の twisting、pants の端の貼り合わせは制御されない。
+第\ref{sec:twisted}節で twisting、全 class path、end marking は具体化した。
+第\ref{sec:rank}節の rank 制約により、正則な reduced locus 内の任意の曲線 isotopy だけで
+pants junction を処理する経路は採れない。Branched product model を使う選択肢は残す。
+
+\subsection{三次元 pants の collar を固定する問題}
+
+六次の component block は
+\[
+\PP^3\setminus5\text{ hyperplanes}
+\cong\{1+z_1+z_2+z_3+z_4=0\}\subset(\CC^*)^4
+\]
+である。Evans--Mauri の明示的な二つの構成は二次元 pants と三次元 negative vertex であり、
+この三次元 pants と同じものではない。
+Zharkov は2022年の講演で、任意次元 pants 上の特定の Liouville structure に対する
+Lagrangian torus fibration を発表している\cite{zharkov-talk}。
+従って局所的な pants 構成が全く知られていない、と主張すべきではない。
+今回必要なのは、projective degeneration の固定した形式・法線作用・下位次元 fibration に対して、
+全ての end と corner を同時に一致させる\emph{相対版}である。
+講演要旨だけからこの相対版を引用することはできない。
+
+一般 $d>6$ の component block は $\PP^3\setminus(d-1)$ hyperplanes である。
+これを一つの logarithmic core として扱うか、標準 pants へ更に分解するかを選べるが、
+後者では分解の全ての端で同じ相対整合性が必要になる。
+任意の skeleton の存在だけから、その補集合の torus fibration は従わない。
+
+\subsection{全体構成を閉じるための三つの入力}
+
+残る仕事は、次の具体的な相対命題に整理できる。
+\begin{enumerate}
+\item \textbf{Component の相対 filling。}
+$W_i$ に core を持つ Lagrangian $T^3$-fibration を構成し、
+$d-1$ 個の end と全ての corner に、指定された下位次元 fibration と moment coordinate を実現する。
+Liouville link の接続は葉方向に flat で、SNC plumbing と両立させる。
+\item \textbf{曲線 blow-up の相対 correction。}
+$\Gamma_{ij}$ に沿う実際の blow-up と、$xyz=tw$ の二連鎖モデルの近傍で、
+外側の既存の葉・normal-circle action・Kähler class を保つ correction を作る。
+式\eqref{eq:predicted}の局所型を主張するなら、その特異 fiber の分類もここで証明する。
+\item \textbf{Reduced surface の parametrized 接着。}
+式\eqref{eq:surface-class}と実際の neck の reduced forms に対し、
+両端の指定葉層を結ぶ Lagrangian $T^2$-fibration の族を作る。
+第\ref{sec:deformation}節により固定 reference の小近傍では解けたが、
+critical level、parameter の一様制御、独立に選んだ両端の一致は未完了である。
+三重・四重の plumbing collars を固定し、period lattice と singular-fiber marking も合わせる。
+同じ Reeb graph や同じモノドロミー行列だけでは不十分で、重なりで実際の葉を一致させる。
+\end{enumerate}
+これらが構成できれば、固定 collar を持つ compact blocks を実際の $X_t$ に
+symplectic parallel transport で移し、補題\ref{lem:moser}と法線作用の比較を用いて接着できる。
+正則領域での Lagrangian 性は補題\ref{lem:reduction}で保証される。
+基底の全ての切断面を相手側の block に貼り合わせることで、人工的な境界を除く。
+第\ref{lc:construction}節の自由端定理と compatible-end 定理は、
+この曲線 correction の一部を与える。任意の所定外周・corner への比較までは与えない。
+第\ref{ae:section}節は、標準三変数模型の一つの axis end を whole fiber で保つ
+pants block を与える。半安定化による位相変化と scalarization の選択は
+第\ref{sc:phase}節で明示した。
+第\ref{cm:section}節の共役単項式分類は、今回の第\ref{cw:section}節で
+一般の smooth invariant integral を持つ effective Hamiltonian $T^2$-corner に拡張した。
+全三軸を focus 型に保つ weights は和が零に強制される。
+また所定の divisor-normal circle と disk-extending first jets を保つ場合、
+全24端で winding 零を要求すると determinant degree 36 と矛盾する。
+従って、その relative 条件をそのまま全端へ要求する方針は変更が必要である。
+この結果は、固定非零 $t$ の finite neck の比較や別の特異型を排除しない。
+第\ref{exc:section}節は例外曲線全体を通る明示的な曲面模型を、
+第\ref{tc:section}節はそれと非零ファイバーを一つの graph Kähler form 上で結ぶ局所模型を与える。
+三成分の logarithmic primitive も厳密に貼れるが、所定の global form と end foliations を
+同時に保つ比較は残る。
+また第\ref{lc:liouville}節の障害により、compact node 全体で flat curvature として
+fixed foliation を保つ filling はできない。
+一方、moving foliation による第\ref{mc:main}節の構成はこの固定条件を外し、
+与えられた primitive の下で片側の collar を実現する。
+この段階では抽象的な symplectic total space を作るだけでなく、
+実際の $X_t$ 内で全領域を覆うこと、商が Hausdorff で fiber が連結であることも確認する。
+本ノートはこれら三つの入力を完了したものとして扱わない。
+
+\section{既存の大域結果との関係と研究の優先順位}\label{sec:literature}
+
+Mikhalkin \cite[Theorem~1, Corollary~3.1]{mikhalkin} は，
+\emph{一般型を含む任意の次数・次元のsmooth projective hypersurface}
+上に stratified topological $T^n$-fibration を構成する．
+その底のhomotopy型は$\bigvee^{p_g(X_d)}S^n$であり，
+$n=3$ なら$p_g(X_d)=\binom{d-1}{4}$である．
+特に\emph{一般型三次元超曲面上の位相的トーラス分解の存在は既知}である．
+しかしこの定理が保証するLagrangian性は，
+\emph{各maximal $n$-cellの少なくとも一点上にLagrangian $T^n$ fiberが存在する}
+という限定的な主張である．
+Mikhalkinの一般のstratified fibrationの\emph{全regular fibers}が
+所定のsymplectic formに関してLagrangianだとは主張されていない．
+従って本研究が目指すglobal Lagrangian fibrationの存在との
+相違は，この全regular torus leavesのsymplecticな同時実現と
+singular/gluing regionの制御にある．
+
+Leung--Wan \cite[Theorem~2.4, Theorem~3.3]{leung-wan}
+はまさにこのMikhalkinのstratified torus fibrationを用いて，
+一般型hypersurfaceのCalabi--Yau-like成分とholomorphic
+top formsを研究し，\emph{上記の選ばれたLagrangian fibers}が
+漸近的にspecial Lagrangianになることを証明する．
+これは一般型三次元にも適用する重要な一次資料だが，
+全regular fibersをLagrangianに変える大域的定理ではない．
+「一般型への適用例が文献にない」という広すぎる新規性の
+主張は避ける．
+
+Fernández de Bobadilla--Pełka \cite[Theorem~6.14]{fbp}
+の2026年刊行論文は，任意のK\"ahler退化のA'Campo space
+とboundaryからのLagrangian toriのtransportを扱う，
+この問題に直接有効な\emph{部分領域}構成である．
+Maximal Calabi--Yau degenerationについてはgeneric regionの
+fibrationが得られるが，この結果だけで
+今回の一般型compact $X_d$の\emph{全域}のfibrationは
+結論できない．本稿の定理\ref{thm:partial}は
+一般SNCへの適用範囲を明示した部分構成である．
+
+Castaño-Bernard--Matessi \cite[Theorem 8.2]{cbm} の global compactification theorem は、
+simple integral-affine 3-\emph{manifold} を入力とする。
+今回の余次元1の分岐を持つ基底に、そのまま適用する定理ではない。
+また同論文の quintic に対する結論は、quintic に homeomorphic な symplectic total space であり、
+その論文だけでは指定された Kähler hypersurface との symplectomorphism を与えない。
+
+2026年6月・11月の Mak--Matessi--Ruddat--Zharkov の講演発表は、reflexive polytope に付随する
+toric Fano manifold 内の compact Calabi--Yau hypersurfaces に対する Lagrangian torus fibration、
+球面基底、余次元2 discriminant、半次元の singular fibers を掲げている\cite{ruddat-talk,mak-2026-talk}。
+2026年11月12日のMakの講演要旨は
+ironing coefficientsとconvex but not strictly convexなpotentialによる
+分割，Evans--Mauri型Liouville flowを構成の要点としている．
+これは一次資料としては\emph{講演要旨}であり，
+完成した公表論文の証明を今回確認したものではない．
+この発表の対象は Calabi--Yau であり、
+一般型の分岐基底と今回の相対 gluing を証明した定理としては扱わない。
+
+\paragraph{Actual focus 補集合の位相と先行研究.}
+第\ref{tnc:exterior-topology}節では，normal exterior の Hopf 商から
+基本群と両側の全整数境界写像，第二 homotopy 群の deck action，
+有限巡回被覆の第二 homology を明示する．
+標準 nodal 模型には Auroux \cite[Section~5.1]{auroux-local}，
+四次元 fishtail の補集合を利用する既知の構成には
+Akbulut \cite[Introduction]{akbulut-double-fishtail}が先行する．
+本稿はこの具体的な product 埋込みの gluing data を計算するものであり，
+任意のrelative fillingや包括的な新規性を結論しない．
+
+第\ref{ncc:section}節のnormal ballへの延長は，この位相計算とは別に
+標準symplectic形式のまま $H=|\psi_A(XY)|^2$ を作って証明する．
+標準nodal tradeはSymington \cite[Section~6.1, Lemma~6.3 and Theorem~6.5]{symington}
+に先行する．本稿は所定のwhole focus blockとそのcollarを固定する相対構成を明示する．
+Round handleの概念 \cite{asimov-round}，Weinstein index制限
+\cite[Section~1.1]{cieliebak-eliashberg-flexible-local}，
+relative crossed module \cite[Section~2]{brown-relative-pi2}，
+central extensionの分類 \cite[Section~2]{conrad-group-extensions}
+は標準理論を用いる．具体的なnormal pairでは
+$\pi_2(E,Y)=\Lambda B$，$\partial(fB)=f(1)b+f'(1)a$ となり，
+全補集合ではcurve relation $\prod_i[A_i,B_i]=eh$ が残る．
+これらの相対データの包括的新規性は未確認である．
+
+現在の最も直接的な出発点は、第\ref{tnc:section}節の closed trivial-normal curve $C'$ である。
+この曲線全体と full normal neighborhood を含む compact actual block を、任意の所定 $X_d$ に構成した。
+六次では genus-three curve と4個の rank-zero focus--hyperbolic fibers を持ち、
+曲線方向の自由端はない．Normal ballへの延長によりinner normal facesの接続は得たが，
+新たなelliptic faceとtoric outer collarが残る．
+次には $V_0$ 側との接続に加え，elliptic fibersの近傍自体を変更して
+境界のないbaseを得る構成が必要である．
+Whole fibers，primitive periods，境界向き，actual embedding domainと非交差を同時に照合する．
+閉曲線全体のnormal移行には相対 $H_4$ が残り，Weinstein cobordismによる実現はできない．
+曲線を切ればこの次数の障害は消えるが，新しい側面の接着は別問題である．
+全域で同じ periodic circle を維持することは第\ref{gc:section}節の制約に反するため、
+その延長がどこで失われるかも接続データに含める。
+
+Generic plane section を保持する別の方式では、第\ref{fnc:section}節の obstruction により、
+単に vanishing circle や splitting を変えて smooth normal focus family のまま閉曲線を覆うことはできない。
+Punctured product region では boundary winding の総和 $2d$ が残る。
+第\ref{tcf:section}節の weighted collars はその winding を exact に実現するが、
+$m>2$ の generic center には、同じ action を保つ nonelliptic repair の退化障害がある。
+$m=1,2$ へ分散する方式でも、原点、他の faces、whole-fiber components と full cap は未構成である。
+
+旧24 annular blocks、全24 upper caps、pants 交換の48 regular ports は、
+第\ref{ai:section}--\ref{eb:section}節の仮定の下で構成済みである。
+この fixed-collar route では第\ref{rsb:section}節の面積・Maslov 収支と、
+第\ref{dpb:section}節の同一 tube 内での全 genus 障害を保持する。
+第\ref{mft:section}節の membrane/focus collar 比較を使う場合も、
+action offsets、coorientation、全 block の chart 内包含と既存 assembly との非交差が別途必要である。
+新しい $C'$ の block をこれらの完成や同一 assembly の一部とはしていない。
+
+大域化では，構成済みnormal補完のelliptic faceと，管状補集合 $V_0$ 全体を扱う．
+六次の complement の Euler 数は $-512$ だが、これはその領域の位相的不変量であり、
+未構成の singular fibers の数ではない。
+第\ref{bct:section}節の nice-base 仮定の下で、graph cycles を全体の基底内で縮める必要がある。
+全 overlaps、Hausdorff 性、connected fibers、未被覆領域と全自由境界の消去を証明して初めて、
+全 $X_d$ の fibration となる。
+
+\appendix
+\section{検算の内容}
+
+\texttt{verification/verify\_focus\_relative\_models.py} は，Laurent多項式の
+有限標本に対する境界のevaluation/derivative表示，$(\tau-1)^2$ による整数除法，
+deck action，閉曲線と有境界曲線の相対K\"unneth公式および双対性を照合する．
+相対handleの幾何，crossed moduleと相対Hurewiczの仮定，symplectic補完の存在は
+第\ref{ncc:section}節の証明による．有限検算から大域fibrationやframing適合を結論しない．
+
+
+\texttt{verify\_focus\_normal\_and\_regions.py} は、punctured multigraph の連結性・頂点次数、
+trivial-normal curve の degree・genus・normal Chern number・Euler 数、closed reduction の収支、
+focus Cartan と normalizer の exact matrix identities、weighted collar の action--angle 変換、
+有限 isotropy と transverse quadratic form、boundary winding の配分を検算する。
+曲線の存在、Moser embedding、whole-fiber construction は本文の証明による。
+
+新しい \texttt{verify\_closed\_curve\_and\_families.py} は、明示的 split--merge multigraph の
+連結性・三価性・Betti 数、全次数の closed Euler 収支、$\delta$-tube と wide-chart の defect、
+六次元 chart の Jacobian、focus radii・作用積分・monodromy と integral lattice を検算する。
+15本の検算は、幾何的存在や actual overlap の証明の代用とはしない。
+
+
+新しい \texttt{verify\_boundary\_surgery.py} は、pants の cutoff derivative、
+lobe 面積の独立積分、saddle 近傍の period divergence、延長する cycle lattice、
+signed area budget と twisting thresholds、membrane の symplectic pullback を確認する。
+幾何的な存在や非存在の証明は本文にあり、有限検算をその代用とはしない。
+
+\texttt{verify\_cap\_extensions.py} は、upper action の偏微分と cut projection、
+fixed new moments での inverse derivative、全 cycle の面積・Maslov 算術、
+$SU(2)$ nullhomotopy と strict suspension の primitive identity を独立に検算する。
+埋込みや全 assembly の非交差は本文の幾何的証明による。
+
+今回の \texttt{verify\_straightening.py} は、作用の逆関数、周期的 Hamiltonian generator、
+27点での graph の normal velocity、二つの壁が一致する場合を含む5例の band 条件を確認する。
+\texttt{verify\_ports.py} は upper action の chart transition、
+merged action の境界積分と独立した angular-slice 面積積分、
+saddle の action balance、elliptic maximum の漸近係数を照合する。
+数値評価は本文の解析的証明を補助し、全 corner の充填を保証するものではない。
+
+
+追加した \texttt{verify\_positive\_end.py} は decreasing radial derivative、nodal action の
+三次展開、return derivative を独立な数値積分と照合する。
+\texttt{verify\_positive\_transport.py} は toric moments、semistable limit、
+annular primitive、二つの normal twists、$C_{56}$ の degree 分配、
+whole-fiber chamber inequalities を検算する。
+いずれも本文の解析的存在証明や大域接着の代用ではない。
+
+
+今回追加した \texttt{../local\_blocks/verify\_corner\_models.py} は、graph chart equations、
+central FS moments、exact radial relation、slanted face と residue weights を有理数サンプルで検算する。
+Nodal action の閉式は独立の二分法と Simpson 積分により照合し、
+torus weights の有限範囲での列挙は一般証明の補助としてのみ用いる。
+結果は \texttt{corner\_model\_checks.json} に記録する。
+これらは解析的存在・全値域の正値性・relative gluing の機械証明ではない。
+
+同梱の \texttt{verify\_threefold.py} は外部ライブラリを必要としない。
+整数・有理数の演算で以下を確認し、\texttt{verification\_results.json} に記録する。
+\begin{enumerate}
+\item $d=6,\ldots,30$ の各次数で、resolved strata の包含排除と元の strata の $\mathbb A^1$ 寄与が一致する。
+\item Euler 総和が Chern class の式に一致し、curve punctures と triple points の incidence が一致する。
+\item $A|_{D_i}$ の係数、$\Omega_i|_{V_i}$、$\Omega|_{S_{ij}}$、三重曲線の面積を係数ごとに確認する。
+\item $d=6,\ldots,10$ の raw base で境界写像の積が0であり、整数の unit-pivot reduction による階数が
+$b_0=1$, $b_1=b_2=0$, $b_3=\binom{d-1}{4}$ を与える。
+\end{enumerate}
+数値検算は本文の一般式の証明を補助するものである。
+相対模型の \texttt{verify\_relative\_models.py} は、
+$d=6,\ldots,30$ の全 $i<j$ で、twisted DH path の係数、両側の slope と臨界値での連続性、
+endpoint class、$C^2$、normal degrees、strict line との交点、
+marked ends の分割を整数係数で検算する。
+結果は \texttt{relative\_model\_results.json} に記録する。
+未構成の Lagrangian local models や大域 gluing を検証するものではない。
+
+\texttt{../local\_blocks/verify\_local\_blocks.py} は focus Hessian の行列、
+trace pairing、pants 数、normal degree と exact shear の係数を検算する。
+\texttt{verify\_relative\_gluing.py} は $6\le d\le30$ の全4475組の $i<j$ について
+canonical mixed Hessian の degree、相対障害 $-d^2$、balanced winding の配分を整数で確認する。
+さらに6例で cubic root と action integral を数値評価し、frozen-scale action との差および
+その二次係数を照合する。この数値積分は解析的な証明の代用ではなく、
+本文の係数と規約の独立な確認である。
+
+\begin{thebibliography}{99}
+\bibitem{fbp}
+J. Fernández de Bobadilla and T. Pełka,
+\emph{Fibrations by Lagrangian tori for maximal Calabi--Yau degenerations and beyond},
+arXiv:2312.13248v4, 9 July 2026.
+\url{https://arxiv.org/abs/2312.13248v4}.
+Theorem 6.14、式 (4)、Section 5 を参照。
+
+\bibitem{em}
+J. D. Evans and M. Mauri,
+\emph{Constructing local models for Lagrangian torus fibrations},
+Annales Henri Lebesgue 4 (2021), 537--570.
+\url{https://arxiv.org/abs/1905.09229}.
+Lemma 2.22 と Remark 2.23 は v3 の修正を含む。
+
+\bibitem{aak}
+M. Abouzaid, D. Auroux and L. Katzarkov,
+\emph{Lagrangian fibrations on blowups of toric varieties and mirror symmetry for hypersurfaces},
+Publications Mathématiques de l'IHÉS 123 (2016), 199--282.
+\url{https://arxiv.org/abs/1205.0053}.
+
+\bibitem{symington}
+M. Symington,
+\emph{Four dimensions from two in symplectic topology},
+Topology and Geometry of Manifolds, Proceedings of Symposia in Pure Mathematics 71 (2003), 153--208.
+\url{https://arxiv.org/abs/math/0210033}.
+Sections 4.2, 8.1 の nodal fiber と飽和近傍の位相を参照。
+
+\bibitem{gammage}
+B. Gammage, \emph{Local mirror symmetry via SYZ}, arXiv:2105.12863v2, 22 July 2024.
+\url{https://arxiv.org/abs/2105.12863v2}.
+Remark 3.10、Proposition 3.14 を区別して用いる。
+
+\bibitem{leung-wan}
+N. C. Leung and T. Y. H. Wan,
+\emph{Calabi--Yau components in general type hypersurfaces},
+J. Differential Geom. \textbf{83} (2009), no.~1, 43--74.
+\url{https://doi.org/10.4310/jdg/1253804351}.
+Theorem 2.4（Mikhalkinのstratified fibrationの再掲）と
+Theorem 3.3（選ばれたLagrangian fibersの漸近的special性）を参照．
+
+\bibitem{mak-2026-talk}
+C. Y. Mak,
+\emph{Lagrangian torus fibration on Calabi--Yau hypersurfaces},
+IMJ--PRG algebraic geometry seminar, 12 November 2026,
+official abstract (joint work with D. Matessi, H. Ruddat and I. Zharkov).
+\url{https://www.imj-prg.fr/gestion/evenement/affEvenement/45}.
+Calabi--Yau hypersurfaceの講演要旨であり，
+未公開の完全証明を既知定理として引用しない．
+
+\bibitem{mikhalkin}
+G. Mikhalkin,
+\emph{Decomposition into pairs-of-pants for complex algebraic hypersurfaces},
+Topology 43 (2004), 1035--1065.
+\url{https://arxiv.org/abs/math/0205011}.
+
+\bibitem{agis}
+M. Abouzaid, S. Ganatra, H. Iritani and N. Sheridan,
+\emph{The Gamma and Strominger--Yau--Zaslow conjectures: a tropical approach to periods},
+arXiv:1809.02177v3.
+\url{https://arxiv.org/abs/1809.02177}.
+Example 2.5 の quintic の50/250の計数を参照。
+
+\bibitem{cbm}
+R. Castaño-Bernard and D. Matessi,
+\emph{Lagrangian 3-torus fibrations},
+Journal of Differential Geometry 81 (2009), 483--573.
+\url{https://arxiv.org/abs/math/0611139}.
+Theorem 8.2 と Corollary 8.3、その直後の記述を参照。
+
+\bibitem{stacks}
+The Stacks Project, Lemma 37.50.3 (fiberwise ampleness の開性),
+\url{https://stacks.math.columbia.edu/tag/0D2S};
+Lemma 29.38.7 (相対 ample line bundle と ample line bundle の合成),
+\url{https://stacks.math.columbia.edu/tag/0892}.
+
+\bibitem{zharkov-talk}
+I. Zharkov, \emph{Lagrangian fibrations of the pair-of-pants},
+IMJ-PRG, 17 February 2022, official seminar abstract.
+\url{https://www.imj-prg.fr/gestion/evenement/affSeance/8619}.
+本ノートでは講演発表として扱い、未確認の相対定理として引用しない。
+
+\bibitem{ruddat-talk}
+H. Ruddat, \emph{Lagrangian torus fibrations of Calabi--Yau hypersurfaces},
+Institut Mittag-Leffler, 30 June 2026, official seminar abstract.
+Joint work with C. Y. Mak, D. Matessi and I. Zharkov.
+\url{https://www.mittag-leffler.se/seminar/helge-ruddat-tba/}.
+\input{sections/threefold/local_blocks/references_extra.tex}
+\end{thebibliography}
+\end{document}

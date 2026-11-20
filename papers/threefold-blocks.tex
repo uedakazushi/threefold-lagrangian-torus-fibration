@@ -1,0 +1,381 @@
+\documentclass[11pt,a4paper]{article}
+\IfFileExists{local-fonts.tex}{\input{local-fonts.tex}}{}
+\usepackage{luatexja-fontspec}
+\ifdefined\ResearchFontDir
+  \setmainjfont[Path=\ResearchFontDir,BoldFont=NotoSansCJKjp-Medium.otf]{NotoSerifCJKjp-Regular.otf}
+  \setsansjfont[Path=\ResearchFontDir,BoldFont=NotoSansCJKjp-Medium.otf]{NotoSansCJKjp-Medium.otf}
+\fi
+\usepackage[margin=23mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,array,enumitem}
+\usepackage{xcolor,titlesec,fancyhdr}
+\usepackage{graphicx,tikz}
+\graphicspath{{sections/threefold/local_blocks/}}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={固定曲線近傍のLagrangian torus blocksと相対接着},pdfauthor={},pdfsubject={Trivial-normal symplectic curves、actual focus-hyperbolic blocks、Cartanとclutchingの障害}}
+\definecolor{ink}{HTML}{18374A}
+\titleformat{\section}{\large\sffamily\bfseries\color{ink}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\normalsize\sffamily\bfseries\color{ink}}{\thesubsection}{0.6em}{}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.35em}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=0.25em,topsep=0.3em,leftmargin=1.8em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Lagrangian torus blocks / relative gluing}
+\fancyhead[R]{\small\sffamily 2026-11-21}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\contentsname}{目次}
+\setcounter{tocdepth}{1}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\figeight}{(S^1\vee S^1)}
+
+\begin{document}
+\begin{center}
+{\LARGE\sffamily\bfseries\color{ink}固定曲線近傍の Lagrangian torus blocks\\[0.3em]
+と相対接着}\\[0.8em]
+{\large 一般型三次元超曲面の局所構成：第11版}\\[0.45em]
+2026年11月21日
+\end{center}
+
+\begin{abstract}
+一般型三次元超曲面の、自由境界を持たない branched base 上の Lagrangian torus fibration を目指す。
+本版の主結果は、任意の smooth $X_d\subset\PP^4$, $d\ge6$ と所定の K\"ahler form に対し、
+degree $d-2$、genus $(d-3)(d-4)/2$ の closed symplectic curve $C'$ を、
+symplectically trivial な normal bundle とともに構成することである。
+Special algebraic member 上の plane curve を、smooth hypersurface family と Moser 法で移送する。
+その曲線全体と full normal neighborhood を含む actual block に、
+曲線方向の自由端も elliptic 成分もない Lagrangian $T^3$-fibration を作る。
+Whole focus--hyperbolic fibers は $(d-2)(d-5)$ 個で、各 Euler 数は $-1$、
+六次では4個となる。このblockを開近傍ごと固定し，normal ball全体へ延長して，
+外側のsphere collarで標準toric fibrationになる写像を構成する．
+この延長にはelliptic base boundaryが現れ，それを除く大域化は未解決である．
+Actual focus 補集合の基本群は $\mathbb Z$ であり，
+両側の全整数境界写像を求める．
+特に二次 homology の境界像の指数は $d-2$ である．
+$e=d-2$，$g=(d-3)(d-4)/2$，$\Lambda=\mathbb Z[\tau,\tau^{-1}]$ とすると，
+第二 homotopy 群は $\Lambda^{2g+1}\oplus\Lambda/(e(\tau-1))$，
+$m$ 重巡回被覆の第二 homology は
+$\mathbb Z^{m(2g+1)+1}\oplus(\mathbb Z/e)^{m-1}$ である．
+Normal exteriorはouter $S^3$から一つのround $1$-handleで得られ，
+閉曲線との積には相対 $4$ 次homologyが残るため，どちら向きにもWeinstein cobordismにはならない．
+Normal pairの相対円板群は $\Lambda B$ で，境界は
+$\partial(fB)=f(1)b+f'(1)a$ である．全補集合の相対円板群には
+曲線の次数を記憶する非分裂central extensionが現れる．
+一方、generic plane section の normal degree $2d$ は、splitting や generators を固定しない
+smooth focus Cartan family に対しても障害になることを証明する。
+曲線を puncture した product regions の whole-fiber count と boundary winding を計算し、
+weighted collar の winding $m$ に応じた正則・hyperbolic・高次退化の区別を与える。
+既存の positive normal shell、相対 caps、membrane families、面積・Maslov 障害を保持する。
+旧48 regular ports の接続と、全 $X_d$ を覆う境界のない fibration は引き続き未証明である。
+\end{abstract}
+
+\section*{序論：閉曲線 block と相対接続}
+\addcontentsline{toc}{section}{序論：閉曲線 block と相対接続}
+
+本稿の目標は、一般型 $X_d\subset\PP^4$, $d\ge6$ を、
+$D^2\times Y$ 型の分岐を許す基底上の Lagrangian torus fibration として構成することである。
+最終的には自由な余次元1境界をなくしたい。
+現時点の結果は、actual symplectic form 上の compact な部分領域と、
+その中で whole fibers を保つ相対接着である。
+Strict tropical atlas、special Lagrangian 性、Kähler--Einstein collapse は扱わない。
+
+\paragraph{本版の構成と接続条件.}
+第\ref{tnc:section}節の閉曲線 $C'$ は、generic plane section とは degree と genus が異なる。
+Normal degree を零にできる曲線を実際に選び、所定の $X_d$ と K\"ahler form へ移してから、
+第\ref{fhr:section}節の compact focus block と circle-valued Morse map の積を入れる。
+Normal focus model と曲面の Morse construction 自体は既知の入力であり、
+本稿では actual embedding、全曲線に沿う normal triviality、whole fibers と残る境界を明示する。
+六次の block は degree $4$、genus $3$ の曲線の全近傍を含み、4個の rank-zero fibers を持つ。
+その Euler 数は $-4$、compact complement の Euler 数は $-512$ である．
+Normal exterior上のfibrationは第\ref{ncc:section}節で得るが，
+管状補集合 $V_0$ 上のfibrationと大域の特異fiber数はまだ得ていない．
+
+第\ref{fnc:section}節は、smooth focus Cartan が intrinsic な unordered Lagrangian pair を定めることから、
+$2c_1(N)=0$ を示す。Closed surface 上では $c_1(N)=0$ が linear focus family の必要十分条件となる。
+これは vanishing circle や splitting の変更だけでは generic plane section の障害を消せないことを意味する。
+第\ref{fhr:section}節では、その曲線から $r$ disks を除く別の構成も与え、
+$d(d-3)+r$ 個の focus--hyperbolic fibers と normal clutching の総 winding $2d$ を記述する。
+第\ref{tcf:section}節は weighted exact collar を作り、$m=1$ の正則性、
+$m=2$ の非退化 hyperbolic 型、$m>2$ で同じ作用を保つ nonelliptic repair の退化障害を証明する。
+
+第\ref{ncb:section}節の positive normal shell と、第\ref{mft:section}節の membrane/focus collars は
+別の actual local constructions として保持する。
+旧 fixed-collar assembly の48 ports は、第\ref{dpb:section}節の tube 障害を含めて未接続である。
+第\ref{bct:section}節の基底基本群と circle label の条件も、新しい $C'$ の block に引き続き課される。
+
+\paragraph{Actual focus 補集合の位相と先行研究.}
+第\ref{tnc:exterior-topology}節では，normal exterior の Hopf 商から
+基本群と両側の全整数境界写像，第二 homotopy 群の deck action，
+有限巡回被覆の第二 homology を明示する．
+標準 nodal 模型には Auroux \cite[Section~5.1]{auroux-local}，
+四次元 fishtail の補集合を利用する既知の構成には
+Akbulut \cite[Introduction]{akbulut-double-fishtail}が先行する．
+本稿はこの具体的な product 埋込みの gluing data を計算するものであり，
+任意のrelative fillingや包括的な新規性を結論しない．
+
+\paragraph{Normal ballへの相対補完と円板の関係.}
+第\ref{ncc:section}節では $G_c=(A,|XY-c|^2)$ をwhole blockの開近傍で固定し，
+その外側で $H=|\psi_A(XY)|^2$ と補間する．$\psi_A$ は商平面のdiffeomorphismであり，
+標準symplectic formは変更しない．逆位相circleに不変であることが
+$\{A,H\}=0$ を保証する．Outer sphereの近くでは $H=|XY|^2$ となる．
+標準nodal tradeはSymington \cite[Section~6.1]{symington}に先行し，
+ここでの役割は所定のfocus blockとそのcollarを保つ明示的な相対構成である．
+新たなelliptic faceは，compact ambient上でwhole fibersと近傍の葉層を保つ限り消せない．
+
+同節ではHopf商からsmooth round handleを直接構成し，
+$V_0$ を保つhomotopy pushoutとminimalな相対handle数を求める．
+Weinstein handlesのindex制限 \cite[Section~1.1]{cieliebak-eliashberg-flexible-local}
+は閉曲線全体のnormal移行には使えないことを示す．
+さらに相対crossed moduleの標準理論 \cite[Section~2]{brown-relative-pi2}を適用して，
+normal $b$-diskの一階差分が $a$-disk，二階差分がsphere classになることを計算する．
+全補集合ではcurve disk liftsが $\prod_i[A_i,B_i]=eh$ を満たす．
+これらはsmooth framingやLagrangian diskの存在を主張するものではなく，
+clean normal diskには別に $\mu(a)=0,\mu(b)=2$ の制約がある．
+この具体的な相対データの包括的新規性は未確認である．
+
+\paragraph{既知の構成との関係.}
+四次元の $|yz-c|^2$ と逆位相の circle moment は
+Auroux \cite[\S5.1]{auroux-local} の局所模型に現れる。
+Blow-up の surface model は同氏の別の構成 \cite[\S3.1.2]{auroux-blowup} に属し、
+toric blow-up と conic bundle の fibrations は Abouzaid--Auroux--Katzarkov \cite{aak} に研究されている。
+Evans--Mauri \cite{em} は contact link と Liouville flow を用いる局所構成を与える。
+Rotation-invariant Kähler form の radial symplectic coordinates は
+Loi--Zuddas \cite[Theorem 1.1]{loi-zuddas-local} の一般的結果に含まれる。
+本稿ではこれらを背景とし、必要な primitive、whole-fiber domain、中央極限、normal frames を直接計算する。
+相対的な ambient embedding には Moser の近傍論 \cite[\S7.3]{cds-local} を用い、
+既に指定した任意の複数の foliation が自動的に一致するとはしない。
+Compact focus の比較では V\~u Ng\d{o}c \cite{vungoc-local} の semiglobal viewpoint を保ち、
+quadratic Hessian と compact return data を区別する。優先権・新規性は主張しない。
+
+\paragraph{曲線ブロックと位相.}
+Dual normal connections と compact nodal fibers を用い、
+genus $g$、$n\ge2$ 個の端を持つ曲線上に
+$2g+n-2$ 個の $(\text{pinched }T^2)\times(S^1\vee S^1)$ fiber を作る。
+十分小さい normal scale で actual $X_d$ へ移せる。
+六次の自由端での局所実現数630は、大域 fibration の全特異 fiber 数ではない。
+最終成分における normal splitting は
+$\mathcal O_C(1)\oplus\mathcal O_C(i)$ であり、
+mixed Hessian は $\det N_{C/D_i}\to\mathcal O_C(d)$ という bundle map である。
+Disk ごとの標準 scalarization を全て保つと相対障害 $-d^2$ が生じる。
+$C_{56}$ では別の scalar frame を選ぶことにより winding $2,2,1,1$ の収支を満たせるが、
+指定された divisor-normal circle を各 disk まで保つ方式とは両立しない。
+
+\paragraph{正 winding の whole-fiber comparison.}
+第\ref{pe:section}節では decreasing radial factor を凍結せず、
+$|\bar xyz-c|^2$ の下 branch の作用積分と return holonomy を求める。
+第三端を自由にする相対 pants は二つの異なる radial ends を同時に保持できる。
+第\ref{tp:section}節では chosen graph Kähler form の full moments を使って
+正 winding 模型を実際に移送する。
+中央の新しい fibration と非零 slice の一端は exact に一致し、
+normal first jets と primitive の定数項も明示される。
+この新しい中央 fibration は、既存 Auroux surface fibration の葉をそのまま保持するものではない。
+Focus と true branch は別の中央 chambers に入り、
+元の関数のままでは collapsed circle に不変でない。
+第\ref{we:section}節で、この正則 wall の問題を相対 Hamiltonian 変形によって処理する。
+
+\paragraph{Actual annular insertion と24端の同時接続.}
+第\ref{ai:section}節は今回の充填問題の入力となる actual な相対構成である。
+一次共役因子模型から、$x=0$ を避けながら whole compact focus と true $Y$ saddle を含む
+connected-fiber-saturated block を取る。
+明示的な angular shear と縮小により、任意の winding を実際の curve annulus の任意に小さい近傍へ実現する。
+Normal circles は移送された作用を用い、元の座標回転との一致は要求しない。
+Primitive の $b\,d\theta$ は closed だが exact ではなく、marked period として保持する。
+
+さらに $C_{56}$ では
+$\sigma_+=L_1$、$\sigma_-=L_1L_2^2L_3L_4$ を選ぶ。
+各6個の四群における二つの twist は
+$(1,1),(0,2),(0,1),(0,1)$ となり、個別 degree $6,30$ と tensor degree36を同時に満たす。
+Global primitive を一つ先に選び、その boundary periods から各 affine offset を決める。
+Morse function は incoming/outgoing の双方を持つように選ぶ。
+この適合したデータに対して、24本の曲線端を同時に actual な annular blocks へ接ぐ
+（定理\ref{ai:c56-allends}）。
+各 block の残る ports と geometric corner cores は自由のままであり、
+全 hypersurface を覆う主張にはしていない。
+
+\paragraph{全作用を保つ wall extension.}
+正則 lower annulus の fiber を $u=U(h,j,q,\phi)$ と書き、
+作用 $I=\int_0^1U\,d\phi$ を用いて $U_t=(1-t)U+tI$ と補間する。
+この補間を実現する周期的な Hamiltonian を明示するので、
+whole focus と saddle の保護近傍を固定し、新しい特異点を作らず全 marked periods を保てる。
+二つの charged walls が会う場合も一つの action band で同時に扱える。
+壁上では $Q^\natural=I^{-1}(H,J,P_y)$ が full moments だけの関数となり、
+chosen resolved family の中央成分へ滑らかに延びる。
+この結果は正則 wall window の相対構成であり、原始形式の residue や exceptional core を消さない。
+
+\paragraph{残る ports と充填の制約.}
+第\ref{pa:section}節では upper action $B$ と merged action $C$ を計算し、
+saddle で $L_s+B_s+C_s=h$ となる cycle relation を得る。
+Merged cap は、全 cap が入る scale を最初に選べば同じ actual embedding で付加できる。
+自然な $\gamma_U$ を潰す upper cap は annular $H_1$ の障害により同じ tube に入らない。
+さらに第\ref{cf:section}節では、同じ二つの moments を保つ球面還元の充填に極値が残ること、
+全24端で自然な upper meridian periods の総和が負になることを示す。
+これは同じ向き・primitive を保つ個別 disk caps の制約であり、大域目標の非存在定理ではない。
+
+\paragraph{Actual disks と12端の Maslov 障害.}
+第\ref{ad:section}節では、smooth fiber に含まれる固定平面六次曲線
+$C^*=\{L_5=L_6=F_6=0\}$ を actual lift として選ぶ。
+閉曲線の normal bundle は $\mathcal O_C(1)^{\oplus2}$ であり、
+central $\mathcal O_C(1)\oplus\mathcal O_C(5)$ からの比較は各端で winding $-1$ を持つ。
+自然な upper meridian を小さい symplectic graph disk で個別に埋めると、
+primitive differences の総和は閉曲線の面積 $6a$ に一致する。
+個別 disks の構成だけから cap fibration は従わず、$k=2$ の family は下記の別の構成で与える。
+第\ref{mx:section}節では、その境界 framing から $\mu(D_0)=2k-2$ を計算する。
+$c_1(TX_6)=-H$ と $[\omega]=aH$ を用いると、$k=1$ の12端に対する
+positive-area Maslov-two disk は不可能であり、自然な ordinary elliptic cap も排除される。
+この結論は、primitive の非 exact な transition を許しても残る。
+
+\paragraph{全子午線の数値条件と二種類の actual caps.}
+第\ref{ml:section}節では $v=p\gamma_U+\ell\Gamma_H+r\Gamma_J$ の local area と Maslov index を
+$pA_0+\ell A_b$、$2((k-1)p+k\ell)$ と計算する。
+Sphere の付加も含めた positive-area Maslov-two 条件は一つの開半平面となる。
+$k=1$ で $\Gamma_J$ の twist だけを加えても障害は解消しない。
+第\ref{acp:section}節では $\delta=\Gamma_H-\gamma_U$ を潰す actual local cap を
+同じ annular tube 内に作る。Shared actions を変更し、既存 upper collar の whole foliation を保つ。
+さらに共通 $J$-window と global lower-root cutoff を用い、
+初期 windows を狭く選べば全24 caps が既存 curve assembly と非交差に入ることを示す。
+第\ref{kc:section}節では、広い actual disk charts を先に固定して full germs を選び、
+$k=2$ の十二端へ自然な $\gamma_U$ を保つ cap families を同時に付加する。
+$(0,2)$ の六端では $SU(2)$ loop の suspension を normal cutoff 付きの global Hamiltonian flow にして、
+cap の深い部分まで定義域を確保する。既存 $C_{56}$ assembly との非交差も証明する。
+両者を組み合わせ、$k=2$ では natural cap、$k=1$ では別子午線の cap を使う
+全24端の simultaneous extension も得る。いずれの構成にも genuine elliptic boundary が残る。
+
+\paragraph{楕円型境界の交換と接続面積.}
+第\ref{eb:section}節では、actual cap 内の normal disk を二穴の pants に替える。
+外側カラーと元の曲線 assembly は厳密に保持され、24組の hyperbolic families と
+48本の新しい regular ports を得る。元の cap 全体を覆う fibration の延長ではなく、
+二つの小さい disk families を除いた部分領域での構成である。
+Lobe actions、primitive の二穴への分配、特異ファイバーを越えて延びる周期作用格子も明示する。
+第\ref{rsb:section}節は、これらの ports を同じ free shared $T^2$ の下で接ぐ場合の
+signed area budget と relative section defect を計算する。
+Natural cap の二端は任意の twisting を許しても、環状接続に追加の $2\mathfrak a$ を要する。
+第\ref{gc:section}節の大域的 circle 障害と併せ、単なる regular cylinder の追加では足りない条件を特定する。
+第\ref{exm:section}節では、全 exceptional sphere の直接移送を排除し、
+puncture の面積を境界作用として保持する actual membranes と logarithmic input を構成する。
+
+\paragraph{Liouville 輸送と残る課題.}
+Compact simple focus fiber の固定 foliation を保つ Liouville field には障害がある。
+Normal moments とともに fibration を動かす strict Moser 法、および多変数の
+Hamiltonian curvature は第\ref{ct:section}節までで扱う。
+Whole exceptional sphere には第三 divisor の residue も必要である。
+今回接続した曲線端から先へ進むには、残る実際の境界葉の filling、
+normal directions に沿う moving transport との整合、
+geometric corner 全体の相対構成を行う必要がある。
+局所の位相収支や Euler 数の一致を、その代用にはしない。
+
+\clearpage
+\begingroup
+\setlength{\parskip}{0pt}
+\makeatletter
+\renewcommand*{\@pnumwidth}{2.2em}
+\renewcommand*{\@tocrmarg}{3.2em}
+\makeatother
+\tableofcontents
+\endgroup
+\clearpage
+\input{sections/threefold/local_blocks/construction.tex}
+\input{sections/threefold/local_blocks/application.tex}
+\input{sections/threefold/local_blocks/framing.tex}
+\input{sections/threefold/local_blocks/semistable_phase.tex}
+\input{sections/threefold/local_blocks/monomial_corners.tex}
+\input{sections/threefold/local_blocks/corner_weights.tex}
+\input{sections/threefold/local_blocks/positive_winding_reduction.tex}
+\input{sections/threefold/local_blocks/axis_end.tex}
+\input{sections/threefold/local_blocks/positive_relative_pants.tex}
+\input{sections/threefold/local_blocks/exceptional_bridge.tex}
+\input{sections/threefold/local_blocks/toric_corner.tex}
+\input{sections/threefold/local_blocks/toric_positive_transport.tex}
+\input{sections/threefold/local_blocks/annular_insertion.tex}
+\input{sections/threefold/local_blocks/wall_extension.tex}
+\input{sections/threefold/local_blocks/ports_actions.tex}
+\input{sections/threefold/local_blocks/corner_filling.tex}
+\input{sections/threefold/local_blocks/actual_curve_disks.tex}
+\input{sections/threefold/local_blocks/maslov_caps.tex}
+\input{sections/threefold/local_blocks/meridian_lattice.tex}
+\input{sections/threefold/local_blocks/alternative_cap.tex}
+\input{sections/threefold/local_blocks/natural_caps.tex}
+\input{sections/threefold/local_blocks/elliptic_pants.tex}
+\input{sections/threefold/local_blocks/reduced_surface_budget.tex}
+\input{sections/threefold/local_blocks/delta_port_obstruction.tex}
+\input{sections/threefold/local_blocks/closed_curve_shell.tex}
+\input{sections/threefold/local_blocks/focus_normal_obstruction.tex}
+\input{sections/threefold/local_blocks/global_circle_obstruction.tex}
+\input{sections/threefold/local_blocks/base_completion_topology.tex}
+\input{sections/threefold/local_blocks/liouville.tex}
+\input{sections/threefold/local_blocks/moving_collars.tex}
+\input{sections/threefold/local_blocks/coherent_transport.tex}
+\input{sections/threefold/local_blocks/exceptional_membranes.tex}
+\input{sections/threefold/local_blocks/membrane_families.tex}
+\input{sections/threefold/local_blocks/focus_hyperbolic_region.tex}
+\input{sections/threefold/local_blocks/trivial_normal_curve.tex}
+\input{sections/threefold/local_blocks/focus_exterior_topology.tex}
+\input{sections/threefold/local_blocks/focus_relative_filling.tex}
+\input{sections/threefold/local_blocks/twisted_focus_cap.tex}
+\input{sections/threefold/local_blocks/return_scaling.tex}
+
+\section{Trivial-normal block の外側へ}
+\label{lc:next}
+
+第\ref{tnc:section}節により、任意の所定 $X_d$ に、閉曲線全体を含み negative Euler fibers を持つ
+actual block ができた。第\ref{ncc:section}節でそのnormal ball全体への補完も得た．
+次の中心課題は，そのelliptic faceの処理と $V_0$ への接続である．
+
+\begin{enumerate}
+\item 構成済みのtoric outer collarに適合する $V_0$ 側の領域をactualに作る．
+同時に，境界のないbaseを得るには $H=0$ のelliptic fiberの近傍自体を変更する必要がある．
+Whole torusとhyperbolic fibers，boundary coorientation，primitive periodsを照合する．
+新しい $C'$ の normal bundle は trivial なので、旧 generic plane section の degree $2d$ の障害は適用しない。
+一方、全域へ同じ非零 periodic generator を延長することは第\ref{gc:section}節によりできない。
+閉曲線全体の移行をWeinstein handlesだけで構成する方法は
+系\ref{tnc:no-weinstein-normal-transition}により排除される．
+曲線を切った場合は相対 $H_4$ が消えるが，新しい側面の接続を別に構成する必要がある．
+\item 新しい graph の cycles を nice global base 内で縮め、circle-valued label を変更する領域を作る。
+六次では構成済み block の Euler 数は $-4$、compact complement は $-512$ である。
+この値を特異 fibers の個数と同一視せず、complement の全層と接続を構成する。
+\item 元の generic plane section を保持する方式では、第\ref{fnc:section}節の intrinsic obstruction と
+第\ref{fhr:section}節の boundary winding を守る。
+Weighted collars は $m=1,2$ なら generic center の高次退化を避けられるが、
+第\ref{tcf:section}節の原点と full cap、whole-fiber components の選択は未処理である。
+\item 旧48 regular ports の接続は独立の相対課題として保持する。
+Natural pair の面積下界、$\delta$ pair の同一 tube 内での全 genus 障害、
+membrane/focus collar の action offsets と非交差条件を無条件には外さない。
+\end{enumerate}
+
+新しい closed trivial-normal block、generic plane section の punctured blocks、旧 cap assembly は
+別の fibration choices であり、それらの fiber counts を加算していない。
+全体の actual coverage、Hausdorff quotient、connected fibers と自由境界の消去は未証明である。
+15本の検算は本文の算術と局所式を補助し、存在証明の代用とはしない。
+
+\begin{thebibliography}{99}
+\input{sections/threefold/local_blocks/references_extra.tex}
+\bibitem{aak}
+M. Abouzaid, D. Auroux and L. Katzarkov,
+\emph{Lagrangian fibrations on blowups of toric varieties and mirror symmetry for hypersurfaces},
+Publ. Math. IHES \textbf{123} (2016), 199--282.
+\url{https://arxiv.org/abs/1205.0053}.
+\bibitem{em}
+J. D. Evans and M. Mauri,
+\emph{Constructing local models for Lagrangian torus fibrations},
+Ann. H. Lebesgue \textbf{4} (2021), 537--570.
+\url{https://arxiv.org/abs/1905.09229}.
+\bibitem{symington}
+M. Symington,
+\emph{Four dimensions from two in symplectic topology},
+Topology and Geometry of Manifolds, Proc. Sympos. Pure Math. \textbf{71} (2003), 153--208.
+\url{https://arxiv.org/abs/math/0210033}.
+Sections 4.2, 8.1; Section 6.1, Lemma 6.3 and Theorem 6.5 の nodal trade．
+\end{thebibliography}
+\end{document}
