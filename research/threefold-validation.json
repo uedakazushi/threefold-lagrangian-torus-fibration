@@ -1,0 +1,176 @@
+{
+  "scope": "Exact arithmetic, combinatorial, and selected numerical checks; no claim of analytic or global fibration existence.",
+  "checks": [
+    {
+      "script": "surface_v4/verify_data.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "surface_v4/verification_results.json",
+          "bytes": 10406,
+          "sha256": "1071a0e70c0dc8eb187501a64f40502b0bd965b77a54233bce53c611952f220c"
+        }
+      ]
+    },
+    {
+      "script": "surface_v4/verify_general_degree.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "surface_v4/general_degree_results.json",
+          "bytes": 18220,
+          "sha256": "4d6dfad8975d08f3a7dcdc7739a3740fcab4955c65c6ab3f5c24c38389ffab7c"
+        }
+      ]
+    },
+    {
+      "script": "threefold_v11/verify_threefold.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "threefold_v11/verification_results.json",
+          "bytes": 30777,
+          "sha256": "27b8ab749666d316a7979f94f0eb5377040a1e6c0a6f8806d0ceb3d7fc6c775a"
+        },
+        {
+          "path": "threefold_v11/invariants_table.tex",
+          "bytes": 322,
+          "sha256": "467965104a09704b5f55def717fea9afdf408da105199622921f96d08c4cb6ff"
+        }
+      ]
+    },
+    {
+      "script": "threefold_v11/verify_relative_models.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "threefold_v11/relative_model_results.json",
+          "bytes": 33885,
+          "sha256": "83290846e00f3a29086965cc0251f5f3cc9727cd3ab3c76c87e2a4ca9b609b5a"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_local_blocks.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/local_block_checks.json",
+          "bytes": 4597,
+          "sha256": "6861fac478dc17bbfd3c6db941b39800339355d7c1d28553999bd4ad4fa2fa53"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_relative_gluing.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/relative_gluing_checks.json",
+          "bytes": 2732,
+          "sha256": "5a9b2a53f56ac096f4d598712856d4f2300074e2acbf41a5663168f1ef85e54a"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_corner_models.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/corner_model_checks.json",
+          "bytes": 2986,
+          "sha256": "b611b40ee837df5d28066b9f52fe586c4791cc7df1cbcb5f42ec1f27d61de0a0"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_positive_end.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/positive_end_checks.json",
+          "bytes": 1703,
+          "sha256": "86b48f2e98ac71a7dfaf2d314bf8cf1200ba5b15bc0a0a8a11741a6321c43be5"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_positive_transport.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/positive_transport_checks.json",
+          "bytes": 2017,
+          "sha256": "8ca2d0a9abdb7e56f551ac08eea62f81e2bc5fb15b9e5645f763f8f941af737e"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_straightening.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/straightening_checks.json",
+          "bytes": 2303,
+          "sha256": "a11ace3fc721d38acbbc134def21a013c38906935c1efc4f84d771713d91d31a"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_ports.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/ports_action_checks.json",
+          "bytes": 7593,
+          "sha256": "25de65dbbaccbd01fc12257dba9041b3e3e7d349c816fecc62b16a190c7b8cb9"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_cap_extensions.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/cap_extension_checks.json",
+          "bytes": 23955,
+          "sha256": "04034cb3f013215b765bcbd2cc5bd57149b5b7a54040f9f4b46fea02b38232f8"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_boundary_surgery.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/boundary_surgery_checks.json",
+          "bytes": 3886,
+          "sha256": "5cb0bf944797739727a5f124176b8657e4e34991821343e110e64a69595186c1"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_closed_curve_and_families.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/closed_curve_family_checks.json",
+          "bytes": 17699,
+          "sha256": "67b238db85f8b6afa7d415adbc2b62271389763c462c42bd050399644cc36731"
+        }
+      ]
+    },
+    {
+      "script": "local_blocks/verify_focus_normal_and_regions.py",
+      "status": "passed",
+      "generated": [
+        {
+          "path": "local_blocks/focus_normal_region_checks.json",
+          "bytes": 6124,
+          "sha256": "563ed8be31c91d07410e830bb53df4856a6e7a9b41e187d7002261d8fd5d7d2c"
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}
