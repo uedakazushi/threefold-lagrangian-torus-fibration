@@ -1,0 +1,673 @@
+\section{固定した reduced fibration の多変数変形}\label{sec:deformation}
+
+本節から arrangement link までの四節は、従来の相対補題を整理したものである。
+ここで証明するのは、\emph{既に与えられた}特定の局所型を持つ曲面 fibration の近傍の変形定理である。
+曲線 blow-up の臨界 level を越す族の存在や、独立に指定した両端の葉層の一致は仮定しない。
+
+\subsection{Basic partition による曲率の接着}
+
+$g:M\to B$ を compact manifold から compact Hausdorff stratified space への proper map とする。
+各 fiber は滑らかな strata を持つと仮定する。
+各 $b\in B$ とその開近傍 $U$ に対し、より小さい近傍 $V$ と、
+$M$ 上滑らかで各 fiber 上一定な関数 $\rho$ が存在して
+\[
+0\le\rho\le1,\qquad
+\rho|_{g^{-1}(V)}=1,\qquad
+\operatorname{supp}\rho\subset g^{-1}(U)
+\]
+を満たすとき、smooth basic cutoff property を持つという。
+コンパクト性を用い、有限個のこのような関数をその和で割れば、
+所定の被覆の細分に従う smooth basic partition of unity が得られる。
+
+\begin{lemma}[葉方向に零となる代表の相対接着]\label{lem:basic}
+$c\in H^2(M;\RR)$ の閉代表を $\eta$ とする。
+基底の有限被覆に対応する飽和近傍 $U_a$ 上で、閉形式 $\eta_a$ が
+\[
+[\eta_a]=c|_{U_a},\qquad
+\eta_a|_{TF}=0
+\]
+を満たすと仮定する。ここで $F$ は任意の fiber の任意の滑らかな stratum である。
+Smooth basic cutoff property があれば、$c$ の大域的な閉代表 $\kappa$ で
+$\kappa|_{TF}=0$ となるものが存在する。
+飽和 collar 上の所定の代表を、その小さい collar 上で正確に保つこともできる。
+\end{lemma}
+
+\begin{proof}
+$\eta_a-\eta=d\alpha_a$ と書き、basic partition $\rho_a$ により
+\begin{equation}\label{eq:basic-patch}
+\kappa=\eta+d\left(\sum_a\rho_a\alpha_a\right)
+\end{equation}
+とする。支持を内部に取っているので零延長は滑らかであり、$\kappa$ は $c$ を表す。
+Fiber tangent 上では $d\rho_a=0$ だから
+\[
+\kappa|_{TF}=\sum_a\rho_a\,\eta_a|_{TF}=0.
+\]
+相対版では、小さい所定 collar で対応する weight を1とし、他を0とする。
+\end{proof}
+
+Integral class については、同じ議論を line bundle の unitary connections に適用できる。
+実際、基準接続 $\nabla_0$ に対し
+\[
+\nabla=\nabla_0+\sum_a\rho_a(\nabla_a-\nabla_0)
+\]
+と置く。曲率の追加項 $d\rho_a\wedge(\nabla_a-\nabla_0)$ は fiber tangent 上で零である。
+従って、所定 collar で与えられた葉方向 flat な接続の
+\emph{接続そのもの、gauge、holonomy} を、小さい collar 上で保って延長できる。
+これは接続の affine な接着であり、新たな gauge period の消失を仮定する必要はない。
+
+\subsection{曲面版の局所モデルで仮定を確認する}
+
+$S=\Bl_N\PP^2$ とし、$g:(S,\omega_0)\to B$ は既に与えられた stratified
+Lagrangian $T^2$ fibration で、曲面版で使用した次の局所モデルを持つと仮定する。
+Arrangement core は blow-up 前の直線補集合内に保護され、例外 divisor から離れているものとする。
+その近傍には記述した Liouville-cone fibration を持つとする。
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Fiber の型 & 小さい飽和近傍と ambient line bundle の制限\\
+\midrule
+Regular $T^2$ & $T^2\times D^2$。補題\ref{lem:null}により全て自明。\\
+Simple node & $H_2=\ZZ$、生成元は近傍の regular torus。$H_1=\ZZ$。\\
+$S^1\times\figeight$ & $S^1\times P\times I$、$P$ は pants。
+$H_2=\ZZ^2$ は二つの regular tori で生成、$H_1=\ZZ^3$。\\
+Elliptic boundary/saddle & $D^2\times$ annulus、または $D^2\times P$。$H^2=0$。\\
+Corner & $D^4$ 型。\\
+Protected core & 直線補集合かつ全例外 divisor の外にある。$h,e_a$ が直接自明。\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Node の記述は、nonseparating vanishing cycle に2-handle を付ける局所模型、
+または pinched torus への収縮から従う\cite[Sections 4.2, 8.1]{symington}。
+Regular torus は $S$ 内で nullhomologous なので、node と branch の $H_2$ の
+全生成元上で ambient Chern class は零である。
+$H_1$ に torsion がないため、整数係数の $H^2$ に隠れた torsion もない。
+
+Core では skeleton 自体への deformation retraction を新たに仮定する必要はない。
+$\mathcal O(h)$ は除いた一本の直線の非零 section で自明になり、
+$\mathcal O(e_a)$ はその divisor と交わらないので自明になる。
+Compact な core $K=g^{-1}(b_0)$ が保護された開集合 $O$ に入るなら、
+\[
+U=B\setminus g(S\setminus O)
+\]
+は $b_0$ の開近傍で、$g^{-1}(U)\subset O$ である。ここで properness を使った。
+
+Basic cutoff もこれらの局所モデルから作れる。
+Regular、node、elliptic corner では smooth integrable map に bump を合成する。
+Branch/saddle では action coordinate と Morse function を使い、
+critical fiber の周りでは Reeb graph の全ての隣接枝を含む star に cutoff を取る。
+Core では Liouville cone の radial coordinate に、core の開近傍で定数となる cutoff を合成する。
+Radial coordinate 自身が core 上で滑らかでなくても、この合成は滑らかになる。
+
+\begin{proposition}\label{prop:all-curvatures}
+上記の局所モデルを持つ $g$ が既に与えられたとする。
+任意の $c\in H^2(S;\RR)$ は、全 fiber strata 上で零となる閉形式 $\kappa_c$ で表せる。
+有限個の classes について同時に選べる。
+Protected core の小さい近傍では $\kappa_c=0$ とし、
+そこから離れた飽和 collar 上では、所定の葉方向に零となる代表を保つ相対指定が可能である。
+\end{proposition}
+
+\begin{proof}
+$h,e_a$ は各小さい飽和近傍上で自明なので、その class の局所閉代表を0に選べる。
+Core と指定 collar 上ではそれぞれ所定の代表を使い、補題\ref{lem:basic}を適用する。
+有限個の basis classes の代表の実線形結合で一般の $c$ を得る。
+\end{proof}
+
+Normal connections についても、\emph{既に compatible な collar data が与えられていれば}
+この相対接着を使える。
+例えば実際の semistable trivialization
+$N_i\otimes N_j\otimes\mathcal O(\partial S)\simeq\mathcal O$ の下で、
+collar 上の tensor connection が trivial connection であるとする。
+二つの接続を葉方向 flat に延長し、三つ目を inverse tensor connection として定義すれば、
+大域的にも tensor identity と所定 collar を保てる。
+独立に処方された任意の collar 接続の組が、一つの固定された basis connections の
+線形結合から自動的に得られる、という主張はしない。
+また、この議論は SNC normal germs 自体の compatibility を新しく構成するものではない。
+
+\subsection{同じ実際の葉を保つ小さい族}
+
+\begin{theorem}[局所多変数変形]\label{thm:small-family}
+命題\ref{prop:all-curvatures}の $(S,\omega_0,g)$ と、
+$c_1,\ldots,c_r$ の葉方向に零となる代表 $\kappa_1,\ldots,\kappa_r$ を固定する。
+十分小さい $\mathbf t=(t_1,\ldots,t_r)$ に対し
+\begin{equation}\label{eq:small-family}
+\sigma_{\mathbf t}=\omega_0+\sum_{a=1}^r t_a\kappa_a
+\end{equation}
+は symplectic であり、\emph{同じ map $g$ と同じ fiber decomposition} が
+$\sigma_{\mathbf t}$ に対して Lagrangian である。
+$\kappa_a=0$ とした core 近傍の symplectic form と cone germ は変わらない。
+\end{theorem}
+
+\begin{proof}
+Closedness と fiber strata の isotropy は明らかである。
+$\omega_0$ と compatible な $J$ と固定 metric を選び、
+\[
+m_0=\min_{|v|=1}\omega_0(v,Jv)>0,\qquad
+C_a=\max_{|v|=1}|\kappa_a(v,Jv)|
+\]
+と置く。$\sum_a|t_a|C_a<m_0$ なら $\sigma_{\mathbf t}$ は $J$-tame、
+従って非退化である。
+\end{proof}
+
+これは Picard rank が高いこと自体による\emph{局所的な}障害を除く。
+ただし次の三点は結論に含まれない。
+\begin{enumerate}
+\item 許容半径は固定した $(\omega_0,g,\kappa_a)$ に依存する。
+Blow-up size $\eps\to0$ に一様とは示していない。
+従って、$\eps$ を小さくするだけで曲線 blow-up の全 moment path が
+一つの変形 chart に入るとは結論できない。
+\item 同じ葉でも action periods は $\sigma_{\mathbf t}$ と共に変化する。
+独立に選んだ二つの endpoint fibrations が一致するという結論ではない。
+\item Simple node という仮定は必要である。
+Fiber 内の2-cycle $Z$ に $c[Z]\ne0$ なら、$c$ をその fiber 上で零の形式では表せない。
+複数 node を含む一つの fiber の sphere components などは別途調べる必要がある。
+\end{enumerate}
+
+Actual regular reduced forms $\bar\omega_\mu$ に移す十分条件も明確になった。
+Reduced spaces を同定し、
+$[\bar\omega_\mu]=[\sigma_{\mathbf t(\mu)}]$ が上の小さい parameter 域に入り、
+両者が共通の $J$ に tame、所定 collar で一致し、さらに
+\[
+\bar\omega_\mu-\sigma_{\mathbf t(\mu)}=d\beta_\mu,\qquad
+\beta_\mu=0\quad\text{on a common smaller collar}
+\]
+となる滑らかな primitive の族があるとする。
+直線経路の相対 Moser により
+$\psi_\mu^*\bar\omega_\mu=\sigma_{\mathbf t(\mu)}$、
+$\psi_\mu=\mathrm{id}$ near collar を得る。
+従って $g_\mu=g\circ\psi_\mu^{-1}$ が所要の族となる。
+Primitive の相対条件は、絶対 cohomology class の一致だけでは自動的に従わない。
+
+\section{曲線 blow-up のねじれた局所模型と実際の class path}\label{sec:twisted}
+
+\subsection{曲線全体に沿う conic bundle}
+
+\begin{proposition}\label{prop:conic}
+$S$ を複素曲面、$L\to S$ を line bundle、
+$C=\{f=0\}$ を $\mathcal K=\mathcal O_S(C)$ の横断的な section の零因子とする。
+$S_0\subset\operatorname{Tot}(L)$ を zero section とすると
+\begin{equation}\label{eq:conic}
+\Bl_{C\subset S_0}\operatorname{Tot}(L)\setminus\widetilde S_0
+\simeq
+\{yz=f\}\subset\operatorname{Tot}(L\oplus(\mathcal K\otimes L^{-1})).
+\end{equation}
+ここで $y$ は $L$、$z$ は $\mathcal K\otimes L^{-1}$ の fiber coordinate である。
+\end{proposition}
+
+\begin{proof}
+局所 ideal は $(y,f)$ である。$y$ を homogeneous coordinate とする chart は $f=yz$。
+他の chart は $y=uf$ であり、strict zero section を除くと $u\ne0$ なので、
+$z=1/u$ によって前の chart に入る。
+重なりで $z=f/y$ は $\mathcal K\otimes L^{-1}$ の変換則を持つため大域的に接着する。
+\end{proof}
+
+元の $L$ の回転は $(y,z)\mapsto(e^{i\theta}y,e^{-i\theta}z)$ となる。
+固定集合は $C=\{y=z=0\}$、その weight $+1,-1$ の法線 line bundles は
+\begin{equation}\label{eq:weight-lines}
+N^+=L|_C,\qquad N^-=(\mathcal K\otimes L^{-1})|_C,\qquad
+N^+\otimes N^-=N_{C/S}.
+\end{equation}
+これは blow-up \emph{後}の固定曲線の法線束である。
+Blow-up 前の三次元空間における中心の法線束と混同してはいけない。
+式\eqref{eq:conic}は line-bundle neighborhood の模型を与えるが、
+全ての他の marked divisors と既存の葉を保つ相対 symplectic 同定までは主張しない。
+
+\subsection{ねじれを含む Duistermaat--Heckman 類}
+
+本節では circle の周期を1、実 connection の曲率規約を
+$[d\alpha]=-c_1(L)$ とする。係数 $2\pi$ を使う規約とは moment coordinate を換算する。
+$\alpha(X)=1$、$\iota_X\Omega=-d\mu$、
+$\Omega=\pi^*\omega_S+d(\mu\alpha)$ とする。
+Strict zero section で $\mu=0$、例外 $\PP^1$ の面積を $\delta>0$ とし、
+固定曲線の臨界 moment value を $\mu=\delta$ と規格化する。
+Blow-up 前の zero section の class を $\beta$ とする。
+
+\begin{proposition}\label{prop:dh}
+標準的な circle-invariant symplectic blow-up collar の regular reductions の類は
+\begin{equation}\label{eq:twisted-dh}
+[\omega_{\mathrm{red},\mu}]
+=\beta-\mu\,c_1(L)-\max(0,\delta-\mu)[C].
+\end{equation}
+これは reduced form が存在する小さい collar 内の式であり、任意に大きい $\mu$ での
+symplectic 性を主張するものではない。
+\end{proposition}
+
+\begin{proof}
+$\mu>\delta$ の側では normal coupling form の類は $\beta-\mu c_1(L)$。
+$\mu=0$ の strict section の類は $\beta-\delta[C]$、
+その法線束は $L\otimes\mathcal O(-C)$ である。
+従って $0<\mu<\delta$ の Duistermaat--Heckman slope は $-c_1(L)+[C]$ となり、
+\[
+\beta-\delta[C]-\mu(c_1(L)-[C])
+\]
+を得る。両式は $\mu=\delta$ で一致する。
+\end{proof}
+
+$L$ が自明な場合は AAK の式 (4.3) に対応する\cite[Section 4]{aak}。
+本命題は twisting を加えた\emph{類の計算}であり、
+臨界 level の singular Moser theorem を新たに証明したという意味ではない。
+
+\subsection{Ordered degeneration への完全な代入}
+
+$i<j$ とする。$D_i$ で strict $\Gamma_{ij}$ を blow up する直前には、
+$k>j$ の補正が済んでいる。その時の reduced surface と記号を
+\begin{align}
+S&=\Bl_{d(d-j)}\PP^2,&
+\ell&=c_1(L)=h,\nonumber\\
+c&=[C]=dh-\sum_{k>j}\sum_{p=1}^d e_{k,p},&
+\delta&=(j-i)\eps,\label{eq:dh-input}\\
+\beta&=\alpha_i h-\sum_{k>j}(k-i)\eps\sum_{p=1}^d e_{k,p}
+\nonumber
+\end{align}
+と置く。
+先行する中心は元の平面に横断的に交わり、そこに含まれていないので、
+平面の法線 $L$ は hyperplane bundle の pullback のままである。
+一方、$C$ は全ての blow-up 点を通るため、その strict class に例外項が現れる。
+
+$\alpha_j=\alpha_i-d(j-i)\eps$ より
+\begin{equation}\label{eq:dh-match}
+\beta-\delta c
+=\alpha_j h-\sum_{k>j}(k-j)\eps\sum_{p=1}^d e_{k,p}.
+\end{equation}
+これは式\eqref{eq:surface-class}の \emph{実際の} $S_{ij}$ 上の class と一致する。
+下側と上側の slope はそれぞれ $c-h,-h$ であり、
+strict section の法線 class $h-c$ と blow-up 前の class $h$ に対応する。
+
+Intersection form $h^2=1$, $e_{k,p}^2=-1$ より
+\begin{equation}\label{eq:normal-degrees}
+C^2=d^2-d(d-j)=dj,\qquad
+\deg N^+=h\cdot C=d,\qquad
+\deg N^-=(c-h)\cdot C=d(j-1).
+\end{equation}
+式\eqref{eq:normal-degrees}はこの曲線補正を行う中間段階の normal degrees である。
+最終 $D_i$ の closed fixed curve の determinant degree は $d(i+1)$ になる
+（命題\ref{lc:application-normal}）。
+最初の補正 $j=d$ では $S=\PP^2$ なので reduced classes は全て $h$ に比例する。
+後の補正では高い Picard rank が現れ、第\ref{sec:deformation}節の局所変形補題が使える。
+ただし全 moment path の一様制御と臨界 level は依然として別問題である。
+
+\subsection{Marked ends の分割を保つ}\label{subsec:markings}
+
+先行する $k>j$ の三重直線の strict class は
+\[
+\ell_k=h-\sum_{p=1}^d e_{k,p}.
+\]
+従って $C\cdot\ell_k=d-d=0$ である。
+この $d$ 個の元の punctures は消えたのではなく、
+$C\cdot e_{k,p}=1$ により、以前の exceptional curves との交点に変わっている。
+一方、$k<j$, $k\ne i$ の残りの triple lines は各々 $d$ 点で $C$ に交わる。
+Marked ends の総数は
+\begin{equation}\label{eq:marked-split}
+\underbrace{d(j-2)}_{\text{残った strict triple lines}}
++
+\underbrace{d(d-j)}_{\text{以前の exceptional curves}}
+=d(d-2).
+\end{equation}
+全てを strict triple strata との交点と呼ぶのは不正確である。
+第\ref{sec:euler}節の $\Gamma_{ij}^{\circ}$ は元の曲線から元の triple points を除いたものなので、
+Euler 計算は変わらない。相対構成では、式\eqref{eq:marked-split}の両方を記録しなければならない。
+
+局所的にもこの違いが見える。
+$i<j<k$ の点で $D_i$ の座標を $(y,z,w)$ とし、
+$\Gamma_{ij}=\{y=w=0\}$、$\Gamma_{ik}=\{z=w=0\}$ とする。
+先に $(z,w)$ を blow up した chart $w=zu$ で、
+strict $\Gamma_{ij}$ は $\{y=u=0\}$ であり、古い exceptional $z=0$ に交わる。
+次の conic chart $u=yv$ では $w=zyv$ となる。
+これは $xyz=tw$ における二つの correction の相互作用を記録するが、
+positive-vertex fibration 自体を構成したことにはならない。
+
+\subsection{指定 end framing の相対障害}
+
+\begin{lemma}\label{lem:framing}
+Connected closed curve $C$ から開円板を除いた compact surface を $\bar C$ とし、
+line bundle $E\to C$ の各 boundary circle 上の frame $\tau$ を指定する。
+各 $\tau$ が、対応する deleted disk へ非零 frame として延長すると仮定すると
+\[
+\left\langle c_1(E|_{\bar C},\tau),[\bar C,\partial\bar C]\right\rangle=\deg E.
+\]
+従って全ての指定 frame と一致する $\bar C$ 上の一つの非零 frame が存在するための必要十分条件は
+$\deg E=0$ である。
+\end{lemma}
+
+\begin{proof}
+境界値を保つ一般の section の零点の符号付き総数が相対 Chern 数である。
+Deleted disks 上には零点を持たない延長があるので、
+円板を戻した closed curve 上の Chern 数と一致する。
+また $H^2(\bar C,\partial\bar C;\ZZ)\simeq\ZZ$ なので、この数が延長障害の全てである。
+\end{proof}
+
+Punctured curve 上で $H^2=0$ であることと、指定した全 end frames を保って自明化できることは異なる。
+式\eqref{eq:normal-degrees}の二つの degree は一般に非零なので、
+各 end で disk-extending frame を固定したまま全曲線を一つの積模型にすることはできない。
+これは twisted fibration の非存在ではない。
+Twisted bundle のまま構成するか、許される gauge winding を追跡し、
+その gauge group が選んだ nodal/vertex fibration を保つことを証明する必要がある。
+
+\section{臨界 level の rank 条件と分岐模型の選択}\label{sec:rank}
+
+\subsection{正則な reduced torus foliation だけでは pants を処理できない}
+
+\begin{proposition}\label{prop:rank}
+$g:(S^4,\omega)\to B^2$ を smooth regular Lagrangian fibration とし、
+$C\subset S$ を symplectic curve とする。この正則領域では
+\[
+\operatorname{rank}d(g|_C)\ge1.
+\]
+さらに $g(C)$ が smooth base 内の graph に含まれるなら rank はちょうど1である。
+従って $C$ が closed、または compact with boundary で全境界円が $g|_C$ の fiber なら、
+そのような graph image には $\chi(C)=0$ が必要である。
+\end{proposition}
+
+\begin{proof}
+Rank 0 なら $TC\subset\ker dg$。両者は実2次元だから等しいが、
+左は symplectic、右は Lagrangian で矛盾する。
+Rank 2 なら submersion theorem により像に内部があるので graph に含まれない。
+従って kernel は nowhere singular line field となる。
+Closed surface ではその orientation double cover 上に非零 vector field が得られ、
+Poincaré--Hopf より $\chi(C)=0$。
+境界の場合は line field が境界に接するので collar で整えた後に double でき、
+double の Euler 数が $2\chi(C)$ であることから同じ結論となる。
+\end{proof}
+
+特に、symplectic pants を全て smooth regular reduced locus の中だけで graph に写すことはできない。
+Pants の junction には singular reduced block、非 smooth な critical comparison、
+または別の比較模型が必要である。
+これは本研究の構成方法に対する制約であり、
+境界のない branched base 全体への非存在定理ではない。
+
+\begin{proposition}\label{prop:fixed-rank}
+Hamiltonian circle action を持つ実6次元空間の固定成分が symplectic curve $C$ であるとする。
+$F=(\mu,f_1,f_2)$ が smooth、$f_a$ が invariant、全成分が Poisson commute するなら
+\[
+\operatorname{rank}d(f_1,f_2)|_C\le1.
+\]
+\end{proposition}
+
+\begin{proof}
+Invariant Hamiltonian vector field は、固定点で fixed tangent subspace $TC$ に属する。
+従って
+\[
+\{f_1|_C,f_2|_C\}_{\omega|_C}
+=\{f_1,f_2\}_{\omega}|_C=0.
+\]
+Symplectic surface 上ではこれは
+$d(f_1|_C)\wedge d(f_2|_C)=0$ と同値である。
+\end{proof}
+
+AAK の critical comparison は曲線上で homeomorphism、曲線の外で diffeomorphism である
+\cite[Lemma 4.1, Appendix B]{aak}。
+従って、その実2次元の amoeba 型 critical image と命題\ref{prop:fixed-rank}は矛盾しない。
+同定の正則性を落として smooth commuting triple として扱わないことが重要である。
+
+\subsection{Focus--focus と hyperbolic saddle の積}
+
+$q:M^4\to D^2$ を focus--focus fibration、
+$h:P\to\RR$ を pants 上の Morse saddle とすると、$F=(q,h)$ の critical image は
+\[
+\operatorname{im}(q)\times\{h(p)\}
+\]
+という実2次元 sheet を含む。従ってこの積は、
+ordinary 3-ball 上の thin $Y$-graph discriminant を持つ negative vertex の代用にはならない。
+
+ただし、$h$ の local Reeb graph を用いて base を $D^2\times Y$ とすれば、
+これは本研究の boundaryless \emph{branched} base という方針に沿う別の局所候補である。
+分岐 sheet 上の fiber は $T^2\times\figeight$、focus 点と saddle の交点では
+\begin{equation}\label{eq:product-vertex}
+(\text{pinched }T^2)\times\figeight,\qquad
+\chi=1\cdot(-1)=-1
+\end{equation}
+となる。両因子の strata は isotropic なので、その積も isotropic である。
+Regular fiber は $T^3$ である。
+この局所積を実際の twisted conic block に、全ての end frames と class path を保って入れられるかは未証明である。
+第\ref{lc:construction}節では自由端の compact block と compatible-end 版を構成する。
+そこでは実際の end maps と normal first jets の整合を仮定する。
+任意の prescribed end に対する上記の問題は残る。
+特に、$D^2\times Y$ は局所 block の基底であり、その外側境界を全て消す大域接着は別途必要となる。
+
+従って次の二つを別々の研究経路として残す。
+\begin{enumerate}
+\item 相対 negative-vertex 模型を使い、ordinary local base と thin graph を保つ経路。
+\item Hyperbolic branching を許して式\eqref{eq:product-vertex}を使い、
+twisted end germs と $xyz=tw$ の結節に対する相対接着を証明する経路。
+\end{enumerate}
+ユーザーの元の目標は、後者を排除しない。
+Gammage \cite[Remark 3.10]{gammage} も amoeba と tropical spine の厳密一致を別の改良として区別している。
+同論文の Liouville homotopy を、所定 collar を固定した thin-graph 存在定理としては使わない。
+
+\subsection{Singular reduction を含む条件付き lifting}
+
+\begin{lemma}\label{lem:singular-lift}
+実6次元の compact region に semifree Hamiltonian $S^1$ action があり、
+両端が regular な moment interval 上で、唯一の固定集合が曲線 $C$、
+その critical level が内点 $\mu=\delta$ であるとする。
+次を仮定する。
+\begin{enumerate}
+\item Regular reductions に滑らかに依存する $T^2$-fibrations $g_\mu$ があり、
+全 orbit space 上で critical level を含む連続な proper map に延びる。
+その base、fiber stratification、指定 collar germs は与えられている。
+全 orbit-space map は $G([x])=(\mu(x),g_{\mu(x)}([x]))$ とし、moment coordinate を含める。
+\item Free stratum 上の reduced fiber strata は isotropic で次元2以下。
+固定曲線上の fiber strata は曲線または点である。
+\item Lift した full fibers は稠密な3次元 strata を持ち、連結である。
+Regular reduced torus 上の orbit circle bundle は自明である。
+\end{enumerate}
+このとき inverse-image fibers は、指定 collar を保つ stratified Lagrangian $T^3$ fibration を与える。
+\end{lemma}
+
+\begin{proof}
+Free moment-level stratum 上では、元の symplectic form の制限は reduced form の pullback である。
+従って isotropic stratum の逆像は orbit 方向を一つ加えて isotropic となる。
+固定曲線上では orbit は点であり、曲線・点 strata は symplectic surface 内で isotropic。
+連続性、properness、次元、連結性は仮定から、regular fiber の $T^3$ 性は円束の自明性から従う。
+\end{proof}
+
+この補題は normal twisting が lifting の論理そのものを妨げないことを示す。
+難しいのは第1・第2仮定、特に臨界 level の相対 reduced family を作ることである。
+Cohomology の一致からこれらの仮定を導いたものではない。
+
+\section{三次元 arrangement link の period と end primitive}\label{sec:link}
+
+\subsection{Link の一次ホモロジー}
+
+\begin{proposition}\label{prop:link-h1}
+一般位置の $m$ 枚の平面 $D=\bigcup_{a=1}^mH_a\subset\PP^3$ の
+小さい closed plumbing neighborhood を $N$、滑らかにした境界を $S=\partial N$ とする。
+実係数で
+\begin{equation}\label{eq:link-h1}
+H_1(S;\RR)\simeq\RR^m/\RR(1,\ldots,1).
+\end{equation}
+標準生成元は各 $H_a$ の normal meridian に対応する。
+\end{proposition}
+
+\begin{proof}
+平面を一枚ずつ加えると、新しい $\PP^2$ と先の和の交わりは連結な直線配置である。
+各 $\PP^2$ は単連結なので van Kampen より $D$、従って $N$ は単連結である。
+同じ帰納で、交わりの実 CW 次元が2以下であることと Mayer--Vietoris により
+$H_4(N;\RR)=\RR^m$、基底は各平面の基本類となる。
+Poincaré--Lefschetz と pair の完全列から
+\[
+H_2(N;\RR)\longrightarrow
+H_2(N,S;\RR)\simeq H^4(N;\RR)\simeq\RR^m
+\longrightarrow H_1(S;\RR)\longrightarrow0.
+\]
+最初の写像は平面との intersection numbers で与えられる。
+全平面は ambient $\PP^3$ で同じ hyperplane class を持つので、その像は対角部分空間に含まれる。
+一つの成分内の直線の class が対角ベクトルを実現するので像はちょうど対角部分空間である。
+相対 normal disk の境界が meridian であることから結論を得る。
+\end{proof}
+
+同じ actual two-form の二つの end primitives $\lambda_0,\lambda_1$ を考える。
+全 meridians 上で periods が一致すれば、その閉差は上の全生成元で積分0なので
+\begin{equation}\label{eq:primitive-exact}
+\lambda_1-\lambda_0=df
+\end{equation}
+となる。Limiting angular residues の一致でもよい。閉差の meridian period は半径によらないからである。
+曲面版の直線配置で必要だった追加の graph-period correction は、
+三次元のこの平面配置 link では不要になる。
+六次の $m=5$ では $b_1(S)=4$、一般の component では $m=d-1$ より $b_1(S)=d-2$。
+
+\subsection{Exact と bounded を分ける}
+
+式\eqref{eq:primitive-exact}だけから $f$ の boundedness は従わない。
+$dr/r=d\log r$ が反例である。
+十分条件は、$\lambda_1-\lambda_0$ が
+\emph{smooth ambient metric の通常の one-form norm}で、
+全ての SNC normal directions に対して一様に有界であることである。
+特に divisor を越して滑らかに延びれば十分である。
+有限個の punctured SNC charts はこの metric で一様に有界な intrinsic diameter を持つ。
+基準点から各点への有界長の経路に沿って $df$ を積分すれば、定数調整後に $f$ も有界になる。
+Logarithmic coframe に関してのみ bounded であるという弱い条件では足りない。
+
+\begin{lemma}[有界 exact な end cutoff]\label{lem:end-cutoff}
+$\omega$ が compactification を越して滑らかに非退化に延びるとする。
+$\iota_{Z_0}\omega=\lambda_0$、$\psi$ を logarithmic exhaustion とし、
+end の SNC normal radii $\rho_a$ について一様に
+\[
+Z_0\psi\ge c\sum_a\rho_a^{-2},\qquad
+|d\psi|\le C\sum_a\rho_a^{-1}
+\]
+が成り立つとする。さらに
+$\lambda_1-\lambda_0=df$ と $|f|+|df|\le C'$ を仮定する。
+十分高い sublevel より外で
+\[
+\lambda=\lambda_0+d(\chi(\psi)f)
+\]
+とすれば、内側では $\lambda_0$、遠い end では $\lambda_1$ に一致し、
+end での $Z\psi>0$ と元の core を保てる。
+\end{lemma}
+
+\begin{proof}
+$\iota_{X_h}\omega=-dh$ と規約を固定すると
+\[
+Z=Z_0-\chi X_f-f\chi'X_\psi,\qquad
+Z\psi=Z_0\psi-\chi X_f\psi.
+\]
+$X_\psi\psi=0$ のため $\chi'$ の項は消える。
+$df$ が有界で ambient $\omega$ が滑らかに非退化なので、誤差は
+$O(\sum_a\rho_a^{-1})$。
+正の $O(\sum_a\rho_a^{-2})$ がこれを支配する十分遠い end で cutoff を行えばよい。
+内側の vector field は変えず、外側に新しい trapped core も作らない。
+\end{proof}
+
+これは compatible collar primitive が\emph{既に構成できた後}の接着補題である。
+所定の torus 葉を保つ normal collapse、corner dynamics、
+finite-volume compactification 自体の存在をこの補題だけから結論しない。
+
+\subsection{Liouville flow が葉を保つための実際の条件}\label{subsec:projectability}
+
+Normal collar の reduced surface 上に固定された regular fibration $p:S\to B$ があり、
+$\kappa|_{TF}=0$ とする。以下では $\mu$ の範囲で
+$\omega_\mu=\omega+\mu\kappa$ は symplectic と仮定する。
+$w>0$ を固定し、punctured surface 上で
+\[
+d\beta=\omega+w\kappa,\qquad
+\lambda=(\mu-w)\alpha+\pi^*\beta
+\]
+とする。このとき
+\begin{equation}\label{eq:liouville-project}
+\Omega=d\lambda=d\mu\wedge\alpha+\pi^*\omega_\mu,\qquad
+Z=(\mu-w)\partial_\mu+Y_\mu^{\mathrm{hor}},\quad
+\iota_{Y_\mu}\omega_\mu=\beta.
+\end{equation}
+これは接続による水平・垂直分解で直接計算できる。
+Vertical circle 成分を加えると $d\mu$ 成分が出るので、その成分は0である。
+
+\begin{lemma}\label{lem:projectability}
+式\eqref{eq:liouville-project}の flow が lifted regular foliation を保つ必要十分条件は、
+$Y_\mu$ が $p$ の基底へ projectable であることである。
+強い十分条件は $\beta|_{TF}=0$。この場合 $Y_\mu$ は各 fiber に接し、
+reduced label は固定される。
+\end{lemma}
+
+\begin{proof}
+Lifted base coordinate は $(\mu,p)$ なので、その $Z$ 微分が
+同じ fiber 上一定となることが必要十分である。
+第1成分は $\mu-w$ であり、第2成分は $dp(Y_\mu)$。
+さらに $TF$ は $\omega_\mu$ に関して Lagrangian だから、
+$\beta|_{TF}=0$ は $Y_\mu\in TF$ と同値である。
+\end{proof}
+
+葉が $p_\mu$ と変わる場合、同じ計算で必要な条件は
+\[
+(\mu-w)\partial_\mu p_\mu+dp_\mu(Y_\mu)=v_\mu\circ p_\mu
+\]
+となる。各 $\mu$ で別々に fibration が存在するだけでは、この条件を満たさない。
+
+$d\beta|_{TF}=0$ なので $\beta|_F$ は閉じている。
+全 fiber periods が0なら、proper regular torus bundle 上で
+$d_Ff=\beta|_F$ を解き、fiberwise mean zero で規格化して滑らかな $f$ を得る。
+従って $\beta-df$ は $TF$ 上で零になる。
+逆に、そのような exact correction の存在は全 periods の消失を必要とする。
+初めから restriction が零の飽和 collar では、この解は0となる。
+Singular fibers と所定の nonsaturated corners を越す滑らかな相対延長は別途必要である。
+
+Periods の一致だけでは、\emph{与えられた} primitive の projectability は分からない。
+例えば local action-angle coordinates で
+\[
+\omega=\sum_{a=1}^2dp_a\wedge d\theta_a,\qquad
+\kappa=-\omega/w,\qquad
+\beta=d(\sin(2\pi\theta_1))
+\]
+とすると $d\beta=\omega+w\kappa=0$、全 periods も0だが
+\[
+Y_\mu(p_1)=\frac{2\pi\cos(2\pi\theta_1)}{1-\mu/w}
+\]
+は basic ではない。ここでは exact correction で直せるが、
+全 singular/corner germs に相対的に同じ補正を延ばせるとは自動的には言えない。
+
+また、regular lifted torus の locally flat な cycle basis に対して
+$A_j=\int_{\gamma_j}\lambda$ と置けば、foliation-preserving Liouville flow には
+\[
+\widehat Z A_j=A_j
+\]
+が必要である。$\mathcal L_Z\lambda=\lambda$ から従う。
+Period-one normal meridian の action は $\mu-w$、
+他の cycle の action は $(\mu-w)h_j+B_j$ と書ける。
+$h_j$ は connection period、$B_j$ は $\beta$ の period である。
+Reduced label を固定する flow では $B_j=0$ が必要だが、
+projectable に label を動かす flow なら非零の $B_j$ も許される。
+
+Singular strata については、単に $\beta$ がその tangent 上で零であることだけでは不十分である。
+Lower-dimensional stratum の symplectic orthogonal は、その tangent より大きいからである。
+その近傍全体で $\beta=0$ とするか、flow が actual stratified fibers を保つことを別に示す。
+Regular single-divisor collar で $0<\mu(0)<w$、reduced motion が滑らかに延びるなら、
+\[
+\mu(t)=w+(\mu(0)-w)e^t
+\]
+は $T=\log\!\left(w/(w-\mu(0))\right)$ で0に達する。
+これが所定の normal finite-time collapse を与える。
+全 corner に同時に適合することはなお相対構成の課題である。
+
+\subsection{Thom form による interior の固定と、その限界}
+
+Unblown な $S=\PP^2$ で $[\omega]=cH$ とし、
+boundary lines $L_b$ の smooth closed Thom representatives を $\tau_b$ とする。
+Period-one convention で $w+\sum_bw_b=c$ を満たす正の weights を選ぶと
+\[
+\kappa=-\frac{\omega}{w}+\frac1w\sum_bw_b\tau_b
+\]
+は $[\kappa]=-H$ を満たし、normal $\mathcal O(1)$ の connection curvature にできる。
+Thom forms の支持の外では $\kappa=-\omega/w$ である。
+各 $\tau_b$ の angular primitive を直線補集合上で選べば
+\[
+d\beta=\omega+w\kappa=\sum_bw_b\tau_b
+\]
+となり、共通の interior で $\beta=0$ とできる。
+具体的には period-one angular connection $a_b$ と、
+$L_b$ の近くで1、指定近傍の外で0となる radial cutoff $\chi_b$ に対して
+\[
+\tau_b=-d(\chi_ba_b),\qquad \beta=-\sum_bw_b\chi_ba_b
+\]
+と選べばよい。前者は $L_b$ を越して滑らかに延びる Thom form である。
+その interior では reduced Liouville motion は恒等である。
+
+ただし、任意の Thom forms は支持内で所定の $TF$ 上零になるとは限らない。
+その angular primitives も projectable とは限らず、隣接する二つの成分からの
+primitive が overlap で実際に一致するとも限らない。
+Compact double line 上の normal bundles は非自明なので、そこ全体を
+一つの untwisted product chart で扱うこともできない。
+必要なのは、\emph{compatible normal-bundle coupling models} の上で、
+葉を保つ transition、actual overlap equality、singular/corner への相対延長、
+前節の ambient-norm estimates を同時に実現することである。
+Thom form と cone extension の存在だけから、三次元 component filling が完成したとは結論しない。
