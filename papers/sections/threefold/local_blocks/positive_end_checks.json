@@ -1,0 +1,51 @@
+{
+  "scope": "Explicit local lower-branch formulas only; not a global fibration proof.",
+  "radial_derivative_exact_rational_cases": 240,
+  "nodal_action_examples": [
+    {
+      "H_over_pi": 1.0,
+      "c": 0.01,
+      "actual_action": 0.020160510408087615,
+      "frozen_action": 0.02,
+      "quadratic_correction": 0.00015707963267948965,
+      "cubic_correction": 3.3333333333333337e-06,
+      "remainder": 9.744207479192039e-08,
+      "remainder_ratio_when_halving_c": 16.27156681499662
+    },
+    {
+      "H_over_pi": 2.0,
+      "c": 0.025,
+      "actual_action": 0.03560549802541864,
+      "frozen_action": 0.03535533905932738,
+      "quadratic_correction": 0.0002454369260617026,
+      "cubic_correction": 4.603559773349919e-06,
+      "remainder": 1.1848025620340158e-07,
+      "remainder_ratio_when_halving_c": 16.2389562271327
+    },
+    {
+      "H_over_pi": 3.0,
+      "c": 0.05,
+      "actual_action": 0.05818051925973202,
+      "frozen_action": 0.057735026918962574,
+      "quadratic_correction": 0.0004363323129985824,
+      "cubic_correction": 8.909726376383117e-06,
+      "remainder": 2.503013944805901e-07,
+      "remainder_ratio_when_halving_c": 16.26093280695521
+    },
+    {
+      "H_over_pi": 5.0,
+      "c": 0.08,
+      "actual_action": 0.0719625315928974,
+      "frozen_action": 0.07155417527999328,
+      "quadratic_correction": 0.0004021238596594935,
+      "cubic_correction": 6.105956290559426e-06,
+      "remainder": 1.2649695406497266e-07,
+      "remainder_ratio_when_halving_c": 16.192195718732975
+    }
+  ],
+  "return_derivative": {
+    "analytic": -0.0011733242218356405,
+    "centered_difference": -0.001173324221917007,
+    "absolute_error": 8.136655411938865e-14
+  }
+}

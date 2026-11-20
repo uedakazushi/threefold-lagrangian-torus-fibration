@@ -1,0 +1,354 @@
+\section{正 winding の下 branch と異なる corner ends を結ぶ相対 pants}
+\label{pe:section}
+
+本節では一次共役因子 $\bar x yz$ の compact focus 成分を、
+whole fibers と marked actions を保持したまま curve block の端へ接続する。
+より一般に、標準積 $xyz$ の端と $\bar x yz$ の端という二つの指定端を
+同じ pants block に一致させる。第三の端は自由に選ぶ。
+これは標準 symplectic 模型での相対定理であり、actual corner に適用するときは、
+その corner の形式から本節の形式への、whole fibers 上で定義された exact comparison を別途入力する。
+全ての角変数の周期は1であり、$\rho_v=\pi|v|^2$ とする。
+
+\subsection{減少する radial factor と一様な下 branch}
+
+$H_-=\rho_x+\rho_y$, $J=\rho_y-\rho_z$,
+$W_-=\bar x yz$, $Q_-=|W_--c|^2$ とする。
+$x\ne0$ 上で
+\[
+ \theta=\theta_x,\quad Y=e^{-2\pi i\theta}y,\quad Z=z,
+ \quad u=\rho_Y
+\]
+と置けば
+\begin{equation}\label{pe:exact}
+ \lambda_3=H_-d\theta+\rho_Yd\theta_Y+\rho_Zd\theta_Z,
+ \qquad W_-=\sqrt{\frac{H_--u}{\pi}}YZ,
+ \qquad H_->u.
+\end{equation}
+逆写像は
+\[
+ x=\sqrt{(H_--u)/\pi}\,e^{2\pi i\theta},\qquad
+ y=e^{2\pi i\theta}Y,\quad z=Z
+\]
+であり、node $Y=Z=0$ でも滑らかである。
+これは meridian frame の回転を longitudinal action の変更で補う厳密な恒等式であり、
+normal coordinates だけを回転して base action を固定する操作ではない。
+
+以下の補題は、減少・一定・増加する radial factor を一括して扱う。
+
+\begin{lemma}[一様に分離された radial branch]\label{pe:uniform}
+$0<A\le B$, $0<\delta<1/2$, $a_0>0$, $0<\vartheta<1$ を固定する。
+$H\in[A,B]$, $s\in[-1,1]$ に対して
+\[
+ W_{H,s}=\sqrt{\frac{H+s u}{\pi}}YZ,
+ \qquad J=\rho_Y-\rho_Z,
+ \qquad Q_{H,s}=|W_{H,s}-c|^2
+\]
+と置き、$u\le\delta A$ の領域を考える。
+十分小さい $c>0$ と、
+\[
+ |j|\le a_0c,\qquad |q-c^2|\le\vartheta c^2
+\]
+の中で $(0,c^2)$ を内部に持つ compact disk $U$ に対し、
+\[
+ \{H\in[A,B],\ (J,Q_{H,s})\in U,\ u\le\delta A\}
+\]
+は cutoff $u=\delta A$ と交わらず、全ての lower fibers を含む compact set である。
+特に $s=-1$ ではこれは全三変数模型の下側の連結ファイバー成分を含む。
+正則 normal fiber は $T^2$、$(j,q)=(0,c^2)$ の normal fiber は once-pinched torus である。
+全ての主張と normal-radius estimate は $(H,s)$ に一様である。
+\end{lemma}
+
+\begin{proof}
+$J=j$, $R=|W_{H,s}|$ 上の radial equation は
+\begin{equation}\label{pe:root}
+ u(u-j)(H+s u)=\pi^3R^2,\qquad u\ge L:=\max(0,j).
+\end{equation}
+左辺の $u$ 微分は
+\begin{equation}\label{pe:D}
+ D_{H,s}=(2u-j)(H+s u)+s u(u-j).
+\end{equation}
+$u\ge L$ なので $v=u-j\ge0$ であり、$D_{H,s}$ は $s$ に関して増加する。
+$s=-1$ において
+\[
+ D_{H,-1}=(u+v)(H-u)-uv
+         =u(H-u)+v(H-2u)>0
+\]
+が $(j,u)\ne(0,0)$ で成立する。ここでは $u\le\delta A<H/2$ を用いた。
+従って全ての $s\in[-1,1]$ で、左辺は $[L,\delta A]$ 上で厳密に増加する。
+
+$C_\vartheta=1+\sqrt{1+\vartheta}$ と置けば $R\le C_\vartheta c$ である。
+$c$ を
+\begin{equation}\label{pe:smallness}
+ a_0c<\delta A/2,\qquad
+ \pi^3 C_\vartheta^2c^2<\tfrac12\delta^2(1-\delta)A^3
+\end{equation}
+となるように選ぶ。
+$u=\delta A$ で式\eqref{pe:root}の左辺は
+\[
+ \delta A(\delta A-j)(H+s\delta A)
+ >\tfrac12\delta^2(1-\delta)A^3
+\]
+以上である。下端では零なので、各 $R\le C_\vartheta c$ に一意の解
+$u=u_{H,s}(j,R)\in[L,\delta A)$ が存在する。
+これにより cutoff は fiber と交わらず、$W$-circle 全体の lift が含まれる。
+
+$H+s u\ge(1-\delta)A$ より
+\[
+ |YZ|\le\sqrt{\frac\pi{(1-\delta)A}}|W|,\qquad
+ |Y|^2+|Z|^2
+ \le c\sqrt{\left(\frac{a_0}\pi\right)^2+
+                \frac{4\pi C_\vartheta^2}{(1-\delta)A}}.
+\]
+従って normal radius は $O(\sqrt c)$、$u$ は $O(c)$ であり、全 parameters に一様である。
+元の負号模型では $\rho_x=H-u\in[A-Kc,B]$ なので、任意に指定した少し広い
+$x$-axis annulus の中に全 fibers を入れられる。
+
+$J$ の逆位相 circle は $(Y,Z)\ne(0,0)$ で自由であり、
+各 $J$-quotient 上で $(j,W)$ は、原点以外において smooth coordinates である。
+式\eqref{pe:D}が radial coordinate change の単調性を与える。
+$|W-c|=\sqrt q$ の lift は通常は円上の principal circle bundle、
+従って $T^2$ であり、$j=0,q=c^2$ では一つの orbit が潰れて pinched torus となる。
+$Q=0$ は $q\ge(1-\vartheta)c^2>0$ により除外されている。
+元の四次元 smooth coordinates で、node における二次部分は
+\[
+ J=\pi(|Y|^2-|Z|^2),\qquad
+ Q_{H,s}-c^2=-2c\sqrt{H/\pi}\operatorname{Re}(YZ)+O(4),
+\]
+なので非退化 focus--focus 型である。
+Quotient の root $u(j,R)$ が原点で smooth であるとは主張せず、
+node の smoothness と非退化性はこの元の式で確認している。
+\end{proof}
+
+\begin{remark}[既に指定した $c$ に対する直接 barrier]
+\label{pe:barrier}
+条件\eqref{pe:smallness}は十分条件であり、最適ではない。
+一般に $0<u_*<A/2$, $0\le j_0<u_*$ を選び、window 上の $|W|$ の上界 $R_*$ が
+\[
+ \pi^3R_*^2<u_*(u_*-j_0)(A-u_*)
+\]
+を満たせば、$|j|\le j_0$, $H\ge A$, $s\ge-1$ に対し cutoff $u=u_*$ は全 fibers と交わらない。
+同じ derivative の証明が使え、primitive と return data に変更はない。
+例えば chosen graph の中央 chamber から来る端で
+$A>e_1$, $2c<f_A((A-e_1)/2)$ が既に成立していれば、
+\[
+ u_-(A,2c)<u_*<(A-e_1)/2<A/2
+\]
+を選ぶことができる。
+$j_0$ と $Q$-window を十分小さくし、pants 全体で $a\ge A$ とすれば、
+既に指定された $c$ を縮めずにこの一端を延長できる。
+\end{remark}
+
+\subsection{下 branch の full action と return holonomy}
+
+$u_H^-(j,R)$ を $s=-1$ の解とする。Regular values の simply connected な cycle chart では、
+normal primitive の complementary action は
+\begin{equation}\label{pe:action}
+ I_-(H,j,q)=\frac1{2\pi}
+ \int_{|W-c|=\sqrt q}u_H^-(j,|W|)\,d\arg W
+\end{equation}
+である。$Z$ の位相を固定する section を用いた式であり、
+section の変更は $j$ の整数倍を加える。
+$W=0$ で $Z$ が消える regular level では $Y$ の section に切り替え、$u$ を $u-j$ に置き換える。
+残り二つの actions は $H,j$ であり、full period covector は $dI_-$ である。
+$Q$-flow と必要な $J$-flow による normal return の longitudinal holonomy は
+\begin{equation}\label{pe:return}
+ -\partial_H I_-\pmod{\ZZ}
+\end{equation}
+となる。これを閉じる $H$-flow の時間が $\partial_H I_-$ だからである。
+
+式\eqref{pe:root}を微分すれば
+\begin{equation}\label{pe:derivatives}
+ \partial_Hu=-\frac{u(u-j)}{D_{H,-1}},\qquad
+ \partial_ju=\frac{u(H-u)}{D_{H,-1}},\qquad
+ \partial_Ru=\frac{2\pi^3R}{D_{H,-1}}
+\end{equation}
+を得る。従って return data は leading Hessian を凍結せず直接計算できる。
+
+\begin{proposition}[正 winding end の nodal action]\label{pe:nodal}
+$H>0$ を固定し、$0<c<H^{3/2}/(3\sqrt3\pi^{3/2})$ とする。
+すなわち $H>3\pi c^{2/3}$ を仮定する。
+Lower nodal fiber の非消失 cycle の action を $A_H^-(c)$ とすると
+\begin{equation}\label{pe:nodal-integral}
+ A_H^-(c)=\frac1{2\pi}\int_{-\pi/2}^{\pi/2}
+ u_H^-(0,2c\cos\phi)\,d\phi
+ >2c\sqrt{\pi/H}.
+\end{equation}
+さらに
+\begin{equation}\label{pe:nodal-expansion}
+ A_H^-(c)=2c\sqrt{\pi/H}
+ +\frac{\pi^3c^2}{2H^2}
+ +\frac{10\pi^{7/2}c^3}{3H^{7/2}}+O(c^4).
+\end{equation}
+$H$ が正の compact interval を動けば剰余は一様である。
+\end{proposition}
+
+\begin{proof}
+$j=0$ で下 branch の方程式は
+\[
+ u\sqrt{H-u}=\pi^{3/2}R,\qquad 0\le u<2H/3
+\]
+である。$R>0$ では $\sqrt{H-u}<\sqrt H$ なので
+$u>\pi^{3/2}R/\sqrt H$ となり、不等式が従う。
+$u$ を $R$ の関数として $R=0$ の片側から展開すると
+\[
+ u=\frac{\pi^{3/2}}{\sqrt H}R
+ +\frac{\pi^3}{2H^2}R^2
+ +\frac{5\pi^{9/2}}{8H^{7/2}}R^3+O(R^4).
+\]
+$\int_{-\pi/2}^{\pi/2}\cos\phi\,d\phi=2$,
+$\int\cos^2\phi\,d\phi=\pi/2$,
+$\int\cos^3\phi\,d\phi=4/3$ を用いて式\eqref{pe:nodal-expansion}を得る。
+なお $u(R)$ のこの片側展開は nodal action の計算用であり、
+$R=|W|$ を smooth quotient coordinate とみなすものではない。
+\end{proof}
+
+係数を軸上の $\sqrt{H/\pi}$ に凍結した模型の nodal action は
+$2c\sqrt{\pi/H}$ である。従って同じ primitive と cycle marking を
+exact form を除いて保つ比較には、式\eqref{pe:nodal-integral}の差が障害となる。
+増加する $xyz$ end の補正は $-\pi^3c^2/(2H^2)$ であり、今回の補正と逆符号である。
+一般の unmarked、non-exact な symplectic 非同値や、正規化した focus Taylor invariant の
+相違をこの一つの action だけから主張してはいけない。
+
+\subsection{二つの指定端を exact に保つ hybrid pants}
+
+$(P,\omega_P)$ を compact symplectic pair of pants とし、
+$h:P\to\RR$ を一つの saddle を持ち境界近傍で regular な Morse function とする。
+$E_+,E_-$ を Hermitian line bundles、
+$\tau:E_+\otimes E_-\simeq P\times\CC$ を unitary tensor trivialization とする。
+$\tau$ に関する dual connections を取り、
+\[
+ \Omega_P=p^*\omega_P+d(\rho_+\alpha_++\rho_-\alpha_-),
+ \qquad J=\rho_+-\rho_-
+\]
+を考える。
+$a:P\to(0,\infty)$ と $s:P\to[-1,1]$ は $h$ の connected levels 上で一定であり、
+saddle の近傍では両方とも定数とする。
+\begin{equation}\label{pe:hybrid}
+ W_{a,s}=\sqrt{\frac{a+s\rho_+}{\pi}}\,\tau(y\otimes z),
+ \qquad Q_{a,s}=|W_{a,s}-c|^2.
+\end{equation}
+十分小さい normal domain では radical は正である。
+
+\begin{theorem}[二端相対構成]\label{pe:two-end}
+上の入力に対して $J,Q_{a,s},h$ は Poisson commute する。
+十分小さい共通 $c>0$ と補題\ref{pe:uniform}の window $U$ を選ぶと、
+compact saturated block と、connected $h$-levels の Reeb quotient $r_h:P\to G_h$ を用いた
+\[
+ (J,Q_{a,s},r_h):M\longrightarrow U\times G_h
+\]
+が得られる。Regular fibers は $T^3$、node と saddle の同時 fiber は
+$(\text{once-pinched }T^2)\times(S^1\vee S^1)$ であり、全ての fiber strata は isotropic である。
+
+相異なる二つの boundary collars に symplectic coordinates
+$(H_i,\theta_i)$ を指定し、$H_i$ は正の compact interval を動くとする。
+そこで
+\[
+ \omega_P=dH_i\wedge d\theta_i,\qquad
+ h=\chi_i(H_i),\qquad a=H_i,\qquad s=s_i\in\{-1,0,1\}
+\]
+とし、$\chi_i$ は strict monotone とする。
+また個別の normal frames を指定し、その積を $\tau$ とし、
+これらの frames に関する各 connection form を零にする。
+このとき各 collar は、同じ $c$ と全 compact fibers を含めて、次の模型の axis end に
+exact symplectomorphic である。
+\begin{itemize}
+ \item $s_i=-1$: $H_i=\rho_x+\rho_y$, $W=\bar x yz$ の下側 focus end。
+ \item $s_i=+1$: $H_i=\rho_x-\rho_y$, $W=xyz$ の標準 focus end。
+ \item $s_i=0$: $H_i=\rho_x$, $W=\sqrt{H_i/\pi}\,yz$ の無捩れ radial end。
+\end{itemize}
+写像は primitive と $(H_i,J,Q)$ を厳密に保つ。
+$h$ のラベルは $h=\chi_i(H_i)$ により同定する。
+第三の端を自由に選ぶなら、指定した二つの collars の全ての入力を pants 全体へ延長できる。
+\end{theorem}
+
+\begin{proof}
+Horizontal transport は $\rho_\pm$ と $\tau(y\otimes z)$ を保つ。
+$Q_{a,s}$ の horizontal derivative は $a,s$ によるものだけであり、
+$da(X_h)=ds(X_h)=0$ なので $\{h,Q_{a,s}\}=0$ である。
+Horizontal form は $\omega_P+J\kappa$ という曲面上の非退化2-form であり、
+$h$ の Hamiltonian direction は $\omega_P$ のときと同じである。
+$J$ の逆位相作用は各 $\rho_\pm$ と tensor product を保つので、残りの bracket も零である。
+
+$A=\min a>0$, $B=\max a$ を用いて補題\ref{pe:uniform}を適用する。
+$a,s$ は connected level ごとに一定なので、各 normal fiber 全体を同じ lower branch に取れる。
+Normal cutoff は fiber と交わらず、compact base 上で全 block が compact である。
+Regular circle と critical figure-eight 上の principal circle bundle は trivial なので、
+normal torus または pinched torus と base level graph の積という位相型を得る。
+各 stratum の horizontal dimension は高々1、vertical stratum は isotropic であり、
+connection splitting に mixed symplectic term がないから、全 stratum は isotropic である。
+Saddle 近傍で $a,s$ が定数なので、同時特異点の quadratic type は focus--focus と hyperbolic の直和となる。
+
+指定 collar では normal connections が指定 frames に関して零なので、
+$\Omega_P=dH_i\wedge d\theta_i+\omega_{\CC^2}$ となる。
+$s_i=-1$ は式\eqref{pe:exact}、$s_i=+1$ は
+$Y=e^{2\pi i\theta_i}y$, $\rho_x=H_i+\rho_Y$ による exact identity である。
+$s_i=0$ は $x=\sqrt{H_i/\pi}e^{2\pi i\theta_i}$ により得られる。
+補題\ref{pe:uniform}により写像は whole fibers 上で定義され、
+式\eqref{pe:action}を含む全 return data が保たれる。
+
+残るのは相対 extension である。
+Pants の境界成分を二つ選んだ union を $A_{12}$ とすると、
+\[
+ H^2(P;\ZZ)=0,\qquad
+ H^1(P;\ZZ)\longrightarrow H^1(A_{12};\ZZ)\simeq\ZZ^2
+\]
+の後者は同型である。従って各 line bundle を trivialize した後、
+二つの指定 boundary frames の任意の winding を、ひとつの global gauge で同時に実現できる。
+その homotopy class の一致を collar 上の exact phase correction により literal な一致へ直す。
+これを $E_+,E_-$ に適用し、tensor trivialization も二つの collars を保って選ぶ。
+指定零接続は、tensor trivialization に関して dual のまま affine に延長できる。
+
+$h$ は三価 Morse cobordism として構成でき、$\chi_i$ を選ぶことで、
+元の $H_i$ intervals が重なっていても異なる Reeb edges へ配置できる。
+$a,s$ は graph 上で prescribed boundary functions を延ばし、
+vertex の近くでは一定、かつ $a>0$, $|s|\le1$ とする。
+第三の端の値はこの延長から選ぶ。
+
+さらに $\omega_P$ の primitive $\beta$ を、二つの collars で
+$\beta=H_i d\theta_i$ となるように選べる。
+実際、任意の primitive とこれらの差は collar 上で closed であり、
+上記 $H^1$ の同型でその periods を同時に補正し、残りの exact terms を cutoff して補正する。
+従って
+\[
+ \lambda_P=p^*\beta+\rho_+\alpha_++\rho_-\alpha_-
+\]
+は指定した二つの collars で模型の primitive と文字通り一致する。
+第三の境界の period は Stokes の公式により決まるため、独立に指定はしていない。
+\end{proof}
+
+\begin{corollary}[半安定 winding $2$ と $1$ を持つ二端]
+\label{pe:central21}
+第三端を自由にする二端相対構成において、一端では
+$a=H$, $s=-1$、他端では $a=\pi$, $s=0$ としてよい。
+前者は $(\rho_x+\rho_y,\rho_y-\rho_z,|\bar x yz-c|^2)$ の下側成分、
+後者は $(\rho_x,\rho_y-\rho_z,|yz-c|^2)$ の全 compact focus end と
+whole fibers および primitive を保って一致する。
+Original disk frames の winding は順に $1,0$ であり、
+半安定座標 $y=tY/x$ の下では $2,1$ となる。
+\end{corollary}
+
+\begin{proof}
+定理の一般的な入力では $a$ は arbitrary positive basic function である。
+後者の collar 上で $a=\pi$ と選べば $W_{a,0}=YZ$ であり、
+$H=\rho_x$, $Y=y$, $Z=z$ により exact product coordinates を得る。
+$c$ を両 ends の小ささ条件を満たすように取る。
+$H$-label と $a$ が同じでなければならないのは、前者の radial factor を一致させる場合だけである。
+Winding は mixed coefficient が original frames でそれぞれ $\bar x,1$ であることと、
+半安定 frame への変換で $t/x$ が掛かることから従う。
+\end{proof}
+
+\begin{remark}[この構成が保つものと残すもの]\label{pe:scope}
+正の winding は、$Y=e^{-2\pi i\theta}y$ の original disk frame に戻ると
+mixed coefficient の phase $e^{-2\pi i\theta}$ として現れる。
+標準積の端では逆の phase $e^{2\pi i\theta}$ が現れる。
+Tensor frames を各 collar で選び直すことは finite annulus 上の exact shear に含まれるが、
+それらが同じ中心 disk まで延長できるとは主張しない。
+
+本定理は二つの指定端の primitive、actions、normal jets をその選んだ frames に関して保ち、
+第三端を自由にする。
+三端全ての独立指定、全 $C_{56}$ 上の prescribed disk framings、
+actual global Kähler form との相対比較、$c\to0$ と $t\to0$ を同時に取る一様な domain、
+人工境界の全消失は結論に含めない。
+特に tensor winding の大域収支は別途満たさなければならず、
+二つの自由な local corner phases を pants で接げることだけで全24端の問題は解けない。
+\end{remark}

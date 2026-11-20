@@ -1,0 +1,395 @@
+\section{残る正則 ports の actions と相対 cap の制約}
+\label{pa:section}
+
+本節では標準一次共役因子模型
+\[
+ H=\rho_x+\rho_y,\qquad J=\rho_y-\rho_z,
+ \qquad W=\bar x yz,\qquad Q=|W-c|^2
+\]
+の residual ports を扱う。角度は周期1、$\rho_v=\pi|v|^2$ とする。
+$(h,j)$ の compact rectangle $R$ と cut values は第\ref{ai:section}節の通り、
+\[
+ F(h,j)>2c,\qquad c^2<q_*<\min_R q_s,
+ \qquad \max_R q_s<q_+<\min_R q_M,
+\]
+\[
+ q_s=(F-c)^2,\qquad q_M=(F+c)^2
+\]
+を満たすものとする。$R$ は $j=0$ を横切る。
+議論の対象は upper leg の $Q=q_*$ と merged leg の $Q=q_+$ である。
+
+\subsection{二つの sheets と regular period lattice}
+
+$u=\rho_y$, $L=\max(0,j)$ とすれば
+\[
+ f_{h,j}(u)=\frac{\sqrt{(h-u)u(u-j)}}{\pi^{3/2}},
+ \qquad L\le u\le h.
+\]
+$u_1$ を唯一の maximum point とし、$0<R_W<F$ に対する二つの roots を
+$u_-(h,j,R_W)<u_1<u_+(h,j,R_W)$ と書く。
+ここでは radius を $R_W$ と記し、parameter rectangle $R$ と区別する。
+
+$x,y,z\ne0$ 上で
+\[
+ \alpha=\theta_x,\qquad \beta=-\theta_z,\qquad
+ \phi=-\theta_x+\theta_y+\theta_z
+\]
+と置くと、厳密に
+\begin{equation}\label{pa:primitive}
+ \lambda=h\,d\alpha+j\,d\beta+u\,d\phi,
+ \qquad \arg W=2\pi\phi.
+\end{equation}
+$\alpha,\beta$ の orbit cycles を $\gamma_H,\gamma_J$ とする。
+$|W-c|=\sqrt q$ を counterclockwise に回り、$\alpha,\beta$ を固定する
+lower/upper cycles を $\gamma_-,\gamma_+$ とする。
+$q\ne c^2$, $0<q<q_s$ ではこれらはそれぞれの regular fiber 上で well-defined であり、
+\begin{equation}\label{pa:raw-actions}
+ I_\pm(h,j,q)=\frac1{2\pi}
+ \int_{|W-c|=\sqrt q}u_\pm(h,j,|W|)\,d\arg W
+\end{equation}
+がその primitive integrals である。
+各 fiber の period lattice は
+\begin{equation}\label{pa:period-lattice}
+ \Lambda_\pm=\ZZ\,dh+\ZZ\,dj+\ZZ\,dI_\pm
+\end{equation}
+である。これは full Hamiltonian period covectors の lattice であり、
+$Q$-flow の return を閉じる $H,J$-flow の補正も $dI_\pm$ に含めている。
+特に marked cycle $\gamma_\pm$ の向きに沿う transverse return の二つの holonomies は
+$-\partial_h I_\pm,-\partial_j I_\pm$ modulo $\ZZ$ である。
+ここで lower の counterclockwise $W$-cycle は正時間の $Q$-flow に対応し、
+upper の同じ向きの cycle は負時間の $Q$-flow に対応する。
+従って upper の正時間 $Q$-return を取る場合には
+$\partial_h I_+,\partial_j I_+$ modulo $\ZZ$ となる。
+
+$J=0$ を横切る port collar でも、$q_*>c^2$ なら $W$ は零を避けるため、
+$u_\pm$ とこの cycle chart は smooth である。
+Lower focus value 自体を横切る monodromy は、本節の regular port calculation と区別する。
+
+\subsection{Upper port の smooth cap chart と cycle jump}
+
+Upper hemisphere では $y,z\ne0$ である。そこで
+\[
+ a=\theta_y+\theta_z,\qquad \beta=-\theta_z,\qquad
+ \chi=\theta_x-\theta_y-\theta_z,\qquad p=h-u=\rho_x
+\]
+と置けば
+\begin{equation}\label{pa:upper-chart}
+ \lambda=h\,da+j\,d\beta+p\,d\chi,
+ \qquad \xi=\sqrt{p/\pi}\,e^{2\pi i\chi}
+        =x e^{-2\pi i(\theta_y+\theta_z)}.
+\end{equation}
+$\xi$ は $x=0$ を越して smooth であり、
+\[
+ W=\frac{\sqrt{(h-p)(h-j-p)}}{\pi}\,\bar\xi.
+\]
+従って $Q=c^2$ における $\xi=0$ は正則点である。
+$Q=0$ の upper minimum は $\xi\ne0$ にあり、非退化 elliptic point である。
+
+Upper sublevel disk $\{Q\le q\}$ の positive boundary の向きを採り、
+$a,\beta$ を固定して lift した cycle を $\gamma_U$ とする。
+$W$-plane 上ではこの向きは clockwise である。
+この cycle とその action は $q=c^2$ を越して smooth に続く。
+
+\begin{proposition}[Upper action と chart transition]\label{pa:upper-action}
+$0<q<q_s$ に対し
+\begin{equation}\label{pa:B}
+ B(h,j,q):=\int_{\gamma_U}\lambda
+ =\frac1{2\pi}\int_{|W-c|=\sqrt q}^{\mathrm{CCW}}
+          (h-u_+(h,j,|W|))\,d\arg W
+\end{equation}
+は smooth で正であり、$\partial_q B>0$、$B(h,j,0)=0$ である。
+$q\ne c^2$ では、$n(q)$ を $W$-circle の原点周りの winding とすると
+\begin{equation}\label{pa:transition}
+ n(q)=\begin{cases}0&q<c^2,\\1&q>c^2,\end{cases}
+ \qquad
+ \gamma_U=n(q)\gamma_H-\gamma_+,
+ \qquad B=n(q)h-I_+.
+\end{equation}
+従って $I_+$ は $q=c^2$ で $h$ の jump を持つ。
+この jump は cycle chart の変更であり、upper fiber の特異性を意味しない。
+$q=c^2$ に $I_+$ の一つの極座標表示を無理に定義することはしない。
+\end{proposition}
+
+\begin{proof}
+Upper chart は $h,j$ の二つの action--angle pairs と symplectic $\xi$-plane を与える。
+$Q$ の upper sublevel set は $0<q<q_s$ で smooth disk であり、
+その境界を正に向けた primitive integral は disk の正の symplectic area である。
+これにより positivity、strict monotonicity、$q=c^2$ での smoothness が従う。
+$Q=0$ の minimum に disk が縮むので $B\to0$ である。
+$\chi=-\phi$ だから、positive boundary は $W$-plane で clockwise であり、
+$\int p\,d\chi$ を counterclockwise $W$-circle の積分に直すと式\eqref{pa:B}となる。
+
+座標変換は $a=\alpha+\phi$, $\chi=-\phi$ である。
+$a,\beta$ を固定した clockwise cycle では $\alpha$ が $n(q)$ 回正に回り、
+$\phi$ が $n(q)$ 回負に回る。これが homology relation を与える。
+Primitive を積分すれば最後の action identity を得る。
+\end{proof}
+
+この port の action basis は $(h,j,B)$ とも書ける。
+$q>c^2$ では $dB=dh-dI_+$ なので、式\eqref{pa:period-lattice}と同じ integral lattice を与える。
+$u_c^+$ を $f(u_c^+)=c$ の upper root とすると、minimum での expansion は
+\begin{equation}\label{pa:upper-min}
+ B(h,j,q)=\frac{q}{2c|f'(u_c^+)|}+O(q^2).
+\end{equation}
+実際、$v=u-u_c^+$、$\varphi=\arg W$ に関して
+$Q=f'(u_c^+)^2v^2+c^2\varphi^2+O(3)$ であり、
+reduced form は $du\wedge d\varphi/(2\pi)$ だからである。
+
+\subsection{Merged port の action と saddle での保存則}
+
+$q_s<q<q_M$ とする。$F>2c$ なので $q>c^2$ である。
+\[
+ \varphi_0=\arccos\frac{F^2+c^2-q}{2cF},
+ \qquad
+ R_q(\varphi)=c\cos\varphi+\sqrt{q-c^2\sin^2\varphi}
+\]
+と置く。$|W-c|=\sqrt q$ のうち $|W|\le F$ にある arc は
+$\varphi_0\le\varphi\le2\pi-\varphi_0$ に対応する。
+
+Merged level の、maximum を含む superlevel disk $\{Q\ge q\}$ の positive boundary を
+$\alpha,\beta$ 固定で lift し、$\gamma_M$ とする。
+これは upper sheet を $\varphi$ 増加向きに、lower sheet を減少向きに回る cycle である。
+従って
+\begin{equation}\label{pa:C}
+ C(h,j,q):=\int_{\gamma_M}\lambda
+ =\frac1{2\pi}\int_{\varphi_0}^{2\pi-\varphi_0}
+    \bigl(u_+(h,j,R_q(\varphi))-u_-(h,j,R_q(\varphi))\bigr)\,d\varphi.
+\end{equation}
+$C>0$, $\partial_q C<0$, $C(h,j,q_M)=0$ であり、regular period lattice は
+\[
+ \Lambda_M=\ZZ\,dh+\ZZ\,dj+\ZZ\,dC.
+\]
+$\gamma_M$ の $\theta_x$-degree は零である。
+
+\begin{proposition}[Saddle での integral cycle relation]\label{pa:saddle-balance}
+$L_s=\lim_{q\uparrow q_s}I_-(h,j,q)$,
+$B_s=\lim_{q\uparrow q_s}B(h,j,q)$,
+$C_s=\lim_{q\downarrow q_s}C(h,j,q)$ と置く。
+これらは finite であり、saddle fiber 上の marked cycles は
+\begin{equation}\label{pa:cycle-balance}
+ \gamma_M=\gamma_+-\gamma_-,\qquad
+ \gamma_U=\gamma_H-\gamma_+,
+ \qquad \gamma_-+\gamma_U+\gamma_M=\gamma_H
+\end{equation}
+を満たす。従って
+\begin{equation}\label{pa:action-balance}
+ L_s+B_s+C_s=h.
+\end{equation}
+特に $j=0$ では三つの項は全て正である。
+この等式は action values の等式であり、saddle における derivatives の smoothness を意味しない。
+\end{proposition}
+
+\begin{proof}
+$q\downarrow q_s$ で $\varphi_0\to0$ となり、merged cycle は
+upper loop の正向きと lower loop の逆向きの和へ収束する。
+$W$-circle は原点を一回囲むので、upper cap cycle の式も成り立つ。
+全ての lifts は同じ toric coordinates で指定しているため、追加の $J$-cycle はない。
+これらは $T^2\times(S^1\vee S^1)$ の homology における等式であり、
+primitive を積分すれば式\eqref{pa:action-balance}を得る。
+$j=0$ では $L_s$ は正の $u_-$ を持つ circle integral、
+$B_s,C_s$ は非空の正面積領域の面積なので正である。
+\end{proof}
+
+$D=-f''(u_1)>0$ と置けば、merged elliptic endpoint で
+\begin{equation}\label{pa:max-expansion}
+ C(h,j,q)=\frac{q_M-q}{2\sqrt{cF(F+c)D}}+O((q_M-q)^2).
+\end{equation}
+これは maximum 近くで
+$q_M-Q=D(F+c)(u-u_1)^2+cF(\arg W-\pi)^2+O(3)$ と展開し、
+楕円 disk の reduced area を計算して得る。
+従って actual collapse cycle は primitive な $\gamma_M$ である。
+
+\subsection{Merged cut を埋める actual cap}
+
+\begin{theorem}[同じ annular embedding による merged cap]\label{pa:actual-merged-cap}
+\[
+ \mathcal C_M=\{(H,J)\in R,\ Q\ge q_+\}
+\]
+と置く。これは compact で $x,y,z\ne0$ の中に入り、
+$Q=q_+$ の whole merged fibers を境界に持つ。
+内部の regular fibers は $T^3$、$Q=q_M(H,J)$ の fibers は nondegenerate rank-two elliptic $T^2$ である。
+第\ref{ai:section}節の annular embedding を、$K\cup\mathcal C_M$ 全体が tube に入る scale で選べば、
+その同じ写像は元の $K$ の全 fibers と primitive を変えずに、merged cut を actual に埋める。
+埋めた後の connected-fiber quotient は、$Q=q_M(H,J)$ に genuine な valence-one boundary を持つ。
+\end{theorem}
+
+\begin{proof}
+固定した compact $(H,J)$-range 上では $\rho_x,\rho_y,\rho_z$ が有界なので $\mathcal C_M$ は compact である。
+$W=0$ なら $Q=c^2<q_+$ なので、この cap では全ての coordinates が非零である。
+Compactness により $|x|$ には正の下界がある。
+従って annular insertion の式は cap 全体とその開近傍で定義される。
+元の $K$ と重なる collar では写像も積分も同じ式である。
+
+Scale の条件は事前に直接確認できる。
+$h\le h_{\max}$、$j\ge j_{\min}$ とすれば
+\[
+ \rho_x,\rho_y\le h_{\max},\qquad
+ \rho_z\le h_{\max}+|j_{\min}|.
+\]
+Twist を二つの lines に $a,d$ と配分した挿入では
+\[
+ |I-b|\le s\bigl((1+|a-1|)h_{\max}
+              +|d|(h_{\max}+|j_{\min}|)\bigr),
+ \qquad
+ |Y|^2+|Z|^2\le\frac{s}{\pi}(2h_{\max}+|j_{\min}|).
+\]
+この bound が所定の tube の strict bounds に入れば、同じ scale $s$ で全 cap を追加できる。
+既存の任意の大きい $s$ に対し domain の拡張が自動的に可能だとは主張しない。
+
+$Q\ge q_+>q_s$ の還元領域は maximum を含む disk であり、
+その center は $u=u_1$, $\arg W=\pi$ の nondegenerate maximum である。
+ここでは $T^2$-action は自由なので、lift は rank-two elliptic fiber $T^2$ となる。
+Action $C$ は式\eqref{pa:max-expansion}に従って零へ縮む。
+従って quotient のこの端は half interval、全 parameter family では boundary face である。
+\end{proof}
+
+この cap は一つの artificial cut を処理するが、boundary-free fibration を完成させない。
+同じ $(H,J,Q)$ を保って継続する限り、$Q\le q_M(H,J)$ という実際の最大値があり、
+この elliptic endpoint を正則な fiber の先へ通過させることはできない。
+
+\subsection{Upper cap の meridian と現 tube 内での障害}
+
+自然な upper cap を
+\[
+ \mathcal C_U=\{(H,J)\in R,\ Q\le q_*,\ u\ge u_1(H,J)\}
+\]
+とする。$q_*<q_s$ のため cut $u=u_1$ は cap と交わらず、
+これは upper chart の $T^2$-family of disks である。
+$x=0$ は $Q=c^2$ の正則 fiber 上に現れ、cap は最後に $Q=0$ の elliptic $T^2$ へ縮む。
+
+\begin{proposition}[Upper port の tube 内 meridian 障害]\label{pa:meridian-obstruction}
+$q_*>c^2$ の upper boundary にある $\gamma_U$ は、
+annular insertion 後の tube の $\theta$-circle に degree $1$ で射影する。
+従って、この指定された boundary inclusion を保ちながら、
+$\gamma_U$ が disk を bound する upper cap を同じ annular tube 内に埋めることはできない。
+これは symplectic form や primitive の選択によらない topological obstruction である。
+\end{proposition}
+
+\begin{proof}
+式\eqref{pa:transition}で $n(q_*)=1$ であり、
+$\gamma_H$ の $\theta_x$-degree は1、$\gamma_+$ の degree は0である。
+Annular insertion は $\theta=\theta_x$ を保つので、像の degree も1である。
+Tube は annulus へ deformation retract し、$d\theta$ はその $H^1$ の generator を表す。
+もし $\gamma_U$ が tube 内の disk の境界なら、closed form $d\theta$ の積分は零となり、矛盾する。
+\end{proof}
+
+同じ議論は、tube を全 $\bar C_{56}$ の normal neighborhood へ拡大しても、
+対応する boundary circle が $H_1(\bar C_{56};\ZZ)$ で非零である限り成立する。
+$n=24$ の各 individual boundary class は非零である。
+従って各 upper port を個別の meridian disk で閉じるには、現在の curve neighborhood の外へ出る必要がある。
+複数の ports をまとめて別の cobordism で接ぐ可能性は、この命題では排除しない。
+
+\subsection{Upper cap の primitive と変更可能な面積}
+
+Insertion の pullback primitive は $s\lambda+b\,d\theta_x$ である。
+Upper chart では $\theta_x=a+\chi$ なので
+\begin{equation}\label{pa:shifted-upper}
+ s\lambda+b\,d\theta_x
+ =(sh+b)da+sj\,d\beta+(sp+b)d\chi.
+\end{equation}
+Upper boundary の collapsing cycle の action は
+\[
+ B_{\rm out}=b+sB(h,j,q_*).
+\]
+
+\begin{proposition}[自然な cap への marked primitive extension]\label{pa:primitive-obstruction}
+自然な upper cap に symplectic form $s\omega_0$ をそのまま入れる場合、
+式\eqref{pa:shifted-upper}の boundary primitive が smooth に延長するためには $b=0$ が必要であり、
+$b=0$ なら $s\lambda$ がその延長を与える。
+この条件は、cap の形式も変えてよい任意の symplectic filling を排除する条件ではない。
+\end{proposition}
+
+\begin{proof}
+同じ $s\omega_0$ の二つの primitive の差は closed である。
+$\gamma_U$ は自然な cap の disk を bound するため、その差の積分は零でなければならない。
+Boundary で差は $b\,d\theta_x$ なので、その積分は $b$ である。
+これにより必要性が従い、十分性は明らかである。
+また式\eqref{pa:shifted-upper}における $b\,d\chi$ は $p=0$ に residue $b$ を持ち、
+smooth primitive としてそのまま延長することはできない。
+\end{proof}
+
+\begin{proposition}[内側の形式を変更する具体的な upper cap]\label{pa:modified-cap}
+$b\ge0$ とする。Outer upper-port collar の fibers と primitive を厳密に保つ
+abstract symplectic cap を、内側だけの form modification により構成できる。
+その $Q=c^2$ の fibers は正則であり、最後は $Q=0$ の elliptic $T^2$ となる。
+この abstract cap を現在の annular tube に埋め込む結論は含まない。
+\end{proposition}
+
+\begin{proof}
+Upper boundary の $p$ の最小値は、$q_*>c^2$ と compactness により正である。
+その一様な下界より小さい $\delta>0$ を選ぶ。
+$\eta(p)$ を、$p$ の原点近傍で0、$p\ge\delta$ で1、$\eta'\ge0$ となる smooth function とする。
+\begin{equation}\label{pa:cap-primitive}
+ \lambda_b=(sh+b)da+sj\,d\beta+(sp+b\eta(p))d\chi
+\end{equation}
+と置く。原点近傍では最後の項は $sp\,d\chi$ なので smooth であり、
+\[
+ d\lambda_b=s\,dh\wedge da+s\,dj\wedge d\beta
+              +(s+b\eta'(p))\,dp\wedge d\chi
+\]
+は $b\ge0$ により symplectic である。
+Outer collar では $\eta=1$ なので式\eqref{pa:shifted-upper}と文字通り一致する。
+
+$H,J,Q$ は $a,\beta$ に依存しないため、二つの torus moments と $Q$ の可換性は保たれる。
+$Q$ の level sets は元と同じであり、正則性・elliptic minimum も保たれる。
+この変更で upper disk の area は $b$ だけ増え、outer action は所定の $b+sB$ となる。
+既存 insertion の boundary labels を文字通り保つには、
+target integrals を $(sh,sj,s^3Q)$ と取る。
+最初の二つは period-one fields $\partial_a,\partial_\beta$ を生成し、
+primitive actions はそれぞれ $sh+b,sj$ である。
+Hamiltonian の定数項と primitive の action を区別すれば、
+元の boundary labels と marked periods の双方が一致する。
+\end{proof}
+
+対向領域への実際の埋込みには、$\gamma_U$ がそこで disk を bound することと、
+この area・period lattice を許すことが必要である。
+現在の annular tube は第一の条件を満たさない。
+Residue を許す logarithmic primitive や異なる symplectic area を採用する比較と、
+指定された smooth primitive をそのまま延長する比較を混同してはいけない。
+
+\subsection{Upper port と merged port の単純な相対自己接着への障害}
+
+\begin{theorem}[二つの residual ports の marked exact obstruction]\label{pa:self-gluing}
+$H,J$ の functions と period-one cycles を固定し、primitive を exact term を除いて保つものとする。
+同じ block の upper cut $q=q_*$ と merged cut $q=q_+$ を、
+二つの interior collars が反対側になるように fiber-preserving に直接接ぐことはできない。
+この主張は $j=0$ を含む parameter neighborhood で成立する。
+Annular insertion の shifted primitive でも、$b\ge0$ なら同じ結論が成り立つ。
+\end{theorem}
+
+\begin{proof}
+Upper interior $q>q_*$ に向かうと $B$ は増加する。
+Merged interior $q<q_+$ に向かうと $C$ も増加する。
+従って反対側の collars を symplectic に接ぐには、complementary cycle の向きを反転する必要がある。
+$\gamma_H,\gamma_J$ を固定する integral homology isomorphism は、第三の cycle を
+\[
+ \gamma_U\longmapsto-\gamma_M+m\gamma_H+n\gamma_J,\qquad m,n\in\ZZ
+\]
+と送る。Primitive periods を保存するための必要条件は
+\begin{equation}\label{pa:gluing-period}
+ B(h,j,q_*)+C(h,j,q_+)=mh+nj
+\end{equation}
+である。$m,n$ は connected parameter neighborhood で一定である。
+
+$j=0$ で、strict monotonicity と式\eqref{pa:action-balance}から
+\[
+ 0<B(h,0,q_*)+C(h,0,q_+)
+  <B_s+C_s=h-L_s<h.
+\]
+これは $mh$ と一致しないので矛盾する。
+
+Insertion 後の periods は $A_H=b+sh$, $A_J=sj$,
+$A_U=b+sB$, $A_M=sC$ である。
+従って必要条件は $b+s(B+C)=m(b+sh)+nsj$ になる。
+$b\ge0$ のとき $j=0$ で
+\[
+ 0<b+s(B+C)<b+sh,
+\]
+なので再び整数倍と一致しない。
+\end{proof}
+
+この障害は、$H,J$ の marking、同じ二つの cuts、指定 primitive を保つ直接の接着に関するものである。
+別の対向 block、異なる moment identification、追加の singular cobordism、
+primitive の非 exact な変更まで排除するものではない。
+しかし、両方の境界 fiber が単に $T^3$ であるという理由だけで residual ports を対向接着することはできず、
+式\eqref{pa:gluing-period}の full action data が必要である。

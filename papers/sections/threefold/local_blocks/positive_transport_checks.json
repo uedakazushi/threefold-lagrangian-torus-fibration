@@ -1,0 +1,100 @@
+{
+  "scope": "Rational identities and selected numerical inequalities; proofs are in the manuscript.",
+  "toric_radial_and_convex_hessian_samples": 81,
+  "semistable_and_central_chart_samples": 81,
+  "annular_primitive_action_and_phase_samples": 432,
+  "annular_windings_checked": [
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "distributed_normal_twist_samples": 1944,
+  "C56_twists_by_end_type": [
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "C56_individual_degrees": [
+    6,
+    30
+  ],
+  "C56_total_winding": 36,
+  "whole_fiber_chamber_examples": [
+    {
+      "h": 3.0,
+      "e1": 1.0,
+      "c": 0.02,
+      "wall_u": 1.0,
+      "focus_u_max": 0.13150979932905754,
+      "saddle_u_min": 1.4090382257753884,
+      "focus_q": 0.0004,
+      "wall_q": [
+        0.05474408711692043,
+        0.07506205061587753
+      ],
+      "saddle_q": 0.11503916796278461
+    },
+    {
+      "h": 1.1,
+      "e1": 0.2,
+      "c": 0.003,
+      "wall_u": 0.45000000000000007,
+      "focus_u_max": 0.03233391828505787,
+      "saddle_u_min": 0.5575587255668255,
+      "focus_q": 9e-06,
+      "wall_q": [
+        0.003863181249720853,
+        0.004645035189818915
+      ],
+      "saddle_q": 0.005890045017490443
+    },
+    {
+      "h": 4.0,
+      "e1": 1.5,
+      "c": 0.03,
+      "wall_u": 1.25,
+      "focus_u_max": 0.17073330694575473,
+      "saddle_u_min": 1.8896486718344434,
+      "focus_q": 0.0009,
+      "wall_q": [
+        0.11714494572006987,
+        0.16181667831523816
+      ],
+      "saddle_q": 0.27351323102111763
+    },
+    {
+      "h": 0.8,
+      "e1": 0.1,
+      "c": 0.001,
+      "wall_u": 0.35000000000000003,
+      "focus_u_max": 0.012549987917684424,
+      "saddle_u_min": 0.4411872638028861,
+      "focus_q": 1e-06,
+      "wall_q": [
+        0.001694536342909482,
+        0.0018631953283507624
+      ],
+      "saddle_q": 0.0023484176613246545
+    }
+  ],
+  "saddle_chamber_samples": 15,
+  "status": "passed"
+}

@@ -1,0 +1,274 @@
+\section{Regular ports を接ぐ還元曲面の面積と相対 Chern 収支}
+\label{rsb:section}
+
+Elliptic cap の内部を pair of pants に置き換えると、元の outer collar を保持したまま、
+二つの新しい regular ports を作れる。しかし、この二端を接いで自由境界を消すことは、
+局所的な pants の構成とは別の問題である。本節では、同じ自由な Hamiltonian $T^2$ と
+一つの moment level を保つ接続に必要な面積条件を示す。
+結論は、実際に接続領域が存在すると仮定したときの必要条件であり、
+以下の整数条件を満たすだけでその領域が構成できるとは主張しない。
+
+固定した smooth sextic $X=X_\tau$ に対し
+\[
+ [\omega]=\mathfrak a\mathsf H,\qquad
+ c_1(TX)=-\mathsf H,\qquad \mathfrak a>0
+\]
+を用いる。従って $[\omega]+\mathfrak a c_1(TX)=0$ である。
+本節で比較に使う reference disks は smooth mapped disks で十分であり、
+symplectic または embedded であることは、明記する cap disks 以外には要求しない。
+
+\subsection{Boundary covector と shared orbit の輸送}
+
+Lefschetz hyperplane theorem により $X$ は単連結であるから
+\cite[Corollary 2.3.4]{achinger-lefschetz-gc}、任意の Lagrangian torus $L\subset X$ 上の loop は
+$X$ 内で smooth mapped disk を bound する。第\ref{ml:section}節の量を一般化して
+\begin{equation}\label{rsb:theta}
+ \Theta_L(v)=\int_D\omega+\frac{\mathfrak a}{2}\mu(D),
+ \qquad [\partial D]=v\in H_1(L;\ZZ)
+\end{equation}
+と置く。異なる disk の差に対して Maslov 指数は $2c_1$、面積は $[\omega]$ だけ変わるので、
+この量は disk の選択によらない。また $\pi_1(L)=H_1(L;\ZZ)$ と disk の結合を使えば、
+$\Theta_L$ は homomorphism となる。
+
+以下、$X$ のある開集合に period-one Hamiltonian $T^2$ action があり、
+その moment map を $\nu$、正則値を $\eta$ とする。
+$E\subset\nu^{-1}(\eta)$ は compact connected $T^2$-invariant submanifold with boundary で、
+action は $E$ 全体で free と仮定する。還元を
+\[
+ \pi:E\longrightarrow\Sigma=E/T^2
+\]
+と書く。$\Sigma$ は compact connected oriented surface で、
+境界の逆像 $L_i=\pi^{-1}(\partial_i\Sigma)$ は Lagrangian $T^3$ である。
+二つの固定した orbit generators を $\Gamma_1,\Gamma_2$ と書く。
+
+各 $L_i$ に対する $\Theta_{L_i}$ の shared subgroup への制限は、
+$E$ 内の orbit transport に関して同一の covector
+\begin{equation}\label{rsb:shared-covector}
+ \Theta_\Gamma:\ZZ^2\longrightarrow\RR
+\end{equation}
+となる。実際、二つの quotient points を path で結び、その上の orbit cylinder を取る。
+Cylinder の一方向は $X_{\nu_a}$、他方向は $T\nu^{-1}(\eta)$ に属するので、
+その symplectic area は零である。
+Vertical isotropic plane $V=\langle X_{\nu_1},X_{\nu_2}\rangle$ は全域で framing を持つ。
+Quotient の tangent line を path に沿って選ぶと、$V$ とその lift の和は cylinder 上の
+Lagrangian boundary-data homotopy を与える。端では所定の $TL_i$ と一致させられる。
+従って cylinder を使った比較は Maslov 指数も変えず、式\eqref{rsb:shared-covector}が従う。
+これは shared moments の値が同じであることを用いる。
+異なる moment levels を通る接続に、そのまま適用することはできない。
+
+\subsection{Section に沿う Maslov 指数}
+
+\begin{lemma}[自由な二つの作用を持つ還元曲面]\label{rsb:maslov-section}
+$\partial\Sigma\ne\varnothing$ とする。Principal $T^2$ bundle $E\to\Sigma$ は
+smooth section $s$ を持ち、任意の section について
+\begin{equation}\label{rsb:section-data}
+ \int_{s(\Sigma)}\omega=\operatorname{Area}(\Sigma)>0,
+ \qquad
+ \mu(s^*TX,TL_i|_{s(\partial_i\Sigma)})=2\chi(\Sigma)
+\end{equation}
+が成り立つ。
+\end{lemma}
+
+\begin{proof}
+$H^2(\Sigma;\ZZ^2)=0$ より principal $T^2$ bundle は trivial である。
+また $\omega|_E=\pi^*\omega_{\rm red}$ なので、section は symplectic であり、
+その面積は還元面積に等しい。
+$V$ は section の tangent plane と symplectically orthogonal なので、
+section の rank-four symplectic normal bundle の Lagrangian subbundle となる。
+その bundle は二つの Hamiltonian vector fields で framing を持つ。
+Section の tangent plane と normal bundle を保つ compatible almost complex structure を選べば、
+normal bundle は $V\oplus JV\simeq\CC^2$、その boundary real plane は $V\simeq\RR^2$ である。
+さらに境界では $TL_i=ds(T\partial_i\Sigma)\oplus V$ であるため、bundle pair は
+\[
+ (s^*TX,TL|_{\partial\Sigma})
+ \simeq (T\Sigma,T\partial\Sigma)\oplus(\CC^2,\RR^2)
+\]
+となる。Boundary tangent line の relative Chern number は Poincar\'e--Hopf により
+$\chi(\Sigma)$、Maslov 指数はその二倍である。
+従って式\eqref{rsb:section-data}を得る。
+ここで singular fibers の内部に Lagrangian tangent line field を延ばしているのではない。
+必要なのは regular boundary tori の tangent planes と、全 $E$ 上の free orbit framing である。
+\end{proof}
+
+\subsection{符号と相対 section defect を含む収支}
+
+各 boundary torus $L_i$ 上に、positive-area Maslov-two cap disk $D_i$ と
+その正向き子午線 $v_i=\partial D_i$ を指定し、$A_i=\int_{D_i}\omega>0$ と書く。
+この reference disk は、候補の接続領域に含まれている必要はない。
+子午線の quotient degree は $\pm1$ と仮定する。
+Section の oriented boundary class は一意に
+\begin{equation}\label{rsb:boundary-data}
+ [s(\partial_i\Sigma)]=\sigma_i v_i+m_{i1}\Gamma_1+m_{i2}\Gamma_2,
+ \quad \sigma_i\in\{1,-1\},\quad m_i\in\ZZ^2
+\end{equation}
+と書ける。$\sigma_i$ は $\Sigma$ の induced boundary orientation と
+positive cap meridian の向きの比較であり、全てが $+1$ であるとは仮定しない。
+定義
+\begin{equation}\label{rsb:defect}
+ e=\sum_i m_i\in\ZZ^2
+\end{equation}
+を、この指定に対する relative section defect と呼ぶ。
+
+Section を変えると $m_i$ は $f:\Sigma\to T^2$ の boundary degrees だけ変わる。
+その総和は零であるため $e$ は section によらない。
+逆に $e=0$ なら、総和零の指定 boundary degrees を持つ $f$ を取り、
+section を変えて全ての $m_i$ を零にできる。
+従って $e=0$ は、指定した子午線の section representatives を boundary homotopy で選び直した後、
+同時に一つの global section へ延ばせる条件である。
+これは boundary marking に相対的な条件であり、
+absolute bundle の triviality $H^2(\Sigma;\ZZ^2)=0$ とは区別する。
+
+\begin{theorem}[還元接続領域の面積・Euler 収支]\label{rsb:budget}
+上の仮定の下で
+\begin{equation}\label{rsb:full-budget}
+ \boxed{\quad
+ \operatorname{Area}(\Sigma)+\mathfrak a\chi(\Sigma)
+ =\sum_{i=1}^b\sigma_i(A_i+\mathfrak a)+\Theta_\Gamma(e).
+ \quad}
+\end{equation}
+特に $e=0$ の場合は
+\begin{equation}\label{rsb:untwisted-budget}
+ \operatorname{Area}(\Sigma)
+ =\sum_i\sigma_i A_i+\mathfrak a\left(\sum_i\sigma_i-\chi(\Sigma)\right)>0
+\end{equation}
+が必要である。
+\end{theorem}
+
+\begin{proof}
+Section の各 boundary loop を、$L_i$ 内の zero-area chain も用いて
+$\sigma_i v_i+m_i\cdot\Gamma$ と比較する。
+Shared loops に reference mapped disks を取り、$s(\Sigma)$ から
+$\sum_i\sigma_iD_i$ と shared reference disks を差し引けば、closed integral two-cycle $C$ を得る。
+Maslov の sewing rule により
+\[
+ 2\langle c_1(TX),C\rangle
+ =2\chi(\Sigma)-2\sum_i\sigma_i-\sum_i\mu(D_i(m_i\cdot\Gamma)).
+\]
+面積の対応する差と合わせて
+$\langle[\omega]+\mathfrak a c_1(TX),C\rangle=0$ を使うと、
+\[
+ \operatorname{Area}(\Sigma)+\mathfrak a\chi(\Sigma)
+ =\sum_i\sigma_i\left(A_i+\frac{\mathfrak a}{2}\cdot2\right)
+  +\sum_i\Theta_{L_i}(m_i\cdot\Gamma).
+\]
+Shared covector の transport invariance により最後の項は $\Theta_\Gamma(e)$ である。
+Reference disks が embedded または symplectic であることは、この comparison に不要である。
+\end{proof}
+
+\subsection{Pants、annulus、handle の区別}
+
+$e=0$ の場合の具体例は次の通りである。
+\[
+\begin{array}{c|c|c|c}
+ \Sigma&\chi(\Sigma)&(\sigma_i)&\operatorname{Area}(\Sigma)\\\hline
+ \text{disk}&1&(+) &A_1\\
+ \text{pair of pants}&-1 &(+,-,-)&A_0-A_1-A_2\\
+ \text{annulus}&0 &(+,-)&A_+-A_-\\
+ \text{annulus}&0 &(+,+)&A_1+A_2+2\mathfrak a\\
+ \Sigma_{g,1}&1-2g &(+)&A_1+2g\mathfrak a
+\end{array}
+\]
+例えば cap 内の pants は outer boundary に正、二つの inner boundaries に負の向きを持つ。
+その面積は $A_0-A_1-A_2$ であり、局所的な Stokes の計算と一致する。
+これに対し、二つの inner ports を annulus で接いで閉じる場合、
+annulus 側の境界は両方とも正向き子午線となる。
+Relative section defect が零なら、その annulus は $A_1+A_2+2\mathfrak a$ の面積を必要とする。
+Pants とこの annulus の和は once-punctured torus となり、全体の面積は $A_0+2\mathfrak a$ である。
+同じ向きの二端を接ぐことと、向きが逆の二端を正則 cylinder で輸送することを、同一視してはいけない。
+
+より一般に、$b$ 個の positive cap meridians を全て正向きの boundary とし、
+defect が零なら
+\begin{equation}\label{rsb:all-positive}
+ \operatorname{Area}(\Sigma_{g,b})=\sum_i A_i+2\mathfrak a(g+b-1).
+\end{equation}
+これは genus や boundary gluing を入れる際の ambient area の必要量であり、存在定理ではない。
+
+\begin{corollary}[Exact な近傍だけでは閉じない]\label{rsb:exact-obstruction}
+式\eqref{rsb:all-positive}の接続領域と全 reference cap disks が同じ exact symplectic open set
+$U\subset X$ に含まれ、$e=0$ とする。このとき $g+b=1$ が必要であり、
+connected な置換は $g=0,b=1$ の disk の場合に限られる。
+従って二つの inner ports を、その positive meridians と global section を保って
+同じ exact な cap neighborhood 内で annulus により閉じることはできない。
+\end{corollary}
+
+\begin{proof}
+全 boundary sections を指定 meridians と一致させる。
+$\omega=d\lambda$ と Stokes により
+$\operatorname{Area}(\Sigma)=\sum_i A_i$ である。
+式\eqref{rsb:all-positive}との比較から $2\mathfrak a(g+b-1)=0$ を得る。
+\end{proof}
+
+\begin{corollary}[Section を持つ閉還元面の genus]\label{rsb:closed-section}
+同じ free Hamiltonian $T^2$-level の還元が closed connected surface $\Sigma_g$ で、
+principal bundle $E\to\Sigma_g$ が global section を持つと仮定する。このとき
+\[
+ \operatorname{Area}(\Sigma_g)=2\mathfrak a(g-1)>0,
+ \qquad g\ge2.
+\]
+\end{corollary}
+
+\begin{proof}
+Section 上の complex tangent bundle は $T\Sigma_g\oplus\CC^2$ と同定できるため、
+$\langle c_1(TX),s_*[\Sigma_g]\rangle=\chi(\Sigma_g)=2-2g$ である。
+負の単調性と $s^*\omega=\omega_{\rm red}$ を使えば結論を得る。
+\end{proof}
+
+Closed surface の場合、principal $T^2$ bundle の section の存在は自動的ではない。
+例えば第\ref{cf:sphere}節の $S^2$ reduction は nontrivial torus bundle を持つ。
+従ってこの系から全ての compact spherical reductions を排除してはいけない。
+
+\subsection{Natural caps の二端には twisting を許しても残る下界}
+
+第\ref{kc:section}節の $k=2$ natural cap を、基準 slice $h=h_0,j=0$ で考える。
+その old shared cycles は $\Gamma_H,\Gamma_J$ であり、第\ref{ml:section}節より
+\begin{equation}\label{rsb:natural-covector}
+ \Theta_\Gamma(e_H,e_J)=e_H(A_b+2\mathfrak a),
+ \qquad 0<A_0<A_b<\mathfrak a.
+\end{equation}
+内側の二つの regular ports が positive Maslov-two disks $D_1,D_2$ を囲み、
+その間の pants の面積が正なら $A_1+A_2<A_0$ である。
+
+\begin{corollary}[Natural cap の two-port annulus の面積下界]\label{rsb:natural-bridge}
+上の二端を、同じ global shared moments の同じ正則値の中で、
+free $T^2$ reduction が annulus となる領域により接ぐと仮定する。
+Annulus 側の二つの oriented boundary meridians は共に positive cap meridians とする。
+任意の relative section defect $(e_H,e_J)$ を許しても
+\begin{equation}\label{rsb:natural-bridge-area}
+ \operatorname{Area}(\Sigma)
+ =A_1+A_2+2\mathfrak a+e_H(A_b+2\mathfrak a),\qquad e_H\ge0.
+\end{equation}
+従って $\operatorname{Area}(\Sigma)\ge A_1+A_2+2\mathfrak a$ である。
+元の wide contractible cap chart 内で、この接続を行うことはできない。
+より一般には、annulus、二つの cap disks、shared orbit の reference disks を全て含む
+同じ exact open set 内での接続は不可能である。
+\end{corollary}
+
+\begin{proof}
+式\eqref{rsb:full-budget}に $\chi=0$, $\sigma_1=\sigma_2=1$ と
+式\eqref{rsb:natural-covector}を代入する。
+$e_H\le-1$ なら右辺は $A_1+A_2-A_b<0$ となり、正の還元面積に反する。
+従って $e_H\ge0$ である。$e_J$ は基準 slice の収支に寄与しない。
+
+Exact open set に全てが入ると仮定する。
+その primitive の shared $\Gamma_H$-period は、reference cap chart で $A_b$ であり、
+$\Gamma_J$-period は $0$ である。ここで、inner ports の当該 orbit loops を bound し、面積 $A_b,0$ を持つ
+選定した reference disks も同じ exact set に入ることを仮定する。
+Stokes により $\operatorname{Area}(\Sigma)=A_1+A_2+e_H A_b$ となる。
+式\eqref{rsb:natural-bridge-area}と比較すると $e_H=-1$ を得るが、
+その面積は $A_1+A_2-A_b<0$ となる。
+特に元の wide contractible cap chart 内での接続は不可能である。
+\end{proof}
+
+最後の exact-neighborhood の結論で shared reference disks を含む仮定を落としてはいけない。
+Natural cap の表示域は $u,v\ne0$ を満たすため、その小さい tube 自体は contractible とは限らない。
+上の第一の面積下界はこの追加仮定を使わず、actual $X$ 内の候補 annulus に対する必要条件である。
+また、shared action を別の subgroup に切り替える、moment values をずらす、
+途中で action の自由性を失わせる、指定 boundary marking を変更する、という接続は、
+この corollary の範囲外である。
+
+\paragraph{使用した標準事項と証明の位置付け.}
+Bundle pair の Maslov 指数、sewing と $2c_1$ の関係は
+Cho--Shin \cite[\S\S2--4]{cho-shin-maslov} の定義と性質に従う。
+Boundary tangent pair に対する $2\chi$ は relative Euler class の直接計算であり、
+本節ではその計算と actual cap の境界データから上記の必要条件を導いた。
+特定の接続領域の存在、全体の Hausdorff quotient、または全自由境界の消去は示していない。

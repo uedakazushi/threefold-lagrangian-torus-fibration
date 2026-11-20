@@ -1,0 +1,204 @@
+{
+  "scope": "Local residual-port actions, explicit cap geometry, and marked-period checks only; not a global boundary-free fibration proof.",
+  "methods": {
+    "upper_raw": "Midpoint density with exact increments of polygonal argument, 32768 edges.",
+    "upper_cap": "Simpson integration using p/R^2=pi^3/[(h-p)(h-p-j)], 4096 intervals.",
+    "merged_boundary": "Root-difference integral with a sin-squared endpoint substitution.",
+    "merged_area": "Independent angular-slice integral over u, split at the radial maximum.",
+    "max_endpoint": "Comparison with the reduced quadratic ellipse area."
+  },
+  "upper_transition": {
+    "h": 3.141592653589793,
+    "j": 0.21991148575128555,
+    "c": 0.03643309375089442,
+    "smooth_B_at_q_equals_c_squared": 0.004524480439106629,
+    "examples": [
+      {
+        "relative_distance_from_c_squared": 0.02,
+        "raw_I_left": -0.004433719342321021,
+        "raw_I_right": 3.136977400911021,
+        "raw_jump": 3.141411120253342,
+        "expected_jump_limit_h": 3.141592653589793,
+        "upper_B_left": 0.004433719349056776,
+        "upper_B_right": 0.0046152526718963955,
+        "polygon_winding_left": -1.2918846441757262e-16,
+        "polygon_winding_right": 1.0000000000000053,
+        "transition_error_left": 6.735754315423392e-12,
+        "transition_error_right": 6.8753891468986694e-12
+      },
+      {
+        "relative_distance_from_c_squared": 0.01,
+        "raw_I_left": -0.004479098494657873,
+        "raw_I_right": 3.1370227884204724,
+        "raw_jump": 3.14150188691513,
+        "expected_jump_limit_h": 3.141592653589793,
+        "upper_B_left": 0.004479098501468223,
+        "upper_B_right": 0.004569865162429981,
+        "polygon_winding_left": 7.505048690803944e-16,
+        "polygon_winding_right": 1.0000000000000056,
+        "transition_error_left": 6.810350026975609e-12,
+        "transition_error_right": 6.8904881800335716e-12
+      },
+      {
+        "relative_distance_from_c_squared": 0.005,
+        "raw_I_left": -0.0045017891152780935,
+        "raw_I_right": 3.137045481130376,
+        "raw_jump": 3.141547270245654,
+        "expected_jump_limit_h": 3.141592653589793,
+        "upper_B_left": 0.004501789122105434,
+        "upper_B_right": 0.004547172452529056,
+        "polygon_winding_left": 1.1583110969758894e-15,
+        "polygon_winding_right": 1.0000000000000038,
+        "transition_error_left": 6.827340776061064e-12,
+        "transition_error_right": 6.887823644774471e-12
+      }
+    ]
+  },
+  "parameter_examples": [
+    {
+      "h": 3.141592653589793,
+      "j": 0,
+      "c": 0.04618802153517006,
+      "upper_port_action": 0.2144645075947663,
+      "merged_port_action_boundary": 0.4394412744696634,
+      "merged_port_action_vertical_area": 0.4394412744696628,
+      "independent_merged_area_error": 6.106226635438361e-16,
+      "saddle_actions": {
+        "lower": 1.4963293180857886,
+        "upper_cap": 0.5667024487672981,
+        "merged_cap": 1.078560886736704,
+        "sum_minus_h": -2.220446049250313e-15
+      },
+      "port_sum_over_h": 0.20814467506385126,
+      "max_endpoint_asymptotics": [
+        {
+          "epsilon_over_qM": 0.001,
+          "numerical_C_over_epsilon": 11.137133743091251,
+          "predicted_slope": 11.131972609909932,
+          "relative_error": 0.00046363150199677487
+        },
+        {
+          "epsilon_over_qM": 0.0005,
+          "numerical_C_over_epsilon": 11.13455195940084,
+          "predicted_slope": 11.131972609909932,
+          "relative_error": 0.00023170641729857526
+        },
+        {
+          "epsilon_over_qM": 0.00025,
+          "numerical_C_over_epsilon": 11.13326198067857,
+          "predicted_slope": 11.131972609909932,
+          "relative_error": 0.00011582590200509018
+        }
+      ]
+    },
+    {
+      "h": 6.283185307179586,
+      "j": 0,
+      "c": 0.13063945294843612,
+      "upper_port_action": 0.4289290151895324,
+      "merged_port_action_boundary": 0.8788825489393283,
+      "merged_port_action_vertical_area": 0.8788825489393272,
+      "independent_merged_area_error": 1.1102230246251565e-15,
+      "saddle_actions": {
+        "lower": 2.9926586361715737,
+        "upper_cap": 1.1334048975345936,
+        "merged_cap": 2.1571217734734223,
+        "sum_minus_h": 3.552713678800501e-15
+      },
+      "port_sum_over_h": 0.20814467506385145,
+      "max_endpoint_asymptotics": [
+        {
+          "epsilon_over_qM": 0.001,
+          "numerical_C_over_epsilon": 2.784283435773516,
+          "predicted_slope": 2.7829931524774842,
+          "relative_error": 0.0004636315022488992
+        },
+        {
+          "epsilon_over_qM": 0.0005,
+          "numerical_C_over_epsilon": 2.7836379898516403,
+          "predicted_slope": 2.7829931524774842,
+          "relative_error": 0.00023170641781207948
+        },
+        {
+          "epsilon_over_qM": 0.00025,
+          "numerical_C_over_epsilon": 2.7833154951724595,
+          "predicted_slope": 2.7829931524774842,
+          "relative_error": 0.00011582590301677985
+        }
+      ]
+    },
+    {
+      "h": 3.141592653589793,
+      "j": 0.3141592653589793,
+      "c": 0.04263437953313478,
+      "upper_port_action": 0.20301354871617736,
+      "merged_port_action_boundary": 0.415178588360549,
+      "merged_port_action_vertical_area": 0.41517858836054866,
+      "independent_merged_area_error": 3.3306690738754696e-16,
+      "saddle_actions": {
+        "lower": 1.5866640729688624,
+        "upper_cap": 0.5363053757159814,
+        "merged_cap": 1.018623204904947,
+        "sum_minus_h": -2.220446049250313e-15
+      },
+      "port_sum_over_h": 0.1967766687926071,
+      "max_endpoint_asymptotics": [
+        {
+          "epsilon_over_qM": 0.001,
+          "numerical_C_over_epsilon": 12.353268328797988,
+          "predicted_slope": 12.347561377825388,
+          "relative_error": 0.00046219255754007845
+        },
+        {
+          "epsilon_over_qM": 0.0005,
+          "numerical_C_over_epsilon": 12.350413508240845,
+          "predicted_slope": 12.347561377825388,
+          "relative_error": 0.00023098734464110538
+        },
+        {
+          "epsilon_over_qM": 0.00025,
+          "numerical_C_over_epsilon": 12.348987107092384,
+          "predicted_slope": 12.347561377825388,
+          "relative_error": 0.00011546646526955357
+        }
+      ]
+    },
+    {
+      "h": 6.283185307179586,
+      "j": -0.25132741228718347,
+      "c": 0.1345199632648589,
+      "upper_port_action": 0.4372904925940857,
+      "merged_port_action_boundary": 0.8957748680478517,
+      "merged_port_action_vertical_area": 0.8957748680478509,
+      "independent_merged_area_error": 7.771561172376096e-16,
+      "saddle_actions": {
+        "lower": 2.9292633682991047,
+        "upper_cap": 1.1554576396742866,
+        "merged_cap": 2.1984642992061967,
+        "sum_minus_h": 1.7763568394002505e-15
+      },
+      "port_sum_over_h": 0.21216394161074448,
+      "max_endpoint_asymptotics": [
+        {
+          "epsilon_over_qM": 0.001,
+          "numerical_C_over_epsilon": 2.676552253524721,
+          "predicted_slope": 2.6753124341243084,
+          "relative_error": 0.00046342976042655084
+        },
+        {
+          "epsilon_over_qM": 0.0005,
+          "numerical_C_over_epsilon": 2.6759320514726133,
+          "predicted_slope": 2.6753124341243084,
+          "relative_error": 0.0002316056025462541
+        },
+        {
+          "epsilon_over_qM": 0.00025,
+          "numerical_C_over_epsilon": 2.6756221697822475,
+          "predicted_slope": 2.6753124341243084,
+          "relative_error": 0.00011577550868016988
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}
