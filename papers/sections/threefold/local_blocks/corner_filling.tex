@@ -1,0 +1,376 @@
+\section{同じ二つの作用を保つ corner 充填の限界}
+\label{cf:section}
+
+第\ref{ai:section}節の annular block は whole focus fiber と whole saddle fiber を含むが、
+その三つの人工的な端を閉じたわけではない。
+本節では、一次共役因子模型をそのまま延長する場合に、何を埋められ、何が必ず残るかを調べる。
+結論は二種類ある。固定した二つの moments の還元球面を埋めると極値が不可避であり、
+また、既存 annular embedding のままでは欠けた upper cap を同じ annular tube 内に埋められない。
+後者には marked primitive に関する独立の面積条件もある。
+これらは、指定した $T^2$、自然な upper meridian、あるいは指定 primitive を保つ方式への制約であり、
+一般の Lagrangian fibration の非存在定理ではない。
+
+\subsection{還元球面と三つの cap}
+
+標準 $\CC^3$ 上で
+\[
+ H_0=\rho_x+\rho_y,\qquad J_0=\rho_y-\rho_z,
+ \qquad W_0=\bar x yz,\qquad Q_0=|W_0-c|^2,
+ \quad \rho_v=\pi|v|^2
+\]
+と置く。角度は周期 $1$、$c>0$ とする。
+$R$, $q_-$, $q_*$, $q_+$, $K$ は式\eqref{ai:q-window}--\eqref{ai:K}のものとし、
+$R$ は $j=0$ を横切り、$h>\max(0,j)$、$F_1(h,j)>2c$ を満たす。
+$\mu=(H_0,J_0)$、$E_{h,j}=\mu^{-1}(h,j)$ と書く。
+
+\begin{lemma}[球面還元と面積]\label{cf:sphere}
+$j\ne0$ なら、$T^2$ は $E_{h,j}$ 上で free に作用し、
+\[
+ \Sigma_{h,j}=E_{h,j}/T^2\simeq S^2,\qquad
+ \operatorname{Area}(\Sigma_{h,j})=h-\max(0,j).
+\]
+内部の座標を $u=\rho_y$、$\phi=-\theta_x+\theta_y+\theta_z$ とすれば
+\[
+ \max(0,j)<u<h,\qquad
+ \omega_{\rm red}=du\wedge d\phi,\qquad
+ W_0=f_{h,j}(u)e^{2\pi i\phi},\quad
+ f_{h,j}(u)=\frac{\sqrt{(h-u)u(u-j)}}{\pi^{3/2}}.
+\]
+また、滑らかな多様体として
+\[
+ E_{h,j}\simeq
+ \begin{cases}
+ S^3_{(x,y)}\times S^1_{\theta_z},&j<0,\\
+ S^3_{(x,z)}\times S^1_{\theta_y},&j>0.
+ \end{cases}
+\]
+第一の場合には $H_0$-orbit、第二の場合には $(H_0-J_0)$-orbit が $E_{h,j}$ 内で収縮する。
+\end{lemma}
+
+\begin{proof}
+$\rho_x=h-u$、$\rho_z=u-j$ である。
+内部では action の weights $(1,0),(1,1),(0,-1)$ の任意の二つが lattice basis となる。
+$j\ne0$ の下極では $y,z$ のうち一方だけが零で、上極では $x$ だけが零であるから、
+極でも action は free である。
+Cylinder の両端の invariant angle がそれぞれ一点に潰れ、還元は滑らかな球面となる。
+Moment level に制限した form は
+\[
+ -du\wedge d\theta_x+du\wedge d\theta_y+du\wedge d\theta_z
+ =du\wedge d\phi
+\]
+であり、面積の式も従う。
+
+$j<0$ では $\rho_x+\rho_y=h$ が $S^3$ を与え、
+$z=\sqrt{(\rho_y-j)/\pi}\,e^{2\pi i\theta_z}$ の phase は全域で定義される。
+$H_0$-orbit はこの $S^3$ の Hopf circle と一点との積である。
+$j>0$ では $\rho_x+\rho_z=h-j$、$\rho_y=\rho_z+j>0$ を使えば同様で、
+$H_0-J_0$ の weights は $(1,0,1)$ となる。
+$S^3$ は単連結なので、記載した circles は収縮する。
+\end{proof}
+
+$P_{h,j}=(K\cap E_{h,j})/T^2$ と置く。
+以下でいう cap は、$P_{h,j}$ をこの同じ $\Sigma_{h,j}$ に戻すときの補集合の closed disk を意味する。
+
+\begin{proposition}[明示的な充填と残る極値]\label{cf:three-caps}
+$j\ne0$ なら $P_{h,j}$ は pair of pants である。
+その補集合は、lower sheet の $Q_0<q_-$、upper sheet の $Q_0<q_*$、
+maximum 側の $Q_0>q_+$ に対応する三つの開円板である。
+
+従って、同じ模型の全 moment box
+\[
+ \widehat K=\mu^{-1}(R)
+\]
+は $K$ を含む compact な明示的充填を与える。
+ただしこの充填は、各 regular moment pair $(h,j)$ 上に二つの transverse elliptic minima と
+一つの transverse elliptic maximum を含む。
+それぞれの singular fiber component は $T^2$ であり、connected-fiber quotient に真の境界を作る。
+残る特異点は既存の smooth saddle と、$j=0$ の lower focus locus である。
+この $R$ では $y,z$-axes と原点には達していない。
+
+より一般に、$\Sigma_{h,j}$ 上の任意の smooth function $\widetilde Q$ が
+$P_{h,j}$ の三つの boundary collars で $Q_0$ と一致すれば、三つの cap の内部にそれぞれ極値を持つ。
+最初の二つは極小、第三は極大である。
+従って全 singularities を nondegenerate とする充填では、少なくとも三つの elliptic strata が必要である。
+退化を許せば極値を退化させることはできるが、極値そのものは消せない。
+\end{proposition}
+
+\begin{proof}
+$f_{h,j}$ は両端で零、内部でただ一つの strict maximum $F_1$ を持つ。
+各 hemisphere は $W_0$ によって closed disk $|W_0|\le F_1$ に写る。
+$F_1>2c$ の下では、$Q_0$ は $W_0=c$ に二つの minima、
+$u=u_1,\phi=0$ に saddle、$u=u_1,\phi=1/2$ に maximum を持つ。
+その値は順に $0,(F_1-c)^2,(F_1+c)^2$ である。
+下極・上極では $W_0$ が smooth local coordinate なので $Q_0=c^2$ は regular である。
+切断値の不等式から、三つの補円板と pair of pants の記述が従う。
+
+Minima では、$(u,\phi)$ Hessian の対角項は
+$2(f')^2$ と $8\pi^2c^2$ で、共に正である。
+Maximum では $2f''(u_1)(F_1+c)$ と $-8\pi^2cF_1$ で、共に負である。
+Free $T^2$-reduction の一点の極値を lift すると rank-two elliptic orbit $T^2$ となり、
+近傍の connected-fiber quotient は $\RR^2\times[0,\varepsilon)$ 型となる。
+Nondegenerate な極値の fiber component はこの orbit 自身なので、
+離れた同値の fiber がその局所的な境界を消すことはない。
+$\widehat K$ の compactness は $H_0$ の上界と $J_0$ の下界から従う。
+$j=0$ では lower pole に既存の focus orbit が現れるが、三つの極値はその点を避ける。
+
+任意の $\widetilde Q$ については、各 min cap の境界上の値は一定で、
+cap 内側の collar ではその値より小さい。
+従って compact disk 上の minimum は内部にある。
+Max cap では同じ議論を $-\widetilde Q$ に適用する。
+全 critical points が Morse なら、同じ結論は
+$\#\mathrm{min}-\#\mathrm{saddle}+\#\mathrm{max}=\chi(S^2)=2$ とも整合する。
+特に既存の一つの saddle を保持する限り、極値の数は少なくとも三つである。
+\end{proof}
+
+この命題は shared $T^2$ の regular reduction を同じ球面へ閉じる場合の制約である。
+第三の関数を wall 近くで変形して central collapse に不変にする操作とは両立する。
+第\ref{we:section}節の Hamiltonian 整形は三つの cap collars で恒等であり、
+同じ極値の議論が $Q^\natural$ にも適用される。
+その変形が focus と saddle の近傍を保っても、compact な還元球面の極値を全て除くことはできない。
+他方、還元面の位相を変える接続、作用を別の場所で切り替える操作、
+あるいは既存 cap meridian を変更する接続は、ここで比較した同じ充填ではない。
+
+\paragraph{Chosen graph form への適用.}
+命題\ref{tp:radial}の exact symplectomorphism $\Phi_\tau$ を用いれば、
+$\tau\ne0$ の chosen K\"ahler slice 内に $\Phi_\tau^{-1}(\widehat K)$ をそのまま置ける。
+これは $\Phi_\tau^{-1}(K)$ の genuine な相対充填であるが、上記の elliptic strata を持つ。
+また全 reduced sphere の充填と、原点・exceptional chain・他の component regions を含む
+幾何学的 corner 全体の充填とは異なる。
+任意の actual curve collar に先に挿入した $K$ について、同じ相対同定が延びるとは主張しない。
+
+\subsection{Whole moment level から見た tube obstruction}
+
+Upper meridian 自体の annular tube 内での収縮不能性は
+命題\ref{pa:meridian-obstruction}で示される。
+同じ障害を full moment level の topology からも確認できる。
+Distributed annular embedding は $\theta=\theta_x$ を保つので、
+$j<0$ では $K$ 内の $H_0$-orbit の target $\theta$-degree が $1$ である。
+一方、それは補題\ref{cf:sphere}の $E_{h,j}\simeq S^3\times S^1$ 内では収縮する。
+従って $K\cap E_{h,j}$ の map は、whole $E_{h,j}$ から同じ annular tube への
+continuous map にすら延長できない。
+$j>0$ なら $H_0-J_0$ の orbit で同じ証明が成り立つ。
+これは $a,d,b,s$ の値によらず、symplectic extension より弱い continuous extension への障害である。
+
+より一般に、tube を含む $X$ において $[d\theta]\in H^1(\mathcal T;\ZZ)$ が
+$H^1(X;\ZZ)$ の class の制限であるなら、同じ相対延長は $X$ 内でも不可能である。
+必要な disk の境界に対する class の評価が、零であると同時に $1$ になるからである。
+従って artificial upper face の除去には、tube の外でその一次ホモロジーを実際に殺す領域が必要である。
+Contractible な actual corner chart はこの位相的条件を満たし得るが、
+それだけで fibration と primitive の相対一致が得られるわけではない。
+
+\subsection{Upper cap action の一様な上界}
+
+以下では第\ref{pa:section}節の upper action $B(h,j,q)$ と、その正向き cycle $\gamma_U$ を使う。
+$\gamma_U$ は、upper chart の二つの torus angles を固定し、
+upper sublevel disk の boundary を正に向けた meridian である。
+$q_*>c^2$ では $\theta_x$-degree が $1$ となる。
+
+\begin{lemma}[Upper disk の面積上界]\label{cf:cap-area-bound}
+$j=0$ とし、$c^2<q_*<(F_1(h,0)-c)^2$ とする。このとき
+\[
+ 0<B(h,0,q_*)<\frac h3.
+\]
+\end{lemma}
+
+\begin{proof}
+Upper chart の reduced symplectic coordinate は
+$\xi=\sqrt{p/\pi}e^{2\pi i\chi}$、$p=\rho_x=h-u$ である。
+$j=0$ の radial maximum は $u_1=2h/3$ にあり、
+upper hemisphere の内部は $0\le p<h/3$ という standard $\xi$-disk になる。
+$q_*<(F_1-c)^2$ なので $|W-c|^2\le q_*$ の whole upper sublevel disk は
+この hemisphere の内部に compact に含まれる。
+$B$ はその正の symplectic area であるから、full hemisphere の面積 $h/3$ より真に小さい。
+\end{proof}
+
+Insertion 後の upper-meridian period は、命題\ref{pa:upper-action}と
+式\eqref{pa:shifted-upper}により
+\[
+ P=b+sB(h,j,q_*).
+\]
+この oriented meridian を symplectic disk で埋め、所定 primitive が disk 全体へ
+smooth に延びるなら、Stokes によって disk の必要面積はちょうど $P>0$ である。
+同じ scaled standard cap の場合は $b=0$ が必要である
+（命題\ref{pa:primitive-obstruction}）。
+以下では、cap 内部の面積を変更しても残る $P>0$ という条件を使う。
+
+\subsection{$C_{56}$ の全24端に対する同時 cap obstruction}
+
+定理\ref{ai:c56-allends}の global curve primitive を $\beta$ とする。
+各 collar 内の center circle を選び、これらを boundary とする compact curve region を $C'$ と書く。
+角 $\theta_i$ は deleted disk に対して反時計回りなので、$C'$ の boundary orientation とは逆である。
+各 center circle 上で $\beta=I_i^0d\theta_i$、挿入の定数を
+\[
+ b_i=I_i^0-s_i h_i^0,\qquad s_i>0,\quad h_i^0>0
+\]
+とする。ここでは scale と prototype の longitudinal value を端ごとに変えてよい。
+
+\begin{corollary}[24個の自然な exact caps は同時には貼れない]\label{cf:allends-obstruction}
+上の marked primitives を保つと
+\begin{equation}\label{cf:sum-b}
+ \sum_{i=1}^{24}b_i
+ =-\operatorname{Area}(C')-\sum_{i=1}^{24}s_i h_i^0<0.
+\end{equation}
+従って、全24端をそれぞれの同じ scaled standard upper cap で埋め、
+各 cap 全体へ既存 primitive を smooth に延ばすことは不可能である。
+
+さらに $j=0$ の自然な upper meridians を選び、
+$B_i=B(h_i^0,0,q_{*,i})$、その既存 primitive periods を $P_i=s_iB_i+b_i$ とすると
+\begin{equation}\label{cf:negative-cap-period}
+ \sum_{i=1}^{24}P_i
+ =-\operatorname{Area}(C')-\sum_{i=1}^{24}s_i(h_i^0-B_i)
+ <-\operatorname{Area}(C')-\frac23\sum_{i=1}^{24}s_i h_i^0<0.
+\end{equation}
+少なくとも一つの $P_i$ は負である。
+従って cap の内部面積を変更しても、同じ oriented meridians を symplectic disks で埋め、
+全ての marked primitives を各 disk へ延ばすことはできない。
+\end{corollary}
+
+\begin{proof}
+Stokes の定理と boundary orientation により
+\[
+ \operatorname{Area}(C')=\int_{C'}d\beta=-\sum_i I_i^0.
+\]
+$b_i$ の定義を代入すると式\eqref{cf:sum-b}を得る。
+同じ standard caps なら命題\ref{pa:primitive-obstruction}が全ての $b_i=0$ を要求するので矛盾する。
+一般の面積を許す場合も、補題\ref{cf:cap-area-bound}より $0<B_i<h_i^0/3$ であり、
+period の総和を計算すると式\eqref{cf:negative-cap-period}となる。
+負の period は、smooth primitive の存在下では正向き symplectic disk の boundary にはなれない。
+\end{proof}
+
+Global primitive $\beta$ を別の primitive に変えても、closed difference の全 boundary periods の和は零なので、上の総和は変わらない。
+
+この結論が除外するのは、既存の三つの marking、すなわち
+global $\beta$ から来る primitive periods、自然な upper meridians、その cap の向きを
+同時に保つ方式である。
+必要に応じて meridian に torus cycle を加える接着、nonexact primitive transitions、
+別の shared-action model への切替えを検討する余地が残る。
+特にこの系から、一般の symplectic gluing や元の大域目標の非存在を結論しない。
+
+\subsection{Ambient cohomology が要求する cap periods の総量}
+
+以下では、系\ref{cf:allends-obstruction}の原始形式を曲線近傍の外へそのまま延長する条件を外す。
+代わりに、actual ambient class が cap 側との period differences に課す必要条件を記録する。
+
+定理\ref{ai:c56-allends}で使った一つの global normal-neighborhood embedding の
+fibrewise disk-domain の像を $N$ とする。
+必要なら base の collars を少し広げ、全24個の meridians と
+それらを zero section へ戻す normal radial homotopies が $N$ に入るように取る。
+$N$ は punctured curve の normal disk bundle であり、$H^2(N;\RR)=0$ である。
+Global $\beta$ を用いた normal-model primitive の pushforward により、
+actual form について $d\lambda_N=\omega|_N$ となる一つの $\lambda_N$ を固定できる。
+その collar periods は、これまで指定してきた marked periods と一致する。
+
+$\gamma_i$ を $j=0$, $h=h_i^0$, $q=q_{*,i}$ における正向きの自然な upper meridian とし、
+\[
+ P_i=\int_{\gamma_i}\lambda_N=b_i+s_iB_i
+\]
+と置く。
+Global normal model での base projection は
+$\widehat I_i=b_i+s_iH_0=I_i^0$、$\theta_i=\theta_x$ なので、
+$\gamma_i$ は centre circle $\ell_i$ の反時計回りの class に写る。
+従って、$\partial C'=-\sum_i\ell_i$ という向きの規約の下で
+\[
+ \sum_{i=1}^{24}[\gamma_i]=0\qquad\text{in }H_1(N;\ZZ).
+\]
+これは integral な関係である。Normal radial homotopies と $C'$ を用いて、
+$\partial S=-\sum_i\gamma_i$ となる integral smooth singular $2$-chain $S\subset N$ を取れる。
+
+\begin{corollary}[自然な caps に必要な ambient period budget]
+\label{cf:ambient-period-budget}
+Actual compact symplectic manifold $X_d$ の class が
+\[
+ [\omega]=aH,\qquad a>0,\qquad H=c_1(\mathcal O_{X_d}(1))\in H^2(X_d;\ZZ)
+\]
+であるとする。各 $\gamma_i$ が $X_d$ 内の oriented symplectic disk $D_i$ の境界となり、
+$\partial D_i=\gamma_i$ と正向きで一致すると仮定する。
+Disks が互いに素であることは仮定しない。
+$A_i=\int_{D_i}\omega>0$ と置くと、ある $n\in\ZZ_{>0}$ に対して
+\begin{equation}\label{cf:ambient-budget}
+ \sum_{i=1}^{24}(A_i-P_i)=a n
+\end{equation}
+が必要である。さらに
+\begin{equation}\label{cf:ambient-budget-bound}
+ a n>
+ \sum_{i=1}^{24}A_i+\operatorname{Area}(C')
+       +\frac23\sum_{i=1}^{24}s_i h_i^0.
+\end{equation}
+
+各 cap の近傍で primitive $\lambda_i$ を選び、
+$r_i=\int_{\gamma_i}(\lambda_i-\lambda_N)=A_i-P_i$ と書けば、
+$\sum_i r_i=a n$ である。
+従って個別の $r_i$ ではなく、その総和が ambient period group $a\ZZ$ に属し、
+この場合には正でなければならない。
+\end{corollary}
+
+\begin{proof}
+上の $S$ に Stokes を適用すると
+\[
+ \int_S\omega=\int_{\partial S}\lambda_N=-\sum_iP_i.
+\]
+従って $Z=\sum_iD_i+S$ は closed integral $2$-cycle であり、
+\[
+ \int_Z\omega=\sum_i A_i-\sum_iP_i
+       =a\langle H,[Z]\rangle.
+\]
+$n=\langle H,[Z]\rangle\in\ZZ$ と置く。
+式\eqref{cf:negative-cap-period}と $A_i>0$ により左辺は正で、
+さらに式\eqref{cf:ambient-budget-bound}の strict lower bound を持つ。
+従って $n>0$ である。
+各 $\lambda_i$ については disk 上の Stokes により
+$\int_{\gamma_i}\lambda_i=A_i$ なので、最後の表示も従う。
+$S$ を別の chain に変えても、その差は exact な $N$ 内の closed cycle であるため
+$\omega$-period は零であり、$n$ は変わらない。
+\end{proof}
+
+ここで固定しているのは $N$ 上の $\lambda_N$ であり、
+$N\cup\bigcup_iD_i$ 全体に同じ primitive が延びるとは仮定していない。
+そのような延長があれば全ての $r_i$ が零となり、上の正の総量に反する。
+同様に、この union を一つの exact symplectic region に収めることもできない。
+また $Z$ は積分 cycle であって、embedded symplectic surface としての存在を主張するものではない。
+本系は仮定した disks の面積と cohomology に対する必要条件であり、
+それらの disks、相対 cap fibrations、または大域 completion の存在を与えない。
+
+\subsection{還元の exactness と focus monodromy を区別する}
+
+$\omega_0=d\lambda_0$ であることは、還元球面の form が exact であることを意味しない。
+実際 $\lambda_0(X_{H_0})=h$、$\lambda_0(X_{J_0})=j$ なので、
+$\lambda_0|_{E_{h,j}}$ は basic ではない。
+Period-one connection forms $\alpha_H,\alpha_J$ を取り、
+$\int_{\Sigma}d\alpha_H$、$\int_{\Sigma}d\alpha_J$ を curvature numbers と呼ぶ規約では
+\begin{equation}\label{cf:curvature-vectors}
+ (e_H,e_J)=
+ \begin{cases}(1,0),&j<0,\\(1,-1),&j>0,\end{cases}
+ \qquad
+ [\omega_{\rm red}]=h[d\alpha_H]+j[d\alpha_J].
+\end{equation}
+従って sphere area はそれぞれ $h$、$h-j$ となり、補題\ref{cf:sphere}と一致する。
+
+この curvature 計算は直接できる。
+$j<0$ では $(x,e^{2\pi i\theta_z}y)\in S^3$ の Hopf connection を $\alpha_H$、
+$-d\theta_z$ を $\alpha_J$ とすればよい。
+$j>0$ では $(x,e^{2\pi i\theta_y}z)\in S^3$ の Hopf connection を $\alpha_H$、
+$d\theta_y-\alpha_H$ を $\alpha_J$ とする。
+いずれも $\alpha_r(X_s)=\delta_{rs}$ を満たし、正向きの Hopf curvature の積分は $1$ である。
+一般に $\lambda_0-h\alpha_H-j\alpha_J$ の basic な部分を微分すれば、
+式\eqref{cf:curvature-vectors}の cohomology identity が得られる。
+従って正の面積を持つ reduced sphere と ambient exactness との間に矛盾はない。
+一方、sphere 全体に reduced primitive を要求すれば Stokes に反する。
+
+Lower focus の小さい transverse loop における fiber monodromy は、
+longitudinal cycle $\Gamma_H$ と vanishing cycle $\Gamma_J$ を固定し、
+第三の cycle $\delta$ を
+\[
+ \delta\longmapsto\delta+\Gamma_J
+\]
+へ移すように transverse loop の向きを選ぶ。Loop の向きを逆にすれば符号は逆になる。
+これは単一 focus point の標準 monodromy である\cite[\S3, Lemma 1]{zung-focus-cf}。
+上の curvature vector の差 $(0,-1)$ も、この一つの vanishing circle を検出している。
+Hamiltonian $T^{n-1}$ の curvature と monodromy の一般の関係については
+\cite[Theorems 3.2 and 3.15]{efstathiou-martynchuk-cf} を参照。
+
+Distributed twists の $a+d$ は normal frame に対する winding であって、
+この single-focus monodromy の係数ではない。
+式\eqref{ai:distributed-map}の distributed shear は対応する $H,J$ cycles を移すので、$a+d=2$ でも上の係数は $1$ である。
+Focus neighborhood を固定した cap attachment や wall repair は、この小さい loop の monodromy を変えない。
+従って winding の収支、primitive の収支、還元球面の極値、focus monodromy は、
+それぞれ別の接着条件として追跡する必要がある。

@@ -1,0 +1,206 @@
+{
+  "scope": "Finite exact-arithmetic, multigraph, matrix, degree and polynomial-jet checks only. No computational claim of geometric existence, hypersurface smoothness, actual embedding, cap gluing, or a boundary-free global fibration.",
+  "graphs_and_curve_degrees": {
+    "degrees_checked": [
+      6,
+      20
+    ],
+    "explicit_punctured_multigraphs": 390,
+    "explicit_closed_multigraphs": 15,
+    "exact_closed_curve_budget_cases": 45,
+    "sextic_punctured_examples": [
+      {
+        "degree": 6,
+        "genus": 10,
+        "punctures": 1,
+        "trivalent_vertices": 19,
+        "leaves": 1,
+        "edges": 29,
+        "first_betti_number": 10,
+        "product_region_euler": -19
+      },
+      {
+        "degree": 6,
+        "genus": 10,
+        "punctures": 6,
+        "trivalent_vertices": 24,
+        "leaves": 6,
+        "edges": 39,
+        "first_betti_number": 10,
+        "product_region_euler": -24
+      },
+      {
+        "degree": 6,
+        "genus": 10,
+        "punctures": 12,
+        "trivalent_vertices": 30,
+        "leaves": 12,
+        "edges": 51,
+        "first_betti_number": 10,
+        "product_region_euler": -30
+      }
+    ],
+    "closed_normal_trivial_examples": [
+      {
+        "ambient_degree": 6,
+        "curve_degree": 4,
+        "genus": 3,
+        "punctures": 0,
+        "trivalent_vertices": 4,
+        "leaves": 0,
+        "edges": 6,
+        "first_betti_number": 3,
+        "product_region_euler": -4,
+        "normal_degree": 0,
+        "ambient_euler": -516,
+        "complement_euler": -512
+      },
+      {
+        "ambient_degree": 7,
+        "curve_degree": 5,
+        "genus": 6,
+        "punctures": 0,
+        "trivalent_vertices": 10,
+        "leaves": 0,
+        "edges": 15,
+        "first_betti_number": 6,
+        "product_region_euler": -10,
+        "normal_degree": 0,
+        "ambient_euler": -1106,
+        "complement_euler": -1096
+      },
+      {
+        "ambient_degree": 10,
+        "curve_degree": 8,
+        "genus": 21,
+        "punctures": 0,
+        "trivalent_vertices": 40,
+        "leaves": 0,
+        "edges": 60,
+        "first_betti_number": 21,
+        "product_region_euler": -40,
+        "normal_degree": 0,
+        "ambient_euler": -5900,
+        "complement_euler": -5860
+      },
+      {
+        "ambient_degree": 20,
+        "curve_degree": 18,
+        "genus": 136,
+        "punctures": 0,
+        "trivalent_vertices": 270,
+        "leaves": 0,
+        "edges": 405,
+        "first_betti_number": 136,
+        "product_region_euler": -270,
+        "normal_degree": 0,
+        "ambient_euler": -123800,
+        "complement_euler": -123530
+      }
+    ],
+    "scope": "Combinatorics, adjunction numbers and Euler identities only; no geometric existence test."
+  },
+  "focus_cartan_linear_algebra": {
+    "focus_characteristic_polynomial_cases": 48,
+    "centralizer_samples_exact": 3,
+    "normalizer_generators": {
+      "S_P_Sinv": "-P",
+      "S_R_Sinv": "R",
+      "K_P_Kinv": "P",
+      "K_R_Kinv": "-R",
+      "S_squared": "-I",
+      "K_squared": "I"
+    },
+    "focus_hyperbolic_direct_sum_cases": 12,
+    "sp_and_commutator_checks": "passed",
+    "scope": "Exact matrices for the claimed normal forms; not nonlinear normal-form verification."
+  },
+  "determinant_phase": {
+    "exact_unit_complex_samples": 5,
+    "determinant_phase": "b^(-1)",
+    "squared_phase": "b^(-2)",
+    "scope": "Checks the phase and factor of two in the fixed unitary model."
+  },
+  "weighted_clutching_actions": {
+    "nonnegative_integer_weight_pairs": 440,
+    "weights_in_each_coordinate": [
+      0,
+      20
+    ],
+    "maximum_isotropy_order": 40,
+    "exact_primitive_and_symplectic_matrix_checks": "passed",
+    "scope": "Action-angle algebra and stabilizer arithmetic; no collar embedding or cap existence test."
+  },
+  "weighted_center_jets": {
+    "orders_checked": [
+      1,
+      40
+    ],
+    "examples": [
+      {
+        "isotropy_order": 1,
+        "generic_center_type": "regular",
+        "leading_degree": 1,
+        "leading_half_rays": 2,
+        "real_invariant_linear_dimension": 2,
+        "real_invariant_quadratic_dimension": 3
+      },
+      {
+        "isotropy_order": 2,
+        "generic_center_type": "nondegenerate_hyperbolic",
+        "leading_degree": 2,
+        "leading_half_rays": 4,
+        "real_invariant_linear_dimension": 0,
+        "real_invariant_quadratic_dimension": 3
+      },
+      {
+        "isotropy_order": 3,
+        "generic_center_type": "order_m_degenerate",
+        "leading_degree": 3,
+        "leading_half_rays": 6,
+        "real_invariant_linear_dimension": 0,
+        "real_invariant_quadratic_dimension": 1
+      },
+      {
+        "isotropy_order": 12,
+        "generic_center_type": "order_m_degenerate",
+        "leading_degree": 12,
+        "leading_half_rays": 24,
+        "real_invariant_linear_dimension": 0,
+        "real_invariant_quadratic_dimension": 1
+      },
+      {
+        "isotropy_order": 40,
+        "generic_center_type": "order_m_degenerate",
+        "leading_degree": 40,
+        "leading_half_rays": 80,
+        "real_invariant_linear_dimension": 0,
+        "real_invariant_quadratic_dimension": 1
+      }
+    ],
+    "invariant_quadratic_rule": "For m>2 only the radial quadratic form survives.",
+    "scope": "Exact polynomial jets and cyclic characters; not a nonlinear repair construction."
+  },
+  "boundary_degree_distribution": {
+    "integer_boundary_distribution_cases": 390,
+    "boundary_evaluation_image": "kernel of the coordinate sum map Z^r -> Z",
+    "mixed_coefficient_total_winding": "-2d",
+    "squared_determinant_phase_total_winding": "4d",
+    "sextic_small_charge_allocations": [
+      {
+        "degree": 6,
+        "punctures": 6,
+        "charge_per_puncture": 2,
+        "focus_hyperbolic_whole_fibers_in_region": 24
+      },
+      {
+        "degree": 6,
+        "punctures": 12,
+        "charge_per_puncture": 1,
+        "focus_hyperbolic_whole_fibers_in_region": 30
+      }
+    ],
+    "scope": "Integer degree arithmetic and conditional bounds; not completed caps or global fiber counts."
+  },
+  "status": "passed"
+}

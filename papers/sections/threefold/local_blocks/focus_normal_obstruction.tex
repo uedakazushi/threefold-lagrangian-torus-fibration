@@ -1,0 +1,245 @@
+\section{Normal focus Cartan の splitting に依存しない障害}
+\label{fnc:section}
+
+系\ref{ncb:closed-focus-obstruction}は、normal circle と二つの weight lines を固定していた。
+本節ではその固定を外し、normal quadratic integrable system が張る Cartan plane 自体を扱う。
+結論は、閉曲線全体を smooth な normal focus 構造のまま覆うことに対する障害である。
+単に局所の vanishing circle や weight splitting を変更しても、
+それらが一つの smooth focus Cartan bundle に接ぐ限り、この障害は残る。
+以下は線形束の直接論証であり、一般の Lagrangian fibration の非存在定理ではない。
+Determinant の二乗で位相を測る規約は、Maslov index の標準的な記述
+\cite[Sections 2.3 and 3.1]{cho-shin-maslov}に沿う。
+
+\subsection{Focus Cartan が内在的に定める二つの Lagrangian planes}
+
+$E\to S$ を real rank four の symplectic vector bundle とする。
+ここでいう \emph{smooth focus Cartan family} は、
+Hamiltonian endomorphism bundle $\mathfrak{sp}(E)$ の smooth rank-two subbundle
+$\mathfrak h$ で、各 $\mathfrak h_s$ が純 focus--focus 型の Cartan algebra となるものである。
+Generators の順序、符号、periodic generator の向き、complex line splitting は指定しない。
+Williamson の focus quadratic normal form は
+Miranda--Zung \cite[Section 2.3, formula (2.3)]{miranda-local}に記されている。
+以下ではその線形形だけを使い、nonlinear linearization theorem は必要としない。
+
+\begin{lemma}[Intrinsic unordered Lagrangian pair]\label{fnc:stable-pair}
+Smooth focus Cartan family $\mathfrak h$ は、$E$ の各 fiber における
+二つの transverse Lagrangian two-planes の unordered pair
+\[
+ \{L_s^-,L_s^+\}
+\]
+を滑らかに定める。
+この pair を順序付ける高々二重の covering 上では、$E$ は Lagrangian subbundle を持つ。
+\end{lemma}
+
+\begin{proof}
+一つの fiber で $E_s=\mathbb R_x^2\oplus\mathbb R_y^2$、
+$\omega=\sum_j dx_j\wedge dy_j$ と書けば、focus Cartan の Hamiltonian matrices は
+\[
+ P=\begin{pmatrix}I_2&0\\0&-I_2\end{pmatrix},\qquad
+ R=\begin{pmatrix}R_0&0\\0&R_0\end{pmatrix},\qquad
+ R_0=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+\]
+の span に symplectically conjugate である。
+$A=aP+bR$ の eigenvalues は $a\pm ib,-a\pm ib$ である。
+$a\ne0$ なら、その stable と unstable real planes は
+$\mathbb R_x^2$ と $\mathbb R_y^2$ であり、$a$ の符号を変えると交換される。
+従って unordered pair は $A$ の選択に依存せず、Cartan plane 自体に属する。
+
+任意の点の近くで、$\mathfrak h$ の smooth local section $A$ を
+imaginary axis 上に eigenvalue を持たないよう選べる。
+その stable と unstable spectral subspaces は smooth real rank-two bundles である。
+例えば stable vectors $v,w$ について symplectic flow を使えば
+\[
+ \omega(v,w)=\omega(e^{tA}v,e^{tA}w)\longrightarrow0\qquad(t\longrightarrow+\infty)
+\]
+なので、stable plane は isotropic、従って Lagrangian である。
+Unstable plane も同様で、両者は transverse である。
+Overlap ではこの二つが保たれるか交換されるだけなので、unordered pair は全体に接ぐ。
+その ordering cover の次数は高々二である。
+これは、intrinsic compact line $\mathfrak h_{\rm c}=\mathbb R R$ による商
+$\mathfrak h/\mathfrak h_{\rm c}$ の向きを選ぶ cover とも一致する。
+\end{proof}
+
+\paragraph{許した構造群と有限 cover.}
+上の standard Cartan の centralizer は
+\[
+ G_0=\left\{
+ \begin{pmatrix}rR_\theta&0\\0&r^{-1}R_\theta\end{pmatrix}
+ :r>0,\ R_\theta\in SO(2)\right\}
+ \simeq\mathbb C^\times
+\]
+である。Full symplectic normalizer $N$ は $P\mapsto\pm P$, $R\mapsto\pm R$ を誘導し、
+\[
+ 1\longrightarrow G_0\longrightarrow N
+ \longrightarrow(\mathbb Z/2)^2\longrightarrow1
+\]
+となる。実際、$P$ または $R$ の conjugate の spectrum を比較すれば他の線形混合は排除され、
+\[
+ S=\begin{pmatrix}0&-I_2\\I_2&0\end{pmatrix},\qquad
+ K=\begin{pmatrix}D_0&0\\0&D_0\end{pmatrix},\qquad
+ D_0=\operatorname{diag}(1,-1)
+\]
+がそれぞれ $P$ と $R$ の符号反転を実現する。
+ここではこの extension の splitting を仮定しない。例えば $S^2=-I_4$ である。
+二つの normalized generators をともに向き付けるには高々四重の cover が使えるが、
+stable plane を選ぶだけなら $P$ の符号に対応する高々二重の cover で足りる。
+この記述では固定された global periodic generator を要求していない。
+
+\subsection{Determinant line に残る実位相}
+
+次の補題では focus 条件そのものは不要であり、前補題の unordered pair だけを使う。
+
+\begin{lemma}[Rank four の determinant real line]\label{fnc:determinant-real}
+Real rank-four symplectic bundle $E\to S$ が、transverse Lagrangian two-planes の
+smooth unordered pair を持つなら、ある compatible complex structure $J_E$ に関して
+\[
+ D=\det_{\mathbb C}(E,J_E)
+\]
+は実直線束 $\mathcal R\subset D$ の complexification となる。
+特に
+\begin{equation}\label{fnc:chern-torsion}
+ 2c_1(E)=0\quad\text{in }H^2(S;\mathbb Z).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Local ordering $E=L\oplus L'$ に対し、$A$ を $L$ 上で $+1$、$L'$ 上で $-1$ となる
+involution とする。$A$ は anti-symplectic であり、ordering を逆にすると $-A$ になる。
+任意の global Riemannian metric $g$ から
+\[
+ g_0(v,w)=g(v,w)+g(Av,Aw)
+\]
+を作ると、これは ordering に依存しない smooth global metric で、$A$ は $g_0$-orthogonal である。
+$g_0(Tv,w)=\omega(v,w)$ により $T$ を定め、polar construction
+\[
+ J_E=T(-T^2)^{-1/2}
+\]
+を用いる。$ATA=-T$ なので $AJ_E=-J_EA$ であり、$J_E$ は $L$ と $L'$ を交換する。
+
+Local $L$ の real basis $u_1,u_2$ に対して、complex wedge $u_1\wedge u_2$ が張る
+real line を $D$ 内に取る。Basis を変えても同じ real line である。
+$L'$ を選び直した場合は、$L'$ の basis を $J_Ev_1,J_Ev_2$ と書けて
+\[
+ (J_Ev_1)\wedge(J_Ev_2)=i^2v_1\wedge v_2=-v_1\wedge v_2
+\]
+となるので、real line はやはり同じである。
+従ってこれらは global real line bundle $\mathcal R\subset D$ に接ぐ。
+$\mathcal R\otimes_{\mathbb R}\mathbb C\simeq D$ であり、
+実直線束の二乗 $\mathcal R^{\otimes2}$ は metric により正の非消失切断を持つ。
+従って $D^{\otimes2}$ は自明であり、式\eqref{fnc:chern-torsion}を得る。
+Compatible complex structures の選択は $c_1(E)$ を変えない。
+\end{proof}
+
+ここで rank four を用いた点は $i^2=-1\in\mathbb R$ である。
+Ordering cover 上の Lagrangian subbundle だけを使っても閉曲面上の degree の消失は従うが、
+上の論証は cover を取らずに $2c_1(E)=0$ を与える。
+Periodic generator の sign monodromy や、stable/unstable の交換は許している。
+
+\begin{theorem}[閉曲面上の linear focus criterion]\label{fnc:surface-criterion}
+$C$ を closed connected oriented smooth surface、$E\to C$ を real rank-four symplectic bundle とする。
+$E$ に smooth focus Cartan family が存在するための必要十分条件は
+\[
+ c_1(E)=0\quad\text{in }H^2(C;\mathbb Z)
+\]
+である。
+\end{theorem}
+
+\begin{proof}
+必要性は補題\ref{fnc:stable-pair}と補題\ref{fnc:determinant-real}、
+$H^2(C;\mathbb Z)\simeq\mathbb Z$ に torsion がないことから従う。
+
+逆に $c_1(E)=0$ とする。Compatible complex structure と Hermitian metric を取る。
+Complex rank-two bundle の unit sphere fiber は $S^3$ なので、
+$\pi_0(S^3)=\pi_1(S^3)=0$ により、$C$ の二次元 cell structure 上で unit section を延長できる。
+その Hermitian complement を complex line $L$ とすると
+$E\simeq\underline{\mathbb C}\oplus L$、$c_1(L)=c_1(E)=0$ である。
+Complex line bundles の $H^2(C;\mathbb Z)$ による分類により $L$ は自明である。
+従って $E$ は symplectically trivial であり、定数の標準 focus Cartan を入れればよい。
+\end{proof}
+
+十分性は quadratic Cartan bundle の存在だけを述べる。
+所定の symplectic neighborhood 上での可換な nonlinear integrals、compact whole fibers、
+prescribed collars の保存は、この linear criterion からは従わない。
+
+\begin{corollary}[Plane-section normal bundle の障害]\label{fnc:plane-section}
+第\ref{ncb:section}節の $C\subset X_d$ の symplectic normal bundle に、
+$C$ 全体で非退化な smooth focus Cartan family を入れることはできない。
+この結論は、normal circle、weight splitting、local generators の符号を固定しなくても成り立つ。
+\end{corollary}
+
+\begin{proof}
+式\eqref{ncb:curve-data}より
+\[
+ \left\langle c_1(N_{C/X_d}),[C]\right\rangle=2d\ne0.
+\]
+定理\ref{fnc:surface-criterion}に反する。
+\end{proof}
+
+Local focus charts が normal Hessians の smooth rank-two Cartan bundle を誘導する場合には、
+この系が適用できる。曲線方向に Morse saddle を加えることも、
+その点を越して同じ normal focus Cartan family が滑らかに続く限り、結論を変えない。
+一方、$C$ を全体として normal-focus locus にしない構成、
+Cartan type が変化する領域、より退化した点を許す構成、
+あるいは normal Cartan bundle を与えない一般の stratified quotient は対象外である。
+従って一般の branched-base Lagrangian fibration の不存在は主張しない。
+
+\subsection{一つの port に集中できる determinant の巻数}
+
+前の障害は、閉曲線から円板を除いた場合の boundary data としても記述できる。
+$C_0=C\setminus\bigcup_a\operatorname{int}D_a$ 上に smooth focus Cartan family があるとする。
+補題\ref{fnc:determinant-real}の compatible structure を $C$ 全体へ延ばし、
+$D=\det_{\mathbb C}E$ と書く。
+Compatible structures の fiber は contractible なので、この延長には障害がない。
+Metric を選ぶと $\mathcal R^{\otimes2}$ の正の単位切断から
+\[
+ \sigma\in\Gamma(C_0,D^{\otimes2}),\qquad \sigma\ne0
+\]
+を得る。これを focus family の \emph{squared determinant phase} と呼ぶ。
+補助 metric の変更は非消失 phase の homotopy を与えるだけであり、以下の総 winding を変えない。
+
+\begin{proposition}[Intrinsic boundary winding]\label{fnc:boundary-winding}
+各 $D_a$ 上に延びる determinant frame $\tau_a$ を取り、境界上で
+\[
+ \sigma=g_a\tau_a^{\otimes2},\qquad g_a:\partial D_a\to\mathbb C^\times
+\]
+と書く。このとき $\partial D_a$ を disk の正向きに取れば
+\begin{equation}\label{fnc:boundary-winding-equation}
+ \sum_a\operatorname{wind}_{\partial D_a}(g_a)
+ =2\left\langle c_1(E),[C]\right\rangle.
+\end{equation}
+従って $E=N_{C/X_d}$ では右辺は $4d$ である。
+$C_0$ から誘導される boundary orientation では総和は $-4d$ となる。
+\end{proposition}
+
+\begin{proof}
+$D^{\otimes2}$ の degree は $2\langle c_1(E),[C]\rangle$ である。
+非消失切断 $\sigma$ は $C_0$ 全体で定まっているので、この degree は
+各 disk frame に関する boundary coefficient $g_a$ の、disk-positive winding の総和である。
+同じことは $\sigma$ を disks 内へ任意に延ばし、その零点の局所指数を足しても分かる。
+Boundary orientation の反転で符号が変わる。
+\end{proof}
+
+\paragraph{固定 mixed coefficient の巻数との関係.}
+系\ref{ncb:closed-focus-obstruction}の $H=p_1-p_2$ を固定する記述では
+$b\in D^*$ が mixed coefficient である。
+$|b|^2>t^2$ を保って $t$ を零へ縮める focus homotopy を行うと、unitary frame $\tau$ に対し
+\[
+ \mathcal R=\frac{|b|}{b}\,\mathbb R\tau,
+ \qquad
+ \sigma=\left(\frac{|b|}{b}\right)^2\tau^{\otimes2}
+\]
+と取れる。実際、$\operatorname{Re}(b z_1z_2)$ の stable と unstable planes の
+complex determinant は、実数倍を除いて $b^{-1}$ の位相を持つ。
+従って $b$ の disk-positive winding の総和 $-2d$ と、
+$\sigma$ の総和 $4d$ は、二倍して符号を反転する関係にある。
+新たに独立な $4d$ 個の欠陥を数えているわけではない。
+
+\paragraph{集中と適用範囲.}
+円板を一つ除いた曲面 $C_0$ は graph に deformation retract するので、
+$E|_{C_0}$ は symplectically trivial であり、constant normal focus Cartan family を持つ。
+従って式\eqref{fnc:boundary-winding-equation}の全 winding は、位相的には一つの port に集中できる。
+その port の squared phase は disk-extending frame に対して winding $4d$ を持ち、
+非退化な focus Cartan のまま disk を埋めることはできない。
+これは nonlinear cap の不存在を一般に述べるものではなく、
+充填中に smooth focus Cartan family の仮定をどこで破るかを指定する条件である。
+特に $4d$ は、必要な孤立特異ファイバーの個数や、最小の defect points の個数ではない。

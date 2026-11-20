@@ -1,0 +1,410 @@
+\section{Trivial normal bundle 上の actual focus--hyperbolic block}
+\label{fhr:section}
+
+閉曲線の正 normal shell は曲線方向の自由端を持たないが、zero section を含まず、
+その fibers の Euler 数は全て零である。
+本節では symplectically trivial な normal bundle を持つ曲線に対して、
+全 normal neighborhood に入る別の block を作る。
+Normal bundle が非自明でも、有限個の small disks を曲線から除けばこの条件を満たす。
+これにより、zero section の残り全体を含み、非零の Euler 寄与を持つ compact whole fibers を
+備えた actual block を作る。
+曲線方向には punctures と同数の boundary faces が残り、normal faces も残る。
+Closed curve の normal bundle が trivial な場合には、曲線方向の boundary faces はない。
+既存 shell の fiber relation を保持する拡張でも、旧48 ports の接続でもない。
+
+四次元の nodal model は Auroux \cite[Section 5.1]{auroux-local} の標準模型であり、
+第\ref{mft:section}節でも用いたものである。
+ここではその compact four-dimensional block と、punctured curve の circle-valued Morse map を
+積にし、所定の $\omega$ への埋込み、whole fibers、Euler 数、残る clutching data を明示する。
+
+\subsection{境界円を持つ circle-valued Morse map}
+
+\begin{lemma}[Punctures に対応する曲線方向の自由端]\label{fhr:curve-morse}
+$C$ を genus $g\ge2$ の closed oriented surface とし、
+$D_1,\ldots,D_r\subset C$ を互いに素な smoothly embedded closed disks、$r\ge0$、
+$C^\circ=C\setminus\bigcup_{i=1}^r\operatorname{int}D_i$ とする。
+Smooth map $f^\circ:C^\circ\to\RR/\ZZ$ を次のように選べる。
+\begin{enumerate}
+\item 各 boundary circle は一つの regular level component であり、
+その collar では $f^\circ$ の local real lift が transverse product coordinate である。
+\item Interior critical points は $2g+r-2$ 個で全て index one であり、critical values は相異なる。
+Boundary values も互いに異なり、どの critical value とも異なる。
+\item $[f^\circ]\in H^1(C^\circ;\ZZ)$ は primitive である。
+\item Connected-level quotient $q^\circ:C^\circ\to\Gamma^\circ$ は finite connected Hausdorff graph であり、
+trivalent vertices が $2g+r-2$ 個、boundary circles に対応する one-valent vertices が $r$ 個ある。
+従って
+\begin{equation}\label{fhr:graph-counts}
+ V_3=2g+r-2,\qquad V_1=r,\qquad
+ E=3g+2r-3,\qquad b_1(\Gamma^\circ)=g.
+\end{equation}
+Regular fibers と boundary vertex の fiber は circles、trivalent vertex fibers は figure-eights である。
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+まず $r=0$ の場合は補題\ref{ncb:circle-morse}そのものである。
+$r>0$ の場合も、その closed surface と circle-valued map から始める。
+Critical values を含まない互いに素な短い arcs 内で、$r$ 個の regular cylinders を選ぶ。
+その一つを $[a,b]\times S^1$ と書く。
+この cylinder の interior に disk を一つ除くと pair of pants になる。
+Original incoming cuff と新しい puncture cuff を incoming、original outgoing cuff を outgoing とする
+elementary Morse cobordism を入れる。
+これは一つの index-one critical point を持つ。
+三つの cuffs の product collars を使い、original 二つの cuffs の近くでは従来の height coordinate と
+厳密に一致させられる。新 cuff の value と新 critical value は、選んだ arc 内で互いに異なり、
+従来の critical values を避けるように取る。
+これを $r$ 個の cylinders で行い、その外では map を変えない。
+
+各操作は extrema を加えず、一つの saddle と一つの boundary circle を加える。
+Graph 上では一辺を新しい trivalent vertex で分割し、その vertex に一つの leaf edge を加える。
+従って $V_3$ は $2g-2$ から $r$ 増え、$E$ は $3g-3$ から $2r$ 増える。
+総頂点数は $2g+2r-2$ なので、$b_1=E-(V_3+V_1)+1=g$ となる。
+新しい pants の singular level は figure-eight であり、他の whole fibers は従来のものと同じである。
+Finite graph は有限個の pants と cylinder の quotient を接いで得られるので Hausdorff である。
+
+元の cyclic construction における degree-one loop は、新しい pants の original 二つの cuffs を
+結ぶ path を通るように取り直せる。
+その path の height の変化は元の cylinder を通るものと同じであるから、
+$f^\circ$ の degree は引き続き一である。
+最後に、得られた genus $g$、boundary $r$ 個の oriented surface を、指定された $C^\circ$ へ
+orientation-preserving diffeomorphism で移す。
+従って $D_i$ は任意に小さく選べるが、元の closed map の全 collars を保持する主張ではない。
+\end{proof}
+
+\subsection{Normal framing による actual product neighborhood}
+
+\begin{lemma}[Actual product neighborhood]\label{fhr:product-neighborhood}
+$(X,\omega)$ を symplectic six-manifold、$C\subset X$ を closed connected symplectic surface とし、
+$C^\circ=C\setminus\bigcup_{i=1}^r\operatorname{int}D_i$、$r\ge0$ とする。
+$N_{C/X}|_{C^\circ}$ が symplectically trivial と仮定する。
+$r>0$ ならこの仮定は自動的に満たされる。
+ある $\varepsilon>0$ と symplectic embedding
+\begin{equation}\label{fhr:product-embedding}
+ \Psi^\circ:
+ (C^\circ\times B^4_\varepsilon,
+      \operatorname{pr}_C^*\omega_C+\omega_{\mathrm{std}})
+ \longrightarrow (X,\omega)
+\end{equation}
+が存在し、$\Psi^\circ(u,0)=u$ である。
+Normal first jet は、$N_{C/X}|_{C^\circ}$ の選んだ symplectic framing と一致させられる。
+写像は $C^\circ$ の boundary を越える collar 上にも定義できる。
+\end{lemma}
+
+\begin{proof}
+Compatible complex structure により symplectic normal bundle を complex rank-two bundle と見る。
+$r>0$ なら $C^\circ$ は graph に deformation retract するので、
+その上の complex rank-two bundle は trivial である。
+$r=0$ では仮定により symplectic frame を持ち、compatible structure を選べば unitary frame としてよい。
+Boundary がある場合には、それを少し越えて各 $D_i$ の内部へ延びる compact surface
+$\widehat C^\circ$ を選び、frame を collar へ延長する。
+Boundary がない場合には $\widehat C^\circ=C$ とする。
+
+Zero section と normal first jet を指定する tubular embedding $F$ を取ると、
+$F^*\omega$ と product form は zero section 上で full bilinear forms として一致する。
+Normal radial homotopy による差の primitive は normal coordinates の二次以上で消える。
+十分小さい uniform radius では二つの形式の直線補間は symplectic であり、
+relative Moser field は zero section とその first jet を固定する。
+Flow の定義には $\widehat C^\circ$ の collar を使い、最後に compact な $C^\circ$ へ制限する。
+これで式\eqref{fhr:product-embedding}を得る。
+これは symplectic neighborhood theorem の relative Moser 証明である
+\cite[Sections 7.3 and 9.2]{cds-local}。
+\end{proof}
+
+この lemma は所定の $\omega$ を変更しない。
+一方、選んだ framing による product coordinates を使うため、
+第\ref{ncb:section}節の curvature を持つ connection や正 normal shell の fiber partition を
+同時に固定することは要求していない。
+また、$D_i$ を縮める極限で共通の $\varepsilon$ が取れるとは主張しない。
+
+\subsection{十分小さい compact focus block}
+
+Normal $\CC^2$ に standard form を入れ、$P_X=\pi|X|^2$、$P_Y=\pi|Y|^2$ とする。
+\begin{equation}\label{fhr:focus-map}
+ G_c=(A,Q),\qquad A=P_X-P_Y,\qquad Q=|XY-c|^2,
+ \qquad c>0.
+\end{equation}
+Numbers $a_*>0$、$0<q_-<c^2<q_+$ を選び、
+\begin{equation}\label{fhr:focus-domain}
+ R=[-a_*,a_*]\times[q_-,q_+],\qquad
+ K_c=G_c^{-1}(R),\qquad o=(0,c^2)\in\operatorname{int}R
+\end{equation}
+と置く。
+
+\begin{lemma}[Four-dimensional whole focus block]\label{fhr:focus-block}
+$K_c$ は connected compact domain with corners で、origin の neighborhood を含む。
+$G_c:K_c\to R$ は connected-fiber quotient である。
+$R\setminus\{o\}$ 上の fibers は Lagrangian $T^2$、$o$ 上の whole fiber
+$\mathcal N$ は一つの circle を pinching した torus であり、origin に唯一の focus--focus critical point を持つ。
+$\partial R$ 上は全て regular で、elliptic fibers はない。
+さらに
+\begin{equation}\label{fhr:normal-euler}
+ \chi(K_c)=\chi(\mathcal N)=1.
+\end{equation}
+Parameters を共通に縮めることで $K_c\subset B^4_\varepsilon$ とできる。
+\end{lemma}
+
+\begin{proof}
+Normal circle $(X,Y)\mapsto(e^{2\pi it}X,e^{-2\pi it}Y)$ は $A$ により生成され、
+$w=XY$ を保つので $\{A,Q\}=0$ である。
+所定の $A,w$ に対する radii は
+\begin{equation}\label{fhr:radii}
+ P_X=\frac{\sqrt{A^2+4\pi^2|w|^2}+A}{2},\qquad
+ P_Y=\frac{\sqrt{A^2+4\pi^2|w|^2}-A}{2}.
+\end{equation}
+従って $(A,w)$ の fiber は一つの circle orbit で、$(A,w)=(0,0)$ の場合だけ一点である。
+$Q=q>0$ の reduced curve は $|w-c|=\sqrt q$ という circle である。
+その inverse image は通常は circle bundle over a circle、従って $T^2$ である。
+$(A,q)=o$ の場合だけ reduced circle が $w=0$ を通り、そこで一つの circle が潰れる。
+これが compact pinched torus $\mathcal N$ である。
+Origin での quadratic pair は
+\[
+ \pi(|X|^2-|Y|^2),\qquad -2c\operatorname{Re}(XY),
+\]
+という focus--focus Cartan である。
+他の critical values は $Q=0$ にあるが、$q_->0$ により domain から除かれている。
+
+$|w|\le c+\sqrt{q_+}$ と式\eqref{fhr:radii}により $K_c$ は bounded であり、closed なので compact である。
+Boundary は critical value $o$ を避けるため、four regular faces と their corners を持つ。
+Origin の image $o$ は $\operatorname{int}R$ に入るので、$K_c$ は origin の open neighborhood を含む。
+Connected fibers と connected base から $K_c$ は connected であり、
+compact-to-Hausdorff surjection は quotient map である。
+
+$\mathcal N$ は $T^2$ の nonseparating circle を一点に潰した空間なので $\chi(\mathcal N)=1$ である。
+$G_c$ は $R\setminus\{o\}$ 上の proper torus bundle であり、finite-cell stratification と
+compactly supported Euler characteristic の加法性から $\chi(K_c)=1$ となる。
+同じ値は、$K_c$ 上の normal circle action が origin 一点以外で free であることからも得られる。
+
+最後に固定した seed parameters $(a_0,c_0,q_{-,0},q_{+,0})$ に対して
+\begin{equation}\label{fhr:scaling}
+ a_*=s a_0,\qquad c=s c_0,\qquad q_\pm=s^2q_{\pm,0}
+\end{equation}
+とすれば、$K_c=\sqrt{s}\,K_{c_0}$ となる。
+従って十分小さい $s>0$ で所定の normal ball に全 block が入る。
+これは domain の包含を得る scaling であり、所定の ambient form を rescale するものではない。
+\end{proof}
+
+\subsection{Whole focus--hyperbolic fibers を持つ actual 近傍}
+
+\begin{theorem}[Trivial normal neighborhood の actual focus--hyperbolic fibration]
+\label{fhr:actual-block}
+$C\subset(X,\omega)$ を genus $g\ge2$ の closed connected symplectic surface、
+$D_1,\ldots,D_r\subset C$ を disjoint closed disks、$r\ge0$ とする。
+$N_{C/X}|_{C^\circ}$ が symplectically trivial と仮定する。
+従って $r=0$ では closed curve の normal triviality を仮定し、$r>0$ では追加仮定を要しない。
+上の choices を十分小さく取ると、compact domain with corners
+\[
+ \mathcal U^\circ=\Psi^\circ(C^\circ\times K_c)\subset X
+\]
+上に connected Lagrangian fibers を持つ quotient
+\begin{equation}\label{fhr:quotient}
+ \Pi^\circ:\mathcal U^\circ\longrightarrow R\times\Gamma^\circ
+\end{equation}
+が存在する。
+$\mathcal U^\circ$ は $C^\circ$ の zero section と、そこに沿う十分小さい full normal neighborhood を含む。
+全 regular fibers は $T^3$ であり、whole singular fibers は次の表の通りである。
+ここで $v$ は trivalent vertex、$e$ は graph の regular point、$o$ は normal focus value である。
+\begin{center}
+\begin{tabular}{c|c|c}
+Base point & Whole fiber & Euler characteristic \\
+\hline
+$(r,e)$, $r\ne o$ & $T^3$ & $0$ \\
+$(r,v)$, $r\ne o$ & $T^2\times(S^1\vee S^1)$ & $0$ \\
+$(o,e)$ & $\mathcal N\times S^1$ & $0$ \\
+$(o,v)$ & $\mathcal N\times(S^1\vee S^1)$ & $-1$
+\end{tabular}
+\end{center}
+各 $(o,v)$ 上の fiber には唯一の rank-zero critical point があり、
+Williamson type は $(k_e,k_h,k_f)=(0,1,1)$ である。
+この block の rank-zero fibers はちょうど $2g+r-2$ 個であり、全 singularities は nondegenerate で elliptic 成分を持たない。
+また
+\begin{equation}\label{fhr:block-euler}
+ \boxed{\quad\chi(\mathcal U^\circ)=2-2g-r=-(2g+r-2).\quad}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Product model 上で
+\[
+ (u,X,Y)\longmapsto\bigl(G_c(X,Y),q^\circ(u)\bigr)
+\]
+と定め、$\Psi^\circ$ で actual domain へ運ぶ。
+$f^\circ$ の local real lift $F^\circ$ を使うと、三つの functions $(A,Q,F^\circ)$ は
+product form に関して互いに Poisson commute する。
+Regular fiber は二次元 Lagrangian torus と曲面上の circle との積なので Lagrangian $T^3$ である。
+Singular fibers も各 smooth three-dimensional stratum 上で form が零となる。
+
+Whole fibers は connected factors の積なので connected であり、上の table は補題\ref{fhr:curve-morse}と
+補題\ref{fhr:focus-block}から従う。
+Normal focus point と curve saddle が同時に現れる点では Hessian Cartan は
+four-dimensional focus pair と two-dimensional hyperbolic quadratic form の direct sum である。
+従って rank zero、Williamson type $(0,1,1)$ である。
+その fiber 内で他の points は、normal point と curve point が singular か否かに応じて、
+rank one focus、rank two hyperbolic、または rank three regular である。
+Rank-zero point は node と saddle の積の一点だけであり、trivalent vertices の数が $2g+r-2$ なのでその計数を得る。
+
+Compact source から compact Hausdorff space $R\times\Gamma^\circ$ への連続全射なので、
+表示は connected-fiber quotient である。
+$K_c$ が origin の neighborhood を含むことから zero section と small full normal neighborhood の包含が従う。
+Euler 数は compact product の積性により
+\[
+ \chi(C^\circ)\chi(K_c)=(2-2g-r)\cdot1
+\]
+である。
+また finite-cell stratification に沿う Euler integration では、表の最後の $2g+r-2$ 個の fibers だけが
+非零に寄与し、各々の寄与は $\chi(\mathcal N)\chi(S^1\vee S^1)=1\cdot(-1)=-1$ となる。
+\end{proof}
+
+\paragraph{Boundary faces の正確な型.}
+Base の boundary faces は、normal faces $\partial R\times\Gamma^\circ$ と、
+$r$ 個の curve faces $R\times\{v_{\partial,i}\}$ である。
+Normal faces は $o$ を避けるが、graph の trivalent vertices 上では hyperbolic fibers を持つ。
+Curve face の fiber は通常は $T^3$ であるが、$o$ 上には $\mathcal N\times S^1$ という focus fiber がある。
+従ってこれらの curve faces を、全 parameter にわたる regular-torus ports と呼んではならない。
+Normal face と curve face の intersections は normal focus value と curve saddle をともに避けるため regular である。
+二つの normal faces の intersections には、graph vertices 上の hyperbolic fibers が残る。
+Curve faces の数を指定できたことは、それらの cap を構成したことを意味しない。
+
+\begin{corollary}[一般型超曲面の場合]\label{fhr:hypersurface}
+任意の smooth $X_d\subset\PP^4$、$d\ge6$ と所定の K\"ahler form に対し、
+generic plane section $C$ から任意に小さい disjoint $r$ disks、$r\ge1$、を除いた $C^\circ$ の近傍に、
+定理\ref{fhr:actual-block}の actual block が存在する。
+その graph と rank-zero fibers の数は
+\begin{equation}\label{fhr:degree-counts}
+ \begin{split}
+ V_3&=d(d-3)+r,\qquad V_1=r,\\
+ E&=\frac{3(d-1)(d-2)}2+2r-3,\qquad
+ b_1=\frac{(d-1)(d-2)}2,\\
+ N_{\mathrm{focus\text{-}hyperbolic}}&=d(d-3)+r,
+ \qquad \chi(\mathcal U^\circ)=-d(d-3)-r.
+ \end{split}
+\end{equation}
+特に一つだけ disk を除いた六次の例では $V_3=19$、$V_1=1$、$E=29$、$b_1=10$、
+rank-zero focus--hyperbolic fibers は19個であり、$\chi(\mathcal U^\circ)=-19$ である。
+\end{corollary}
+
+これは新しい actual block 内での whole-fiber count である。
+前の closed shell の18 hyperbolic families、旧 cap assembly の24 families、
+または全 $X_6$ の Euler 数 $-516$ と同じ計数ではない。
+Normal faces、curve face、残る $X_d$ の領域の接続は未構成である。
+
+\subsection{Curve faces への normal clutching degree の配分}
+
+$N_{C/X_d}=L_1\oplus L_2$、$\deg L_j=d$ とし、
+$C^\circ$ 上の product framing を各 line の unitary frame $e_j^\circ$ で取る。
+Missing disk $D_i$ 上に unitary frames $e_j^{D_i}$ を取り、
+$\gamma_i=\partial D_i$ を $C$ の orientation に関する正向きで回る。
+Boundary 上で
+\begin{equation}\label{fhr:clutching}
+ e_j^\circ=e_j^{D_i}g_{ij},\qquad g_{ij}:\gamma_i\to U(1),
+ \qquad a_i=\deg g_{i1},\quad b_i=\deg g_{i2},\quad k_i=a_i+b_i
+\end{equation}
+と書く。
+
+\begin{proposition}[Boundary の Chern degree とその再配分]\label{fhr:clutching-degree}
+上の向きと convention において
+\begin{equation}\label{fhr:clutching-numbers}
+ \sum_{i=1}^r a_i=d,\qquad
+ \sum_{i=1}^r b_i=d,\qquad
+ \sum_{i=1}^r k_i=2d.
+\end{equation}
+逆に、最初の二つの等式を満たす任意の整数 tuples $(a_i)$、$(b_i)$ を、
+$C^\circ$ 上の二つの global line frames の選択により実現できる。
+Product focus model の normal mixed coefficient を $D_i$ の frame で表した boundary winding は $-k_i$ である。
+個々の degree は再配分できるが、global frame changes により総和 $2d$ を消すことはできない。
+\end{proposition}
+
+\begin{proof}
+Connection を $\alpha_j=d\theta_j^\circ+\eta_j^\circ=d\theta_j^{D_i}+\eta_j^{D_i}$ と書く。
+式\eqref{fhr:clutching}より fiber coordinates は $z_j^{D_i}=g_{ij}z_j^\circ$ なので
+\[
+ \eta_j^\circ=\eta_j^{D_i}+\frac{1}{2\pi i}g_{ij}^{-1}dg_{ij}.
+\]
+曲線上の curvature を $\kappa_j$ とし、式\eqref{ncb:connections}と同じ
+$[\kappa_j]=-c_1(L_j)$ の convention を用いる。
+$\partial C^\circ=-\sum_i\gamma_i$ なので Stokes により
+\[
+ -d=\int_C\kappa_j
+ =\sum_i\int_{\gamma_i}(\eta_j^{D_i}-\eta_j^\circ)
+ =-\sum_i\deg g_{ij}.
+\]
+これで式\eqref{fhr:clutching-numbers}を得る。
+
+Boundary 上で $(X_{D_i},Y_{D_i})=(g_{i1}X^\circ,g_{i2}Y^\circ)$ であるから、
+product normal integral は disk frame で
+\begin{equation}\label{fhr:boundary-focus-phase}
+ Q=\left|(g_{i1}g_{i2})^{-1}X_{D_i}Y_{D_i}-c\right|^2
+\end{equation}
+と書ける。
+その quadratic mixed coefficient は非零の実定数倍の $(g_{i1}g_{i2})^{-1}$ で、winding は $-k_i$ である。
+
+Oriented boundary classes $[\gamma_i]\in H_1(C^\circ;\ZZ)$ の唯一の関係は $\sum_i[\gamma_i]=0$ である。
+より具体的には、handle cycles $2g$ 本と最初の $r-1$ 個の boundary classes を自由基底に取れ、
+最後の boundary class はそれらの boundary classes の負の和である。
+従って boundary evaluation map
+\[
+ H^1(C^\circ;\ZZ)\longrightarrow\ZZ^r
+\]
+の image は $\{(u_i):\sum_i u_i=0\}$ である。
+各 integral cohomology class は smooth map $h:C^\circ\to U(1)$ で表せる。
+Line frame を $e_j^\circ h_j$ へ変えると、各 boundary degree に
+$\deg(h_j|_{\gamma_i})$ が加わるため、sum を保つ任意の再配分が実現する。
+二つの line frames に対して独立にこれを行えばよい。
+
+一般の global unitary frame change $h:C^\circ\to U(2)$ に対しても、
+$\det h:C^\circ\to U(1)$ の boundary degrees の総和は零である。
+各 disk 上の frame change の boundary degree は零であるから、総和 $2d$ は invariant である。
+\end{proof}
+
+Disk frames を調整すれば、$\gamma_i$ 上で
+$g_{i1}=e^{2\pi ia_i\theta_i}$、$g_{i2}=e^{2\pi ib_i\theta_i}$ とすることもできる。
+この場合、式\eqref{fhr:boundary-focus-phase}は
+\[
+ Q=\left|e^{-2\pi ik_i\theta_i}X_{D_i}Y_{D_i}-c\right|^2
+\]
+となる。
+この winding が非零なら、nonzero coefficient を $D_i$ 全体へ延長することはできない。
+従って同じ splitting と normal circle を保持する coherent focus caps で全 curve faces を閉じることはできない。
+この最後の結論は系\ref{ncb:closed-focus-obstruction}の boundary 表現であり、
+別の singular subsystem を使う cap や global fibration の非存在を意味しない。
+
+\begin{corollary}[一つの puncture と小さい winding への配分]\label{fhr:charge-tradeoff}
+一つだけ disk を除く場合には $a_1=b_1=d$、$k_1=2d$ であり、
+product block の rank-zero focus--hyperbolic fibers は $d(d-3)+1$ 個である。
+
+一般に $m\ge1$ とし、各 boundary determinant winding に
+$0<|k_i|\le m$ という制約を課すなら
+\begin{equation}\label{fhr:charge-bound}
+ r\ge\left\lceil\frac{2d}{m}\right\rceil
+\end{equation}
+が必要である。特に次の二つの配分は上の actual product-region construction で実現できる。
+\begin{enumerate}
+\item $r=d$ とし、全 $i$ で $(a_i,b_i)=(1,1)$、$k_i=2$ とする。
+この product region の rank-zero fibers は $d(d-2)$ 個である。
+\item $r=2d$ とし、$d$ 個で $(a_i,b_i)=(1,0)$、残り $d$ 個で $(0,1)$ とする。
+全 $k_i=1$ であり、この product region の rank-zero fibers は $d(d-1)$ 個である。
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+式\eqref{fhr:clutching-numbers}と
+$2d=\sum_i k_i\le\sum_i|k_i|\le mr$ より下限を得る。
+表示した tuples は各 line の degree sum を満たすので、命題\ref{fhr:clutching-degree}で実現できる。
+Fiber count は式\eqref{fhr:degree-counts}への代入である。
+\end{proof}
+
+六次では、一つの boundary に total winding $12$ を集めると rank-zero fibers は19個である。
+六つの boundaries に各 winding $2$ を配ると24個、十二の boundaries に各 winding $1$ を配ると30個になる。
+これは punctures、boundary data、product region 内の fiber count の関係である。
+小さい winding の境界に cap を実際に付けたという結論ではない。
+特に weighted torus action の有限 isotropy やその正則化との比較には、
+別途、その action、whole boundary foliation、coorientation、actual overlap の一致が必要である。
+
+\paragraph{次の接続問題.}
+本節で得たものは、normal framing を持つ zero section を実際に含み、
+negative Euler contribution を担う compact whole fibers を持つ近傍である。
+Generic plane section を puncture する場合、未処理の normal degree は、
+curve faces の determinant winding の総和 $2d$ に現れる。
+一方、closed curve の normal bundle が既に trivial なら、この曲線方向の clutching 問題は生じない。
+各 face の focus fiber を含む whole germ、normal faces の hyperbolic fibers、
+boundary coorientation と actual overlaps を同時に扱う cap または transition region が次に必要である。
+ここでの product choice を前版の shell や旧48 ports の fibration と自動的に同一視してはならない。

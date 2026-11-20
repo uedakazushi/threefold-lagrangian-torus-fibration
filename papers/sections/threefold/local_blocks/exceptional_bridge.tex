@@ -1,0 +1,579 @@
+\section{例外曲線全体を通る surface bridge}
+\label{exc:section}
+
+第\ref{sc:phase}節の $S_{k5}$ 上では、曲線補正の端 $p_0$ と strict triple locus の点
+$p_\infty$ は、一つの例外曲線の異なる点であった。
+本節では、この例外曲線全体を含み、一方の点に compact focus fiber、
+他方に elliptic boundary を持つ明示的な Lagrangian fibration を与える。
+この種の blow-up fibration の存在は Auroux \cite[\S3.1.2]{auroux-blowup} の既知の模型である。
+ここで必要なのは、その模型を半安定チャートの中で正規化し、
+厳密な symplectic 座標、action、logarithmic residue と normal collar の変形を計算することである。
+
+この節の構成は、まず一つの指定された K\"ahler 形式に対するものである。
+任意に先に指定した compact focus germ と toric end の両方を、
+それぞれの primitive と first jets まで保って比較する定理ではない。
+その相対条件は末尾で分けて述べる。
+
+\subsection{K\"ahler 形式と moment region}
+
+\[
+ M_e=\operatorname{Bl}_0\CC^2_{(z,w)},\qquad
+ \pi:M_e\longrightarrow\CC^2,\qquad
+ \operatorname{pr}:M_e\longrightarrow\PP^1
+\]
+と置く。$e>0$ は例外曲線 $E$ の \emph{symplectic area} であり、
+ball radius や、その平方を表す記号ではない。
+角変数は周期1とし、$\theta_u=\arg u/(2\pi)$、$\rho_u=\pi|u|^2$ とする。
+\begin{equation}\label{exc:kahler}
+ \omega_e=\pi^*\frac{i}{2}
+       (dz\wedge d\bar z+dw\wedge d\bar w)
+       +e\,\operatorname{pr}^*\omega_{\rm FS},
+ \qquad \int_{\PP^1}\omega_{\rm FS}=1
+\end{equation}
+を用いる。Blow-down の pullback は $E$ の tangent direction のみで退化し、
+第二項はその方向で正である。従って $\omega_e$ は $M_e$ 全体で K\"ahler であり、
+$\int_E\omega_e=e$ となる。
+
+二つのチャートを
+\[
+ (Y,z),\quad w=Yz;
+ \qquad (U,w),\quad z=Uw;
+ \qquad U=Y^{-1}
+\]
+と書く。$E$ はそれぞれ $z=0$, $w=0$ で表され、
+\[
+ p_0=(Y,z)=(0,0),\qquad
+ p_\infty=(U,w)=(0,0),\qquad
+ D=\widetilde{\{z=0\}}=\{U=0\}
+\]
+である。特に $D$ は $E$ と $p_\infty$ で交わり、$M_e\setminus D$ は
+$(Y,z)$-chart 全体と一致する。
+
+Blow-down の $z,w$ を別々に回転する torus の moment を
+\begin{align}
+ J&=\pi|z|^2+e\frac{|z|^2}{|z|^2+|w|^2},&
+ K&=\pi|w|^2+e\frac{|w|^2}{|z|^2+|w|^2}
+ \label{exc:toric-moments}
+\end{align}
+と正規化する。原点上の分数は $\PP^1$ 上の方向の関数として延長する。
+Hamiltonian vector field の符号は $\iota_{X_H}\omega=-dH$ とするので、
+$J$ は $z\mapsto e^{2\pi it}z$, $w\mapsto w$ という周期1の作用を生成する。
+$(Y,z)$-chart では
+\begin{equation}\label{exc:chart-moments}
+ J=\pi|z|^2+\frac{e}{1+|Y|^2},\qquad
+ K=\pi|Yz|^2+\frac{e|Y|^2}{1+|Y|^2}.
+\end{equation}
+Moment image は明示的に
+\begin{equation}\label{exc:polytope}
+ \Delta_e=\{(J,K):J\ge0,\ K\ge0,\ J+K\ge e\}
+\end{equation}
+である。実際、$J+K=e+\pi(|z|^2+|w|^2)$ であり、
+$(J:K)=(|z|^2:|w|^2)$ だから、これらの不等式は必要十分である。
+Facet $J=0$ は $D$、facet $J+K=e$ は $E$ に対応する。
+
+\subsection{例外曲線を含む compact fibers}
+
+$\varepsilon>0$ を固定し、
+\begin{equation}\label{exc:fibration}
+ W=\pi^*w,
+ \qquad Q=|W-\varepsilon|^2,
+ \qquad F_e=(J,Q):M_e\longrightarrow\RR^2
+\end{equation}
+と置く。$W$ は $J$ の circle action に不変なので、$\{J,Q\}=0$ である。
+
+\begin{theorem}[例外曲線を通る明示的な fibration]
+\label{exc:bridge}
+任意の $\delta>0$ と $0<\eta<1$ に対し
+\[
+ B_{\delta,\eta}= [0,e+\delta]\times
+   [(1-\eta)\varepsilon^2,(1+\eta)\varepsilon^2],
+ \qquad \mathcal U_{\delta,\eta}=F_e^{-1}(B_{\delta,\eta})
+\]
+と置く。$\mathcal U_{\delta,\eta}$ は $E$ 全体を含む compact region であり、
+$F_e$ の各 regular fiber は connected Lagrangian $T^2$ である。
+その singular fibers は次の通りである。
+\begin{enumerate}
+\item $(J,Q)=(e,\varepsilon^2)$ の fiber は、一つの nondegenerate focus--focus point
+ $p_0$ を持つ once-pinched torus である。
+\item $J=0$ の fibers は $D$ 内の circles であり、rank-one elliptic 型である。
+\end{enumerate}
+この領域には他の singularities はない。
+例外曲線の像は
+\begin{equation}\label{exc:e-image}
+ F_e(E)=[0,e]\times\{\varepsilon^2\},\qquad
+ J|_E=\frac{e}{1+|Y|^2}.
+\end{equation}
+従ってこの一つの actual surface model が、$p_0$ の focus fiber と
+$p_\infty$ の elliptic boundary を含む。
+\end{theorem}
+
+\begin{proof}
+まず $J>0$ の quotient を直接記述する。
+$R=|W|>0$、$u=|z|^2$ とすると、$J=s$ の条件は
+\begin{equation}\label{exc:radial-equation}
+ s=\pi u+\frac{eu}{u+R^2}
+ \quad\Longleftrightarrow\quad
+ \pi u^2+(\pi R^2+e-s)u-sR^2=0.
+\end{equation}
+左辺の最初の表示は $u\ge0$ に関して strictly increasing で、
+$0$ から $+\infty$ まで動く。従って $s>0$ ごとに一つの正の解がある。
+その点の $z$ の phase だけが自由であり、これは一つの free $J$-orbit である。
+$W=0$ の場合は三つに分かれる。
+\[
+\begin{array}{c|c}
+ s>e & Y=0,\quad \pi|z|^2=s-e,\\
+ 0<s<e & z=0,\quad |Y|^2=e/s-1,\\
+ s=e & p_0.
+\end{array}
+\]
+最初の二つはやはり free circles であり、最後だけが fixed point である。
+
+$0<s<e$, $W=0$ の orbit では $Y\ne0$ なので $dW=Y\,dz$ が nonzero であり、
+$dJ$ は $E$ 内の radial direction で nonzero である。
+$s>e$, $W=0$ でも同様に $dW=z\,dY$ と $dJ$ は独立である。
+$W\ne0$ では式\eqref{exc:radial-equation}の strict monotonicity が同じ独立性を与える。
+従って $(J,W)$ は $J>0$ で $p_0$ を除いて circle quotient を滑らかに表示する。
+$Q>0$ なら $W$-plane の $|W-\varepsilon|^2=Q$ は regular circle であるから、
+その lift は principal circle bundle over a circle、すなわち $T^2$ である。
+可換性と dimension によって Lagrangian となる。
+Circle が $W=0$ を通り、かつ $s=e$ のときだけ、一つの orbit が点へ潰れる。
+Cylinder の両端を同じ点へ潰した位相を持つので、fiber は once-pinched torus である。
+
+$p_0$ で $u_0=\sqrt{e/\pi}\,Y$, $v_0=z$ と置くと、
+$\omega_e(p_0)$ は $(u_0,v_0)$ の標準 symplectic form であり、二次項は
+\begin{equation}\label{exc:focus-quadratic}
+ J-e=\pi(|v_0|^2-|u_0|^2)+O(4),\qquad
+ Q-\varepsilon^2=-2\varepsilon\sqrt{\pi/e}\,
+      \operatorname{Re}(u_0v_0)+O(4).
+\end{equation}
+これは focus--focus Cartan の標準 pair の nonzero multiples である。
+従って nondegenerate focus--focus point である。
+
+一方、$(U,w)$-chart では
+\begin{equation}\label{exc:boundary-moment}
+ J=|U|^2\left(\pi|w|^2+\frac{e}{1+|U|^2}\right).
+\end{equation}
+$D=\{U=0\}$ における normal quadratic の係数は正であり、
+$\omega_e|_D=\frac i2dw\wedge d\bar w$ である。
+$Q>0$ の制限は $D$ 上の regular circle fibration なので、ここは rank-one elliptic 型となる。
+特に $p_\infty$ においても $d(Q|_D)=-2\varepsilon\,d\operatorname{Re}w\ne0$ である。
+$Q=0$ という別の elliptic locus は選んだ base window に含まれない。
+
+最後に、$J\le e+\delta$ なら $\pi|z|^2\le e+\delta$、
+有界な $Q$ なら $|w|$ も有界である。
+Blow-up は $\CC^2\times\PP^1$ 内の closed submanifold なので、
+$\mathcal U_{\delta,\eta}$ は compact である。
+式\eqref{exc:e-image}は式\eqref{exc:chart-moments}から従う。
+\end{proof}
+
+\begin{remark}[縮小できる範囲]
+\label{exc:shrink}
+$e$ と $0<\eta<1$ を固定したまま $\varepsilon,\delta\to0$ とすれば、
+$\mathcal U_{\delta,\eta}$ は任意に小さい $E$ の neighborhood に入る。
+実際、$|w|\le(1+\sqrt{1+\eta})\varepsilon$ であり、
+式\eqref{exc:radial-equation}の正の解は $J\le e+\delta$ の下で一様に $|z|\to0$ を満たす。
+従って blow-down の像が原点へ縮み、その全逆像の極限は $E$ である。
+これは、symplectic neighborhood の中に上の compact model を置く際に必要な縮小である。
+\end{remark}
+
+\subsection{Vanishing circle、normal weights と面積}
+
+上の $J$-action の weights は
+\begin{equation}\label{exc:weights}
+ p_0:\quad(Y,z)\longmapsto
+ (e^{-2\pi it}Y,e^{2\pi it}z),
+ \qquad
+ p_\infty:\quad(U,w)\longmapsto(e^{2\pi it}U,w)
+\end{equation}
+である。$p_0$ の vanishing cycle はこの primitive $J$-orbit であり、
+$D$ 上で潰れる circle も同じ $J$-orbit である。
+$M_e\setminus D$ の exact chart でこの orbit を $\alpha$ と向き付ければ、
+その weights は $(+1,-1)$ で、$\int_\alpha\lambda_e=J-e$ となる。
+$E$ の normal coordinates の transition は $w=Yz$ なので
+\[
+ N_{E/M_e}\simeq\mathcal O_{\PP^1}(-1).
+\]
+Normal weight は $p_0$ で $+1$、$p_\infty$ で $0$、
+tangent weight はそれぞれ $-1,+1$ となる。
+
+$0<s<e$ に対し、$E\cap\{J=s\}$ は $E$ を二つの symplectic discs に分ける。
+その面積は
+\begin{equation}\label{exc:cap-areas}
+ \operatorname{Area}(\text{$p_0$ を含む cap})=e-s,
+ \qquad
+ \operatorname{Area}(\text{$p_\infty$ を含む cap})=s.
+\end{equation}
+実際、$p_0$ 側は $|Y|^2\le e/s-1$ であり、
+$e\omega_{\rm FS}$ を積分すれば $e|Y|^2/(1+|Y|^2)=e-s$ を得る。
+残りの面積は全体の $e$ から引けばよい。
+
+$E$ の基底像を nodal-trade eigenray と同一視してはならない。
+ここでは $E$ 上で circle moment $J$ 自身が変化し、
+同じ circle が $p_0$ と boundary の両方で潰れる。
+これは例外 sphere を備える blow-up model の記述である。
+通常の node と elliptic edge の trade を適用するには、
+そのための vanishing covector と collapsing covector の lattice 条件を別途満たす必要がある。
+
+\subsection{例外曲線の punctured neighborhood の厳密 Darboux chart}
+
+$(Y,z)$-chart 全体で、滑らかな primitive を
+\begin{align}
+ \lambda_e
+ &=\rho_z\,d\theta_z+\rho_w\,d\theta_w
+      +\frac{e|Y|^2}{1+|Y|^2}\,d\theta_Y \notag\\
+ &=(J-e)\,d\theta_z+K\,d\theta_w
+ \label{exc:primitive}
+\end{align}
+と取る。第一行の各 angular expression は、その radial coefficient により
+対応する軸まで滑らかに延びる。第二行は torus locus での表示であり、
+単独の $d\theta_z,d\theta_w$ の延長を主張していない。
+直接微分すれば $d\lambda_e=\omega_e$ となる。
+
+\begin{proposition}[Exact chart と reciprocal radial factor]
+\label{exc:darboux}
+\begin{equation}\label{exc:exact-coordinates}
+ \xi=z\sqrt{1+|Y|^2},\qquad
+ \zeta=Y\sqrt{J/\pi}
+\end{equation}
+は exact symplectomorphism
+\[
+ (M_e\setminus D,\lambda_e)\longrightarrow
+ \bigl(\{\rho_\zeta<e+\rho_\xi\}\subset\CC^2,
+       \rho_\xi\,d\theta_\xi+\rho_\zeta\,d\theta_\zeta\bigr)
+\]
+を与える。この chart では
+\begin{align}
+ J-e&=\rho_\xi-\rho_\zeta,
+ &W&=\sqrt{\frac{\pi}{e+\rho_\xi}}\,\xi\zeta,\label{exc:inverse-radial}\\
+ Q&=\left|\sqrt{\frac{\pi}{e+\rho_\xi}}\,\xi\zeta
+                      -\varepsilon\right|^2.\notag
+\end{align}
+これは二次近似ではなく、当該 chart 全体での厳密な等式である。
+\end{proposition}
+
+\begin{proof}
+\[
+ a=J+K-e=\pi|z|^2(1+|Y|^2),\qquad b=K
+\]
+と置くと、$J=e+a-b>0$ であり、式\eqref{exc:exact-coordinates}から
+$\rho_\xi=a$, $\rho_\zeta=b$ を得る。
+また $\theta_\xi=\theta_z$, $\theta_\zeta=\theta_Y$、
+$\theta_w=\theta_z+\theta_Y$ なので
+\[
+ \lambda_e=(J+K-e)d\theta_z+K\,d\theta_Y
+           =a\,d\theta_\xi+b\,d\theta_\zeta.
+\]
+この計算は dense torus locus で成り立ち、両辺が滑らかなため chart 全体へ延びる。
+逆写像は
+\begin{equation}\label{exc:exact-inverse}
+ J=e+\rho_\xi-\rho_\zeta,\qquad
+ Y=\zeta\sqrt{\pi/J},\qquad
+ z=\xi\sqrt{J/(e+\rho_\xi)}
+\end{equation}
+であり、指定した domain で滑らかである。
+これにより global diffeomorphism と primitive の厳密な保存が分かる。
+最後に $W=Yz$ に逆写像を代入すれば式\eqref{exc:inverse-radial}を得る。
+\end{proof}
+
+特に本節の compact focus germ は、第\ref{ae:section}節の一定 scale の germ に
+単に置き換わるわけではない。
+ここでは radial factor が $(e+\rho_\xi)^{-1/2}$ を含み、
+その非線形部分は次の semiglobal action に現れる。
+
+\subsection{Nodal action の正の二次補正}
+
+$j=J-e$ とし、$a=\rho_\xi$, $b=\rho_\zeta=a-j$ とする。
+式\eqref{exc:inverse-radial}より、$R=|W|$ は
+\begin{equation}\label{exc:action-root-equation}
+ a(a-j)=\pi R^2(e+a),\qquad a\ge\max(j,0),\qquad j>-e
+\end{equation}
+を満たす。$R>0$ に対する唯一の正の解は
+\begin{equation}\label{exc:action-root}
+ a_e(j,R)=\frac{j+\pi R^2+
+     \sqrt{(j+\pi R^2)^2+4\pi eR^2}}2.
+\end{equation}
+$R=0$ では連続的に $a_e(j,0)=\max(j,0)$ とする。
+この解は式\eqref{exc:action-root-equation}の条件を満たし、
+元の quotient の一意性とも一致する。
+
+例えば $\zeta$ の phase を固定できる cycle chart では、complementary action は
+\begin{equation}\label{exc:action-integral}
+ I_e(j,q)=\frac1{2\pi}
+       \oint_{|W-\varepsilon|=\sqrt q}a_e(j,|W|)\,d\arg W
+\end{equation}
+で与えられる。別の lift を選ぶと $j$ の整数倍が加わり得る。
+$j>0$, $W=0$ を跨ぐ chart では固定する phase を替える必要があり、
+式\eqref{exc:action-integral}を全ての base point で単一の smooth action として使わない。
+Node $j=0,q=\varepsilon^2$ での limiting action には、この整数倍の曖昧さは残らない。
+
+\begin{proposition}[Marked nodal action]
+\label{exc:nodal-action}
+$\lambda_e$ と上の complementary cycle の極限を用いた nodal action を $A_e$ とする。
+すると
+\begin{align}
+ A_e
+ &=\frac{\pi}{2}\varepsilon^2
+   +\varepsilon\sqrt{\frac e\pi}
+   +\left(\frac e\pi+\varepsilon^2\right)
+       \arctan\left(\varepsilon\sqrt{\frac\pi e}\right),
+       \label{exc:action-closed}\\
+ &=2\varepsilon\sqrt{\frac e\pi}
+     +\frac\pi2\varepsilon^2+O(\varepsilon^3)
+       \qquad(\varepsilon\to0,\ e\text{ fixed}).\label{exc:action-expansion}
+\end{align}
+さらに全ての $\varepsilon>0$ に対して
+\begin{equation}\label{exc:action-positive}
+ A_e>2\varepsilon\sqrt{e/\pi}+\frac\pi2\varepsilon^2.
+\end{equation}
+従って、radial factor をその原点での値 $\sqrt{\pi/e}$ に凍結した模型とは、
+同じ $\varepsilon,e$、同じ primitive と marked cycle の下で nodal action が異なる。
+\end{proposition}
+
+\begin{proof}
+$j=0$ では式\eqref{exc:action-root}が
+\[
+ a_e(0,R)=\frac\pi2R^2+
+   \sqrt{\pi e}\,R\sqrt{1+\frac{\pi R^2}{4e}}
+\]
+となる。Node を通る circle $|W-\varepsilon|=\varepsilon$ は
+\[
+ W=R e^{i\phi},\quad R=2\varepsilon\cos\phi,
+ \quad-\pi/2\le\phi\le\pi/2
+\]
+と書ける。両端は $W=0$ であり、この積分は regular cycles の極限として収束する。
+従って
+\[
+ A_e=\frac\pi2\varepsilon^2+
+ \varepsilon\sqrt{e/\pi}
+ \int_{-\pi/2}^{\pi/2}\cos\phi
+   \sqrt{1+\frac{\pi\varepsilon^2}{e}\cos^2\phi}\,d\phi.
+\]
+$v=\sin\phi$, $c=\pi\varepsilon^2/e$ と置けば残りの積分は
+\[
+ \int_{-1}^{1}\sqrt{1+c-cv^2}\,dv
+       =1+\frac{1+c}{\sqrt c}\arctan\sqrt c
+\]
+となる。これを代入して式\eqref{exc:action-closed}を得る。
+Taylor expansion により式\eqref{exc:action-expansion}が従う。
+また $c>0$ のとき積分の integrand は $\cos\phi$ より内部で strictly larger なので、
+その積分は $2$ より大きい。これが式\eqref{exc:action-positive}である。
+
+凍結した模型では $a=\sqrt{\pi e}\,R$ なので、同じ積分は
+$2\varepsilon\sqrt{e/\pi}$ となる。
+Exact comparison が primitive と marked cycle を保てば、その積分も保存するから、
+上の差はその比較への障害である。
+\end{proof}
+
+この命題は、全ての base reparametrizations や closed-form shifts を許した
+unmarked symplectic equivalence の非存在を主張しない。
+また、$\varepsilon$ を変更して一つの action を合わせても、
+compact focus neighborhood の semiglobal invariant 全体が一致したことにはならない。
+本節の inverse radial family をそのまま端の family として選べば、
+不要な凍結によるこの比較問題を持ち込まずに済む。
+
+\subsection{Strict triple divisor に沿う residue と全 $E$ の制約}
+
+\begin{proposition}[Forced residue]
+\label{exc:residue}
+式\eqref{exc:primitive}の primitive は $D$ に沿って residue $-e$ を持つ。
+より具体的には、$(U,w)$-chart の $U\ne0$ で
+\begin{equation}\label{exc:residue-formula}
+ \lambda_e=(J-e)d\theta_U+
+              \pi(|z|^2+|w|^2)d\theta_w,
+\end{equation}
+であり、$\lambda_e+e\,d\theta_U$ はこの chart 全体へ滑らかに延びる。
+この residue は、$M_e\setminus D$ 上で primitive を exact form だけ変更しても、
+消去できない。
+\end{proposition}
+
+\begin{proof}
+$\theta_z=\theta_U+\theta_w$ と $J+K-e=\pi(|z|^2+|w|^2)$ を
+式\eqref{exc:primitive}へ代入する。
+$J$ は式\eqref{exc:boundary-moment}の通り $|U|^2$ を因子に持つので、
+$Jd\theta_U$ は滑らかである。
+第二項も $z=Uw$ より $\pi|w|^2(1+|U|^2)d\theta_w$ であり滑らかである。
+従って meridian を正向きに回る積分の極限は $-e$ である。
+Exact form の閉曲線上の積分は零なので、この値は変わらない。
+
+同じ結論は $E$ への Stokes の公式からも分かる。
+$p_\infty$ の小さい disk を取り除いた $E$ の境界は、$U$ の positive meridian と逆向きである。
+その境界上の積分は極限で $e$ となり、$\int_E\omega_e=e$ と一致する。
+\end{proof}
+
+\begin{proposition}[全例外曲線に対する一方向の obstruction]
+\label{exc:whole-e}
+半安定模型の $S_{k5}$ における二つの component-normal lines は、$E$ 上で
+\begin{equation}\label{exc:component-degrees}
+ \deg(N_{S_{k5}/D_5}|_E)=0,\qquad
+ \deg(N_{S_{k5}/D_k}|_E)=-1.
+\end{equation}
+特に第一の line の connection curvature を $\kappa_x$、$w_x>0$ とすると、
+$E$ 全体を含む neighborhood 上に smooth form $\beta$ で
+\begin{equation}\label{exc:impossible-balance}
+ d\beta=\omega_e+w_x\kappa_x
+\end{equation}
+を満たすものは存在しない。
+従って、第\ref{mc:main}節の one-normal straightening の仮定を、
+この normal line 一つだけで全 $E$ に拡張することはできない。
+\end{proposition}
+
+\begin{proof}
+半安定チャートは $(x,T,Y,z)$, $w=Yz$, $f=xT$ と、
+$(x,y,U,w)$, $z=Uw$, $f=xyU$ であり、重なりでは $y=YT$ である。
+$D_5$ 内の $S_{k5}$ の normal coordinate は両方の chart で $x$ なので、その line は $E$ 上で trivial である。
+$D_k$ 内の normal coordinates は $T,y$ であり、transition は $y=YT$ である。
+これは $E$ の normal line と同じ $\mathcal O(-1)$ の transition である。
+よって式\eqref{exc:component-degrees}を得る。
+なお strict triple divisor は $E$ と一点で交わるので、normal degrees の和とその交点数は
+$0-1+1=0$ となり、SNC relation と整合する。
+
+式\eqref{exc:impossible-balance}を $E$ 上で積分すれば、左辺は零、右辺は
+$e+w_x\int_E\kappa_x=e>0$ となり矛盾する。
+第一の normal degree が零なので、curvature と $c_1$ の符号規約には依存しない。
+\end{proof}
+
+この obstruction は $M_e\setminus D$ 上の one-normal collar を排除しない。
+そこでは $\kappa_x=0$, $\beta=\lambda_e$ と取れる。
+しかし $D$ を戻した際に、命題\ref{exc:residue}の residue と
+命題\ref{exc:whole-e}の degree を無視することはできない。
+例外曲線全体を扱うには、他の normal directions と corner data の収支を同時に扱う必要がある。
+正の weight を持つ normal direction を追加すれば自動的に balance する、という意味ではない。
+Curvature の符号と residue を含む収支は命題\ref{ct:degree-residue}を参照されたい。
+
+\subsection{Strict one-normal comparison の slanted face}
+
+次の計算は、full corner が必要になる位置を座標として示す。
+Flat $x$-normal bundle 上で normal moment を $\mu=\pi|x|^2$ とし、
+\begin{align*}
+ \lambda&=(\mu-w_x)d\theta_x+\lambda_e,\\
+ \alpha_*&=d\theta_x-\lambda_e/w_x,
+ &\lambda_*&=(\mu-w_x)\alpha_*
+            =(\mu-w_x)d\theta_x+r\lambda_e,
+ &r&=1-\mu/w_x>0
+\end{align*}
+と置く。これは第\ref{mc:single}節と同じ original/straightened の向きである。
+
+\begin{proposition}[Strict comparison と facet の傾き]
+\label{exc:slant}
+Actual coordinates から straightened coordinates への strict map
+$\Phi^*\lambda_*=\lambda$ は、$\mu,\theta_x$ と toric angles を保ち、
+\begin{equation}\label{exc:slant-map}
+ J_*=e+\frac{J-e}{r}
+       =\frac{J-e\mu/w_x}{r},\qquad
+ K_*=\frac K r
+\end{equation}
+と表される。従って target elliptic facet $J_*=0$ の pullback は
+\begin{equation}\label{exc:slant-face}
+ J=e\mu/w_x
+\end{equation}
+であり、actual divisor の facet $J=0$ とは $\mu>0$ で異なる。
+逆写像の表式は $J=rJ_*+e\mu/w_x$ である。
+
+Map が $M_e\setminus D$ 内に留まる domain は $J>e\mu/w_x$ である。
+従ってこの比較は、そのまま actual $J=0$ face にまで延長する collar を与えない。
+\end{proposition}
+
+\begin{proof}
+命題\ref{exc:darboux}の exact coordinates で
+\[
+ (\xi,\zeta)\longmapsto(\xi/\sqrt r,\zeta/\sqrt r)
+\]
+と取る。この map は角変数を保ち、$a=\rho_\xi,b=\rho_\zeta$ をそれぞれ $a/r,b/r$ へ送る。
+従って pullback は $\Phi^*\lambda_e=\lambda_e/r$ であり、
+上の $\lambda_*$ の表示から $\Phi^*\lambda_*=\lambda$ が厳密に成り立つ。
+また $J=e+a-b$, $K=b$ なので式\eqref{exc:slant-map}を得る。
+Target exact chart の不等式 $b/r<e+a/r$ は $J>e(1-r)=e\mu/w_x$ と同値である。
+その境界が式\eqref{exc:slant-face}である。
+
+同じ計算を Liouville field で書けば
+\[
+ Z_e=(J-e)\partial_J+K\partial_K,
+ \qquad \iota_{Z_e}\omega_e=\lambda_e,
+\]
+の時間 $-\log r$ の flow である。
+この field は $(Y,z)$-chart、すなわち exact chart では滑らかであるが、
+residue のある $D$ を越えては同じ形で用いられない。
+\end{proof}
+
+式\eqref{exc:slant-face}は一つの選択した strict comparison の帰結であり、
+一般の corner fibration の非存在を意味しない。
+ただし、flat normal collar の formula を使ったまま $J_*=0$ と actual $J=0$ を同一視することはできない。
+Normal moment、divisor face、primitive の三つを比較する際には、この shift を含める必要がある。
+
+\subsection{Actual surface への比較と相対的な適用範囲}
+
+\begin{corollary}[Graph K\"ahler form に対する actual restriction]
+\label{exc:actual-graph}
+半安定解消の graph K\"ahler form を第\ref{tc:surface}節のように選び、
+第二の projective factor の面積係数を $e$ とすれば、
+$S_{k5}$ の当該 neighborhood への制限は式\eqref{exc:kahler}と一致する。
+従ってその選択に対して、定理\ref{exc:bridge}は actual central surface 上の明示的な fibration である。
+\end{corollary}
+
+\begin{proof}
+$S_{k5}$ では $x=y=0$, $w=Yz$ である。
+第一の projective coordinate $[x:t]=[1:T]$ は $[1:0]$ に固定され、
+第二の $[xy:t]=[y:T]$ は $[Y:1]$ となる。
+従って ambient Euclidean form の制限は $\omega_z+\omega_w$、
+projective terms の制限は $e\omega_{\rm FS}[Y:1]$ であり、所要の式となる。
+\end{proof}
+
+他方、任意に与えられた actual symplectic form $\Omega$ と、
+元の代数的な $E,D$ の両方を固定して、この模型へ移す主張には注意が必要である。
+模型では $E,D$ は $p_\infty$ で symplectically orthogonal である。
+Pair を両方送る symplectomorphism はこの直交性を保存するので、
+actual pair が直交していなければ、そのままではそのような map は存在しない。
+
+Existence のために $E$ を補助的な symplectic sphere として動かせ、
+$E,D$ が正に横断交差する場合には、
+$D$ を固定して $p_\infty$ の小さい neighborhood 内で $E$ を直交化できる。
+その precise local statement は Evans \cite[\S5.2.1, Lemma 27]{evans-gompf} にある
+Gompf isotopy である。すなわち、zero section と fibers が直交する symplectic disc bundle の中で、
+zero section と一点で正に横断交差する symplectic surface を、交点近傍外では動かさず、
+その点の normal fiber と一致するように isotopy できる。
+ここでは zero section を $D$ として用いるので、$p_0$ とその近傍は動かさずに済む。
+これは一方の surface を動かす isotopy であり、元の pair を固定した ambient symplectomorphism ではない。
+
+直交化後、sphere の面積を $e=\int_E\Omega$ として合わせ、
+normal degree $-1$ と交点の plumbing chart を合わせれば、
+symplectic neighborhood theorem と relative Moser によって pair の小さい neighborhoods を同定できる
+\cite[\S\S7.3,9.2]{cds-local}。
+具体的には、sphere 上の area forms を全 area を保って合わせ、
+normal symplectic line bundles を同定し、交点の小さい開近傍では
+二つの方向を保つ symplectic plumbing identification を先に合わせる。
+その first-jet identification を延長した map の pullback form と模型の form は、
+zero section 上で full bilinear forms として一致する。
+Radial homotopy で得る primitive を用いた Moser field は zero section 上で零となる。
+Plumbing identification が既に一致する交点近傍では primitive も零に選べるので、
+その部分を固定したまま、十分小さい neighborhood で symplectic identification を与える。
+指定した end germs 上で initial identification が既に一致している場合だけ、その部分を固定して同じ議論ができる。
+注意\ref{exc:shrink}により、小さい $\varepsilon,\delta$ を選べば compact bridge をこの neighborhood 内に入れられる。
+
+従って、自由に local fibration を選ぶ surface-level existence と、
+既に選んだ二つの end fibrations を相対的に接ぐ問題は区別される。
+後者には少なくとも、compact focus fiber の semiglobal data、
+primitive の marked periods、normal bundle と first jets、
+$D$ に沿う residue の整合を確認する必要がある。
+点での focus quadratic の一致だけでは、命題\ref{exc:nodal-action}の action 差さえ検出できない。
+
+既知の surgery theorem の相対性も、この区別を省略しない。
+Symington の nodal trade \cite[\S6, Lemma 6.3, Theorem 6.5]{symington} は、
+node から edge への適切な embedded eigenray、途中の他の nodes の不存在、
+vanishing/collapsing covectors の lattice-basis 条件の下で局所手術を比較する。
+これは任意に指定した二つの end germs を同一視する定理ではない。
+Chakravarthy--Groman \cite[Theorem 1.1, Definitions 2.2--2.3]{cg-at-blowup} の
+almost-toric blow-up と symplectic blow-up の比較は、
+affine-convex region とその surgery triangle、region の相対内部に収まる ball embedding を仮定し、
+region 外で恒等な symplectomorphism を与える。
+Divisor を保つ結論には ball/divisor compatibility が加わる。
+具体的には、ball embedding が少し大きい ball に延長し、
+そこで divisor との交わりが coordinate complex plane の像となることを要求する。
+Blow-down 側では、exceptional sphere の toric $\mathcal O(-1)$ neighborhood 内で
+divisor が一つの normal fiber に対応することが compatibility である。
+本節ではこれらを存在引用の代用とせず、式\eqref{exc:kahler}--\eqref{exc:fibration}から fibers を直接構成した。
+
+本節により、例外曲線を横断する二つの surface ends を同一の明示模型で持つ段階は成立する。
+六次元の corner-to-curve gluing へ進むには、
+その模型を actual normal directions に持ち上げ、
+命題\ref{exc:whole-e}の degree と命題\ref{exc:slant}の moving facet を含む比較を行う必要がある。
+全ての artificial boundary の消失は、この surface-level statement からは従わない。

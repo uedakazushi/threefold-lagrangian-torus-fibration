@@ -1,0 +1,753 @@
+% !TeX root = ../../../threefold-lagrangian-torus-fibration.tex
+% 2026-11-21 / v1.0
+\section{Actual focus 補集合の境界写像と被覆空間}
+\label{tnc:exterior-topology}
+
+以下は，定理\ref{tnc:actual-curve}の曲線と，
+補題\ref{fhr:focus-block}の具体的な normal focus domain に対する結果である．
+整数 homology の群を列挙するだけでなく，両側の包含写像と
+補集合の fundamental group を求める．
+標準の nodal 模型は Auroux \cite[Section~5.1]{auroux-local} に現れ，
+四次元の fishtail 自体とその補集合を調べる考え方には，
+例えば $S^4$ の二つの fishtails への分解
+\cite[Introduction and Figure~1]{akbulut-double-fishtail}が先行する．
+ここではその diffeomorphism や symplectic gluing を借用せず，
+指定された埋込みの Hopf 商を直接使う．
+Homotopy 長完全列・Hopf bundle・Hurewicz theorem は
+\cite[Theorems~4.32 and 4.41, Example~4.45]{hatcher-bct}の標準的な入力である．
+以下の具体的な境界表示と被覆計算について包括的な新規性確認は未了である．
+
+\subsection{Hopf 商による actual 補集合の基本群}
+\label{tnc:focus-complement-pi1-section}
+
+ここでは $K_c$ の abstract な homotopy 型だけでなく，
+式\eqref{fhr:focus-map}による $\mathbb C^2$ 内の具体的な埋込みを使う．
+この情報により，前節で求めた $H_1(\mathcal V)=\mathbb Z$ を
+基本群の計算へ強められる．すべての corners は必要に応じて
+小さい collar 内で丸める．この操作は以下の基本群と包含写像を変えない．
+
+\begin{lemma}[Focus normal exterior の Hopf 商]
+\label{tnc:focus-exterior-hopf}
+$K_c\subset\operatorname{int}D^4_\rho\subset\mathbb C^2$ となる
+closed round ball を取り，
+\[
+ E=D^4_\rho\setminus\operatorname{int}K_c,
+ \qquad Y=\partial K_c
+\]
+とおく．このとき $\pi_1(E)\simeq\mathbb Z$ である．
+また $Y$ の normal circle を $a$，
+$XY-c$ の位相を一周する complementary fiber circle を $b$，
+命題\ref{tnc:focus-boundary-primitive}の positive-real section による
+focus base boundary circuit を $t$ とすると，適当な基点への経路を選んで
+\[
+ \pi_1(Y)\longrightarrow\pi_1(E)=\langle\tau\rangle,
+ \qquad a\longmapsto1,\quad b\longmapsto1,
+ \quad t\longmapsto\tau
+\]
+とできる．$\tau$ の向きは $t$ により定める．
+\end{lemma}
+
+\begin{proof}
+逆位相の作用
+\[
+ z\cdot(X,Y)=(zX,z^{-1}Y),\qquad z\in S^1,
+\]
+の商写像を
+\[
+ h:\mathbb C^2\longrightarrow\mathbb R\times\mathbb C,
+ \qquad h(X,Y)=(A,w),\quad
+ A=\pi(|X|^2-|Y|^2),\quad w=XY
+\]
+とする．式\eqref{fhr:radii}により $(A,w)$ は各 orbit を一意に定め，
+原点以外の orbit は自由な $S^1$ である．
+特に $h$ は $\mathbb C^2/S^1\simeq\mathbb R^3$ を与え，
+原点を除けば principal circle bundle である．
+さらに
+\[
+ A^2+4\pi^2|w|^2
+   =\pi^2(|X|^2+|Y|^2)^2
+\]
+なので $D^4_\rho$ の商は ellipsoid
+\[
+ D=\{(A,w):A^2+4\pi^2|w|^2\le\pi^2\rho^4\}
+\]
+であり，$h:\partial D^4_\rho\to\partial D$ は Hopf bundle である．
+これは第二複素座標を共役にした通常の Hopf 写像であり，
+Euler 数の絶対値は一である．
+
+$r_\pm=\sqrt{q_\pm}$ とおくと
+\[
+ \mathcal Q=[-a_*,a_*]\times
+       \{w:r_-\le|w-c|\le r_+\},\qquad
+ K_c=h^{-1}(\mathcal Q).
+\]
+$\mathcal Q$ は $D$ の内部にある unknotted solid torus である．
+実際 $(A,r,\theta)\mapsto(A,c+r e^{i\theta})$ により
+rectangle $[-a_*,a_*]\times[r_-,r_+]$ と $S^1$ の積であり，
+core は平面 $A=0$ 内の丸い円として選べる．
+$r_-<c<r_+$ だから $(A,w)=(0,0)$ はその内部にある．
+従って
+\[
+ B=D\setminus\operatorname{int}\mathcal Q,
+ \qquad h:E\longrightarrow B
+\]
+は fixed point を持たない principal circle bundle である．
+$D$ の外側に ball を付けて $S^3$ と見ると，
+unknotted solid torus の exterior も solid torus である．
+従って $B$ は solid torus から open three-ball を除いたものと同相であり，
+\[
+ \pi_1(B)\simeq\mathbb Z.
+\]
+その原始生成元は $\mathcal Q$ の meridian である．
+
+Bundle の homotopy 長完全列から
+\[
+ \pi_1(S^1)\longrightarrow\pi_1(E)
+       \xrightarrow{h_*}\pi_1(B)\longrightarrow1
+\]
+は完全である．Fiber circle を $B$ 内の経路に沿って
+outer boundary $\partial D$ まで運ぶと，その移送先は
+$h^{-1}(\partial D)=S^3$ 内の Hopf fiber である．
+$S^3$ は単連結なので，この orbit は $E$ 内で null-homotopic である．
+従って左の写像は零であり，$h_*$ は同型になる．
+同じことは outer $S^2$ に対する connecting map
+$\pi_2(B)\to\pi_1(S^1)$ が Hopf Euler 数 $\pm1$ により
+全射となることからも従う．
+
+残る境界写像は商空間で直接読める．$a$ は $h$ の fiber なので消える．
+$r_-<r<c$ を固定し，face $A=a_*$ で
+\[
+ w(\theta)=c+r e^{i\theta},\qquad
+ X(\theta)=\sqrt{P_X(a_*,w(\theta))/\pi}>0,
+ \quad Y(\theta)=w(\theta)/X(\theta)
+\]
+と取った $b$ は $\mathcal Q$ の longitude へ写る．
+この longitude は $A=a_*+\delta$ へ少し押し出し，
+その平面内の円板 $|w-c|\le r$ で埋められる．
+$\mathcal Q\Subset\operatorname{int}D$ と $D$ の凸性により，
+十分小さい $\delta>0$ ならこの円板と押出しは $B$ 内に取れる．
+従って $h_*(b)=1$ であり，$b$ も $E$ で消える．
+一方 $t$ は
+\[
+ w=c+\sqrt q>0,\quad
+ X=\sqrt{P_X(A,w)/\pi}>0,\quad Y=w/X>0,
+ \qquad (A,q)\in\partial R
+\]
+で与えられるので，$h(t)$ は $\theta=0$ における
+rectangle $[-a_*,a_*]\times[r_-,r_+]$ の境界である．
+すなわち $\mathcal Q$ の meridian を一周する．
+これが $\pi_1(B)$ の原始生成元なので結論を得る．
+\end{proof}
+
+\begin{proposition}[Normal exterior の homotopy 型]
+\label{tnc:focus-exterior-homotopy}
+補題\ref{tnc:focus-exterior-hopf}の $E$ は
+\[
+ \boxed{E\simeq S^1\vee S^2\vee S^3}
+\]
+を満たす．この同値で $S^1$ の正の生成元は $t$ の像に選べる．
+従って $\Lambda=\mathbb Z[\tau,\tau^{-1}]$ とすると，
+universal cover $\widetilde E$ の deck action を伴う homology は
+\[
+ H_1(\widetilde E;\mathbb Z)=0,\qquad
+ H_2(\widetilde E;\mathbb Z)\simeq\Lambda,
+ \qquad H_3(\widetilde E;\mathbb Z)\simeq\Lambda.
+\]
+また inclusion $\partial D^4_\rho=S^3\hookrightarrow E$ は，
+上の $S^3$ summand の inclusion に対応するよう選べる．
+\end{proposition}
+
+\begin{proof}
+前補題の $B$ は solid torus から interior three-ball を除いたものである．
+Sphere collar に一本の three-dimensional $1$-handle を付ける表示を取り，
+その handle を core arc に縮めると，$B$ は outer sphere $\partial D$
+と，その二点を結ぶ一本の arc の和へ homotopy equivalent になる．
+Arc の両端を sphere 内の経路に沿って同じ基点に移せば，
+pair として
+\[
+ (B,\partial D)\simeq(S^2\vee S^1,S^2)
+\]
+を得る．ここで $S^1$ の生成元は $\mathcal Q$ の meridian に取る．
+特に $S^2$ への制限が $\partial D$ の parametrization である
+homotopy equivalence $j:S^2\vee S^1\to B$ を選べる．
+
+Principal circle bundle $E\to B$ を $j$ で引き戻した全空間を $P$ とする．
+Pullback の map $P\to E$ は各 fiber 上の identity を与える．
+両 bundle の homotopy 長完全列と $j$ の homotopy equivalence を用いれば，
+これはすべての homotopy groups に同型を誘導する．
+両全空間は CW 型を持つので，Whitehead の定理により
+$P\to E$ は homotopy equivalence である．
+その $S^2$ 上の部分は Euler 数 $\pm1$ の Hopf bundle で，全空間は $S^3$，
+$S^1$ 上の部分は trivial bundle で，全空間は $S^1_a\times S^1_t=T^2$ である．
+Wedge point 上では両者の同じ fiber circle を同定する．従って
+\[
+ P=S^3\cup_{S^1_a}T^2.
+\]
+双方への fiber inclusions は cofibrations なので，これは homotopy pushout でもある．
+$S^1_a\to S^3$ は null-homotopic であるから，この arrow を定数写像へ変えても
+homotopy pushout の homotopy 型は変わらない．よって
+\[
+ P\simeq S^3\vee(T^2/S^1_a).
+\]
+この同値は $S^3$ 側の構造写像を保つ homotopy pushout の比較として取れる．
+$T^2$ の CW 表示で $1$-cells を $a,t$，$2$-cell の attaching word を
+$ata^{-1}t^{-1}$ とする．Subcomplex $S^1_a$ を潰すと，
+残る attaching loop は $tt^{-1}$ で null-homotopic だから
+\[
+ T^2/S^1_a\simeq S^1_t\vee S^2.
+\]
+これで所要の wedge 分解と outer $S^3$ の主張を得る．
+
+$S^1\vee S^2\vee S^3$ の universal cover は，
+整数で添字を付けた直線上の各頂点に $S^2$ と $S^3$ を一つずつ付けた CW complex である．
+Deck generator $\tau$ は添字を一つ進める．
+従って次数 $2,3$ の cellular homology はそれぞれ自由 rank-one
+$\Lambda$-module であり，次数 $1$ の homology は零である．
+\end{proof}
+
+\begin{theorem}[Actual focus 補集合の基本群と両側の境界写像]
+\label{tnc:actual-complement-pi1}
+定理\ref{tnc:actual-complement-homology}の設定で，
+\[
+ \mathcal U=C'\times K_c\subset X_d,
+ \qquad
+ \mathcal V=\overline{X_d\setminus\operatorname{int}\mathcal U}
+\]
+とする．この具体的な product block の補集合は
+\[
+ \boxed{\pi_1(\mathcal V)\simeq\mathbb Z}
+\]
+を満たす．$\pi_1(\mathcal U)\simeq\pi_1(C')\times\langle b\rangle$，
+$\pi_1(\partial\mathcal U)\simeq\pi_1(C')\times H_{\mathbb Z}$
+という既存の同定の下で，両側への包含写像は
+\[
+\begin{array}{c|cc}
+ &\pi_1(\mathcal U)&\pi_1(\mathcal V)=\langle\tau\rangle\\ \hline
+ \gamma\in\pi_1(C')&(\gamma,1)&1\\
+ a&(1,1)&1\\
+ b&(1,b)&1\\
+ t&(1,1)&\tau
+\end{array}
+\]
+で与えられる．基点の変更による共役を除き，$a,b,t$ は
+補題\ref{tnc:focus-exterior-hopf}で指定した実際の loops である．
+特に二つの包含写像を合わせた準同型の kernel は
+normal vanishing circle が生成する central subgroup
+$\langle a\rangle\simeq\mathbb Z$ である．
+\end{theorem}
+
+\begin{proof}
+系\ref{tnc:closed-block}で使った product neighborhood の内部で
+$K_c\Subset\operatorname{int}D^4_\rho$ となる ball を選ぶ．
+対応する通常の tubular neighborhood を
+$N=C'\times D^4_\rho$，その補集合を
+$V_0=\overline{X_d\setminus\operatorname{int}N}$ とすれば，
+collars を入れた意味で
+\[
+ \mathcal V=V_0\cup_{C'\times S^3}(C'\times E)
+\]
+である．
+
+Lefschetz の定理から $X_d$ は単連結である．
+さらに実余次元四の smooth surface $C'\subset X_d$ を除いても
+基本群は変わらない．実際 $X_d\setminus C'$ の任意の loop を
+$X_d$ 内の円板で埋め，境界を固定した相対一般位置により
+その円板を $C'$ と横断的にできる．
+$2+2<6$ なので交わりは空である．
+よって $X_d\setminus C'$ は単連結で，
+normal radial retraction により homotopy equivalent な $V_0$ も単連結である．
+
+補題\ref{tnc:focus-exterior-hopf}より
+$\pi_1(C'\times E)=\pi_1(C')\times\mathbb Z$ である．
+Intersection $C'\times S^3$ の基本群は $\pi_1(C')$ であり，
+$C'\times E$ 側へは第一因子として入り，$V_0$ 側へは自明に写る．
+従って van Kampen の定理により
+\[
+ \pi_1(\mathcal V)
+ =\bigl(\pi_1(C')\times\mathbb Z\bigr)
+      /\langle\!\langle\pi_1(C')\rangle\!\rangle
+ \simeq\mathbb Z.
+\]
+同時に $\gamma,a,b,t$ の $\mathcal V$ 側の像も得られる．
+
+$\mathcal U$ 側については $C'$ 因子の写像は identity である．
+補題\ref{tnc:focus-homotopy}により $\pi_1(K_c)=\mathbb Z$ で，
+$\vartheta=(XY-c)/|XY-c|$ はその同型を与える．
+上で指定した $b$ の $\vartheta$-degree は一だから生成元である．
+$a$ は $\vartheta$ の下で定数であるので消え，
+$t$ は表示した positive-real section が $R$ 全体へ延びるので消える．
+これで表を得る．
+
+最後に
+\[
+ H_{\mathbb Z}
+ =\langle a,b,t\mid[a,b]=[a,t]=1,\ [t,b]=a\rangle
+\]
+（向きにより $a$ を逆にする）では，$a$ を殺した商は
+$\mathbb Z b\oplus\mathbb Z t$ であり，kernel は
+central subgroup $\langle a\rangle$ そのものである．
+$C'$ 因子は $\mathcal U$ 側に忠実に残るため，
+両側への同時写像にもこれ以外の kernel はない．
+\end{proof}
+
+\begin{remark}[Filling に対する基本群の必要条件]
+\label{tnc:pi1-filling-constraint}
+この計算は abstract な $S^1\vee S^2$ の任意の埋込みに対する主張ではない．
+Actual block の Hopf 商と，normal disk bundle の内部での product 埋込みを使っている．
+従ってこの boundary marking を保つ relative filling では，
+focus base circuit $t$ は補集合の基本群の生成元として残り，
+曲線方向の loops と normal fiber の $a,b$ は消えなければならない．
+特に $t$ を補集合内の円板で閉じるような候補は排除される．
+一方，この必要条件と前節の homology 条件を満たすことだけでは，
+所定の作用周期・Maslov data・whole boundary foliation を保つ
+Lagrangian filling の存在は従わない．
+\end{remark}
+
+\subsection{Focus face の全整数境界写像}
+\label{tnc:boundary-maps-section}
+
+この節では，normal framing を固定した actual product embedding
+$\mathcal U=C'\times K_c\subset N=C'\times D^4\subset X_d$
+に対し，両側の境界包含が誘導する整数homology写像を決定する．
+群の階数だけでなく，regular torus，そのvanishing cycleのtransport，
+normal meridianの像を区別する．全てのhomologyは整数係数とする．
+
+$Y=\partial K_c$，$E=\overline{D^4\setminus\operatorname{int}K_c}$，
+$\mathcal V_0=\overline{X_d\setminus\operatorname{int}N}$ とおく．
+Cornersを丸めると
+\[
+ \mathcal V=\mathcal V_0\cup_{C'\times S^3}(C'\times E),
+ \qquad \partial\mathcal U=C'\times Y.
+\]
+$Y$の向きは$K_c$からの境界向きとし，$E$のouter sphereの向きを
+$[S^3]=[Y]\in H_3(E)$となるよう固定する．
+
+\begin{lemma}[Normal face のmarked生成元と二つの包含]
+\label{tnc:normal-boundary-maps}
+命題\ref{tnc:focus-boundary-homology}の生成元を，次のように選べる．
+$a$は逆位相normal circleのorbit，$b$はregular torus内で
+$\vartheta=(XY-c)/|XY-c|$のdegreeが一となるloop，
+$t$は命題\ref{tnc:focus-boundary-primitive}のpositive-real sectionによる
+focus base boundary circuitである．
+$F$をregular torusの基本類，$T$を同sectionの上で$a$をtransportした
+torusの基本類とすると
+\[
+ H_1(Y)=\mathbb Z b\oplus\mathbb Z t,
+ \qquad H_2(Y)=\mathbb Z F\oplus\mathbb Z T,
+ \qquad H_3(Y)=\mathbb Z[Y].
+\]
+$H_1(K_c)=\mathbb Z\beta$，$H_2(K_c)=\mathbb Z\sigma$および
+\[
+ H_1(E)=\mathbb Z\mu,\qquad H_2(E)=\mathbb Z\nu,
+ \qquad H_3(E)=\mathbb Z\zeta
+\]
+の向きを適切に選ぶと，二つの包含写像は
+\[
+\begin{array}{c|cc}
+ \text{cycle on }Y & H_*(K_c)&H_*(E)\\ \hline
+ b&\beta&0\\
+ t&0&\mu\\
+ F&\sigma&0\\
+ T&0&\nu\\
+ {[Y]}&0&\zeta
+\end{array}
+\]
+となる．$E$は連結で，$H_k(E)=0$ ($k\ge4$)である．
+\end{lemma}
+
+\begin{proof}
+$Y\to\partial R$のWang列において，$F$は
+$H_2(T^2)$からのprimitiveな像である．
+Normal orbit $a$はmonodromy不変であり，positive-real sectionに沿う
+orbit torus $T$はWang列の
+$H_2(Y)\to\ker(M-I:H_1(T^2)\to H_1(T^2))=\mathbb Z a$
+で$a$へ写る．従って$(F,T)$は整数基底である．
+$H_1$の$(b,t)$も同じWang列の整数基底である．
+
+Positive-real sectionは$R$全体に延びるので，$t$は$K_c$で消える．
+同sectionの各点にnormal circleを作用させる写像
+$S^1\times R\to K_c$は，$XY=c+\sqrt q>0$のため退化せず，
+境界が$T$となるsolid torusを与える．従って$T$も$K_c$で消える．
+$b$は$\vartheta$のdegree一のloopなので$\beta$の生成元へ写る．
+
+$F,b$の$E$での消滅を，具体的なchainで確認する．
+$\sqrt{q_-}<r<c$を固定し，face $A=a_*$，$Q=r^2$上のtorusを$F$に取る．
+$\delta>0$を十分小さくし，$A=a_*+\delta$を固定して
+\[
+ w=c+\rho e^{i\theta},\qquad 0\le\rho\le r,
+ \qquad
+ X=\sqrt{P_X(A,w)/\pi}>0,\qquad Y=w/X
+\]
+とおく．$w\ne0$であり，$A>a_*$なのでこのdiskは$E$に入る．
+その境界は$b$を$E$へ押し出したloopである．
+さらにnormal circleを作用させると$S^1\times D^2$が得られ，
+その境界は$F$の押出しとなる．従って$b,F$は$E$で零である．
+全chainは，$K_c$を含むround ballに余裕を持たせ，$\delta$を小さくすれば
+同じ$D^4$内に取れる．実際，$|w|\le c+r<c+\sqrt{q_+}$だからである．
+
+補題\ref{tnc:focus-homotopy}のretractionで，$F$はpinched torusへ
+写り，その二次基本類を生成する．従って$F\mapsto\sigma$である．
+最後に$D^4=K_c\cup_Y E$のMayer--Vietoris列を用いる．
+$H_3(Y)\to H_3(K_c)\oplus H_3(E)$，
+$H_2(Y)\to H_2(K_c)\oplus H_2(E)$，
+$H_1(Y)\to H_1(K_c)\oplus H_1(E)$はいずれも同型である．
+上で求めた零の像と整数基底を代入すると，$t,T,[Y]$の$E$での像が
+それぞれの群のprimitive生成元となる．
+次数零の列から$E$は連結であり，境界を持つcompact四次元多様体なので
+$H_k(E)=0$ ($k\ge4$)である．
+最後に$\partial E=S^3\sqcup(-Y)$から$[S^3]=[Y]=\zeta$を得る．
+\end{proof}
+
+\begin{proposition}[Actual補集合の局所・管状分解]
+\label{tnc:complement-product-splitting}
+$e=d-2$，$g=(d-3)(d-4)/2$，
+$\mathsf L=H_1(C')$，$u=[C']\in H_2(C')$とおく．
+包含$\mathcal V_0\to\mathcal V$は全整数homology上で単射であり，
+固定したproduct framingに対して加法的な分解
+\[
+ H_k(\mathcal V)\simeq H_k(\mathcal V_0)
+ \oplus \bigl(H_{k-1}(C')\otimes\mathbb Z\mu\bigr)
+ \oplus \bigl(H_{k-2}(C')\otimes\mathbb Z\nu\bigr)
+\]
+が成立する．負次数の群は零とする．
+これはhomology群の分解であり，空間の積分解やhomotopy分解ではない．
+
+$h\in H_2(\mathcal V_0)\simeq\mathbb Z$を
+$H_2(X_d)$の正の生成元へ写る生成元とする．
+また$m\in H_3(\mathcal V_0)$をnormal meridian $S^3$のclass，
+$\ell_x\in H_4(\mathcal V_0)$を$x\in\mathsf L$に沿うnormal sphereのclassとする．
+すると
+\[
+ \operatorname{ord}(m)=e,
+ \qquad \mathsf L\xrightarrow{\;x\mapsto\ell_x\;}H_4(\mathcal V_0)
+ \quad\text{は同型}
+\]
+であり，$C'\times E$のK\"unneth classのうち
+\[
+ u\otimes1\longmapsto eh,\quad
+ x\otimes1\longmapsto0,\quad
+ 1\otimes\zeta\longmapsto m,\quad
+ x\otimes\zeta\longmapsto\ell_x,\quad
+ u\otimes\zeta\longmapsto0
+\]
+となる．$\mu,\nu$の因子は表示した新しい直和因子へ恒等的に入る．
+\end{proposition}
+
+\begin{proof}
+$S^3\to E$は次数零と三で同型を誘導する．
+全homologyがtorsion-freeなのでK\"unneth公式から
+\[
+ H_k(C'\times S^3)\longrightarrow H_k(C'\times E)
+\]
+は各次数でsplit injectionであり，cokernelは
+$H_{k-1}(C')\otimes\mathbb Z\mu\oplus
+H_{k-2}(C')\otimes\mathbb Z\nu$である．
+従って$\mathcal V=\mathcal V_0\cup(C'\times E)$の
+Mayer--Vietoris列のconnecting mapは全次数で零となる．
+そのcokernel表示は$H_k(\mathcal V_0)$と上記二因子の直和を与える．
+
+$C'\times\{p\}\subset C'\times S^3$は$X_d$内で$C'$とhomologousであり，
+hyperplane degreeが$e$なので，$H_2(\mathcal V_0)\to H_2(X_d)$の同型の下で
+$eh$を表す．次数一の像は$H_1(\mathcal V_0)=0$により零である．
+Normal sphereの位数と$x\mapsto\ell_x$の同型は
+定理\ref{tnc:tubular-homology}のThom長完全列のconnecting mapそのものである．
+最後に$H_5(\mathcal V_0)=0$だから$u\otimes\zeta$の像も零である．
+\end{proof}
+
+\begin{theorem}[両側への全整数境界包含写像]
+\label{tnc:all-boundary-homology-maps}
+上の記号を用いる．$j_U:C'\times Y\to\mathcal U$，
+$j_V:C'\times Y\to\mathcal V$の全正次数整数homology写像は
+次の表で与えられる．$x$は$\mathsf L$の任意の元を動き，
+tensor記号と固定した点の因子は省略する．
+\[
+\begin{array}{c|c|c|c}
+ k& H_k(C'\times Y)\text{ の生成元}&(j_U)_*&(j_V)_*\\ \hline
+1&x&x&0\\
+ &b&\beta&0\\
+ &t&0&\mu\\ \hline
+2&u&u&eh\\
+ &xb&x\beta&0\\
+ &xt&0&x\mu\\
+ &F&\sigma&0\\
+ &T&0&\nu\\ \hline
+3&ub&u\beta&0\\
+ &ut&0&u\mu\\
+ &xF&x\sigma&0\\
+ &xT&0&x\nu\\
+ &[Y]&0&m\\ \hline
+4&uF&u\sigma&0\\
+ &uT&0&u\nu\\
+ &x[Y]&0&\ell_x\\ \hline
+5&u[Y]&0&0
+\end{array}
+\]
+次数零では両包含とも同型である．特に
+\[
+ \operatorname{coker}\bigl((j_V)_*:H_2(C'\times Y)\to H_2(\mathcal V)\bigr)
+ \simeq\mathbb Z/e\mathbb Z,
+\]
+また
+\[
+ \frac{H_3(\mathcal V)}{(j_V)_*H_3(C'\times Y)}\simeq H_3(X_d),
+ \qquad
+ (j_V)_*:H_4(C'\times Y)\twoheadrightarrow H_4(\mathcal V).
+\]
+従ってnormal faceの基本三次classは補集合の位数$e$のtorsionへ写り，
+regular torus $F$とvanishing-cycle transport torus $T$は，
+二つの側で異なるprimitive classを担う．
+\end{theorem}
+
+\begin{proof}
+$j_U=\operatorname{id}_{C'}\times(Y\to K_c)$なので，
+その列は補題\ref{tnc:normal-boundary-maps}とK\"unneth公式から得られる．
+$j_V$は$C'\times Y\to C'\times E\to\mathcal V$へ分解し，
+補題\ref{tnc:normal-boundary-maps}および
+命題\ref{tnc:complement-product-splitting}を順に適用すれば右列となる．
+次数二の像は$eh$と全ての$x\mu,\nu$で生成されるのでcokernelは$\mathbb Z/e$．
+次数三の像は$\mathbb Z/e\langle m\rangle$と
+$\mathsf L\otimes\mathbb Z\nu\oplus\mathbb Z u\mu$からなり，
+残る商はThom列によって$H_3(X_d)$である．
+次数四の像は$\ell_x,u\nu$で全体を生成する．
+\end{proof}
+
+\begin{remark}[非標準的なsplittingと未決定事項]
+\label{tnc:boundary-maps-scope}
+上の記述ではnormal framing，marked loops，orientationを固定した．
+$H_3(\mathcal V_0)$を
+$\mathbb Z^{b_d}\oplus\mathbb Z/e$と書く際の
+$H_3(X_d)$のliftは一般に非標準的であるが，torsion subgroup，
+$m$の像および表の境界像にこの選択は不要である．
+また，表は所定のactual embeddingに対する整数homologyの必要条件であり，
+作用周期，Maslov data，reduced foliation，relative symplectic fillingの
+存在を結論しない．特にhomology写像を合わせただけで
+Lagrangian fibrationを接着できるとは主張しない．
+\end{remark}
+
+\subsection{Focus 補集合の第二ホモトピー群と有限巡回被覆}
+\label{tnc:equivariant-pi2-section}
+
+引き続き $C=C^\prime$ とする．
+定理\ref{tnc:actual-complement-pi1}の積管状近傍を $N=C\times D^4$ とし，
+actual focus block を $\mathcal U=C\times K_c\subset\operatorname{int}N$ とする．
+\[
+ V_0=\overline{X_d\setminus\operatorname{int}N},\qquad
+ E=\overline{D^4\setminus\operatorname{int}K_c},\qquad
+ \mathcal V=V_0\cup_{C\times S^3}(C\times E).
+\]
+Corners は積 collar と整合するように丸める．
+命題\ref{tnc:focus-exterior-homotopy}により $E\simeq S^1\vee S^2\vee S^3$ である．
+$\pi_1(E)\simeq\mathbb Z$ の生成元を $\tau$ と固定する．
+定理\ref{tnc:actual-complement-pi1}の証明により $V_0$ は simply connected であり，
+$H_2(V_0;\mathbb Z)=\mathbb Z h$，
+$[C\times\{*\}]\mapsto e h$ とする．
+対象の超曲面では $e=d-2$，$g=(d-3)(d-4)/2$ であり，
+最後の写像は $H_2(V_0)\simeq H_2(X_d)$ と hyperplane degree $e$ から従う．
+
+以下では $\Lambda=\mathbb Z[\tau,\tau^{-1}]$ を群環，
+$\operatorname{aug}:\Lambda\to\mathbb Z$ を $\tau\mapsto1$ なる augmentation とする．
+$\mathbb Z$ を $\Lambda$-module として書くとき，$\tau$ は恒等に作用する．
+一般的な道具は van Kampen，Mayer--Vietoris，被覆空間論，
+および simply connected 空間に対する次数二の Hurewicz 同型である\cite[Theorem~4.32]{hatcher-bct}．
+ここでの具体的な module 計算の包括的な新規性は未確認である．
+
+\begin{theorem}[Actual 補集合の equivariant $\pi_2$]
+\label{tnc:equivariant-pi2}
+定理\ref{tnc:actual-complement-homology}で構成した actual product block の補集合を取る．
+このとき $\pi_1(\mathcal V)=\langle\tau\rangle\simeq\mathbb Z$ であり，
+その作用を含めた第二ホモトピー群は
+\begin{equation}\label{tnc:eq:equivariant-pi2}
+ \pi_2(\mathcal V)\simeq
+ \Lambda^{\,2g+1}\oplus\Lambda/\bigl(e(\tau-1)\bigr)
+\end{equation}
+である．直和分解は一般に canonical ではない．
+六次超曲面の $e=4$，$g=3$ では
+\[
+ \pi_2(\mathcal V)\simeq
+ \Lambda^7\oplus\Lambda/\bigl(4(\tau-1)\bigr).
+\]
+この主張のためには outer boundary $S^3\to E$ の次数三の包含写像を
+同定する必要はない．必要なのは上記の積接着と
+$H_2(\widetilde E;\mathbb Z)\simeq\Lambda$ である．
+\end{theorem}
+\begin{proof}
+$C\times S^3$ は連結であり，その基本群は $\pi_1(C)$ である．
+一方
+\[
+ \pi_1(V_0)=1,\qquad
+ \pi_1(C\times E)=\pi_1(C)\times\langle\tau\rangle.
+\]
+接着写像は $C$ 方向に identity なので，van Kampen の定理は
+後者の $\pi_1(C)$ 因子のみを殺し，$\pi_1(\mathcal V)=\langle\tau\rangle$ を与える．
+
+$\widetilde{\mathcal V}$ を universal cover とする．
+$V_0$ 上の被覆は整数で添字付けられた copies $V_{0,n}$ の非交和であり，
+$C\times E$ 上の被覆は $C\times\widetilde E$ である．
+実際，$\pi_1(C\times E)\to\pi_1(\mathcal V)$ の kernel は
+$\pi_1(C)$ である．交わりは $C\times S^3$ の整数個の copies となる．
+従って，deck transformation の作用を保つ Mayer--Vietoris 列を使える．
+
+$E\simeq S^1\vee S^2\vee S^3$ の universal cover は，
+直線状の contractible graph の各整数頂点に一つずつ $S^2$ と $S^3$ を付けた模型を持つ．
+特に
+\[
+ H_1(\widetilde E)=0,\qquad H_2(\widetilde E)=\Lambda\nu,
+\]
+ここで $\nu$ は一つの lift における二次球面 class である．
+K\"unneth により，$c=[C]$ と置くと
+\[
+ H_2(C\times\widetilde E)=\mathbb Z c\oplus\Lambda\nu,
+ \qquad H_1(C\times\widetilde E)=\mathbb Z^{2g},
+\]
+$\tau$ は $c$ と $H_1(C)$ に自明に作用する．
+
+Mayer--Vietoris 列の関係する部分は
+\begin{equation}\label{tnc:eq:cover-mv-degree-two}
+ \Lambda\xrightarrow{\alpha}
+ \Lambda h\oplus\mathbb Z c\oplus\Lambda\nu
+ \longrightarrow H_2(\widetilde{\mathcal V})
+ \longrightarrow\Lambda^{2g}
+ \xrightarrow{\beta}\mathbb Z^{2g}.
+\end{equation}
+各 boundary copy の $H_2$ 生成元は $C\times\{*\}$ である．
+$V_{0,n}$ への像は $e \tau^n h$ であり，
+$C\times\widetilde E$ への像は $c$ である．
+後者に $\nu$ 成分はない．これは boundary inclusion が
+$C$ の identity と $S^3\to E$ の積であり，
+その各 lift も同じ積形を持つためである．
+従って，符号を固定すると
+\[
+ \alpha(f)=\bigl(e f h,-\operatorname{aug}(f)c,0\bigr).
+\]
+同様に $H_1(V_0)=0$ で，$C$ 方向の $H_1$ class の像は各 copy で同一だから，
+$\beta$ は $2g$ 個の成分ごとの augmentation である．
+
+$I=\ker\operatorname{aug}=(\tau-1)\Lambda$ と置く．
+$\tau-1$ の乗法は $\Lambda$ 上で単射なので $I\simeq\Lambda$ である．
+列\eqref{tnc:eq:cover-mv-degree-two}から
+\begin{equation}\label{tnc:eq:pi2-extension}
+ 0\longrightarrow\operatorname{coker}\alpha
+ \longrightarrow H_2(\widetilde{\mathcal V})
+ \longrightarrow I^{2g}\longrightarrow0
+\end{equation}
+を得る．ここで
+\begin{align*}
+ \operatorname{coker}\alpha
+ &\simeq
+ \bigl(\Lambda h\oplus\Lambda c\bigr)
+   /\langle e h-c,(\tau-1)c\rangle\ \oplus\Lambda\nu\\
+ &\simeq\Lambda/\bigl(e(\tau-1)\bigr)\ \oplus\Lambda\nu.
+\end{align*}
+最後は $c=e h$ を代入した表示である．
+$I^{2g}$ は自由 $\Lambda$-module なので
+\eqref{tnc:eq:pi2-extension}は $\Lambda$-module の列として split する．
+最後に $\widetilde{\mathcal V}$ は simply connected なので
+Hurewicz により
+\[
+ \pi_2(\mathcal V)=\pi_2(\widetilde{\mathcal V})
+ \simeq H_2(\widetilde{\mathcal V};\mathbb Z)
+\]
+が deck action と整合し，\eqref{tnc:eq:equivariant-pi2}を得る．
+\end{proof}
+
+\begin{corollary}[Integral torsion と ordinary homology の区別]
+\label{tnc:pi2-torsion}
+$e>0$ とする．$\pi_2(\mathcal V)$ の整数係数 torsion 部分は
+\begin{equation}\label{tnc:eq:pi2-torsion}
+ \operatorname{Tor}_{\mathbb Z}\pi_2(\mathcal V)
+ \simeq\Lambda/e\Lambda
+\end{equation}
+であり，右辺の $1$ は特別な cyclic summand 内の $(\tau-1)h$ に対応する．
+一方，全 $\Lambda$-module の coinvariants は
+\[
+ \pi_2(\mathcal V)/(\tau-1)\pi_2(\mathcal V)
+ \simeq\mathbb Z^{2g+2}
+\]
+である．従って普通の $H_2(\mathcal V)$ が自由であることは，
+universal cover の $H_2$ に torsion がないことを意味しない．
+\end{corollary}
+\begin{proof}
+$M=\Lambda/(e(\tau-1))$ に augmentation を適用すると
+\[
+ 0\longrightarrow I/eI\longrightarrow M
+ \longrightarrow\mathbb Z\longrightarrow0
+\]
+を得る．$I/eI$ は $e$ で殺され，右辺は torsion-free なので
+これが $M$ の全 torsion 部分である．
+$\Lambda/e\Lambda\to I/eI$，$\overline f\mapsto\overline{(\tau-1)f}$ は同型である．
+自由 $\Lambda$ summands は整数 torsion を持たないため
+\eqref{tnc:eq:pi2-torsion}となる．
+Coinvariants は\eqref{tnc:eq:equivariant-pi2}に $\tau=1$ を代入して得られる．
+\end{proof}
+
+\begin{theorem}[有限巡回被覆の第二整数ホモロジー]
+\label{tnc:cyclic-cover-h2}
+$\mathcal V_m\to\mathcal V$ を
+$\pi_1(\mathcal V)=\mathbb Z$ の部分群 $m\mathbb Z$ に対応する
+$m$ 重連結巡回被覆とする．任意の $m\ge1$ に対し
+\begin{equation}\label{tnc:eq:cyclic-cover-h2}
+ H_2(\mathcal V_m;\mathbb Z)
+ \simeq
+ \mathbb Z^{\,m(2g+1)+1}\oplus(\mathbb Z/e\mathbb Z)^{m-1}.
+\end{equation}
+特に六次の場合，double cover では
+$H_2(\mathcal V_2;\mathbb Z)=\mathbb Z^{15}\oplus\mathbb Z/4$ となる．
+\end{theorem}
+\begin{proof}
+$E_m$ を $E$ の $m$ 重連結巡回被覆とすると
+\[
+ E_m\simeq S^1\vee\bigvee_{j=1}^mS^2\vee\bigvee_{j=1}^mS^3.
+\]
+また $\mathcal V_m$ は $C\times E_m$ に $m$ 個の $V_0$ を，
+それぞれ $C\times S^3$ 沿いに接着して得られる．
+従って K\"unneth と Mayer--Vietoris により，次数二の列は
+\[
+ \mathbb Z^m\xrightarrow{\alpha_m}
+ \left(\bigoplus_{j=1}^m\mathbb Z h_j\right)
+ \oplus\mathbb Z c\oplus\mathbb Z^{2g}\oplus\mathbb Z^m
+ \longrightarrow H_2(\mathcal V_m)
+ \longrightarrow(\mathbb Z^{2g})^m
+ \xrightarrow{\beta_m}\mathbb Z^{2g}\oplus\mathbb Z.
+\]
+中央の $\mathbb Z^{2g}$ は $H_1(C)\otimes H_1(E_m)$，
+最後の $\mathbb Z^m$ は $H_2(E_m)$ に由来する．
+$\alpha_m$ の第 $j$ 生成元の像は $e h_j-c$ であり，
+これら二つの追加 summands への像は零である．
+$\beta_m$ は $m$ 個の $H_1(C)$ を足し合わせる写像で，
+$H_1(E_m)=\mathbb Z$ への成分は零だから
+\[
+ \ker\beta_m\simeq\mathbb Z^{2g(m-1)}.
+\]
+
+関係 $c=e h_1$ で $c$ を消去し，$j\ge2$ について
+$z_j=h_j-h_1$ と置くと，残る関係は $e z_j=0$ である．
+従って
+\[
+ \left(\bigoplus_{j=1}^m\mathbb Z h_j\oplus\mathbb Z c\right)
+   /\langle e h_j-c:1\le j\le m\rangle
+ \simeq\mathbb Z\oplus(\mathbb Z/e\mathbb Z)^{m-1}.
+\]
+これは同じ関係行列の Smith invariants が
+$1,e,\ldots,e$ であることの明示的な計算でもある．
+自由群 $\ker\beta_m$ による extension は整数係数で split するので，
+free rank は
+\[
+ 1+2g+m+2g(m-1)=m(2g+1)+1
+\]
+となり，\eqref{tnc:eq:cyclic-cover-h2}が従う．
+\end{proof}
+
+\begin{remark}[Equivariant 計算との照合と filling への意味]
+Universal cover が simply connected で，deck group $m\mathbb Z$ の
+homological dimension が $1$ であることから，Cartan--Leray 列でも
+\[
+ H_2(\mathcal V_m;\mathbb Z)
+ \simeq \pi_2(\mathcal V)/(\tau^m-1)\pi_2(\mathcal V)
+\]
+を得る．上の証明はこの同型に頼らず有限被覆の接着から直接計算したものである．
+Ordinary homology と基本群が同じ候補 filling であっても，
+\eqref{tnc:eq:equivariant-pi2}と\eqref{tnc:eq:cyclic-cover-h2}に一致しなければ
+actual focus 補集合とは homotopy equivalent ではない．
+これらは必要な位相条件であり，relative symplectic filling や
+global Lagrangian fibration の存在を結論するものではない．
+\end{remark}

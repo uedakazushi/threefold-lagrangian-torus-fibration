@@ -1,0 +1,203 @@
+\section{Normal circle の重みと focus 位相の制約}
+\label{cw:section}
+
+Annulus 上で任意の tensor winding を実現できることと、
+その端を所定の divisor-normal circle を保って埋めることは異なる。
+本節では、この違いを Hamiltonian circle の整数重みで記述する。
+結論は、smooth Hamiltonian torus actions と smooth transverse focus integrals を
+保存する比較に対する必要条件であり、一般の corner fibration の非存在ではない。
+
+角変数は周期1とし、$\rho_u=\pi|u|^2$ とする。
+以下の線形座標は compatible complex structures に関するものであり、
+元の holomorphic coordinates と一致するとは限らない。
+原稿の disk frames に結論を適用するときは、それらとの symplectic first-jet comparison が
+削除 disk まで延びることを仮定する。
+
+\subsection{Divisor-normal circle と tensor weight}
+
+\begin{proposition}\label{cw:weight}
+標準 symplectic $\CC^3$ の原点近傍で、二つの period-one Hamiltonians を
+\[
+ H=\rho_x+a\rho_y+b\rho_z,\qquad J=\rho_y-\rho_z,
+ \qquad a,b\in\ZZ
+\]
+とする。$Q$ は smooth で $\{H,Q\}=\{J,Q\}=0$ とし、
+punctured $x$-axis 上で $(H,J,Q)$ の transverse type が focus--focus であるとする。
+Normal quadratic term の mixed coefficient を $c(x)$、
+削除 disk と逆向きの境界での winding を $k$ とすれば
+\[
+ c(e^{2\pi it}x)=e^{-2\pi i(a+b)t}c(x),\qquad
+ \boxed{k=a+b}.
+\]
+Marked vanishing circle $J$ を保つ integral change $H\mapsto H+mJ$ は
+$(a,b)$ を $(a+m,b-m)$ に変えるので、$k$ を変えない。
+\end{proposition}
+
+\begin{proof}
+$J$-invariant な normal quadratic は
+$A(x)\rho_y+B(x)\rho_z+\operatorname{Re}(c(x)yz)$ と書ける。
+正則方向を reduction するときに引く $H$ の倍は diagonal quadratic なので、
+mixed coefficient は変わらない。
+Focus 条件から $c(x)\ne0$ である。
+$H$-flow は $(x,y,z)\mapsto
+(e^{2\pi it}x,e^{2\pi iat}y,e^{2\pi ibt}z)$ であるから、
+$Q$ の invariance により上の変換則を得る。
+反時計回りの winding は $-(a+b)$ であり、境界向きを逆にすれば $k=a+b$。
+最後の主張は moment の式から従う。
+\end{proof}
+
+\begin{corollary}[所定の normal circle を保つ端の必要条件]
+\label{cw:divisor}
+$S=\{x=0\}$ を点ごとに固定し、normal line に weight $+1$ で作用する
+Hamiltonian circle が、端の fibration の circle factor として指定されているとする。
+さらに vanishing circle と二つの normal weight lines が endpoint まで smooth に延びるとする。
+この場合、disk-extending frames に対する boundary focus winding は零である。
+従って winding $1$ または $2$ の端を、これらの action と first jets を保って
+この種の normal collar に同定することはできない。
+\end{corollary}
+
+\begin{proof}
+Pointwise fixed divisor の tangent directions には circle weight がないので、
+命題の座標で $a=b=0$ となる。
+Smooth Hamiltonian torus action を使う一般の座標でも、equivariant Darboux により
+同じ計算に帰着する。ここでは torus-invariant metric の exponential map で線形化し、
+引き戻した形式と tangent space の定数形式の差に radial homotopy を適用し、
+その invariant primitive による Moser isotopy を取れば十分である。
+この同定は原点を固定し first jet が恒等である。
+Disk へ延びる weight-line frames 間の transition の winding は零なので、結果は指定 frames にも成り立つ。
+\end{proof}
+
+この障害は、endpoint まで focus 非退化性を要求しない場合にも、
+punctured collar 上で所定の normal circle と $Q$ が可換である限り成り立つ。
+ただし vanishing circle と weight-line comparison の smooth extension はここでの仮定である。
+
+命題\ref{lc:framing:compact-end}の phase $e^{2\pi in\theta}$ は、
+本節の向きでは $k=-n$ に対応し、その longitudinal Hamiltonian は
+\[
+ H_n=\rho_x-n\rho_y=\rho_x+k\rho_y.
+\]
+その weights は $(1,k,0)$ であり、$k\ne0$ なら $S$ を点ごとに固定しない。
+任意の整数 $m$ に対し $H_n+mJ$ の二つの tangent weights の和は $k$ なので、
+vanishing cycle を加えるだけでは所定の normal circle に直せない。
+また $k\ne0$ の equivariant coefficient が原点へ smooth に延びれば $c(0)=0$ である。
+この場合、endpoint に同じ非退化 transverse focus 構造が残ることはない。
+
+第\ref{mc:main}節の moving collar は moment と normal circle を保存し、
+zero section に恒等で first jet も恒等である。
+従って、この構成が非零の boundary tensor winding を消すことはない。
+参照 surface の focus germ から得る smooth collar の位相は、上の意味で winding 零である。
+これは reduced foliation を半径方向に動かせることと両立する。
+
+\subsection{三つの focus axes を持つ一般の smooth torus corner}
+
+\begin{theorem}\label{cw:torus-rigidity}
+六次元 symplectic manifold の点 $p$ を固定する smooth Hamiltonian $T^2$-action を考える。
+作用は germ として effective とし、compatible complex tangent representation の
+三つの weight lines の weights を $v_x,v_y,v_z\in\ZZ^2$ とする。
+$Q$ は smooth な $T^2$-invariant function とする。
+三つの punctured coordinate axes 上で、torus moment と $Q$ による積分系が
+rank one の nondegenerate transverse focus--focus 型を持つと仮定する。
+このとき
+\[
+ v_x+v_y+v_z=0,
+\]
+かつ任意の二つの weights は $\ZZ^2$ の basis である。
+従って torus の integral basis を変えれば weights は
+$(1,0),(0,1),(-1,-1)$ となる。
+各 axis の disk-extending normal frames における mixed coefficient の
+削除境界 winding は $-1$ である。
+この結論に $Q$ が単項式から作られるという仮定は不要である。
+\end{theorem}
+
+\begin{proof}
+Equivariant Darboux により action を線形化する。
+$v_x=0$ なら effectiveness により $v_y,v_z$ は独立であり、
+その二つの moment quadratics は $y,z$ 上に elliptic--elliptic Cartan を与える。
+これは仮定に反するので、全 $v_i$ は非零である。
+$x$-axis 上の正則 orbit の connected stabilizer を $K_x$ とする。
+その symplectic slice は $y,z$ の二つの complex lines である。
+Focus--focus Cartan 内の非自明な周期 flow は、その標準 circle flow の倍である。
+従って $K_x$ の二つの weights は非零で等しい大きさの反対符号となる。
+これは
+\[
+ \det(v_x,v_y)=-\det(v_x,v_z)\ne0
+\]
+を意味する。直接には、二つの weights が反対でなければ invariant quadratic は
+diagonal forms、または同符号の Hermitian forms しか持たず、focus Cartan を張れない。
+
+同じ議論を他の axes に適用する。
+$v_x,v_y$ は独立なので $v_z=A v_x+B v_y$ と書ける。
+$x$-axis の条件から $B=-1$、$y$-axis の条件から $A=-1$ となり、
+$v_x+v_y+v_z=0$ を得る。
+Effective な tangent representation の weights は character lattice 全体を生成する。
+第三の weight は前二つの和の負なので、前二つだけで $\ZZ^2$ を生成する。
+従って任意の二つが integral basis である。特に全 weights は primitive であり、
+axis stabilizers の finite-component 問題もこの仮定の下では生じない。
+
+$x$-axis の mixed coefficient を $c_x(x)$ とする。
+Normal product $yz$ の character は $v_y+v_z=-v_x$ なので、
+$T^2$-invariance は
+\[
+ c_x(e^{i\phi}x)=e^{i\phi}c_x(x)
+\]
+を与える。$v_x\ne0$ なので、$e^{i\phi}$ は全ての circle phases を動く。
+Focus 非退化性から $c_x(x)\ne0$ であり、従って反時計回りの winding は $+1$、
+削除境界向きでは $-1$ となる。
+正則方向を reduction する際の moment の補正は diagonal quadratic に限られるので、
+この mixed coefficient の計算を変えない。他の axes も同様である。
+\end{proof}
+
+有限な ineffective kernel を許す場合も、その kernel を割った torus について同じ結論を得る。
+元の character lattice に関する ``二つの weights が basis'' という結論は、effectiveness なしには主張しない。
+またこれは weights と phase の rigidity であり、compact singular fiber の
+semiglobal invariant や whole-fiber symplectic type の分類ではない。
+
+\subsection{正の winding と他の singular strata}
+
+正の winding を持つ smooth な模型自体は作れるが、他の strata の型が変わる。
+特に
+\[
+ H=\rho_x+2\rho_y,\qquad J=\rho_y-\rho_z,\qquad
+ Q=|\bar x^2yz-\varepsilon|^2
+\]
+を考える。三関数は Poisson commute する。
+$x$-axis の $x\ne0$ では focus 型で、mixed coefficient は
+$-2\varepsilon\bar x^2$、削除境界 winding は $+2$ である。
+一方、$x=0$, $yz\ne0$ では $dH,dJ$ が独立で $dQ=0$ だから rank は2であり、
+その transverse quadratic は
+\[
+ -2\varepsilon\operatorname{Re}(y_0z_0\bar x^2)
+\]
+となる。これは非退化な hyperbolic quadratic である。
+従ってここには rank-two hyperbolic stratum が現れる。
+Torus の stabilizer は $\ZZ/2$ であり、その生成元は normal coordinate に
+$x\mapsto-x$ と作用する。この finite twisting と connected fiber の問題を含む
+局所 leaf space の分岐型は、二次形式だけから指定しない。
+
+これに対し $y$-axis または $z$-axis では、正則方向に transverse な
+$Q-\varepsilon^2$ の最初の項が次数3なので、rank-one singularities は退化する。
+従って winding $+2$ を実現することと、全 axes を非退化 focus 型に保つことは異なる。
+また $H$ の action は $\{x=0\}$ を点ごとに固定する normal action ではない。
+
+\subsection{適用範囲と研究方針への帰結}
+
+定理\ref{cw:torus-rigidity}により、三つの focus axes と smooth Hamiltonian $T^2$ を保ったまま、
+単項式を一般の smooth invariant function に変えるだけでは、original disk winding $-1$ を変えられない。
+第\ref{sc:phase}節の半安定 frame との比較では、さらに実際の frame transition を入れる必要がある。
+一方、系\ref{cw:divisor}は、その比較後に所定の divisor-normal circle を保つ場合の制約を直接与える。
+
+六次の $C_{56}$ の全24端にこの smooth equivariant collar 条件と disk-extending first jets を課すと、
+各端の winding は零になる。しかし determinant normal degree は36なので、
+命題\ref{lc:framing:winding}による必要な総和36を満たせない。
+従って、既存の transverse focus atlas と全ての prescribed normal circles をこの意味で保つ方式だけでは、
+全24端を閉じることはできない。
+これは一般の boundary-free Lagrangian fibration の非存在ではない。
+少なくとも一部の端では、circle action の同時延長、smooth focus atlas、
+またはその disk-framed first jets の比較という仮定を変更する必要がある。
+
+\textbf{固定した非零 degeneration parameter の neck は annulus である。}
+そこでは非零 winding の exact shear は依然として定義できる。
+本節の延長障害を適用するには、central component の削除 disk または zero section まで
+vanishing action と first-jet comparison が延びるという追加条件が必要である。
+従って、$t\ne0$ の finite neck だけで接着する構成や、$t\to0$ で非一様になる比較は
+この障害によって排除されない。

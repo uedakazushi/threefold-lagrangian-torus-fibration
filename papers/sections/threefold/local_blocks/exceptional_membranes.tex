@@ -1,0 +1,352 @@
+\section{例外曲線の移送に対する面積障害と相対 membrane}
+\label{exm:section}
+
+第\ref{tc:section}節の central exceptional curves を、
+非零 slice へどの意味で比較できるかを明確にする。
+Punctured curve の compact subsets に対する既存比較は成立するが、
+正面積の閉曲線全体を symplectic surface として運ぶことには、より強い制限がある。
+以下ではその制限を証明し、代わりに非零 slice 内で実際に得られる
+symplectic disks と、その境界に残る作用を明示する。
+これらの disks を相対 membrane と呼ぶ。
+Torus fibration の saturated cap や complete corner が得られた、という意味ではない。
+
+\subsection{Exact な smoothing には閉じた正面積曲線を移せない}
+
+\begin{proposition}[Whole exceptional surface の局所移送障害]
+\label{exm:exact-obstruction}
+$(M,\omega=d\lambda)$ を exact symplectic manifold、
+$(\Sigma,\sigma)$ を closed oriented surface とし、
+$e=\int_\Sigma\sigma>0$ とする。
+任意の smooth map $f:\Sigma\to M$ に対して
+\[
+ \int_\Sigma f^*\omega=0
+\]
+である。従って $f^*\omega=\sigma$ となる map、特に symplectic immersion は存在しない。
+$\Sigma$ を symplectic submanifold として含む近傍を $M$ へ
+symplectically 埋め込むこともできない。
+
+第\ref{tc:section}節の chosen graph model では、各 $\tau\ne0$ について、
+central exceptional sphere $\ell_i$ の全体を含む symplectic neighborhood を
+$(\widetilde V_\tau,\Omega_\tau)$ へ埋め込むことは不可能である。
+これは $\tau\to0$ で一様な比較だけに対する制限ではない。
+\end{proposition}
+
+\begin{proof}
+Stokes の公式から
+$\int_\Sigma f^*\omega=\int_\Sigma d(f^*\lambda)=0$ となる。
+近傍の embedding があれば、その $\Sigma$ への制限が反例となる。
+
+Chosen graph model の非零 fiber は $\CC^3$ と同型であり、
+命題\ref{tp:radial}は全域の exact symplectomorphism
+\[
+ \Phi_\tau:
+ (\widetilde V_\tau,\Omega_\tau,\lambda_\tau)
+ \longrightarrow(\CC^3,\omega_{\rm std},\lambda_{\rm std})
+\]
+を与える。
+他方、命題\ref{tc:resolution}と式\eqref{tc:kahler}から
+$\int_{\ell_i}\widetilde\Omega=e_i>0$ である。
+従って最初の主張を適用できる。
+\end{proof}
+
+この障害は primitive の一致を仮定していない。
+また、source の正面積を縮小しても、target が exact である限り障害は残る。
+第\ref{exc:section}節の whole $E$ を含む surface bridge を、
+その symplectic form のまま非零 local fiber へ移す方式も同様に排除される。
+一方、$E\setminus D$ の compact subsets に対する比較、
+中央曲線を切って境界を持つ領域へ置き換える操作、
+または全体の特異 fibration を別に作る操作は排除しない。
+
+\begin{corollary}[全曲線上の形式の近似にも残る下限]
+\label{exm:form-gap}
+$\nu$ を $\Sigma$ 上の正の area form、$V=\int_\Sigma\nu$ とし、
+二形式 $g\nu$ の norm を $\|g\nu\|_{\nu,\infty}=\sup_\Sigma|g|$ と定める。
+命題\ref{exm:exact-obstruction}の任意の $f$ について
+\[
+ \|f^*\omega-\sigma\|_{\nu,\infty}\ge\frac eV.
+\]
+従って任意の smooth maps $f_\tau:\Sigma\to\widetilde V_\tau$ を使っても、
+$f_\tau^*\Omega_\tau$ を $\sigma$ に $C^0$ 収束させることはできない。
+\end{corollary}
+
+\begin{proof}
+$f^*\omega-\sigma=g\nu$ と置けば $\int_\Sigma g\nu=-e$ であり、
+$e\le V\sup|g|$ となる。
+\end{proof}
+
+ここで否定しているのは、閉曲線全体上での pullback forms の収束である。
+Resolved total space 内で集合として中央曲線へ近づくことや、
+puncture を除いた compact sets 上の $C^\infty$ 収束とは異なる。
+
+\subsection{Actual hypersurface の面積の量子化}
+
+\begin{proposition}[Small exceptional area の全体への移送障害]
+\label{exm:quantization}
+$(X_\tau,\omega_\tau)$ が
+\[
+ [\omega_\tau]=\mathfrak a\mathsf H,
+ \qquad \mathfrak a>0,
+ \qquad \mathsf H\in H^2(X_\tau;\ZZ)
+\]
+を満たすとする。
+任意の smooth map $f:\Sigma\to X_\tau$ に対して
+\[
+ \int_\Sigma f^*\omega_\tau
+ =\mathfrak a\langle\mathsf H,f_*[\Sigma]\rangle
+ \in\mathfrak a\ZZ.
+\]
+従って $e\notin\mathfrak a\ZZ$ の曲線 $(\Sigma,\sigma)$ は、
+面積を保って $X_\tau$ へ symplectically 移せない。
+特に $0<e<\mathfrak a$ の場合に適用できる。
+
+さらに系\ref{exm:form-gap}の記号で
+\[
+ \|f^*\omega_\tau-\sigma\|_{\nu,\infty}
+ \ge\frac{\operatorname{dist}(e,\mathfrak a\ZZ)}V.
+\]
+$e\notin\mathfrak a\ZZ$ なら、maps の homotopy classes を変えても
+全曲線上で $f_\tau^*\omega_\tau\to\sigma$ という $C^0$ 近似は不可能である。
+\end{proposition}
+
+\begin{proof}
+$f_*[\Sigma]$ は integral homology class なので、
+$\mathsf H$ との pairing は整数である。
+差の積分の絶対値は $\operatorname{dist}(e,\mathfrak a\ZZ)$ 以上であり、
+前の系と同じ積分評価で norm の下限を得る。
+\end{proof}
+
+本稿では $\mathsf H=c_1(\mathcal O_{X_\tau}(1))$ である。
+Chosen polarization $\mathfrak aH+\eps A$ の $A$ は central divisor に支持されるため、
+非零 slice の class は $\mathfrak a\mathsf H$ である。
+Ordered triple $i<j<k$ の二つの exceptional areas は
+\[
+ e_1=(j-i)\eps,\qquad e_2=(k-j)\eps.
+\]
+例えば既存の smallness 条件に
+$0<\eps<\mathfrak a/(d-1)$ を加えれば、これらは $(0,\mathfrak a)$ に入る。
+六次では $5\eps<\mathfrak a$ が十分である。
+この場合、whole exceptional sphere を area-preserving に移す方式は、
+exact な local chart の外へ出るだけでも救われない。
+これは $c_1$ の負性や rational curves の非存在を使う議論ではなく、
+面積が $\mathfrak a$ 以上の symplectic spheres を排除してはいない。
+
+\subsection{Puncture に残る作用と反対向きの充填}
+
+\begin{proposition}[Punctured sphere の boundary period]
+\label{exm:puncture-period}
+$E\simeq\PP^1$、$\omega_E=e\omega_{\rm FS}$、
+$\int_E\omega_{\rm FS}=1$ とする。
+有限座標 $Y$、$U=Y^{-1}$、$R=|Y|^2$ を用いると、
+それぞれの chart で滑らかな primitives は
+\[
+ \lambda_B=e\frac{R}{1+R}\,d\theta_Y,
+ \qquad
+ \lambda_C=e\frac{|U|^2}{1+|U|^2}\,d\theta_U
+\]
+と取れ、overlap で
+\[
+ \lambda_B=\lambda_C-e\,d\theta_U
+\]
+を満たす。
+$D_R=\{|Y|\le\sqrt R\}\subset E$ の正向き境界について
+\[
+ \operatorname{Area}(D_R)
+ =\int_{\partial D_R}\lambda_B
+ =e\frac{R}{1+R}\longrightarrow e.
+\]
+一般に、正面積 $e$ の closed surface を puncture した compact exhaustion
+$\Sigma_\epsilon$ を exact manifold $(M,d\lambda)$ へ symplectically 移せば、
+transported boundary の $\lambda$-period は $e$ へ収束する。
+\end{proposition}
+
+\begin{proof}
+$d\theta_Y=-d\theta_U$ と $R=|U|^{-2}$ を代入すれば primitive の差を得る。
+残りは表示の直接積分と Stokes の公式である。
+\end{proof}
+
+$\partial\Sigma_\epsilon$ は deleted disk の positive meridian と逆向きである。
+従って puncture-positive の向きで書いた limiting period は $-e$ となる。
+この period は smooth exact gauge $\lambda\mapsto\lambda+df$ では変化しない。
+同じ primitive の下で、この boundary を面積が零へ向かう disk に潰す方式は成立しない。
+
+\begin{corollary}[反対向きの positive disk に必要な面積]
+\label{exm:opposite-disk}
+$D$ を境界 $\gamma$ と面積 $e>0$ を持つ symplectic disk とする。
+同じ exact manifold 内に、境界が $-\gamma$ となる positive symplectic disk $D'$ はない。
+また命題\ref{exm:quantization}の $X_\tau$ 内で $0<e<\mathfrak a$ とすると、
+そのような $D'$ が存在するなら
+\[
+ e+\operatorname{Area}(D')=\mathfrak a n,
+ \quad n\in\ZZ_{>0},
+ \qquad \operatorname{Area}(D')\ge\mathfrak a-e.
+\]
+ここでは boundaries が逆向きの maps として一致すると仮定する。
+$D\cup D'$ の embedding や seam の smoothness は仮定しなくてよい。
+\end{corollary}
+
+\begin{proof}
+Exact manifold では
+$\operatorname{Area}(D')=\int_{-\gamma}\lambda=-e$ となる。
+全体の場合、$D+D'$ は integral two-cycle であり、その面積は
+$\mathfrak a n$ である。両 disk の面積が正なので $n\ge1$ となる。
+\end{proof}
+
+従って small exceptional area を持つ membrane の境界を、
+反対向きの別の small positive disk によって閉じることもできない。
+複数の境界を接続する cobordism や、共有作用・fiber decomposition を変更する手術は、
+この系の仮定とは別に検討する必要がある。
+
+\subsection{非零 slice に存在する二つの明示 membrane}
+
+\begin{proposition}[Exceptional areas を境界作用に持つ actual disks]
+\label{exm:disks}
+第\ref{tp:section}節の exact radial map $\Phi_\tau$ を用い、
+$D_e=\{\zeta\in\CC:\rho_\zeta\le e\}$、$\rho_\zeta=\pi|\zeta|^2$ と置く。
+次は $(\widetilde V_\tau,\Omega_\tau)$ 内の smooth embedded symplectic disks である。
+\begin{align}
+ d_{1,\tau}(\zeta)
+  &=\Phi_\tau^{-1}(\zeta,0,0),
+  &\zeta&\in D_{e_1},\label{exm:first-disk}\\
+ d_{2,\tau}^{r,\vartheta}(\zeta)
+  &=\Phi_\tau^{-1}\left(
+    e^{2\pi i\vartheta}\sqrt{\frac{r+e_1+\rho_\zeta}{\pi}},
+    e^{-2\pi i\vartheta}\zeta,0\right),
+  &\zeta&\in D_{e_2},\label{exm:second-disk}
+\end{align}
+ここで $r\ge0$ と $\vartheta\in\RR/\ZZ$ は固定する。
+それぞれの pullback primitive は $\rho_\zeta d\theta_\zeta$ であり、
+面積と正向き境界 period は、それぞれ $e_1,e_2$ である。
+第二の disk の full moment image は
+\[
+ (P_x,P_y,P_z)=(r+e_1+q,q,0),\qquad 0\le q\le e_2
+\]
+となる。
+\end{proposition}
+
+\begin{proof}
+第一の式は標準 coordinate disk の exact pullback である。
+第二の式では第一座標の angle が一定で、第三座標は零である。
+従って $\lambda_{\rm std}$ の pullback は第二座標からの
+$\rho_\zeta d\theta_\zeta$ のみとなる。
+平方根の中は $e_1>0$ により正であり、中心まで smooth である。
+第二座標から $\zeta$ を復元できるので embedding であり、
+pullback symplectic form は $d\rho_\zeta\wedge d\theta_\zeta$ である。
+これは中心も含めた標準 area form を表す。
+Exactness と境界積分から面積の主張を得る。Moment の式は直接計算である。
+\end{proof}
+
+これらは abstract な disk のみではなく、chosen graph form 上の明示した領域である。
+第一の disk では $\rho_x\le e_1$、$y=z=w=0$、
+第二では $\rho_x\le r+e_1+e_2$、$\rho_y\le e_2$、$z=w=0$ となる。
+従って $r,e_i,|\tau|$ を小さくすれば、proper graph resolution の
+exceptional chain を含む所定近傍へ入る。
+ただし任意に指定した global form との relative comparison を、
+これらの座標評価だけで主張するものではない。
+
+Central sphere との関係も明示できる。
+第一の curve $\ell_1\setminus\{p_\infty\}$ では
+\[
+ \zeta=X\sqrt{\frac{e_1}{\pi(1+|X|^2)}}
+\]
+が $D_{e_1}$ の内部との symplectic identification である。
+第二の curve について $r>0$ とし、central product chart で
+$x=e^{2\pi i\vartheta}\sqrt{r/\pi}$ を固定する。
+$\{x\}\times(E\setminus D)$ 上で
+\[
+ \zeta=Y\sqrt{\frac{e_2}{\pi(1+|Y|^2)}}
+\]
+と置くと、式\eqref{exm:second-disk}の $\Phi_\tau$-image は
+第\ref{tp:section}節の $\Psi_0$ の制限そのものである。
+正実 $\tau$-ray ではそこでの phase normalization とも一致する。
+一般の $\tau$ では、同節の第二座標の定数 phase を合わせればよい。
+従って punctured sphere の各 compact subset に対する既存比較を、
+この disk が boundary action $e_2$ を伴って明示的に延長している。
+
+一方、$r=0$ では moment image は central $\ell_2$ の線分と一致するが、
+$\vartheta$ を変えると異なる disks を得る。
+そのため、式\eqref{exm:second-disk}を central $\ell_2$ 自身の lift と呼んではならない。
+各 $D_{e_i}$ の境界 circle を quotient すれば、面積 $e_i$ の sphere を得る。
+これは symplectic cut による compactification
+\cite[\S1.1]{lerman-cut-local} であり、元の smooth slice 内への
+closed symplectic sphere の embedding ではない。
+
+\subsection{第三 residue と membrane action の一致}
+
+\begin{proposition}[Actual normal line 上の明示した logarithmic input]
+\label{exm:log-input}
+$S=\operatorname{Bl}_0\CC^2$、$D=\{U=0\}$ とし、
+第\ref{ct:degree-section}項の actual normal lines
+\[
+ N_x\simeq\mathcal O,
+ \qquad N_T\simeq\operatorname{pr}^*\mathcal O_{\PP^1}(-1)
+\]
+を考える。
+$N_x$ には flat connection、$N_T$ には curvature
+$\kappa_T=\operatorname{pr}^*\omega_{\rm FS}$ の connection を選べる。
+任意の $w_T>0$ に対して $S\setminus D$ 上に $\beta$ が存在し、
+\[
+ d\beta=\omega_e+w_T\kappa_T,
+ \qquad
+ \beta+(e+w_T)d\theta_U
+ \quad\text{は $D$ の近傍へ smooth に延びる。}
+\]
+従って必要収支 $w_D=e+w_T$ はこの chosen input で実現され、
+\[
+ w_D-w_T=e
+\]
+は命題\ref{exm:disks}の第二 membrane の境界作用と一致する。
+\end{proposition}
+
+\begin{proof}
+二つの charts で
+\[
+ \eta_B=\frac{|Y|^2}{1+|Y|^2}d\theta_Y,
+ \qquad
+ \eta_C=\frac{|U|^2}{1+|U|^2}d\theta_U
+\]
+と置く。すると $\eta_B=\eta_C-d\theta_U$ であり、
+$d\eta_B=d\eta_C=\operatorname{pr}^*\omega_{\rm FS}$ である。
+Actual normal coordinates の transition は $T=Uy$ なので、
+\[
+ \alpha_T=d\theta_T+\eta_B=d\theta_y+\eta_C
+\]
+が一つの smooth connection を定める。
+これは $[\kappa_T]=-c_1(N_T)$ の規約に従い、$\int_E\kappa_T=1$ を満たす。
+
+第\ref{exc:section}節の $Y$-chart の primitive を $\lambda_e$、
+$U$-chart の smooth primitive を $\lambda_e^C$ と書く。
+Euclidean terms は共通であり、projective terms から
+$\lambda_e=\lambda_e^C-e\,d\theta_U$ となる。
+そこで
+\[
+ \beta=\lambda_e+w_T\eta_B
+\]
+と置くと、微分の式を満たし、かつ
+\[
+ \beta=(\lambda_e^C+w_T\eta_C)-(e+w_T)d\theta_U
+\]
+となる。括弧内は $D$ へ smooth に延びる。
+
+Punctured $E$ の正向き境界に沿う $\beta$-period は $e+w_T$ へ収束する。
+そのうち normal connection に由来する $w_T\eta_B$ の period は $w_T$ へ収束し、
+残る $\lambda_e$ の period は $e$ へ収束する。
+これが所要の action と residue の関係である。
+\end{proof}
+
+この命題では actual normal line の上で connection を選んでいる。
+任意に先に指定した connection を literal に保持する主張ではない。
+また $\beta$ は $D$ を越えて smooth ではなく、
+$\eta_B$ も全 $E$ 上の smooth primitive ではない。
+従って第\ref{ct:coherent-family}項の global primitive 仮定や
+flat transport の仮定が、これによって自動的に満たされるわけではない。
+Logarithmic input の整合と、Liouville flow に適合する全 fibration の整合は区別される。
+
+\paragraph{Complete corner に向けた帰結.}
+中央の正面積曲線を、その symplectic neighborhood ごと非零 slice へ運ぶ工程は使えない。
+代わりに punctured region を運び、残る正の boundary actions $e_i$ と
+第三 divisor の residue を対向領域で処理する必要がある。
+式\eqref{exm:first-disk}--\eqref{exm:second-disk}はそのための actual disks を指定するが、
+境界は一般に既存 fibration の whole torus fibers ではない。
+Shared actions、$T^2$-families、normal first jets、全 partial faces との一致を
+追加で構成しなければならない。
+全 exceptional core や自由境界のない fibration の一般非存在は、本節からは従わない。

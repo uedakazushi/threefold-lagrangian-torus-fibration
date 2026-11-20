@@ -1,0 +1,98 @@
+{
+  "scope": "Exact rational sample checks and small independent numerical checks of local corner formulas. These are not substitutes for the manuscript proofs, and do not verify global existence, nonexistence, or relative gluing.",
+  "graph_chart_equations": {
+    "arithmetic": "Fraction; real rational coordinates, including zero strata",
+    "samples_per_chart": {
+      "b_nonzero": 81,
+      "a_d_nonzero": 81,
+      "a_c_nonzero": 81
+    },
+    "equations_per_sample": 4
+  },
+  "central_FS_moments": {
+    "arithmetic": "Fraction pairs for affine expressions in the exact symbol pi",
+    "samples_per_chart": {
+      "Y_chart": 54,
+      "U_chart": 54
+    },
+    "identities": [
+      "M1 = e1 + rho_x",
+      "M2 = e2 - J"
+    ]
+  },
+  "surface_radial_slant_residue": {
+    "arithmetic": "Fraction; u and s are squared norms, rho variables are areas",
+    "radial_and_primitive_samples": 27,
+    "strict_slant_samples": 81,
+    "slant_domain_admissible": 73,
+    "slant_domain_excluded_or_boundary": 8,
+    "residue_samples": 27,
+    "positive_meridian_residue": "-e",
+    "weights_at_p0_Y_z": [
+      -1,
+      1
+    ],
+    "weights_at_p_infinity_U_w": [
+      1,
+      0
+    ]
+  },
+  "nodal_action": {
+    "method": "64-step monotone bisection plus 2048-panel composite Simpson quadrature",
+    "tolerance": "2e-10 * max(1, absolute closed action)",
+    "records": [
+      {
+        "e": 1.0,
+        "epsilon": 0.1,
+        "closed_action": 0.12972018969263027,
+        "simpson_action": 0.1297201896926331,
+        "absolute_error": 2.831068712794149e-15,
+        "positive_remainder_after_quadratic_term": 0.0011743097151300508
+      },
+      {
+        "e": 0.3,
+        "epsilon": 0.2,
+        "closed_action": 0.20246429730060325,
+        "simpson_action": 0.202464297300602,
+        "absolute_error": 1.2490009027033011e-15,
+        "positive_remainder_after_quadratic_term": 0.01602469958138672
+      },
+      {
+        "e": 2.5,
+        "epsilon": 0.7,
+        "closed_action": 2.249612324453266,
+        "simpson_action": 2.2496123244532336,
+        "absolute_error": 3.241851231905457e-14,
+        "positive_remainder_after_quadratic_term": 0.23103524301682699
+      },
+      {
+        "e": 0.8,
+        "epsilon": 1.1,
+        "closed_action": 4.1264599406230875,
+        "simpson_action": 4.126459940622641,
+        "absolute_error": 4.46753745109163e-13,
+        "positive_remainder_after_quadratic_term": 1.115618075512392
+      }
+    ],
+    "is_analytic_proof": false
+  },
+  "torus_weight_enumeration": {
+    "weight_coordinate_range": [
+      -2,
+      2
+    ],
+    "ordered_triples_examined": 13824,
+    "opposite_nonzero_stabilizer_weight_conditions_satisfied": 264,
+    "effective_triples": 72,
+    "counts_by_character_lattice_index": {
+      "1": 72,
+      "2": 120,
+      "3": 24,
+      "4": 48
+    },
+    "sum_zero_failures_in_this_finite_box": 0,
+    "finite_enumeration_is_proof": false
+  },
+  "global_fibration_proven": false,
+  "status": "passed"
+}
