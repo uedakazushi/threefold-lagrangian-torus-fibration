@@ -1,0 +1,269 @@
+\section{Normal clutching の weighted collar と有限 isotropy}
+\label{tcf:section}
+
+閉曲線から削除した disk を戻す際、normal frame の winding を symplectic な
+collar coordinates に反映させる必要がある。本節では、その exact な変換と、
+同じ weighted $T^2$ action を disk 側まで保つと現れる singularity を計算する。
+外側の whole focus collar は厳密に合わせられるが、それだけで自由境界のない cap は得られない。
+特に一つの disk に大きい determinant winding を集中させると、
+その action を保った nonelliptic な修正には高次退化が避けられない。
+
+\subsection{Weighted action と exact な外側 collar}
+
+標準 $\CC^3_{w,x,y}$ 上で、角度の周期を $1$、$P_z=\pi|z|^2$ とする。
+$a,b\in\ZZ_{\ge0}$、$m=a+b>0$ を固定し、
+\begin{equation}\label{tcf:actions}
+ H=P_w+aP_x+bP_y,\qquad J=P_x-P_y
+\end{equation}
+と置く。これらの Hamiltonian flows は effective な $T^2$ action
+\begin{equation}\label{tcf:torus-action}
+ (s,t)\cdot(w,x,y)
+ =\bigl(e^{2\pi is}w,e^{2\pi i(as+t)}x,e^{2\pi i(bs-t)}y\bigr)
+\end{equation}
+を与える。
+
+$w\ne0$ の上で $\theta=\arg(w)/(2\pi)$ とし、
+\begin{equation}\label{tcf:collar-coordinates}
+ X=e^{-2\pi ia\theta}x,\qquad
+ Y=e^{-2\pi ib\theta}y
+\end{equation}
+と定める。このとき
+\begin{equation}\label{tcf:primitive}
+ \lambda_{\rm std}=H\,d\theta+P_Xd\theta_X+P_Yd\theta_Y,
+ \qquad
+ \omega_{\rm std}=dH\wedge d\theta+\omega_X+\omega_Y.
+\end{equation}
+従って $(H,\theta,X,Y)$ は
+$H-aP_X-bP_Y>0$ 上の exact symplectic coordinates である。
+逆変換は
+\[
+ w=e^{2\pi i\theta}\sqrt{\frac{H-aP_X-bP_Y}{\pi}},\qquad
+ x=e^{2\pi ia\theta}X,\qquad y=e^{2\pi ib\theta}Y.
+\]
+所定の curve action が $I=H-\beta$ と規格化される場合には、
+式\eqref{tcf:primitive}の第一項は $(I+\beta)d\theta$ となる。
+この closed term $\beta d\theta$ は symplectic form を変えないが、marked primitive periods には残る。
+
+\begin{proposition}[Weighted clutching と whole product-focus collar]
+\label{tcf:exact-collar}
+$c>0$、$j_*>0$、$0<q_-<c^2<q_+$ を固定し、
+\[
+ \mathcal N=\{(X,Y): |P_X-P_Y|\le j_*,\quad
+                   q_-\le |XY-c|^2\le q_+\}
+\]
+を compact normal focus block とする。
+\begin{equation}\label{tcf:normal-bound}
+ M=\sqrt{j_*^2+4\pi^2(c+\sqrt{q_+})^2}
+\end{equation}
+とおけば、$\mathcal N$ 上で $P_X+P_Y\le M$ である。
+$t_0>0$ と $h_-<h_+$ が
+\begin{equation}\label{tcf:collar-bound}
+ h_->t_0+\max(a,b)M
+\end{equation}
+を満たすとき、式\eqref{tcf:collar-coordinates}の逆変換は
+$[h_-,h_+]\times S^1\times\mathcal N$ の開近傍を $P_w>t_0$ へ symplectic に埋め込む。
+これは product focus fibration
+\[
+ (H,P_X-P_Y,|XY-c|^2)
+\]
+の whole fibers を保つ。
+\end{proposition}
+
+\begin{proof}
+Normal block の compactness と radius formula は第\ref{mft:section}節と同じである。
+$z=XY$ と書くと
+\[
+ P_X+P_Y=\sqrt{(P_X-P_Y)^2+4\pi^2|z|^2}
+       \le\sqrt{j_*^2+4\pi^2(c+\sqrt{q_+})^2}=M.
+\]
+従って $P_w=H-aP_X-bP_Y>t_0$ が一様に成立し、逆変換の square root は正である。
+Primitive の恒等式\eqref{tcf:primitive}が symplectic 性を示す。
+Normal actions と product focus integral を文字通り保持するので、compact whole fibers も保つ。
+\end{proof}
+
+Disk の正向き boundary parameter を $\theta$ とし、normal frames が
+$e_1^{\circ}=e_1^D e^{2\pi ia\theta}$、
+$e_2^{\circ}=e_2^D e^{2\pi ib\theta}$ と関係する場合、
+disk coordinates と punctured-side coordinates はちょうど
+$x=e^{2\pi ia\theta}X$、$y=e^{2\pi ib\theta}Y$ と変換する。
+従って mixed coefficient の winding は disk frame で $-m$ である。
+これは degree $(a,b)$ の normal clutching を実現する exact collar model である。
+ただし、任意に既定の actual embeddings の higher jets がこの模型と一致すると主張していない。
+Compatible collars を選び、relative Moser により actual に移すときの局所入力である。
+
+\subsection{外側 integral の smooth extension}
+
+正の smooth function $\eta:[0,\infty)\to(0,\infty)$ を、
+ある $0<t_1<t_0$ に対し
+\[
+ \eta(t)=\eta_0>0\quad(0\le t\le t_1),\qquad
+ \eta(t)=\left(\frac{\pi}{t}\right)^{m/2}\quad(t\ge t_0)
+\]
+となるよう選ぶ。$m$ が奇数でも、第二式は $t\ge t_0>0$ 上だけの条件なので
+零点での smoothness に問題はない。
+\begin{equation}\label{tcf:normalized-W}
+ W_\eta=\eta(P_w)\overline w^{\,m}xy,
+ \qquad Q_\eta=|W_\eta-c|^2
+\end{equation}
+と置く。
+
+\begin{proposition}[境界では厳密に product となる commuting extension]
+\label{tcf:extension}
+$(H,J,Q_\eta)$ は標準 $\CC^3$ 全体の smooth commuting triple である。
+$P_w\ge t_0$ では
+\[
+ W_\eta=e^{-2\pi im\theta}xy=XY,
+ \qquad Q_\eta=|XY-c|^2
+\]
+となり、命題\ref{tcf:exact-collar}の whole collar と integral values が厳密に一致する。
+$a,b\ge0$、$m>0$ の下で、$H$ と $J$ を compact intervals に制限した領域は compact である。
+従って、この triple の正則 compact connected fibers は Lagrangian $T^3$ である。
+\end{proposition}
+
+\begin{proof}
+$W_\eta$ の $H$-weight は $-m+a+b=0$、$J$-weight は $1-1=0$ であり、
+$P_w$ も invariant である。従って三つの関数は Poisson commute する。
+$\eta$ は零点近傍で定数なので、$W_\eta$ はそこで polynomial の定数倍であり smooth である。
+$P_w\ge t_0$ での等式は $|w|^m=(P_w/\pi)^{m/2}$ の代入で従う。
+
+$H=h,J=j$ 上では
+\begin{equation}\label{tcf:reduced-radii}
+ P_x=\frac{h-P_w+bj}{m},\qquad
+ P_y=\frac{h-P_w-aj}{m}.
+\end{equation}
+また $P_w\ge0$ と $a,b\ge0$ より $0\le P_w\le h$ である。
+従って $h,j$ が bounded なら三つの radii は bounded であり、closed condition から compactness が従う。
+正則 connected fiber は三つの commuting Hamiltonian vector fields の orbit であり、
+それらは compact fiber 上で complete である。
+従って fiber は $\RR^3/\Lambda$ で、compactness と正則性から $\Lambda$ は full lattice である。
+\end{proof}
+
+この proposition は integrals の smooth extension と、compact な regular whole fibers を与える。
+指定した outer collar だけを境界に持つ cap を与えるものではない。
+例えば全ての connected components を取った $H=h_+$ の level には、
+$P_w$ の小さい別の成分が含まれ得る。
+それらを geometric な normal-radius cutoff で切れば、一般には whole fibers を切断してしまう。
+Connected components の選択、他の faces、既存 assembly との非交差は別に扱う必要がある。
+局所的には $H=H_0$ の外側 $H>H_0$ と内側 $H<H_0$ を向かい合わせられるが、
+この coorientation の一致だけから completion は従わない。
+
+\subsection{中心 orbit の有限 isotropy と singularity の次数}
+
+\begin{theorem}[Weighted center の局所分類]\label{tcf:center-classification}
+$p=(0,x_0,y_0)$、$x_0y_0\ne0$ とする。
+式\eqref{tcf:torus-action}の orbit は次元2で、isotropy group は $\ZZ/m$ である。
+その symplectic slice は $w$-plane であり、generator は
+$w\mapsto e^{2\pi i/m}w$ と作用する。
+
+式\eqref{tcf:normalized-W}の triple について、次が成り立つ。
+\begin{enumerate}
+ \item $m=1$ なら $p$ は rank three の正則点である。
+ \item $m=2$ なら $p$ は nondegenerate rank-two hyperbolic 点である。
+       Isotropy は $\ZZ/2$ であり、transverse stable line と unstable line の
+       それぞれの二つの半直線が orbit に沿って交換される。
+ \item $m>2$ なら $p$ は rank-two degenerate 点であり、reduced third integral の
+       最初の非零項の次数は $m$ である。
+       $Q_\eta=c^2$ の transverse level は $2m$ 本の半枝を持つ。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$p$ の isotropy equations は
+$as+t\in\ZZ$、$bs-t\in\ZZ$ であり、従って $ms\in\ZZ$ である。
+$(s,t)=(1/m,-a/m)$ が generator で、$w$-plane には原始 $m$ 乗根で作用する。
+Moment weights の matrix
+\[
+ \begin{pmatrix}a&b\\1&-1\end{pmatrix}
+\]
+の determinant は $-m\ne0$ なので、$dH,dJ$ は $p$ で独立である。
+Moment level の接空間を orbit tangent space で割った symplectic slice は
+標準 $w$-plane と同一視できる。
+
+$H,J$ を固定し、$x,y$ の phases を局所的に固定して
+式\eqref{tcf:reduced-radii}に従って radii を調整する。
+この transverse slice 上では
+\begin{equation}\label{tcf:leading-term}
+ Q_\eta-c^2=-2c\,\Re\bigl(K\overline w^{\,m}\bigr)
+             +O(|w|^{m+2})+O(|w|^{2m}),
+ \qquad K=\eta_0x_0y_0\ne0.
+\end{equation}
+$m=1$ では linear term が非零なので、$dQ_\eta$ は $dH,dJ$ と独立である。
+$m=2$ では quadratic part が非退化かつ indefinite であり、hyperbolic 型になる。
+Isotropy generator はこの場合 $w\mapsto-w$ なので、stable/unstable の各線上で
+半直線の交換が生じる。
+$m>2$ では transverse Hessian が零であり、次数 $m$ の項が非零なので退化する。
+
+半枝の数も直接分かる。
+この slice では $W_\eta=A(|w|^2)\overline w^m$ と書け、$A(0)\ne0$ である。
+その phase は定数で、絶対値は正の smooth radial function である。
+$w=re^{i\varphi}$、$r>0$ について $Q_\eta=c^2$ は
+\[
+ \cos(m\varphi-\arg A(0))=\frac{|A(r^2)|r^m}{2c}
+\]
+となる。$r$ が十分小さいとき、$r=0$ における $2m$ 個の単純な角度解から
+それぞれ一つの半枝が生じる。
+\end{proof}
+
+$m=2$ の twisting は、単なる $T^2$ と untwisted figure-eight の積という記述には含まれない。
+有限 isotropy と reverse hyperbolic orbit は fractional monodromy の文献にも現れる。
+例えば Broer--Efstathiou--Lukina \cite[Section 2.1, Remark 2]{bel-fractional-tcf} は
+$\ZZ/2$ isotropy を持つ curled-torus family を扱い、高次 resonances とは区別している。
+本節では局所 slice の型を計算しただけであり、同論文の global hypotheses を
+検証したり、本模型の fractional monodromy を算出したりしたわけではない。
+
+\begin{proposition}[大きい isotropy を保つ nonelliptic repair の障害]
+\label{tcf:invariant-repair}
+$m>2$ とし、$p=(0,x_0,y_0)$、$x_0y_0\ne0$ の orbit 全体を含む
+$T^2$-invariant neighborhood で
+$H,J$ と Poisson commute する任意の smooth real function $G$ を取る。
+この点で $(H,J,G)$ が nondegenerate corank one なら、その型は elliptic である。
+従って $H,J$ とその orbit を保って nonelliptic な fibration を求める場合、
+その orbit における degeneracy を解消することはできない。
+\end{proposition}
+
+\begin{proof}
+$H,J$ の flows は periodic なので、Poisson commutativity は $T^2$ invariance を意味する。
+従って $G$ の reduced germ は slice の rotation $w\mapsto e^{2\pi i/m}w$ に invariant である。
+この rotation は非自明なので invariant linear form は零であり、reduced germ は原点で critical である。
+$m>2$ では rotation angle は $0,\pi$ のいずれでもなく、invariant な実 symmetric quadratic form は
+$\lambda|w|^2$ に限られる。これは、rotation matrix $R$ に対して
+$R^TBR=B$ を満たす symmetric matrix $B$ が scalar matrix になることから従う。
+$\lambda\ne0$ なら definite なので elliptic、$\lambda=0$ なら Hessian が退化する。
+Moment directions の linear terms は $G$ から $H,J$ の linear combination を引いて除けるので、
+この reduced Hessian が corank-one classification を与える。
+\end{proof}
+
+\subsection{Clutching を分散するための条件}
+
+平面切断曲線の二つの normal lines の degree はそれぞれ $d$ である。
+一つの disk に winding $(d,d)$ を集中させると、上の模型は $m=2d$ となる。
+$d\ge6$ では、中心の generic orbit に $\ZZ/(2d)$ isotropy と $4d$ 本の transverse 半枝が現れ、
+命題\ref{tcf:invariant-repair}により同じ action を保つ nondegenerate hyperbolic repair は存在しない。
+Radial normalization は outer focus collar を厳密に保つが、この結論を変えない。
+
+一方、winding を複数の holes に分ければ、その局所次数を小さくできる。
+例えば $d$ 個の holes で $(a_i,b_i)=(1,1)$ とすれば全て $m_i=2$ となり、
+中心の generic orbits は nondegenerate hyperbolic 型になる。
+$2d$ 個の holes に、$(1,0)$ と $(0,1)$ をそれぞれ $d$ 個ずつ配れば、
+全て $m_i=1$ となり、その中心の generic orbits は正則になる。
+これは frame の degree と局所型に関する互換性であり、全ての caps が接続されたという結論ではない。
+
+この weighted design の中で、$r$ 個の holes に全 determinant winding を配り、
+全て $0<|m_i|\le2$ とするなら
+\[
+ 2d=\left|\sum_i m_i\right|\le\sum_i|m_i|\le2r,
+ \qquad r\ge d.
+\]
+さらに中心の generic orbit の isotropy を全て trivial にする $|m_i|=1$ を要求するなら
+$r\ge2d$ が必要である。
+この下界は、この指定された weighted collar construction に関するものであり、
+任意の Lagrangian fibration の punctures 数に対する下界ではない。
+また、本節で保持した曲線は degree $d$ の平面切断曲線である。
+別の symplectic curve を選び、その symplectic normal bundle を trivial にする戦略には、
+この degree $2d$ の clutching 条件を適用してはいけない。
+
+最後に、$w=x=y=0$ では $dH=dJ=dQ_\eta=0$ で、$Q_\eta-c^2$ の最低次数は $m+2\ge3$ である。
+従って原点の quadratic parts は三自由度の nondegenerate Cartan を作らず、
+原点は依然として退化している。
+中心の generic orbit を $m=1$ または $2$ に改善しても、原点、normal faces、
+whole-fiber component の選択、および actual assembly の非交差を含む cap completion は残る。

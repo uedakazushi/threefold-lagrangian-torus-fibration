@@ -1,0 +1,350 @@
+\section{解消族を通じた一つの Kähler corner 模型}
+\label{tc:section}
+
+第\ref{sc:phase}節の半安定チャートと第\ref{exc:section}節の曲面模型を、
+一つの明示的な Kähler form の中で実現する。
+Hamiltonian torus の moment と不変な複素関数を組み合わせる手法自体は、
+Gross \cite[\S\S1--2]{gross-toric}、Auroux \cite[\S3.3.1]{auroux-blowup}、
+Casta\~no-Bernard--Matessi \cite[\S\S3.4,5.1]{cbm-conifold} の既知の構成に属する。
+ここで必要なのは、今回の ordered resolution、二つの exceptional areas、
+中心成分上の exceptional sphere、非零ファイバーの moments を同じ式で追うことである。
+所定の全 boundary data を保つ任意の global Kähler form との比較までは主張しない。
+
+\subsection{二つの射影直線への graph closure}
+
+$V=\{xyz=tw\}\subset\CC^5$ とする。
+有理写像 $[x:t]$, $[xy:t]$ の graph closure を $\widetilde V$ と書く。
+二つの homogeneous coordinates を $[a:b]$, $[c:d]$ とすると、その方程式は
+\begin{equation}\label{tc:incidence}
+ xb=ta,\qquad bc=ay\,d,\qquad cz=dw.
+\end{equation}
+
+\begin{proposition}\label{tc:resolution}
+$\widetilde V$ は滑らかな複素四次元多様体であり、$V$ への proper birational map を持つ。
+$t:\widetilde V\to\CC$ は第\ref{sc:phase}節の ordered semistable resolution と同じである。
+具体的には次の三つの affine charts で覆われる。
+\[
+\begin{array}{c|c|c}
+\text{chart}&\text{coordinates}&\text{relations}\\ \hline
+ b\ne0 &(t,X,y,z)&x=tX,\quad w=Xyz\\
+ a,d\ne0 &(x,T,Y,z)&t=xT,\quad y=TY,\quad w=Yz\\
+ a,c\ne0 &(x,y,U,w)&t=xyU,\quad z=Uw.
+\end{array}
+\]
+原点上の exceptional fiber は二本の射影直線 $\ell_1\cup\ell_2$ であり、
+二つの projection line bundles のそれぞれの次数は
+\[
+\begin{array}{c|cc}
+ &\ell_1&\ell_2\\ \hline
+ \mathrm{pr}_1^*\mathcal O(1)&1&0\\
+ \mathrm{pr}_2^*\mathcal O(1)&0&1.
+\end{array}
+\]
+\end{proposition}
+
+\begin{proof}
+$b=1$ とすると、第2式から $d\ne0$ である。
+$d=1,a=X$ と置けば $c=Xy$ となり、最初の chart を得る。
+$a=d=1,b=T,c=Y$ と置くと第二の chart を得る。
+$a=c=1,d=U$ と置くと $b=yU$ となり、第三の chart を得る。
+$b=0$ なら $a\ne0$ なので、残る二つの charts がその部分を覆う。
+各 chart は $\CC^4$ であり、もとの有理写像の graph と稠密開集合で一致する。
+従って式\eqref{tc:incidence}は余分な成分を持たず、graph closure を定める。
+Projection は projective なので proper である。
+
+第二の chart で、原点上の fiber は
+$\{x=z=Y=0\}$ と $\{x=z=T=0\}$ の和である。
+前者では $[a:b]=[1:T]$ のみ、後者では $[c:d]=[Y:1]$ のみが動く。
+両者を隣の charts で閉じれば主張する二本の $\PP^1$ と次数表を得る。
+\end{proof}
+
+$\int_{\PP^1}\omega_{\mathrm{FS}}=1$ とし、$e_1,e_2>0$ に対し
+\begin{equation}\label{tc:kahler}
+ \widetilde\Omega
+ =\omega_{\CC^5}
+   +e_1\mathrm{pr}_1^*\omega_{\mathrm{FS}}
+   +e_2\mathrm{pr}_2^*\omega_{\mathrm{FS}}
+ \quad\text{on }\widetilde V
+\end{equation}
+と置く。これは product Kähler form の埋め込みによる制限なので Kähler である。
+また $\int_{\ell_i}\widetilde\Omega=e_i$ である。
+Ordered indices $i<j<k$ に対して $e_1=(j-i)\eps$, $e_2=(k-j)\eps$ とすれば、
+既述の polarization $aH+\eps A$ が原点上の二本の曲線に与える areas と一致する。
+六次の $k<5<6$ では $e_1=(5-k)\eps$, $e_2=\eps$ である。
+
+\subsection{非零ファイバー上の proper な torus fibration}
+
+$t=\tau\ne0$ を固定すると、$\widetilde V_\tau\simeq\CC^3_{x,y,z}$ であり
+$w=xyz/\tau$ となる。
+角は周期1、$\rho_u=\pi|u|^2$ と規格化する。
+次を置く。
+\begin{align}
+ A_1&=e_1\frac{|x|^2}{|x|^2+|\tau|^2},&
+ A_2&=e_2\frac{|xy|^2}{|xy|^2+|\tau|^2},\nonumber\\
+ M_1&=\rho_x-\rho_y+A_1,&
+ M_2&=\rho_y-\rho_z+A_2.\label{tc:moments}
+\end{align}
+$c>0$ に対し $Q=|w-c|^2$ とする。
+
+\begin{theorem}\label{tc:fibration}
+$F_\tau=(M_1,M_2,Q)$ は $Q>0$ 上の proper な Lagrangian $T^3$-fibration である。
+ここで proper は、target $\RR^2\times\RR_{>0}$ の compact subsets の逆像が compact という意味である。
+Discriminant は $Q=c^2$ にある三本の rays
+\begin{equation}\label{tc:discriminant}
+ \{(m,0):m\ge0\},\quad
+ \{(-m,m):m\ge0\},\quad
+ \{(0,-m):m\ge0\}
+\end{equation}
+である。各 open ray では transverse focus--focus 型であり、
+singular fiber は $(\text{pinched }T^2)\times S^1$ である。
+原点の vertex fiber は $T^3$ の一つの $T^2$ を一点へ潰した空間である。
+\end{theorem}
+
+\begin{proof}
+座標の rotations による $T^3$-action は $w$ も回すので、
+その三つの moments は
+\[
+ p_x=\rho_x+\rho_w+A_1+A_2,\quad
+ p_y=\rho_y+\rho_w+A_2,\quad
+ p_z=\rho_z+\rho_w.
+\]
+積 $xyz$ を固定する $T^2$ の generators を $(1,-1,0),(0,1,-1)$ とすれば、
+対応する moments は $M_1=p_x-p_y,M_2=p_y-p_z$ である。
+$w$ はこの $T^2$ に不変なので、三つの関数は Poisson commute する。
+
+まず $(M_1,M_2,w)$ が orbit space を $\RR^2\times\CC$ と同定することを示す。
+$w\ne0$ では $s_i=\log|z_i|^2$ とし、$\sum s_i$ を固定する。
+Moments は、strictly convex な関数
+\[
+ G(s)=\pi\sum_i e^{s_i}
+ +\frac{\pi e^{s_x+s_y+s_z}}{|\tau|^2}
+ +e_1\log(e^{s_x}+|\tau|^2)
+ +e_2\log(e^{s_x+s_y}+|\tau|^2)
+\]
+の gradient の差である。
+指定した $M_1,M_2$ に対応する線形関数を引き、平面 $\sum s_i=\mathrm{const}$ に制限する。
+この平面上で $|s|\to\infty$ なら少なくとも一つの $s_i\to+\infty$ なので、
+最初の指数関数項が線形関数に勝ち、関数は coercive である。
+従って unique minimizer があり、指定した moments と $|w|$ に対する radii は一意に存在する。
+位相の積を指定すれば、残りは一つの $T^2$-orbit である。
+
+$w=0$ では、三つの coordinate planes の images はそれぞれ
+\[
+\begin{array}{c|c}
+z=0&M_2\ge0,\ M_1+M_2\ge0\\
+y=0&M_1\ge0,\ M_2\le0\\
+x=0&M_1\le0,\ M_1+M_2\le0.
+\end{array}
+\]
+これらは $\RR^2$ を覆い、共通境界は式\eqref{tc:discriminant}の rays である。
+各 plane の toric moment map は quadrant 上に一対一かつ全射である。
+例えば $z=0$ では $p_x=M_1+M_2,p_y=M_2$ を固定し、
+$G(s_x,s_y)-p_xs_x-p_ys_y$ を最小化すれば、quadrant の内部について同じ strict convexity と coercivity が使える。
+Boundary では対応する coordinate を零とし、残る一変数の strictly increasing moment を解けばよい。
+従って $w=0$ でも一つの orbit が定まる。
+
+Moments と $w$ が有界なら、$0\le A_i\le e_i$ より三つの $\rho_i$ の差は有界である。
+一つの $\rho_i$ が無限大になるなら全てが無限大になるが、
+\[
+ \rho_x\rho_y\rho_z=\pi^3|\tau|^2|w|^2
+\]
+に反する。従って $(M_1,M_2,w)$ は proper な orbit-space map であり、
+上の全単射は homeomorphism を与える。
+同じ評価により $F_\tau$ も proper である。
+
+$T^2$-action は少なくとも二つの coordinates が非零なら free である。
+その locus では $(M_1,M_2,w)$ は smooth な quotient coordinates となる。
+$w\ne0$ の場合は上の strict convexity、coordinate plane の smooth points では
+残る coordinate が $w$ の transverse complex coordinate になることから従う。
+$Q>0$ では $|w-c|^2$ は reduced surface 上で regular なので、
+正則 fiber は circle 上の principal $T^2$-bundle である。
+この bundle は自明であり、fiber は compact connected $T^3$ となる。
+Commutativity と rank により Lagrangian である。
+
+非零 $x$-axis の stabilizer は $(0,1,-1)$ で、normal weights は $(1,-1)$ である。
+$Q$ の normal quadratic は
+\[
+ -2\operatorname{Re}(\bar c\,x yz/\tau)
+\]
+であり、その係数は非零である。
+Invariant Kähler metric によって normal lines を規格化すれば、
+stabilizer moment とこの quadratic は focus--focus Cartan を与える。
+他の二軸も同様である。
+Axis の moment images は直接式\eqref{tc:moments}から式\eqref{tc:discriminant}となる。
+Reduced circle が $w=0$ を通る一箇所で primitive $S^1\subset T^2$ が潰れるため、
+open ray の fiber は主張した積空間となる。
+Vertex では $w=0$ の orbit が一点であり、その一箇所で全 $T^2$ が潰れる。
+Circle をその点で切った interval 上で torus bundle を自明化すれば、
+最後の topological description を得る。
+\end{proof}
+
+この定理は、標準 $\CC^3$ の positive-vertex topology を、
+二つの exceptional periods を持つ $\widetilde\Omega|_{\widetilde V_\tau}$ の上で実現している。
+Toric terms を無視して標準 Euclidean moments に置き換える必要はない。
+$Q=0$ の elliptic locus は本節の fibration domain から外している。
+また bounded base window で切り取った場合の outer boundary は、この局所定理では埋めていない。
+
+\subsection{中心成分上では exceptional bridge に厳密に一致する}
+\label{tc:surface}
+
+六次の $k<5<6$ を考え、第二の chart $t=xT,y=TY,w=Yz$ を使う。
+$D_5=\{T=0\}$ 上では、式\eqref{tc:kahler}は
+\begin{equation}\label{tc:central-form}
+ \widetilde\Omega|_{D_5}
+ =\omega_x+\omega_z+\omega_{Yz}+e_2\omega_{\mathrm{FS}}[Y:1]
+ =\omega_x+\omega_{e_2}
+\end{equation}
+という product form になる。第一の projective factor は $[1:0]$ で一定である。
+従って $S_{k5}=\{x=T=0\}$ 上には、全 exceptional sphere を含む
+第\ref{exc:section}節の form がそのまま現れる。
+Charts を $Y=\infty$ まで継ぐと、これは $\CC_x\times\operatorname{Bl}_0\CC^2$ 上の同じ式である。
+
+Torus action と moments は全 $\widetilde V$ に延びる。
+$D_5$ 上での制限は
+\begin{equation}\label{tc:central-moments}
+ M_1=e_1+\rho_x,\qquad
+ M_2=e_2-J,\qquad
+ Q=|Yz-c|^2,
+ \qquad J=\rho_z+\frac{e_2}{1+|Y|^2}.
+\end{equation}
+第一の circle は $(x,T,Y,z)$ に weights $(1,-1,0,0)$ で作用するので、
+$D_5$ 内では $S_{k5}$ を点ごとに固定する所定の normal circle である。
+第二の circle は $(Y,z)$ に weights $(1,-1)$ で作用し、$J$-circle の逆向きである。
+従って $C_{56}$ の端 $Y=z=0$ は $(M_1,M_2)=(e_1,0)$ にあり、
+exceptional sphere はそこから strict triple boundary の $(e_1,e_2)$ へ写る。
+この線分の内部は reduced-surface fibration の regular fibers と交わるもので、
+非零ファイバーの discriminant edge という意味ではない。
+
+\begin{corollary}\label{tc:common-model}
+選んだ form \eqref{tc:kahler}に対して、次の三つは一つの Kähler degeneration の中で両立する。
+\begin{enumerate}
+\item 非零ファイバー上の compact positive-vertex torus fibers。
+\item 中心成分上の、exceptional sphere 全体を通る Auroux blow-up model。
+\item $C_{56}$ の一端における所定の divisor-normal circle と、
+      第\ref{exc:section}節の inverse-radial focus family。
+\end{enumerate}
+$x$ が零から離れた compact annulus と、$D=\{U=0\}$ を除いた第二の chart の
+compact subsets 上では、非零ファイバーの forms と maps は
+式\eqref{tc:central-form}--\eqref{tc:central-moments}へ $C^\infty$ に収束する。
+これは $D$ を含む全 exceptional sphere への一様収束を主張するものではない。
+\end{corollary}
+
+\begin{proof}
+第一項は定理\ref{tc:fibration}、第二・第三項は二つの制限式から従う。
+Annulus 上では $T=\tau/x$, $y=\tau Y/x$ を代入する。
+これらと全 derivatives は $\tau\to0$ で零へ収束し、projective coordinates も滑らかに収束する。
+したがって compact subsets 上の $C^\infty$ 収束を得る。
+Whole compact fiber を扱う場合は、その全体を含む compact subset を先に選ぶ。
+特に compact focus fiber は $J=e_2>0$ なので $D$ を避け、この選択ができる。
+他方、第三の chart で $y=\tau/(xU)$ と解く表示は $U=0$ で一様にならない。
+\end{proof}
+
+\subsection{三つの成分の residue を保つ logarithmic primitive}
+\label{tc:log-primitive}
+
+三つの charts を順に $A,B,C$ とし、$\lambda_A^0,\lambda_B^0,\lambda_C^0$ を
+式\eqref{tc:kahler}の各 affine chart 上の標準 primitive とする。
+すなわち Euclidean terms には $\rho_u d\theta_u$ を、
+projective affine coordinate $v$ には
+$e|v|^2(1+|v|^2)^{-1}d\theta_v$ を用いる。
+これらは各 affine chart の coordinate axes まで滑らかである。
+Charts $A,B$ の第一の projective coordinates は $X,T=1/X$ であり、
+charts $B,C$ の第二のものは $Y,U=1/Y$ である。
+従って overlap 上で厳密に
+\begin{equation}\label{tc:primitive-changes}
+ \lambda_B^0=\lambda_A^0-e_1d\theta_X,
+ \qquad
+ \lambda_B^0=\lambda_C^0-e_2d\theta_U
+\end{equation}
+となる。
+
+\begin{proposition}[同時に貼れる正の residues]
+\label{tc:primitive-proposition}
+Ordered components を $D_i,D_j,D_k$ とし、任意の $w_i>0$ に対し
+\[
+ w_j=w_i+e_1,\qquad w_k=w_j+e_2
+\]
+と置く。次の三つの表示は、$\widetilde V\setminus\{t=0\}$ 上の一つの smooth primitive
+$\lambda$ を定め、$d\lambda=\widetilde\Omega$ を満たす。
+\begin{equation}\label{tc:primitive-global}
+\begin{aligned}
+ A:\quad&\lambda_A^0-w_i d\theta_t,\\
+ B:\quad&\lambda_B^0-w_i d\theta_x-w_jd\theta_T,\\
+ C:\quad&\lambda_C^0-w_i d\theta_x-w_jd\theta_y-w_kd\theta_U.
+\end{aligned}
+\end{equation}
+中心成分への limiting angular residues はそれぞれ $-w_i,-w_j,-w_k$ である。
+非零ファイバーに制限すると、$T^2$ generators $u,v$ について
+$\lambda(u)=M_1$, $\lambda(v)=M_2$ となる。
+\end{proposition}
+
+\begin{proof}
+$A,B$ の重なりでは $x=tX,T=X^{-1}$ なので、
+式\eqref{tc:primitive-changes}を使うと $B$ の表示は
+\[
+ \lambda_A^0-w_i d\theta_t
+       +(w_j-w_i-e_1)d\theta_X
+\]
+となり、最後の係数は零である。
+$B,C$ の重なりでは $T=yU$ なので、$B$ の表示は
+\[
+ \lambda_C^0-w_i d\theta_x-w_jd\theta_y
+       -(w_j+e_2)d\theta_U
+\]
+となり、これは $C$ の表示である。
+従って三つは厳密に貼り合う。
+各 angular term の微分は complement 上で零であり、各 $\lambda^0$ は
+$\widetilde\Omega$ の primitive なので、微分の主張も従う。
+各 coordinate divisor に沿う $\lambda^0$ の meridian integral は零へ収束するため、
+residues は指定した値となる。
+
+$t=\tau\ne0$ の fiber は全て chart $A$ に含まれる。
+そこでは $d\theta_t=0$ なので、$\lambda$ は制限 form の toric primitive そのものである。
+その contractions は $p_x-p_y,p_y-p_z$ であり、最後の主張を得る。
+\end{proof}
+
+この式は、component-normal directions を二つだけ残すと見失う residue を具体化する。
+$S_{ij}$ 上の第二の exceptional sphere では normal degrees は $(0,-1)$ であり、
+三つ目の divisor は一点で交わる。
+第\ref{ct:degree-residue}項の収支は
+\[
+ w_k-w_j=e_2
+\]
+となり、上の primitive はこの収支を正の weights で満たしている。
+二つの normal directions だけで全 sphere に smooth な $\beta$ を要求する場合の
+$e_2+w_j=0$ という不可能な条件とは、入力が異なる。
+ただし logarithmic primitive が貼れたことだけから、
+その Liouville flow が $F_\tau$ の全 compact fibers を保存することは従わない。
+所定の flow に適合する foliation と端の比較は、依然として moving-family の問題である。
+
+\begin{remark}\label{tc:nonprojectable}
+実際、この slice primitive の Liouville field $Z$ は $F_\tau$ に関して一般には projectable でない。
+Dense torus では $\lambda=\sum p_i d\theta_i$ なので $Zp_i=p_i$ である。
+$M_1=M_2=0$ では $p=P(1,1,1)$、$P>0$ であり、上の strictly convex potential の Hessian を
+$\mathcal H$ とすると
+\[
+ Z\log|w|=\frac P2\,\boldsymbol1^{\mathsf T}\mathcal H^{-1}\boldsymbol1>0.
+\]
+$Z$ は toric angles を保つ。
+同じ正則 fiber $M_1=M_2=0,Q=q^2$、$0<q<c$ にある二つの点
+$w=c+q$ と $w=c-q$ では、$ZQ=2w(w-c)Z\log|w|$ の符号が反対となる。
+従って $ZQ$ はその fiber 上で一定でない。
+これは primitive の整合と Liouville に適合する fiber decomposition の整合を区別する具体例である。
+\end{remark}
+
+\subsection{この構成で残る比較問題}
+
+式\eqref{tc:kahler}は実際の局所解消空間にある明示的な form であり、
+単に abstract な blow-up の位相模型を与えたものではない。
+ただし exceptional curves の areas が所定の polarization と一致することから、
+任意に先に指定した global form と全 collar foliations を同時に保つ同定が直ちに従うわけではない。
+その結論には、local Kähler representative の貼り合わせ、または必要な strata・normal first jets・
+whole fibers を保持する relative symplectic comparison が必要である。
+また中心成分での厳密な一致と、$\tau\ne0$ における既存 pants block への厳密な接着も区別する。
+後者では family の return action と end transport をさらに合わせる必要がある。
+
+この common model の central framing における focus winding は零である。
+第\ref{cw:section}節の結果により、smooth equivariant normal collars のまま
+全24端をこの型に揃えると、determinant degree 36 の収支を満たせない。
+従って本節は一つの整合した corner-to-curve \emph{局所模型}を完成させるが、
+全端の relative gluing を完成させたものではない。

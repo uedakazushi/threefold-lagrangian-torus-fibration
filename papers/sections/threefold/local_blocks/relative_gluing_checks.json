@@ -1,0 +1,95 @@
+{
+  "scope": "Integer phase identities and numerical action-constant checks; proofs are in the manuscript.",
+  "phase": {
+    "triples_checked": 4475,
+    "range_d": [
+      6,
+      30
+    ],
+    "sextic_last": {
+      "boundary_types": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "powers": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "winding_per_end": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "ends_of_each_type": 6,
+      "winding_sum": 36,
+      "disk_standard_relative_defect": -36,
+      "original_axis_to_semistable_shift": 24
+    }
+  },
+  "action_numerical": {
+    "method": "Simpson quadrature plus monotone bisection",
+    "records": [
+      {
+        "H": 1.0,
+        "epsilon": 0.001,
+        "actual_action": 0.0035295849214137314,
+        "frozen_action": 0.003544907701811032,
+        "observed_quadratic_coefficient": 15.322780397300507,
+        "predicted_quadratic_coefficient": 15.503138340149908,
+        "relative_error": 0.011633640808216938
+      },
+      {
+        "H": 1.0,
+        "epsilon": 0.0005,
+        "actual_action": 0.001768600786515085,
+        "frozen_action": 0.001772453850905516,
+        "observed_quadratic_coefficient": 15.412257561723923,
+        "predicted_quadratic_coefficient": 15.503138340149908,
+        "relative_error": 0.0058620891094433025
+      },
+      {
+        "H": 2.0,
+        "epsilon": 0.001,
+        "actual_action": 0.002502768592410338,
+        "frozen_action": 0.002506628274631,
+        "observed_quadratic_coefficient": 3.8596822206620613,
+        "predicted_quadratic_coefficient": 3.875784585037477,
+        "relative_error": 0.00415460767287712
+      },
+      {
+        "H": 2.0,
+        "epsilon": 0.0005,
+        "actual_action": 0.0012523472095440362,
+        "frozen_action": 0.0012533141373155,
+        "observed_quadratic_coefficient": 3.8677110858554093,
+        "predicted_quadratic_coefficient": 3.875784585037477,
+        "relative_error": 0.002083061894934901
+      },
+      {
+        "H": 5.0,
+        "epsilon": 0.001,
+        "actual_action": 0.001584711447990201,
+        "frozen_action": 0.0015853309190424043,
+        "observed_quadratic_coefficient": 0.6194710522032001,
+        "predicted_quadratic_coefficient": 0.6201255336059963,
+        "relative_error": 0.0010554014749085683
+      },
+      {
+        "H": 5.0,
+        "epsilon": 0.0005,
+        "actual_action": 0.0007925105100055368,
+        "frozen_action": 0.0007926654595212021,
+        "observed_quadratic_coefficient": 0.6197980626614086,
+        "predicted_quadratic_coefficient": 0.6201255336059963,
+        "relative_error": 0.0005280720222622381
+      }
+    ]
+  },
+  "global_fibration_proven": false,
+  "status": "passed"
+}

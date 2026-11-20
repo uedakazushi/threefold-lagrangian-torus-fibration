@@ -1,0 +1,89 @@
+{
+  "scope": "Numerical checks of action inversion, periodic Hamiltonian generator and normal velocity; not a global fibration certificate.",
+  "exact_straightening_examples": [
+    {
+      "h": 3.0,
+      "j": 0.0,
+      "c": 0.02,
+      "e1": 1.0,
+      "wall_u": 1.0,
+      "q0": 0.06450195199511917,
+      "toric_Q_value_at_wall": 0.06490306886639897,
+      "original_wall_Q_range": [
+        0.05474408711692043,
+        0.07506205061587753
+      ],
+      "action_at_q0": 0.9999999999999999,
+      "action_derivative": 10.39338031342143,
+      "periodic_generator_error": 2.42861286636753e-17,
+      "normal_velocity_max_error": 1.7651160047482684e-09,
+      "minimum_interpolated_q_derivative": 9.681572339386372
+    },
+    {
+      "h": 4.0,
+      "j": 0.2,
+      "c": 0.02,
+      "e1": 1.0,
+      "wall_u": 1.5,
+      "q0": 0.15717958107831229,
+      "toric_Q_value_at_wall": 0.15762623036184753,
+      "original_wall_Q_range": [
+        0.14176552518903265,
+        0.1734869355346624
+      ],
+      "action_at_q0": 1.500000000000009,
+      "action_derivative": 6.159548629267709,
+      "periodic_generator_error": 1.0639637319324417e-16,
+      "normal_velocity_max_error": 1.3718864655398733e-09,
+      "minimum_interpolated_q_derivative": 5.825560338664497
+    },
+    {
+      "h": 2.0,
+      "j": -0.15,
+      "c": 0.008,
+      "e1": 0.6,
+      "wall_u": 0.7,
+      "q0": 0.024934118439971738,
+      "toric_Q_value_at_wall": 0.025010561884079803,
+      "original_wall_Q_range": [
+        0.0224834449809025,
+        0.027537678787257103
+      ],
+      "action_at_q0": 0.7000000000000064,
+      "action_derivative": 21.92155517829389,
+      "periodic_generator_error": 0.0,
+      "normal_velocity_max_error": 8.125009311188425e-10,
+      "minimum_interpolated_q_derivative": 20.583636661968434
+    }
+  ],
+  "normal_velocity_samples": 27,
+  "two_wall_examples": [
+    {
+      "j": -0.1,
+      "b1": 2.0,
+      "b13": 1.7500000000000002
+    },
+    {
+      "j": 0.0,
+      "b1": 2.0,
+      "b13": 1.8
+    },
+    {
+      "j": 0.2,
+      "b1": 2.0,
+      "b13": 1.9000000000000001
+    },
+    {
+      "j": 0.4,
+      "b1": 2.0,
+      "b13": 2.0
+    },
+    {
+      "j": 0.5,
+      "b1": 2.0,
+      "b13": 2.05
+    }
+  ],
+  "max_normal_velocity_error": 1.7651160047482684e-09,
+  "status": "passed"
+}

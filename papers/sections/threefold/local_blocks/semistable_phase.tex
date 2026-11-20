@@ -1,0 +1,307 @@
+\section{半安定チャートから決まる位相データと端の選択}\label{sc:phase}
+
+本節では、退化族の幾何から決まる bundle-valued な二次項と、
+Lagrangian fibration を選ぶ際の scalar な focus 位相を区別する。
+まず六次の $C_{56}$ の端を実際の半安定チャートで追い、
+続いて一般の $i<j$ に対する normal bundle と二次項を計算する。
+最後に、端の winding の収支を満たす明示的な選択を与える。
+
+\subsection{六次の端はどこにあるか}
+
+$k<5<6$ とし、三重直線と $F_6=0$ の交点近傍を
+\[
+ xyz=tw,\qquad x=L_k,\quad y=L_5,\quad z=L_6
+\]
+と書く。単元を吸収しているので、$w$ と局所表示した $F_6$ は非消失正則関数倍の差である。
+最初に $(x,t)$ を blow up すると、$x=tX$ のチャートでは
+\[
+ w=Xyz,\qquad f=t
+\]
+となり、中心成分は $D_k$ のみである。
+他方のチャート $t=xT$, $yz=Tw$ で $(y,T)$ を blow up すると、次の二つの表示を得る。
+\begin{align*}
+ T=yU &: \quad z=Uw,\quad f=xyU,\quad (x,y,U,w),\\
+ y=TY &: \quad w=Yz,\quad f=xT,\quad (x,T,Y,z).
+\end{align*}
+第一の表示では $D_k=\{x=0\}$, $D_5=\{y=0\}$, $D_6=\{U=0\}$。
+第二の表示では $D_k=\{x=0\}$, $D_5=\{T=0\}$ であり、$D_6$ は現れない。
+重なりでは $Y=1/U$, $z=Uw$ である。
+
+$D_5$ の第二のチャートは $(x,Y,z)$ を座標とする。
+その blow-down は $(x,z,w)=(x,z,Yz)$ であり、
+\begin{equation}\label{sc:sextic-chart}
+ E_{56}=\{z=0\},\qquad V_5=\{Y=0\},\qquad
+ C_{56}=V_5\cap E_{56}=\{Y=z=0\}.
+\end{equation}
+ここで $V_5$ は $F_6=0$ の strict transform である。
+$C_{56}$ の当該端 $x=0$ は $S_{k5}=D_k\cap D_5$ にある。
+$S_{k5}$ は $(z,w)$-平面の原点の blow-up で、例外 $\PP^1$ は
+第二のチャートの $z=0$ と第一のチャートの $w=0$ で覆われる。
+$C_{56}$ の端は $Y=0$, すなわち $U=\infty$ にあり、
+strict triple locus $S_{k56}$ との交点は $U=0$, すなわち $Y=\infty$ にある。
+従ってこの二つは同じ点ではない。
+24個の端を標準 positive vertex の axis と同一視するには、この間の比較が必要である。
+
+非零ファイバーでは $x\ne0$ であり、同じチャートから
+\begin{equation}\label{sc:nonzero-chart}
+ T=t/x,\qquad y=tY/x,\qquad xyz=tYz
+\end{equation}
+を得る。従って標準候補 $Q=|xyz-\varepsilon|^2$ は
+\[
+ Q=|tYz-\varepsilon|^2
+\]
+となる。$\varepsilon>0$ とすれば、中心成分 $D_5$ 上の削除 disk へ延びる
+semistable complex frames $(\partial_Y,\partial_z)$ に関する mixed coefficient は $-2\varepsilon t$ であり、
+$x$ の境界に沿う winding は零である。
+これらは $t\ne0$ の original $x$-axis disk へ延びる frames ではない。
+実際、$\partial_Y=(t/x)\partial_y$ はその disk の中心では特異である。
+これは代数的な座標比較であって、所定の Kähler 形式との symplectic 同定を含む主張ではない。
+
+\subsection{最終成分上の holomorphic normal splitting}
+
+一般の次数 $d$ と $i<j$ を考える。
+$D_i\to P_i\simeq\PP^3$ は既述の ordered curve blow-ups、
+$V_i$ は $F_d=0$ の strict transform、$E_{ik}$ は最終 exceptional divisors とする。
+$V_i$ は元の次数 $d$ の曲面と同型であり、
+$C_{ij}$ はその上の hyperplane section $L_j=0$ としての曲線 $\Gamma_{ij}$ を表す。
+
+\begin{proposition}\label{sc:normal-splitting}
+$E_{ij}$ は滑らかであり、$C_{ij}=V_i\cap E_{ij}$ は scheme-theoretic な滑らかな横断交差である。
+特に conormal map は holomorphic な同型
+\[
+ N_{C_{ij}/D_i}\simeq
+ \mathcal O_{C_{ij}}(V_i)\oplus\mathcal O_{C_{ij}}(E_{ij})
+ \simeq\mathcal O_{C_{ij}}(i)\oplus\mathcal O_{C_{ij}}(1)
+\]
+を与える。第二の因子は $C_{ij}$ の $V_i$ 内の法線、第一の因子は $V_i$ の法線である。
+\end{proposition}
+
+\begin{proof}
+最初の curve blow-up の ideal を $(a,f)$、$V=\{f=0\}$ と書く。
+$f=au$ のチャートでは strict $V=\{u=0\}$, $E=\{a=0\}$ なので横断交差する。
+他のチャートに strict $V$ は現れず、余分な交差成分はない。
+
+後続中心がこの曲線と交わる点では
+\[
+ V=\{v=0\},\quad E=\{y=0\},\quad C_k=\{z=v=0\}
+\]
+と座標を選べる。$(z,v)$ の blow-up のチャート $v=zu$ で
+\[
+ V'=\{u=0\},\quad E'=\{y=0\},\quad E_{\mathrm{new}}=\{z=0\}
+\]
+となる。$E'$ は滑らかな曲面 $E$ の点 blow-up であり、
+$V'\cap E'=\{u=y=0\}$ は元の曲線のまま横断的である。
+他のチャートに $V'$ は現れない。
+三つの curve centers が同じ点を通らないという一般位置条件により、この確認を繰り返せる。
+
+$E_{ik}|_{V_i}=C_{ik}$ は hyperplane section である。
+各 blow-up は $N_{V_i}$ を $\mathcal O_{V_i}(-1)$ だけ変えるので、
+$d-i$ 回の後には $N_{V_i/D_i}=\mathcal O_{V_i}(i)$ となる。
+横断交差からの conormal 同型にこれらの式を代入すればよい。
+\end{proof}
+
+以下では $C=C_{ij}$ と略記し、
+\[
+ \mathcal P_{ij}=\det N_{C/D_i}=\mathcal O_C(i+1)
+\]
+と置く。従って $\deg\mathcal P_{ij}=d(i+1)$ である。
+$j$ 番目の補正直後の中間模型の degree $dj$ とは区別する。
+
+\subsection{補助多項式の canonical mixed Hessian}
+
+\begin{theorem}\label{sc:mixed-hessian}
+$F_d|_{P_i}$ を $D_i$ へ引き戻した section を $s_i$ とすると
+\[
+ \operatorname{div}(s_i)=V_i+\sum_{k>i}E_{ik}
+\]
+であり、全 multiplicities は1である。
+$C=C_{ij}$ に沿う mixed normal quadratic term は自然な bundle map
+\begin{equation}\label{sc:hessian-map}
+ b_{ij}:\mathcal P_{ij}\longrightarrow\mathcal O_C(d)
+\end{equation}
+を与える。その零因子は
+\[
+ Z_{ij}=\sum_{\substack{k>i\\k\ne j}}(C_{ij}\cap C_{ik})
+\]
+であり、各零点は単純である。従って
+\[
+ \mathcal P_{ij}(Z_{ij})\simeq\mathcal O_C(d),\qquad
+ \deg Z_{ij}=d(d-i-1).
+\]
+\end{theorem}
+
+\begin{proof}
+各中心は strict $V_i$ に含まれるが、以前の exceptional divisor には含まれない。
+従って new exceptional の generic valuation は1であり、以前の exceptional divisors の
+strict transform と total pullback の divisor classes は一致する。
+これを帰納的に用いれば最初の式を得る。
+
+$V_i,E_{ij}$ の局所方程式を $u,v$ とし、他の $E_{ik}$ の方程式を $e_{ik}$ とすると
+\[
+ s_i=a\,uv\prod_{\substack{k>i\\k\ne j}}e_{ik}
+\]
+と書ける。$a$ は非消失正則関数である。
+$I_C^2/I_C^3$ における $uv$ の係数が、式\eqref{sc:hessian-map}として大域的に定まる。
+$E_{ik}|_{V_i}=C_{ik}$ なので、その零因子は $Z_{ij}$ である。
+二つの hyperplane sections $C_{ij},C_{ik}$ は $d$ 点で横断的に交わり、
+一般位置条件により三つの中心曲線の交点はない。よって全零点は単純である。
+\end{proof}
+
+先行する $k>j$ と後続する $i<k<j$ の両方を局所的にも確認できる。
+$i$ が三重交差の最小添字なら、該当するチャートは $x=tX$, $w=Xyz$, $D_i=\{t=0\}$ である。
+$C_{ij}=\{X=y=0\}$, $C_{ik}=\{X=z=0\}$ と書けば、前者の mixed coefficient は $z$ である。
+処理順にかかわらず、最終チャートで一つの simple zero が残る。
+$k<i$ なら式\eqref{sc:sextic-chart}と同じ middle-component chart となり、coefficient は unit である。
+
+\subsection{Log adjunction による解釈}
+
+実際の SNC boundary を $B_i=\sum_{k\ne i}S_{ik}$ とすると
+\[
+ K_{D_i}=-4H+\sum_{k>i}E_{ik},\qquad
+ B_i=(d-1)H-\sum_{k>i}E_{ik},\qquad
+ K_{D_i}+B_i=(d-5)H.
+\]
+$V_i$ は全ての $k>i$ に対する strict $S_{ik}$ と離れているので
+\[
+ \Delta_{ij}:=B_i|_C=\sum_{k<i}(C_{ij}\cap\{L_k=0\}),
+ \qquad \deg\Delta_{ij}=d(i-1).
+\]
+元の全 marked points の因子を $D_{\mathrm{mark},ij}$ とすれば
+$D_{\mathrm{mark},ij}=\Delta_{ij}+Z_{ij}$ である。
+
+\begin{proposition}\label{sc:log-adjunction}
+自然な同型
+\[
+ K_C(\Delta_{ij})\simeq (K_{D_i}+B_i)|_C\otimes\mathcal P_{ij},\qquad
+ K_C(D_{\mathrm{mark},ij})\simeq (K_{D_i}+B_i)|_C\otimes\mathcal O_C(d)
+\]
+がある。第二の式の degree は
+\[
+ d(2d-5)=d(d-5)+d^2
+\]
+である。
+\end{proposition}
+
+\begin{proof}
+第一の式は adjunction $K_C\simeq K_{D_i}|_C\otimes\det N_{C/D_i}$ に
+$B_i|_C=\Delta_{ij}$ を加えたものである。
+第二の式は第一の式に $Z_{ij}$ を加え、定理\ref{sc:mixed-hessian}を使って得られる。
+\end{proof}
+
+六次の $C_{56}$ では $Z_{56}=0$ なので、この式は $42=6+36$ を与える。
+局所的にも、log form $dx/x\wedge dY\wedge dz$ を normal frame で縮約すると $dx/x$ となる。
+ただし log-canonical line や $\mathcal O_C(d)$ の scalar frame は、この同型だけでは選ばれない。
+
+\subsection{Disk ごとの標準 scalarization の不一致}
+
+各 marked disk で $\mathcal O_C(d)$ と $\mathcal P_{ij}$ の disk-extending frames を選ぶ。
+前者により $s_i$ を局所関数 $f_a$ とし、候補 $|f_a-\varepsilon|^2$, $\varepsilon>0$ の
+mixed coefficient を考える。その位相は $b_{ij}$ の局所係数と同じである。
+以下で境界向きは $\bar C=C\setminus\{\text{小円板}\}$ から誘導する。
+
+\begin{corollary}\label{sc:universal-defect}
+この boundary phase の winding は、$k<i$ 型の端では0、$k>i$, $k\ne j$ 型の端では $-1$ である。
+全端の winding の総和は $-d(d-i-1)$、相対 dual Chern 数は
+\begin{equation}\label{sc:universal-defect-value}
+ -\deg\mathcal P_{ij}+\sum_a\operatorname{wind}(c_a)
+ =-d(i+1)-d(d-i-1)=-d^2
+\end{equation}
+となる。
+\end{corollary}
+
+\begin{proof}
+Unit の winding は零、simple holomorphic zero の winding は deleted disk と逆向きには $-1$ である。
+定理\ref{sc:mixed-hessian}の零点数と命題\ref{lc:framing:winding}を使えばよい。
+\end{proof}
+
+従って、この disk ごとの標準位相を全て保つ smooth transverse focus extension は存在しない。
+この主張は、局所関数 $|f_a-\varepsilon|^2$ が actual Kähler 形式について既に可積分であるという主張でも、
+任意の corner model を排除する主張でもない。
+幾何から与えられた bundle-valued な二次項を、どの位相で scalarize するかに関する障害である。
+
+\subsection{収支を満たす明示的な位相選択}
+
+整数 $a_k\ge0$, $k\ne i,j$ を $\sum_{k\ne i,j}a_k=d$ となるように取り、
+\begin{equation}\label{sc:monomial-frame}
+ \sigma=\prod_{k\ne i,j}L_k^{a_k}\big|_C
+\end{equation}
+と置く。これは $\mathcal O_C(d)$ の section であり、零点は全て marked points にある。
+従って $\bar C$ 上では非消失 frame となる。
+
+\begin{proposition}\label{sc:explicit-phase}
+$c_{ij}=b_{ij}/\sigma$ は $\mathcal P_{ij}^*$ の非消失 section on $\bar C$ である。
+$k$ 型の各端での winding は
+\[
+ w_k=a_k-\boldsymbol{1}_{k>i}
+\]
+であり、全端の総和は $d(i+1)=\deg\mathcal P_{ij}$ となる。
+\end{proposition}
+
+\begin{proof}
+$b_{ij}$ の零点も $\sigma$ の零点も削除した点に限られる。
+各端での零点次数の差は $\boldsymbol{1}_{k>i}-a_k$ なので、逆向きの境界での winding はその負数である。
+各 $k$ 型の端は $d$ 個あり、$k>i$, $k\ne j$ は $d-i-1$ 個だから
+\[
+ \sum_{\text{全端}}\operatorname{wind}(c_{ij})
+ =d\left(\sum_{k\ne i,j}a_k-(d-i-1)\right)=d(i+1).
+\]
+\end{proof}
+
+六次の $C_{56}$ では、例えば
+\[
+ \sigma=L_1^2L_2^2L_3L_4
+\]
+を選べる。その結果は次の通りである。
+\begin{center}
+\begin{tabular}{c|c|c|c}
+端の型 $k$ & 端の個数 & $a_k$ & coefficient winding\\\hline
+1 & 6 & 2 & $+2$\\
+2 & 6 & 2 & $+2$\\
+3 & 6 & 1 & $+1$\\
+4 & 6 & 1 & $+1$
+\end{tabular}
+\end{center}
+総和は $12\cdot2+12\cdot1=36$ である。
+24個の整数 winding の総和を36にするには最大 absolute value が少なくとも2必要なので、
+この選択はこの整数配分の意味で最大 winding を最小にする。
+一般にも $w_k\ge0$, $\sum w_k=i+1$ を選んで $a_k=w_k+\boldsymbol{1}_{k>i}$ とすれば、
+最大 winding を $\lceil(i+1)/(d-2)\rceil$ に抑えられる。$d\ge6$, $i<j\le d$ では1または2である。
+特に $C_{d-1,d}$ では
+$\sigma=L_1^2L_2^2\prod_{k=3}^{d-2}L_k$ により各端の winding は1または2となる。
+必要な総和 $d^2$ を端の個数 $d(d-2)$ で割った平均は $d/(d-2)>1$ なので、
+最大 absolute winding の下界2を達成している。
+この最適性はここで選ぶ整数位相データの配分に関するものであり、
+corner gluing の可能性や特異ファイバーの幾何の最適性を意味しない。
+
+これらの位相を持つ compact nodal ends 自体は命題\ref{lc:framing:compact-end}で構成できる。
+ただし各 curve ごとの位相選択を、全ての corner の既存データと同時に一致させたわけではない。
+
+\subsection{標準 positive axis の数値との関係と残る入力}
+
+標準 positive-vertex candidate $|xyz-\varepsilon|^2$ の $x$-axis 上の mixed coefficient は
+$-2\varepsilon x$ であり、disk-extending original frames では境界 winding が $-1$ である。
+その frame をそのまま $C_{56}$ の24端に保つという仮定では、総和は $-24$、
+必要な36との差は60となる。しかし式\eqref{sc:nonzero-chart}の actual algebraic coordinate change は
+$y=tY/x$ であり、coefficient の比較に $t/x$ の winding $+1$ を加える。
+24端ではその寄与が $+24$ となり、semistable frames での winding の総和は0になる。
+さらに式\eqref{sc:monomial-frame}による scalarization を選ぶと、上の例では $+36$ が加わる。
+従って original disk frames から選んだ最終位相への比較総和は $24+36=60$ となり、
+二つの計算は矛盾しない。
+
+\begin{remark}\label{sc:symplectic-scope}
+本節が canonical に決定したのは、半安定チャート、divisor、holomorphic normal splitting、
+line-bundle-valued mixed Hessian とその零因子である。
+Scalar frame $\sigma$ は追加の選択である。
+$\{\sigma\ne0\}$ 上の有理関数 $F_d/\sigma$ は上の normal coefficient を持つが、
+$|F_d/\sigma-\varepsilon|^2$ が所定の actual moment と Poisson commute することは未証明である。
+Holomorphic normal splitting も、任意の actual Kähler normal metric に対して直交するとは限らない。
+自由端の coupling 構成には上の位相を入力できるが、symplectic neighborhood theorem による同定が
+元の scalar function や既存の saturated foliation を保つとは限らない。
+
+現状の退化族と Kähler class だけでは、各 $S_{k5}$ 上の具体的な nodal germ、
+その actual position、normal collar connection、semiglobal action data は指定されない。
+従って、これらを選ばずに一意の「actual prescribed focus phase」を読み取ることはできない。
+次に必要なのは、明示的な位相選択を具体的な surface fibration と corner の入力に結び付け、
+その saturated germs の一致を証明することである。
+また compact に切った collars 上の構成から、削除円板半径を零にする極限への一様な適合性は従わない。
+\end{remark}

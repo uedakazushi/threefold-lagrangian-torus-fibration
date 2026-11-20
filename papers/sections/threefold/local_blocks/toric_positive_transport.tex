@@ -1,0 +1,403 @@
+\section{選んだ解消 Kähler 形式への正 winding 模型の厳密な移送}
+\label{tp:section}
+
+
+以下では $t=\tau\ne0$, $a=|\tau|^2$, $e_1,e_2>0$ とし、
+$\rho_u=\pi|u|^2$, 角度の周期は $1$ とする。
+$\Omega_\tau$ は graph $[x:t],[xy:t]$ 上の chosen form の非零 slice への制限である。
+$w=xyz/\tau$ および
+\[
+ A_1=e_1\frac{|x|^2}{|x|^2+a},\qquad
+ A_2=e_2\frac{|xy|^2}{|xy|^2+a}
+\]
+を用いて、full $T^3$ moments を
+\[
+ P_x=\rho_x+\rho_w+A_1+A_2,\quad
+ P_y=\rho_y+\rho_w+A_2,\quad P_z=\rho_z+\rho_w
+\]
+と書く。Preferred logarithmic primitive の slice restriction は
+$\lambda_\tau=\sum P_i d\theta_i$ である。
+
+Rotation-invariant Kähler potential の radial symplectic coordinates は、
+Loi--Zuddas \cite[Theorem 1.1]{loi-zuddas-local} の一般的構成に属する。
+以下では本解消の具体的な係数、primitive、中央極限と whole-fiber domain を直接証明する。
+
+\begin{proposition}[Full toric radial normalization]\label{tp:radial}
+
+$r_x=|x|^2,r_y=|y|^2,r_z=|z|^2$ とし
+\begin{align*}
+ q_x&=1+\frac{r_yr_z}{a}+\frac{e_1}{\pi(r_x+a)}
+                  +\frac{e_2r_y}{\pi(r_xr_y+a)},\\
+ q_y&=1+\frac{r_xr_z}{a}+\frac{e_2r_x}{\pi(r_xr_y+a)},\\
+ q_z&=1+\frac{r_xr_y}{a}
+\end{align*}
+と置く。このとき
+\[
+ \Phi_\tau(x,y,z)=(\sqrt{q_x}\,x,\sqrt{q_y}\,y,\sqrt{q_z}\,z)
+\]
+は全 $\CC^3$ 上の smooth exact $T^3$-equivariant symplectomorphism
+\[
+ (\widetilde V_\tau,\Omega_\tau,\lambda_\tau)
+ \longrightarrow(\CC^3,\omega_{\rm std},\lambda_{\rm std})
+\]
+である。Coordinate axes と全 coordinate strata を保ち、$\tau\ne0$ 上で parameter-smooth である。
+\end{proposition}
+
+\begin{proof}
+$q_i=P_i/\rho_i$ の右辺は、表示した式によって $\rho_i=0$ にも正かつ滑らかに延びる。
+従って $\Phi_\tau$ は全空間で smooth であり、dense torus 上で
+\[
+ \Phi_\tau^*\lambda_{\rm std}=\sum P_i d\theta_i=\lambda_\tau
+\]
+となる。この恒等式は smooth forms の恒等式として全空間に延びる。
+従って $\Phi_\tau^*\omega_{\rm std}=\Omega_\tau$ であり、非退化性から局所微分同相である。
+
+全単射は radii の convexity から示せる。$s_i=\log r_i$ と置けば $P$ は
+\[
+ G(s)=\pi\sum_i e^{s_i}+\pi e^{s_x+s_y+s_z}/a
+       +e_1\log(e^{s_x}+a)+e_2\log(e^{s_x+s_y}+a)
+\]
+の gradient である。Hessian は $\pi\operatorname{diag}(e^{s_i})$ に
+半正定値行列を加えたものなので正定値である。
+任意の $p_i>0$ に対して $G(s)-\sum p_i s_i$ は coercive である。
+実際 logarithmic terms は下に有界であり、cross exponential は非負なので、
+下界 $\sum_i(\pi e^{s_i}-p_i s_i)+\mathrm{const}$ が使える。
+従って unique critical point があり、$P$ は positive octant に全単射である。
+Boundary face では零にする coordinates を先に零と置き、残る variables の同じ argument を使う。
+角度を変えないので full map も全単射である。
+また $P_i\ge\rho_i$ より proper である。
+全単射な局所微分同相なので smooth inverse を持つ。
+Parameter-smoothness は implicit function theorem と smooth local inverse による。
+\end{proof}
+
+\begin{corollary}[Chosen form 上の正 winding fibration]
+$\Phi_\tau=(X_1,X_2,X_3)$ とし
+\[
+ H_\tau=P_x+P_y,\qquad J_\tau=P_y-P_z,\qquad
+ W_\tau=\overline{X_1}X_2X_3,
+ \qquad Q_\tau=|W_\tau-c|^2
+\]
+と置く。この triple は $\Omega_\tau$ について Poisson commute し、proper である。
+標準一次共役因子模型の connected-fiber quotient、compact focus components、
+$D^2\times Y$ の true branching、全 marked actions と period lattice が厳密に移送される。
+Original coordinates では
+\[
+ W_\tau=\sqrt{q_xq_yq_z}\,\bar x yz,
+\]
+従って正の radial factor は winding を変えない。
+$H_\tau$ の generator は $(1,1,0)$、$J_\tau$ の generator は $(0,1,-1)$ である。
+これは chosen graph form に対する実際の可積分系であり、phase のみの比較ではない。
+\end{corollary}
+
+\begin{proof}
+全ての主張は exact symplectomorphism による標準模型の pullback から従う。
+Primitive と marked cycles の移送を同時に指定したので、作用について approximation は入らない。
+\end{proof}
+
+\subsection{中央 $D_j$ の finite neck への smooth な極限}
+
+第二 chart で $y=\tau Y/x$, $w=Yz$ とし、$x\ne0$ とする。
+$r=|x|^2,v=|Y|^2,s=|z|^2$ と書く。
+この chart では
+\begin{align*}
+ P_x&=\pi r+\pi vs+e_1\frac r{r+a}+e_2\frac v{1+v},\\
+ P_y&=\pi av/r+\pi vs+e_2\frac v{1+v},\\
+ P_z&=\pi s(1+v).
+\end{align*}
+Target の第二座標だけを $e^{-i\arg\tau}$ 倍した radial normalization は
+\begin{equation}\label{tp:Bmap}
+ \Psi_\tau(x,Y,z)=\left(
+ x\sqrt{P_x/(\pi r)},\quad
+ \frac{\bar x}{|x|}Y\sqrt{a/r+s+\frac{e_2}{\pi(1+v)}},\quad
+ z\sqrt{1+v}\right).
+\end{equation}
+右辺は $a=|\tau|^2\ge0$ で smooth なので、$x$ の compact annuli と
+$(Y,z)$ の compact sets 上で $C^\infty$ に $\Psi_0$ へ収束する。
+この位相規格化に対応する積分は
+\[
+ \widehat W_\tau=e^{-i\arg\tau} W_\tau,
+ \qquad \widehat Q_\tau=|\widehat W_\tau-c|^2
+\]
+であり、$\widehat W_\tau$ はこの semistable chart で非零の中央 Hessian を持つ。
+ここでは $W/t$ の追加スケール変更を要しない。Radial normalization 自体が
+$y=\tau Y/x$ の大きさの消失を補償する。
+
+中央 surface の exact Darboux coordinates を
+\[
+ \xi=z\sqrt{1+v},\qquad
+ \zeta=Y\sqrt{s+\frac{e_2}{\pi(1+v)}}
+\]
+とすれば
+\[
+ \Psi_0(x,Y,z)=\left(
+ e^{i\arg x}\sqrt{\frac{\rho_x+e_1+\rho_\zeta}{\pi}},\quad
+ e^{-i\arg x}\zeta,\quad\xi\right).
+\]
+従って
+\begin{equation}\label{tp:central-integrals}
+ H_0=\rho_x+e_1+2\rho_\zeta,\quad
+ J_0=\rho_\zeta-\rho_\xi,\quad
+ \widehat W_0=e^{-2i\arg x}
+       \sqrt{\frac{\rho_x+e_1+\rho_\zeta}{\pi}}\,\zeta\xi.
+\end{equation}
+Focus mixed coefficient は、削除 disk と逆向きの boundary で winding $+2$ を持つ。
+
+\begin{proposition}[中央 chamber の厳密な像]
+$\Psi_0$ は $\CC_x^*\times(M_{e_2}\setminus D)$ から
+\[
+ \mathcal C_j=\{P_x-P_y>e_1,\ P_y-P_z<e_2\}\subset\CC^3
+\]
+への symplectomorphism である。Chosen primitive について厳密に
+\[
+ \Psi_0^*\lambda_{\rm std}
+  =(\rho_x+e_1)d\theta_x+\lambda_{e_2}
+\]
+となる。特に $\rho_xd\theta_x+\lambda_{e_2}$ を指定しておいて
+同じ exact comparison と呼ぶことはできない。差は $e_1d\theta_x$ である。
+\end{proposition}
+
+\begin{proof}
+$\rho_\xi=P_z$, $\rho_\zeta=P_y$, $\rho_x=P_x-P_y-e_1$ である。
+$M_{e_2}\setminus D$ の Darboux image は $\rho_\zeta<e_2+\rho_\xi$ なので、
+二つの不等式は必要十分である。Angles は
+$\theta_1=\theta_x,\theta_2=\theta_\zeta-\theta_x,\theta_3=\theta_\xi$
+と可逆に変換される。Primitive の式も直接代入で従う。
+\end{proof}
+
+\begin{theorem}[Whole compact focus end の中央・非零 slice 比較]\label{tp:focus-comparison}
+
+$h>e_1$ とし、標準一次共役因子模型の $J=0$ に対する radial function を
+$f_h(u)=u\sqrt{h-u}/\pi^{3/2}$ とする。
+\begin{equation}\label{tp:containment}
+ 2c<f_h\left(\frac{h-e_1}{2}\right)
+ =\frac{(h-e_1)\sqrt{h+e_1}}{2\sqrt2\,\pi^{3/2}}
+\end{equation}
+なら、$(H,J,Q)=(h,0,c^2)$ の lower focus component 全体が
+$\mathcal C_j$ に入り、compact saturated neighborhood を同じ chamber 内に取れる。
+この neighborhood 上で
+\[
+ \chi_\tau=\Psi_\tau^{-1}\circ\Psi_0
+\]
+は、小さい $\tau$ に対して中央 chosen form と非零 slice chosen form の
+exact symplectic identification を与え、$H,J,\widehat Q$、whole fibers、
+transported marked actions と $T^2$ period lattice を厳密に保つ。
+Compact な $h$-interval 上で不等式が一様に strict なら、この比較も一様に取れる。
+\end{theorem}
+
+\begin{proof}
+$J=0$ の標準模型では $P_y=P_z=u$, $P_x=h-u$ である。
+Lower focus component は $|W-c|=c$、従って $0\le |W|\le2c$ に対応し、
+$0\le u\le u_-(2c)$ である。$f_h$ は $0\le u<2h/3$ で strictly increasing である。
+$u_b=(h-e_1)/2$ は $0<u_b<h/2<2h/3$ を満たすため、条件は
+$u_-(2c)<u_b$ を意味する。従って
+$P_x-P_y=h-2u>e_1$ であり、$P_y-P_z=0<e_2$ も成立する。
+また条件は $2c<\max f_h$ を含むので、lower focus component は upper regular component と分離する。
+Whole fiber は compact であるため、二つの chamber inequalities と分離条件に一様な margin がある。
+従って lower component の compact saturated neighborhood を選べる。
+
+この compact set を含む少し大きい集合で $\Psi_0$ は symplectic embedding であり、
+$\Psi_\tau\to\Psi_0$ が $C^\infty$ である。Parameter inverse function theorem と compactness により、
+その compact set の $\Psi_\tau$ による inverse は小さい $\tau$ で一様に定義される。
+$\Psi_\tau$ の全単射性により local inverses は一致する。
+両 primitive が $\lambda_{\rm std}$ の pullback なので exactness が従う。
+同じ standard integrals を pullback しているので fibers と actions も一致する。
+\end{proof}
+
+\paragraph{Core 上の first jets.}
+Focus core $Y=z=0$ において、$H=h$ に対応する $r_\tau=|x|^2$ は
+\[
+ \pi r_\tau+e_1\frac{r_\tau}{r_\tau+a}=h,
+\quad
+ r_\tau=\frac{h-e_1-\pi a+
+    \sqrt{(\pi a+e_1-h)^2+4\pi ha}}{2\pi}.
+\]
+中央の $r_0=(h-e_1)/\pi$ からの比較は angular coordinate を保つ。
+Normal first jets は
+\[
+ Y_\tau=\sqrt{\frac{e_2/\pi}{a/r_\tau+e_2/\pi}}\,Y_0+O(\|(Y_0,z_0)\|^2),
+ \qquad z_\tau=z_0+O(\|(Y_0,z_0)\|^2).
+\]
+従って jets は明示されるが、あらかじめ任意に指定した jets を自由に保つという主張ではない。
+
+\paragraph{保持している circle と変更した fibration.}
+Ambient toric circle $M_1=P_x-P_y$ の作用も上の比較は保つ。
+しかし新しい fibration の action は $H=P_x+P_y$ であり、$Q$ は一般に $M_1$ と可換でない。
+中央 chart では $H$ の weights は $(x,Y,z)$ に対して $(1,2,0)$ である。
+従って $x=0$ を点ごとに固定する normal circle を fibration の action として固定する
+旧来の条件を満たさない。この変更が winding $+2$ と整合しており、
+normal-circle rigidity と矛盾しない。
+中央の新しい $\widehat Q_0$ は、第\ref{exc:section}節の既存 Auroux fibration の
+$|Yz-c|^2$ と同じ葉ではない。同じ Kähler form と primitive の上で fibration を選び直している。
+
+\begin{corollary}[Curve end への exact な接続]\label{tp:curve-end}
+中央 chamber で $B=e^{-4\pi i\theta_x}\zeta$, $Z=\xi$,
+$H=\rho_x+e_1+2\rho_\zeta$ と置けば
+\[
+ \lambda_0=H\,d\theta_x+\rho_Bd\theta_B+\rho_Zd\theta_Z,
+ \qquad \widehat W_0=\sqrt{\frac{H-\rho_B}{\pi}}BZ.
+\]
+従って定理\ref{tp:focus-comparison}の end は第\ref{pe:section}節の decreasing radial end と
+whole fibers、primitive、marked return data を保って一致する。
+他の端を自由にすれば、これを curve block の一端として延長できる。
+\end{corollary}
+\begin{proof}
+$d\theta_B=d\theta_\zeta-2d\theta_x$ を primitive へ代入する。
+$H-\rho_B=\rho_x+e_1+\rho_\zeta$ なので関数も一致する。
+Compact $H$-interval の下端を $A>e_1$ とし、
+$u_-(A,2c)<u_*<(A-e_1)/2$ を選ぶ。
+第\ref{pe:section}節の直接 barrier を用いれば、既に選んだ $c$ を変更せず、
+小さい $(j,q)$-window で全 lower fibers を保って pants へ延長できる。
+$e_1d\theta_x$ は $H$ に含まれており、primitive の定数を捨てていない。
+\end{proof}
+
+\subsection{True branch は隣の中央 chamber にある}
+
+中央三成分の full moment chambers は
+\[
+ \min\{P_x,\ P_y+e_1,\ P_z+e_1+e_2\}
+\]
+のどの項が最小かによって区別される。
+Middle chamber は上の $\mathcal C_j$ である。
+First chart $x=\tau X$ の中央 component は
+\[
+ \mathcal C_i=\{P_x<P_y+e_1,\ P_x<P_z+e_1+e_2\}
+\]
+に対応し、last component は
+\[
+ \mathcal C_k=\{P_z+e_1+e_2<P_x,\ P_z+e_2<P_y\}
+\]
+に対応する。ここで strict inequalities は隣接 divisor を除いた開部分を表す。
+
+First chart の中央 map は $\tau>0$ の固定 ray で明示できる。
+$R=|X|^2,v=|y|^2,s=|z|^2$ とすると
+\[
+ P_x=\pi Rvs+e_1\frac R{1+R}+e_2\frac{Rv}{1+Rv},\quad
+ P_y=\pi v+\pi Rvs+e_2\frac{Rv}{1+Rv},\quad
+ P_z=\pi s+\pi Rvs.
+\]
+Radial map の factors は
+\[
+ P_x/(\pi R)=vs+\frac{e_1}{\pi(1+R)}+\frac{e_2v}{\pi(1+Rv)},\quad
+ P_y/(\pi v)=1+Rs+\frac{e_2R}{\pi(1+Rv)},\quad
+ P_z/(\pi s)=1+Rv.
+\]
+全て正かつ smooth で、axes へも延びる。
+この map が $\mathcal C_i$ を与えることは次で直接示せる。
+$P_y,P_z>0$ を固定し、$k=Rv$ と置けば
+\[
+ P_y=\pi k/R+(P_z+e_2)\frac{k}{1+k},\qquad
+ P_x=P_y-\pi k/R+e_1\frac R{1+R}.
+\]
+各 $R>0$ に対して $k$ は一意に定まり、$\pi k/R=\pi v$ は $R$ に関して減少する。
+従って $P_x$ は $R$ とともに strict に増え、その値域は
+\[
+ 0<P_x<\min\{P_y+e_1,P_z+e_1+e_2\}.
+\]
+Boundary axes は同じ式の極限で扱える。
+
+標準一次模型の reduced saddle は
+\[
+ u_1=\frac{h+j+\sqrt{h^2-hj+j^2}}3,
+ \quad (P_x,P_y,P_z)=(h-u_1,u_1,u_1-j)
+\]
+にある。この点では常に $P_x<P_y$ かつ $P_x<P_z$ である。
+第二の不等式は
+$4(h^2-hj+j^2)-(h+j)^2=3(h-j)^2>0$、
+第一も同様に $3h^2>0$ から従う。
+よって $e_1,e_2>0$ の全てについて saddle は $\mathcal C_i$ の内部にあり、
+$\mathcal C_j$ の中には入らない。
+
+従って compact focus end と true branching を同時に含む nonzero-slice 模型は確かに得られるが、
+その中央極限を一つの $D_j$ chart の中だけで完結させてはいけない。
+両者を同時に追うには component wall を越える比較が必要である。
+また complex $\tau$ 全体で一つの phase normalization を選び、三つの中央 charts へ
+同時に smooth に延ばせるとは主張しない。$D_j$ で $e^{-i\arg\tau}W_\tau$ を用いると、
+first chart では追加の phase $e^{-2i\arg\tau}$ が残る。
+固定した正の実 ray ではこの問題は生じない。
+
+\paragraph{到達範囲.}
+以上は chosen graph Kähler form に関して、一つの whole compact focus end を
+中央 surface から非零 fiber へ実際に exact に運ぶ結果である。
+任意に先に指定した global Kähler form との比較、独立に処方した両端の foliation、
+全24端の同時接着、branch へ至る component-wall comparison、全人工境界の消去は本節には含まない。
+適合した24端の接続は第\ref{ai:section}節、正則壁の相対変更は第\ref{we:section}節で扱う。
+
+\subsection{Focus と branch の whole fibers を別の中央 chambers に置く}
+
+\begin{proposition}[二つの whole fibers と regular な wall crossing]\label{tp:whole-chambers}
+
+$h>e_1$, $j=0$ とし
+\[
+ b=(h-e_1)/2,\qquad f_b=f_h(b),\qquad
+ F=f_h(2h/3)
+\]
+と置く。さらに
+\[
+ 2c<\min\{f_b,F-f_b\}
+\]
+と仮定する。このとき lower focus fiber は全体が $\mathcal C_j$ に入り、
+true saddle fiber は全体が $\mathcal C_i$ に入る。
+これらの包含は、小さい $j$-window 上の対応する compact neighborhoods に拡張できる。
+固定した $H=h,J=0$ で wall $P_x-P_y=e_1$ にある点の $Q$-values は
+\[
+ [(f_b-c)^2,(f_b+c)^2]
+\]
+であり、この interval は
+\[
+ c^2<(f_b-c)^2\le(f_b+c)^2<(F-c)^2
+\]
+を満たす。この wall 上では新しい fibration は全て regular である。
+\end{proposition}
+
+\begin{proof}
+Focus の主張は既述の containment inequality である。
+Saddle level の reduced $W$-circle は center $c$、radius $F-c$ なので、
+$F>2c$ のときその $|W|$-range は $[F-2c,F]$ である。
+条件 $F-2c>f_b$ より lower branch の最小 $u$ は $b$ より大きく、
+upper branch でも $u\ge2h/3>b$ である。
+したがって whole saddle fiber で $P_x-P_y=h-2u<e_1$ となり、
+$J=0<e_2$ と合わせて $\mathcal C_i$ に入る。
+この fiber は $W=0$ を避けるので、$j=0$ でもその近傍の $T^2$-reduction は smooth である。
+Compactness と strict inequalities により小さい $j$ に拡張できる。
+
+Wall では $u=b$ と $|W|=f_b$ なので、$Q$ の範囲は表示した interval となる。
+仮定から $f_b>2c$ と $f_b+2c<F$ が従い、二つの strict inequalities を得る。
+また $0<b<2h/3$ なので $f_h'(b)>0$ であり、
+$Q=f_h(u)^2+c^2-2cf_h(u)\cos\phi$ の $(u,\phi)$-微分はそこで同時に零にならない。
+従って wall 上の全 points は regular である。
+\end{proof}
+
+この結論は、central wall を越えて fibration がそのまま降下することを意味しない。
+$P_x-P_y$ の circle は $W_1$ に weight $-2$ で作用するため、
+$|W_1-c|^2$ は、central divisor で collapse するその circle に不変でない。
+Nonzero slice の wall crossing は regular である一方、中央 fibration としての接着には
+元の関数の angular dependence を処理する必要がある。
+第\ref{we:section}節では、whole focus と saddle の保護近傍を固定した Hamiltonian isotopy により、
+全 marked actions を保ったまま wall collar を toric にする。
+従って正則壁については、元の関数を変更する明示的な相対解決が得られる。
+全 exceptional core と logarithmic primitive の smooth extension は別に残る。
+
+\subsection{Whole block の exceptional chain 近傍への局在}
+
+\begin{lemma}[Chosen area scale による局在]
+$H=P_x+P_y\le H_{\max}$、$|J|=|P_y-P_z|\le J_{\max}$ を満たす任意の点では
+\[
+ \rho_x,\rho_y,\rho_w\le H_{\max},\qquad
+ \rho_z\le H_{\max}+J_{\max}.
+\]
+従って $H_{\max},J_{\max},|\tau|\to0$ のとき、これらの whole blocks は
+proper graph resolution の原点上の exceptional chain の任意の近傍へ入る。
+例えば $e_i=\epsilon E_i$, $h=\epsilon h_0$,
+$|j|\le\epsilon j_0$, $c=\epsilon^{3/2}c_0$ とし、上の strict inequalities を
+scale-independent constants $E_i,h_0,j_0,c_0$ で満たすように選べる。
+\end{lemma}
+
+\begin{proof}
+$P_i$ の全項は非負なので、$\rho_x\le P_x$, $\rho_y\le P_y$,
+$\rho_w\le\min(P_x,P_y,P_z)$、$\rho_z\le P_z=P_y-J$ から評価が従う。
+したがって original coordinates $(x,y,z,w,t)$ は一様に原点へ近づく。
+Proper な resolution map の下で原点上の fiber が exceptional chain なので、
+その任意の近傍の外に残る点列があれば compactness により chain 上の極限点を持ち矛盾する。
+Radial function $f_h$ の scale は $\epsilon^{3/2}$ なので、指定した scaling は
+focus と branch の二つの包含条件を同時に保つ。
+\end{proof}

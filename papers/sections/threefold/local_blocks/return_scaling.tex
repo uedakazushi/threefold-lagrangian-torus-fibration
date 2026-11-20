@@ -1,0 +1,88 @@
+\section{Symplectic scale と focus の return invariant}
+\label{rs:section}
+
+Moving collar では reduced form と reduced foliation を同時に輸送する。
+その際に、compact focus fiber の return data を単に一定と置いてはならない。
+本節では、比例する symplectic forms に対する正確な変換則を記録する。
+
+\begin{proposition}[正則化 action の scale 変換]
+\label{rs:scaling}
+Compact simple focus--focus fibration の向き、vanishing cycle、補周期、
+および logarithm の枝を固定する。
+$(U,\omega)$ に対する Eliasson base coordinate を $c=q_1+\sqrt{-1}q_2$ とし、
+action を
+\[
+ \mathcal A(c)=\mathcal A_0-\operatorname{Re}(c\log c-c)+S(c),
+ \qquad S(0)=0
+\]
+と書く。
+同じ fiber decomposition を持つ $(U,r\omega)$, $r>0$ に対し、
+scaled primitive と induced marking を用いる。
+ここで $q_2$ は period $2\pi$ の circle flow を生成する標準 Eliasson quadratic であり、
+period-one action 自体とは $J=2\pi q_2$ の関係にある。
+Eliasson coordinate を $c_r=rc$ と取れば、正則化 action は
+\begin{equation}\label{rs:scale-law}
+ S_r(c_r)=rS(c_r/r)+(\log r)\operatorname{Re}c_r
+\end{equation}
+となる。
+特に $S$ の $q_1$ の一次係数は $\log r$ だけ変わり、
+$q_2$ の一次係数は変わらない。
+次数 $k\ge2$ の各係数には $r^{1-k}$ が掛かる。
+\end{proposition}
+
+\begin{proof}
+正則化公式は \cite[Proposition 3.1, Remark 3.2]{vungoc-local} による。
+点近傍で $\omega=\sum dx_i\wedge d\xi_i$ とすると、
+$\sqrt r\,x_i,\sqrt r\,\xi_i$ は $r\omega$ の Darboux coordinates である。
+標準 focus quadratics は同時に $r$ 倍されるので、$c_r=rc$ と取れる。
+Primitive とその cycle integrals も $r$ 倍されるから
+\[
+ \mathcal A_r(c_r)=r\mathcal A(c_r/r),\qquad
+ \mathcal A_{r,0}=r\mathcal A_0.
+\]
+一つの logarithm の枝に対して $\log(c_r/r)=\log c_r-\log r$ である。
+従って
+\begin{align*}
+ \mathcal A_r(c_r)-\mathcal A_{r,0}
+ &=-\operatorname{Re}(c_r\log c_r-c_r)
+   +(\log r)\operatorname{Re}c_r+rS(c_r/r).
+\end{align*}
+これを正則化 action の定義と比較して式\eqref{rs:scale-law}を得る。
+係数の変換則は Taylor 展開から直ちに従う。
+\end{proof}
+
+\begin{corollary}[Moving collar で要求される return data]
+\label{rs:collar}
+第\ref{mc:main}節の一法線方向の collar で
+$r(\mu)=1-\mu/w>0$ とする。
+構成された moving reduced fibration の focus invariant は、
+その構成が与える marking と scaled Eliasson coordinates において
+\[
+ S_\mu(c)=r(\mu)S_0(c/r(\mu))+
+              \log r(\mu)\operatorname{Re}c
+\]
+を満たす。
+従って、別に指定した端の fibration と照合する際には、
+Hessian のほかにこの return data の変化も照合する必要がある。
+\end{corollary}
+
+\begin{proof}
+Strict Moser 同定後の reduced symplectic form は
+$r(\mu)\omega$、その fiber decomposition は $p_0$ のものになる。
+命題\ref{rs:scaling}を適用する。
+\end{proof}
+
+\begin{remark}[Marking と primitive の区別]
+式\eqref{rs:scale-law}は向きと cycle marking を固定した式である。
+補周期に vanishing cycle を加える変更や logarithm の枝の変更には、
+通常の integral-affine ambiguity がある。
+また $\mathcal A_0$ は primitive を固定した exact comparison の情報であり、
+$S$ の定義では差し引かれる。
+第\ref{ae:section}節の nodal action constant の不一致と、
+本節の正則化 Taylor invariant の変化を同一視しない。
+
+固定した向きと marking の下で $r\ne1$ なら、$S_r$ と $S$ は
+$q_1$ の一次係数ですでに異なる。
+これは第\ref{lc:liouville-focus}節の固定 foliation に対する Liouville 障害と整合し、
+同時に moving collar が必要な変化をどのように担うかを示している。
+\end{remark}
